@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public bool isJumping ;
     private float jumpTimeCounter;
     private float jumpTime=.5f;
-    private float jumpForce = 5f;
+    private float jumpForce = 2f;
     public float dirX;
     private void Start()
     {
@@ -49,8 +49,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if(isGround)
         {
-        //_boxRigidbody.velocity = new Vector2(_boxRigidbody.velocity.x, jumpForce * GameInput.Instance.GetJumpValue());
+            //_boxRigidbody.velocity = new Vector2(_boxRigidbody.velocity.x, jumpForce * GameInput.Instance.GetJumpValue());
             _boxRigidbody.velocity = Vector2.up * jumpForce;
+          
+
             jumpTimeCounter = jumpTime;
             isGround = false;
            isJumping = true;
@@ -65,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (jumpTimeCounter > 0)
             {
-                _boxRigidbody.velocity = Vector2.up * jumpForce;
+               _boxRigidbody.velocity = Vector2.up * jumpForce;
                 jumpTimeCounter -= Time.deltaTime;
             }
             else

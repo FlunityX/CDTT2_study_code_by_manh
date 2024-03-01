@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NormalEnemy : INormalEnemy, IDealDamage, IReceiveDamage
+public class NormalEnemy :MonoBehaviour, INormalEnemy, IDealDamage, IReceiveDamage
 {
-    private EnemyStat _enemyStat;
+    [SerializeField]private EnemyStat _enemyStat;
+    [SerializeField]private EnemyMeleeAttack _enemyMeleeAttack;
     public void DealDamage(IReceiveDamage receiveDmg, float dmg)
     {
         receiveDmg.ReduceHp(dmg);

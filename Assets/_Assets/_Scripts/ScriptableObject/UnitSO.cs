@@ -9,5 +9,6 @@ public class UnitSO :ScriptableObject
    public float Speed;
     public float Hp;
     public float AttackDmg;
-    public float AttackSpeed; 
+    public float AttackSpeed;
+    public float AttackRange;
 }

@@ -6,6 +6,7 @@ public class NEnemyGetHitState : NEnemyBaseState
 {
     public override void EnterState(CharacterManager characterManager)
     {
+        base.EnterState(characterManager);
     }
 
     public override void ExitState()

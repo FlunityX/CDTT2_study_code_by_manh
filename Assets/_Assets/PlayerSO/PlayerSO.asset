@@ -16,3 +16,4 @@ MonoBehaviour:
   Hp: 1
   AttackDmg: 0
   AttackSpeed: 1
+  AttackRange: 1

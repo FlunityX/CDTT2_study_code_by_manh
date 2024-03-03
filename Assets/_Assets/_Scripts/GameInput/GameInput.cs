@@ -29,6 +29,11 @@ public class GameInput : MonoBehaviour
       return  playerInputAction.PlayerActionMap.Jump.ReadValue<float>() > .4f;
         
     } 
+    public float GetJumpValue()
+    {
+      return  playerInputAction.PlayerActionMap.Jump.ReadValue<float>();
+        
+    } 
     
     
     public Vector2 GetMovementVectorNormalized()

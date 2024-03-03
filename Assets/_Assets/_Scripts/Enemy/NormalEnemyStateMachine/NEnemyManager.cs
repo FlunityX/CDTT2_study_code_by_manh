@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class NEnemyManager : CharacterManager
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]private NEnemyPartrolState _NEnemyPartrolState= new();
+    [SerializeField] private NEnemyAttackState _NEnemyAttackState= new();
+    [SerializeField] private NEnemyBaseState _NEnemyBaseState= new();
+    [SerializeField] private NEnemyIdleState _NEnemyIdleState= new();
+    [SerializeField] private NEnemyGetHitState _NEnemyGetHitState= new();
+    [SerializeField]private NEnemyChaseState _NEnemyChaseState= new();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public NEnemyIdleState GetNEnemyIdleState() { return _NEnemyIdleState; }
+    public NEnemyAttackState GetNEnemyAttackState() { return _NEnemyAttackState; }
+    public NEnemyChaseState GetNEnemyChaseState() { return _NEnemyChaseState;}
+    public NEnemyGetHitState GetNEnemyGetHitState() { return _NEnemyGetHitState;}
+    public NEnemyPartrolState GetNEnemyPartrolState() { return _NEnemyPartrolState;}
+
+
 }

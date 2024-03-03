@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public bool isJumping ;
     private float jumpTimeCounter;
     private float jumpTime=.5f;
-    private float jumpForce = 2f;
+    private float jumpForce = 3f;
     public float dirX;
     private void Start()
     {
@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     {
         HandleMovement();
         FallCheck();
-        ContinueJump();
+       ContinueJump();
 
     }
     private void HandleMovement()
@@ -49,10 +49,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if(isGround)
         {
-            //_boxRigidbody.velocity = new Vector2(_boxRigidbody.velocity.x, jumpForce * GameInput.Instance.GetJumpValue());
-            _boxRigidbody.velocity = Vector2.up * jumpForce;
-          
-
+           
+           _boxRigidbody.velocity = Vector2.up * jumpForce;
+            
+            
             jumpTimeCounter = jumpTime;
             isGround = false;
            isJumping = true;
@@ -63,17 +63,16 @@ public class PlayerMovement : MonoBehaviour
     }
     private void ContinueJump()
     {
-        if (isJumping == true && GameInput.Instance.JumpPerform())
+        if (isJumping && GameInput.Instance.JumpPerform() && !Player.Instance._playerMovement.isGround)
         {
             if (jumpTimeCounter > 0)
             {
-               _boxRigidbody.velocity = Vector2.up * jumpForce;
+                _boxRigidbody.velocity = Vector2.up * jumpForce;
                 jumpTimeCounter -= Time.deltaTime;
+                isGround = false;
+                isJumping = true;
             }
-            else
-            {
-                isJumping = false;
-            }
+            
         }
     }
     private void FallCheck()

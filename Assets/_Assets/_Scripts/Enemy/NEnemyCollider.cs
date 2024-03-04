@@ -9,6 +9,8 @@ public class NEnemyCollider : MonoBehaviour
    [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private bool isHitObstacle=false;
     [SerializeField] private bool isHitPlayer=false;
+    [SerializeField] private Transform groundCheckPoint;
+    [SerializeField] private Transform playerCheckPoint;
 
     private void Update()
     {
@@ -18,21 +20,12 @@ public class NEnemyCollider : MonoBehaviour
     }
     private void DetectPlayer()
     {
-        RaycastHit2D hit;
-        if (transform.localScale== Vector3.one)
-        {
-         hit = Physics2D.Raycast(transform.position,new Vector2(1,0),4f,_playerLayer);
-
-        }
-        else
-        {
-             hit= Physics2D.Raycast(transform.position, new Vector2(-1, 0), 4f, _playerLayer);
-
-        }
-        if (hit.collider != null)
+        Collider2D hit;
+       hit= Physics2D.OverlapBox(playerCheckPoint.position, new Vector2(4, .5f), 0);
+        if (hit.GetComponent<Collider>() != null)
         {
 
-            if (hit.collider.CompareTag("Player"))
+            if (hit.GetComponent<Collider>().CompareTag("Player"))
             {
                 isHitPlayer = true;
                 //Debug.Log(isHitPlayer);
@@ -48,20 +41,11 @@ public class NEnemyCollider : MonoBehaviour
     }
     private void DetectObstacle()
     {
-        RaycastHit2D hit;
-        if (transform.localScale == Vector3.one)
+        Collider2D hit;
+        hit = Physics2D.OverlapBox(playerCheckPoint.position, new Vector2(2, .5f), 0);
+        if (hit != null)
         {
-            hit = Physics2D.Raycast(transform.position, new Vector2(1, 0), 1f, _groundLayer);
-
-        }
-        else
-        {
-            hit = Physics2D.Raycast(transform.position, new Vector2(-1, 0), 1f, _groundLayer);
-
-        }
-        if (hit.collider != null)
-        {
-            if (hit.collider.CompareTag("Ground"))
+            if (hit.CompareTag("Ground"))
             {
                 isHitObstacle = true;
                // Debug.Log("hitground");
@@ -84,5 +68,10 @@ public class NEnemyCollider : MonoBehaviour
     public bool CheckIfHitObstacle()
     {
         return isHitObstacle;
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawCube(playerCheckPoint.position, new Vector2(4, .5f));
     }
 }

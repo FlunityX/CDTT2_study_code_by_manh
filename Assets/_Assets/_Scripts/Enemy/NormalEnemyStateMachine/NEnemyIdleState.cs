@@ -7,7 +7,7 @@ public class NEnemyIdleState : NEnemyBaseState
 {
     //private NEnemyManager _NEenemyManager;
     [SerializeField]private float entryTime;
-    private float restTime = 2f;
+    private float restTime = 4f;
 
     
     public override void EnterState(CharacterManager characterManager)

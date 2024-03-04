@@ -19,7 +19,7 @@ public class PlayerVisual : MonoBehaviour
     }
     public void PlayRunAnim()
     {
-        animator.CrossFade("main_run", .2f, 0);
+        animator.CrossFade("main_walk", .2f, 0);
     }
     public void PlayJumpAnim()
     {

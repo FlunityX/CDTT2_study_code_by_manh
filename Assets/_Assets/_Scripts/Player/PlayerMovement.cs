@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public Rigidbody2D _boxRigidbody;
     [SerializeField]public bool isGround = true;
     [SerializeField] public bool isJumping ;
+    [SerializeField] public bool isFalling ;
     private float jumpTimeCounter;
     private float jumpTime=.5f;
     private float jumpForce = 6f;
@@ -56,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
             
             jumpTimeCounter = jumpTime;
             isGround = false;
+            isFalling=false;
            isJumping = true;
 
         }
@@ -82,6 +84,7 @@ public class PlayerMovement : MonoBehaviour
        if(_boxRigidbody.velocity.y <0)
         {
             isJumping = false;
+            isFalling = true;
         }
     }
 
@@ -92,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
 
             isGround = true;
             isJumping= false;
+            isFalling= false;
             
         }
 

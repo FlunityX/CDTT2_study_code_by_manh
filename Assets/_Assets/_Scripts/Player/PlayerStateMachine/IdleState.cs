@@ -8,6 +8,7 @@ public class IdleState : PlayerBaseState
     {
        // Player.Instance._playerMovement.ResetGravity();
         base.EnterState(playerStateManager);
+        Player.Instance._playerVisual.PlayerIdleAnim();
         Debug.Log("idle");
     }
 

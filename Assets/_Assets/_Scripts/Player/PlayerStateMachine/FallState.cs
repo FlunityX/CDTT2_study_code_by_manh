@@ -7,6 +7,7 @@ public class FallState : PlayerBaseState
     public override void EnterState(PlayerStateManager playerStateManager)
     {
         base.EnterState(playerStateManager);
+        Player.Instance._playerVisual.PlayFallAnim();
     }
 
     public override void ExitState()

@@ -7,7 +7,7 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
 {
     public static Player Instance {  get; private set; }
     public PlayerMovement _playerMovement;
-    
+    [SerializeField]public PlayerVisual _playerVisual;
 
     public float Speed=1f;
     public float HpMax = 10;

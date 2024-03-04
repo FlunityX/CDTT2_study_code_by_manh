@@ -10,6 +10,7 @@ public class RunState : PlayerBaseState
        // Player.Instance._playerMovement.ResetGravity();
 
         base.EnterState(playerStateManager);
+        Player.Instance._playerVisual.PlayRunAnim();
         Debug.Log("run");
     }
 

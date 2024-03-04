@@ -7,6 +7,7 @@ public class JumpState : PlayerBaseState
     public override void EnterState(PlayerStateManager playerStateManager)
     {
         base.EnterState(playerStateManager);
+        Player.Instance._playerVisual.PlayJumpAnim();
         Debug.Log("jump");
     }
 

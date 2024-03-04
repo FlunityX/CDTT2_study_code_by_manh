@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class NEnemyBaseState : CharacterBaseState
 {
-    protected NEnemyManager _NEnemyManager;
-    [SerializeField] NormalEnemy _normalEnemy;
+    public  NEnemyManager _NEnemyManager;
+ 
 
+   
     public override void EnterState(CharacterManager characterManager)
     {
         _NEnemyManager = (NEnemyManager)characterManager;

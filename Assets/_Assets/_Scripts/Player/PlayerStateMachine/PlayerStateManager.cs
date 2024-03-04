@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerStateManager : MonoBehaviour
 {
-    public PlayerBaseState _state;
+    private PlayerBaseState _state;
     public IdleState idleState = new();
     public RunState runState = new();
     public JumpState jumpState = new();
@@ -15,6 +15,11 @@ public class PlayerStateManager : MonoBehaviour
     private void Start()
     {
         SetUpProperties();
+    }
+
+    private void Update()
+    {
+        _state.Update();
     }
     private void SetUpProperties()
     {

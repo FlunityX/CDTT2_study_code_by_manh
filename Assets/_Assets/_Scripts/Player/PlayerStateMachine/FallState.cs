@@ -23,7 +23,7 @@ public class FallState : PlayerBaseState
             //s Debug.Log("ruin");
 
         }
-
+        Debug.Log("fall");
     }
 
     private bool CheckIfCanIdle()

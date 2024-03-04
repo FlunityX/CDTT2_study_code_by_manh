@@ -9,7 +9,9 @@ public class NormalEnemy :MonoBehaviour, INormalEnemy, IDealDamage, IReceiveDama
     [SerializeField]private NEnemyCollider _enemyCollider;
     [SerializeField] private Rigidbody2D _rb;
     public float detectRange = 4f; // player vao tam nay se bi phat hien
-
+   
+    public bool _isFacingLeft { get;set; }
+    public bool _isFacingRight { get; set; }
     public NEnemyCollider GetNEnemyCollider() { return _enemyCollider; }
     public EnemyMeleeAttack GetNEnemyAttack() { return _enemyMeleeAttack; }
     public EnemyStat GetEnemyStat() { return _enemyStat;}

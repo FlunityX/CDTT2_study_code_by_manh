@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 public class CharacterManager : MonoBehaviour
@@ -11,11 +12,9 @@ public class CharacterManager : MonoBehaviour
 
     public Rigidbody2D GetRigidbody2D() { return _rb; }
 
-    protected CharacterBaseState _state;
+    [SerializeField]protected CharacterBaseState _state;
 
-    protected virtual void Awake()
-    {
-    }
+
 
     protected virtual void GetReferenceComponents()
     {
@@ -23,18 +22,16 @@ public class CharacterManager : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
     }
 
-    // Start is called before the first frame update
-    protected virtual void Start()
-    {
-        
-    }
+ 
 
     protected virtual void Update()
     {
-        if (_state != null)
-            _state.Update();
+        _state?.Update();
     }
 
+ 
+
+ 
     public virtual void ChangeState(CharacterBaseState state)
     {
         _state.ExitState();

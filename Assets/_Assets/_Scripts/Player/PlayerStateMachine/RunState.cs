@@ -10,6 +10,7 @@ public class RunState : PlayerBaseState
        // Player.Instance._playerMovement.ResetGravity();
 
         base.EnterState(playerStateManager);
+        Debug.Log("run");
     }
 
     public override void ExitState()

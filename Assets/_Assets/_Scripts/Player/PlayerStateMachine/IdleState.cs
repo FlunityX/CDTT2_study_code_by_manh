@@ -8,6 +8,7 @@ public class IdleState : PlayerBaseState
     {
        // Player.Instance._playerMovement.ResetGravity();
         base.EnterState(playerStateManager);
+        Debug.Log("idle");
     }
 
     public override void ExitState()
@@ -24,8 +25,9 @@ public class IdleState : PlayerBaseState
         }
         else if (CheckIfCanJump()) { 
             _playerStateManager.ChangeState(_playerStateManager.jumpState);
-           Debug.Log("To jumping");
+           
         }
+       
     }
 
     private bool CheckIfCanRun()

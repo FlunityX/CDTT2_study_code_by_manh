@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyStat : MonoBehaviour
 {
-    private UnitSO _unitSO;
+    [SerializeField]private UnitSO _unitSO;
     public float currentHp;
     public float speed;
     public float Hp;

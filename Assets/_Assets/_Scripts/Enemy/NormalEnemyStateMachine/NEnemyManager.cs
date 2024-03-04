@@ -1,21 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 public class NEnemyManager : CharacterManager
 {
-    [SerializeField]private NEnemyPartrolState _NEnemyPartrolState= new();
-    [SerializeField] private NEnemyAttackState _NEnemyAttackState= new();
-    [SerializeField] private NEnemyBaseState _NEnemyBaseState= new();
-    [SerializeField] private NEnemyIdleState _NEnemyIdleState= new();
-    [SerializeField] private NEnemyGetHitState _NEnemyGetHitState= new();
-    [SerializeField]private NEnemyChaseState _NEnemyChaseState= new();
+   // [SerializeField] private  NEnemyBaseState _state;
+    public NEnemyPartrolState _NEnemyPartrolState= new();
+    public NEnemyAttackState _NEnemyAttackState= new();
+    public NEnemyIdleState _NEnemyIdleState= new();
+    public NEnemyGetHitState _NEnemyGetHitState= new();
+    public NEnemyChaseState _NEnemyChaseState= new();
+    public NormalEnemy _normalEnemy;
 
-    public NEnemyIdleState GetNEnemyIdleState() { return _NEnemyIdleState; }
+  /*  public NEnemyIdleState GetNEnemyIdleState() { return _NEnemyIdleState; }
     public NEnemyAttackState GetNEnemyAttackState() { return _NEnemyAttackState; }
     public NEnemyChaseState GetNEnemyChaseState() { return _NEnemyChaseState;}
     public NEnemyGetHitState GetNEnemyGetHitState() { return _NEnemyGetHitState;}
-    public NEnemyPartrolState GetNEnemyPartrolState() { return _NEnemyPartrolState;}
+    public NEnemyPartrolState GetNEnemyPartrolState() { return _NEnemyPartrolState;}*/
 
+
+    private void Start()
+    {
+        SetUpProperties();
+    }
+    protected override void Update()
+    {
+        base.Update();
+    }
+    private void SetUpProperties()
+    {
+        _state = _NEnemyIdleState;
+        _state.EnterState(this);
+    }
 
 }

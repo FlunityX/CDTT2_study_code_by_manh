@@ -6,43 +6,82 @@ public class NEnemyCollider : MonoBehaviour
 {
     [SerializeField] private NormalEnemy _normalEnemy;
    [SerializeField] private LayerMask _playerLayer;
-    [SerializeField] private bool isHitObstacle;
-    [SerializeField] private bool isHitPlayer;
+   [SerializeField] private LayerMask _groundLayer;
+    [SerializeField] private bool isHitObstacle=false;
+    [SerializeField] private bool isHitPlayer=false;
 
-    private void FixedUpdate()
+    private void Update()
     {
         DetectObstacle();
         DetectPlayer();
+        
     }
     private void DetectPlayer()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.forward,_normalEnemy.detectRange,_playerLayer);
-        if (hit.collider.CompareTag("Player"))
+        RaycastHit2D hit;
+        if (transform.localScale== Vector3.one)
         {
-            isHitPlayer = true;
+         hit = Physics2D.Raycast(transform.position,new Vector2(1,0),4f,_playerLayer);
+
         }
         else
         {
-            isHitPlayer= false;
+             hit= Physics2D.Raycast(transform.position, new Vector2(-1, 0), 4f, _playerLayer);
+
         }
-    } 
+        if (hit.collider != null)
+        {
+
+            if (hit.collider.CompareTag("Player"))
+            {
+                isHitPlayer = true;
+                //Debug.Log(isHitPlayer);
+            }
+        }
+        else
+        {
+
+                isHitPlayer= false;
+        }
+            
+            
+    }
     private void DetectObstacle()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.forward,.5f);
-        if (hit.collider.CompareTag("Block"))
+        RaycastHit2D hit;
+        if (transform.localScale == Vector3.one)
         {
-            isHitObstacle=true;
+            hit = Physics2D.Raycast(transform.position, new Vector2(1, 0), 1f, _groundLayer);
+
         }
         else
         {
-            isHitObstacle = false;
+            hit = Physics2D.Raycast(transform.position, new Vector2(-1, 0), 1f, _groundLayer);
+
         }
+        if (hit.collider != null)
+        {
+            if (hit.collider.CompareTag("Ground"))
+            {
+                isHitObstacle = true;
+               // Debug.Log("hitground");
+
+            }
+
+        }
+        else
+        {
+
+                isHitObstacle = false;
+        }
+            
     }
 
     public bool CheckIfHitPlayer()
     {
         return isHitPlayer;
-    }public bool CheckIfHitObstacle()
+    }
+    public bool CheckIfHitObstacle()
     {
         return isHitObstacle;
     }

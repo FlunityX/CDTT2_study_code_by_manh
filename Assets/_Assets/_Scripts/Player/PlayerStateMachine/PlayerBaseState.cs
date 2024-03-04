@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBaseState : MonoBehaviour
+public abstract class PlayerBaseState
 {
-    [SerializeField]protected PlayerStateManager _playerStateManager;
+    public PlayerStateManager _playerStateManager;
 
     public virtual void EnterState(PlayerStateManager playerStateManager) {  _playerStateManager = playerStateManager; }
     public virtual void ExitState() { }

@@ -9,6 +9,7 @@ public class PlayerHpBarUI : MonoBehaviour, IHasHpBar
 {
 
     [SerializeField] private Image HpBarImage;
+
    
     //[SerializeField] private TextMeshProUGUI playerHpText;
     public event EventHandler<IHasHpBar.OnHpChangeEventArgs> OnHpChange;

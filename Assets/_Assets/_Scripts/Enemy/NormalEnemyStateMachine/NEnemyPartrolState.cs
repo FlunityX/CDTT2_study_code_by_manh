@@ -6,58 +6,69 @@ using UnityEngine;
 
 public class NEnemyPartrolState : NEnemyBaseState
 {
-    [SerializeField] private NormalEnemy _normalEnemy;
+    private float entryTime;
+    private float restTime = 1f;
     public override void EnterState(CharacterManager characterManager)
     {
         base.EnterState(characterManager);
+        _NEnemyManager = (NEnemyManager)characterManager;
+        entryTime = Time.time;
+        Debug.Log("enter");
+        
     }
 
     public override void ExitState()
     {
-
+        
     }
 
     public override void Update()
     {
-
+        Move();
+        if (CheckIfCanChase())
+        {
+            _NEnemyManager.ChangeState(_NEnemyManager._NEnemyChaseState);
+        }
     }
 
     private bool CheckIfCanChase()
     {
-        if(_normalEnemy.GetNEnemyCollider().CheckIfHitPlayer())
-        {
-            return true;
-        }
-        else{
-            return false;
-        }
+        return _NEnemyManager._normalEnemy.GetNEnemyCollider().CheckIfHitPlayer();
+       
     }
-
+    
     public void Move()
     {
-        _normalEnemy.GetRigidBody().velocity = Vector2.right * _normalEnemy.GetEnemyStat().speed * Time.deltaTime;
-        if (_normalEnemy.GetNEnemyCollider().CheckIfHitObstacle())
+        _NEnemyManager._normalEnemy.transform.Translate(Vector2.right * _NEnemyManager._normalEnemy.GetEnemyStat().speed * Time.deltaTime)   ;
+       
+        if (_NEnemyManager._normalEnemy.GetNEnemyCollider().CheckIfHitObstacle())
         {
-            ChangeDirection();
-            _NEnemyManager.ChangeState(_NEnemyManager.GetNEnemyIdleState());
+           // ChangeDirection();
+            _NEnemyManager.ChangeState(_NEnemyManager._NEnemyIdleState);
+            
         }
     }
 
     public override void ChangeDirection()
     {
         base.ChangeDirection();
-        if(_normalEnemy.transform.localScale == Vector3.one)
+        if(_NEnemyManager._normalEnemy.transform.localScale == Vector3.one)
         {
-            _normalEnemy.transform.localScale =  new Vector3(-1,0,0);
+            _NEnemyManager._normalEnemy.transform.localScale =  new Vector3(-1,1,1);
+            _NEnemyManager._normalEnemy._isFacingLeft = true;
+            _NEnemyManager._normalEnemy._isFacingRight = false;
 
         }
         else
         {
-            _normalEnemy.transform.localScale = new Vector3(1, 0, 0);
+            _NEnemyManager._normalEnemy.transform.localScale = new Vector3(1, 1, 1);
+            _NEnemyManager._normalEnemy._isFacingLeft = false;
+            _NEnemyManager._normalEnemy._isFacingRight = true;
+
         }
     }
     public override void FixedUpdate() {
-        Move();
+        
     }
 
 }

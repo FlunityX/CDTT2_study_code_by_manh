@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private BoxCollider2D _boxCollider;
+    [SerializeField] private CapsuleCollider2D _boxCollider;
     [SerializeField] public Rigidbody2D _boxRigidbody;
     [SerializeField]public bool isGround = true;
     [SerializeField] public bool isJumping ;
@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         
 
         transform.Translate(moveDir * moveDistance);
-        Debug.Log(moveDir);
+       // Debug.Log(moveDir);
     }
 
     private void Jump()
@@ -99,6 +99,7 @@ public class PlayerMovement : MonoBehaviour
             isJumping= false;
             
         }
+
         
     }
 }

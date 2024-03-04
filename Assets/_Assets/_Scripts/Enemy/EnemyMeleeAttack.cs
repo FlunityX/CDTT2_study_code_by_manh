@@ -21,6 +21,7 @@ public class EnemyMeleeAttack :MonoBehaviour, IMeleeAttack
             if (hit.CompareTag("Player"))
             {
                 hit.GetComponent<Player>().ReduceHp(dmg);
+                Player.Instance.ReduceHp(dmg);
             }
         }
 

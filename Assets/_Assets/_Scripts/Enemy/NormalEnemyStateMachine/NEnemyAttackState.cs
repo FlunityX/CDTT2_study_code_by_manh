@@ -18,9 +18,5 @@ public class NEnemyAttackState : NEnemyBaseState
     {
 
     }
-
-
-
-
     public override void FixedUpdate() { }
 }

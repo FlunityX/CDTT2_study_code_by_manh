@@ -28,7 +28,11 @@ public class JumpState : PlayerBaseState
         {
             _playerStateManager.ChangeState(_playerStateManager.fallState);
         }
-        
+        else if (CheckIfCanAirAttack())
+        {
+            _playerStateManager.ChangeState(_playerStateManager._playerAirAttackState);
+        }
+
     }
 
   
@@ -36,7 +40,11 @@ public class JumpState : PlayerBaseState
     {
         return Player.Instance.GetRigidbody().velocity.y < 0;
     }
-  
+    private bool CheckIfCanAirAttack()
+    {
+        return Player.Instance._playerMovement.isJumping && GameInput.Instance.AttackPerform();
+    }
+
 
 
     public override void FixedUpdate()

@@ -9,7 +9,11 @@ public class PlayerStateManager : MonoBehaviour
     public RunState runState = new();
     public JumpState jumpState = new();
     public FallState fallState = new();
-   
+   public PlayerEntryAttackState _playerEntryAttackState = new();
+    public PlayerComboAttack1 _playerComboAttack1 = new();
+    public PlayerComboAttack2 _playerComboAttack2 = new();
+    public PlayerFinishAttack _PlayerFinishAttack = new();
+    public PlayerAirAttackState _playerAirAttackState = new();
 
 
     private void Start()

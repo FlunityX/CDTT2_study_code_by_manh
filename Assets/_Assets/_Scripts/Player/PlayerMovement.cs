@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public bool isJumping ;
     private float jumpTimeCounter;
     private float jumpTime=.5f;
-    private float jumpForce = 3f;
+    private float jumpForce = 6f;
     public float dirX;
     private void Start()
     {
@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
         FallCheck();
        ContinueJump();
         FlipPlayerSprite();
-
+    
     }
     private void HandleMovement()
     {
@@ -76,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
             
         }
     }
+    
     private void FallCheck()
     {
        if(_boxRigidbody.velocity.y <0)
@@ -83,14 +84,7 @@ public class PlayerMovement : MonoBehaviour
             isJumping = false;
         }
     }
-    public void IncreaseGravity()
-    {
-        _boxRigidbody.gravityScale += 1f * Time.deltaTime;
-    }
-    public void ResetGravity()
-    {
-        _boxRigidbody.gravityScale = 1;
-    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
@@ -102,6 +96,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
         
+    }
+    public void AddingFallForce(float force)
+    {
+        _boxRigidbody.velocity = Vector2.down * force;
     }
     private void FlipPlayerSprite()
     {

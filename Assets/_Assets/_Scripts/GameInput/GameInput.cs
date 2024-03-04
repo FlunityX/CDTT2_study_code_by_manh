@@ -18,6 +18,12 @@ public class GameInput : MonoBehaviour
         }
         playerInputAction.PlayerActionMap.Enable();
         playerInputAction.PlayerActionMap.Jump.performed += Jump_performed;
+        playerInputAction.PlayerActionMap.Attack.performed += Attack_performed;
+    }
+
+    private void Attack_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        return;
     }
 
     private void Jump_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -34,6 +40,11 @@ public class GameInput : MonoBehaviour
       return  playerInputAction.PlayerActionMap.Jump.ReadValue<float>();
         
     } 
+
+    public bool AttackPerform()
+    {
+        return playerInputAction.PlayerActionMap.Attack.ReadValue<float>() > .9f;
+    }
     
     
     public Vector2 GetMovementVectorNormalized()

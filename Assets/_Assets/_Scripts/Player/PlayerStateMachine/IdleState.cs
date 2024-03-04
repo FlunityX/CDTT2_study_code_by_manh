@@ -26,7 +26,11 @@ public class IdleState : PlayerBaseState
         }
         else if (CheckIfCanJump()) { 
             _playerStateManager.ChangeState(_playerStateManager.jumpState);
-           
+
+        }
+        else if (CheckIfCanAttack())
+        {
+            _playerStateManager.ChangeState(_playerStateManager._playerEntryAttackState);
         }
        
     }
@@ -41,7 +45,11 @@ public class IdleState : PlayerBaseState
         return (GameInput.Instance.JumpPerform() && !Player.Instance._playerMovement.isGround) ;
     }
 
-
+    private bool CheckIfCanAttack()
+    {
+        return GameInput.Instance.AttackPerform();
+    }
+    
 
     public override void FixedUpdate()
     {

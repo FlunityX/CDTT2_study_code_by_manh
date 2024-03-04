@@ -21,10 +21,16 @@ public class FallState : PlayerBaseState
         if (CheckIfCanIdle())
         {
             _playerStateManager.ChangeState(_playerStateManager.idleState);
-            //s Debug.Log("ruin");
-
+        
+        }else if(CheckIfCanRun())
+        {
+            _playerStateManager.ChangeState((_playerStateManager.runState));
         }
-        Debug.Log("fall");
+        else if (CheckIfCanAirAttack())
+        {
+            _playerStateManager.ChangeState(_playerStateManager._playerAirAttackState);
+        }
+
     }
 
     private bool CheckIfCanIdle()
@@ -32,12 +38,16 @@ public class FallState : PlayerBaseState
         return Player.Instance.GetDirX() == 0 && Player.Instance._playerMovement.isGround;
     }
 
-    // private bool CheckIfCanJump()
-    //{
-    //      return GameInput.Instance.JumpPerform() && Player.Instance._playerMovement.isGround;
-    // }
+    private bool CheckIfCanRun()
+    {
+        return (Player.Instance.GetDirX() != 0 && Player.Instance._playerMovement.isGround);
+    }
+    private bool CheckIfCanAirAttack()
+    {
+        return !Player.Instance._playerMovement.isGround && GameInput.Instance.AttackPerform();
+    }
 
-    
+
 
     public override void FixedUpdate()
     {

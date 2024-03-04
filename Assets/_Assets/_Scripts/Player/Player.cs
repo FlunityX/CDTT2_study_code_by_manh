@@ -8,8 +8,10 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
     public static Player Instance {  get; private set; }
     public PlayerMovement _playerMovement;
     [SerializeField]public PlayerVisual _playerVisual;
+    [SerializeField] public PlayerAttack _playerAttack;
 
     public float Speed=1f;
+    public float Dmg=1f;
     public float HpMax = 10;
     public float currentHp = 1;
     
@@ -19,7 +21,12 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
     {
         Instance = this;
     }
-
+    private void Start()
+    {
+        _playerMovement = GetComponent<PlayerMovement>();
+        _playerVisual = GetComponentInChildren<PlayerVisual>();
+        _playerAttack = GetComponentInChildren<PlayerAttack>();
+    }
 
     //deal dmg and receive dmg
     public void DealDamage(IReceiveDamage receiveDmg, float dmg)

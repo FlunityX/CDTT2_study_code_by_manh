@@ -15,18 +15,38 @@ public class PlayerVisual : MonoBehaviour
 
     public void PlayerIdleAnim()
     {
-        animator.CrossFade("main_idle", .2f, 0);
+        animator.CrossFade(GameConstant.PLAYER_IDLE_ANIM, .2f, 0);
     }
     public void PlayRunAnim()
     {
-        animator.CrossFade("main_walk", .2f, 0);
+        animator.CrossFade(GameConstant.PLAYER_WALK_ANIM, .2f, 0);
     }
     public void PlayJumpAnim()
     {
-        animator.CrossFade("main_jump", .2f, 0);
+        animator.CrossFade(GameConstant.PLAYER_JUMP_ANIM, .2f, 0);
     }
     public void PlayFallAnim()
     {
-        animator.CrossFade("main_fall", .2f, 0);
+        animator.CrossFade(GameConstant.PLAYER_FALL_ANIM, .2f, 0);
+    }
+    public void PlayEntryAttackAnim()
+    {
+        animator.CrossFade(GameConstant.PLAYER_ENTRY_ATTACK_ANIM, .2f, 0);
+    }
+    public void PlayComboAttack1Anim()
+    {
+        animator.CrossFade(GameConstant.PLAYER_COMBO_ATTACK1_ANIM, .2f, 0);
+    }
+    public void PlayComboAttack2Anim()
+    {
+        animator.CrossFade(GameConstant.PLAYER_COMBO_ATTACK2_ANIM, .2f, 0);
+    }
+    public void PlayFinishAttackAnim()
+    {
+        animator.CrossFade(GameConstant.PLAYER_FINISH_ATTACK_ANIM, .2f, 0);
+    }
+    public void PlayAirAttackAnim()
+    {
+        animator.CrossFade(GameConstant.PLAYER_AIR_ATTACK_ANIM, .2f,0);
     }
 }

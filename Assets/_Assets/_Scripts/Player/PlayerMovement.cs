@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -14,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private float jumpTimeCounter;
     private float jumpTime=.5f;
     private float jumpForce = 6f;
+    private float increasingSpeed = 5f;
     public float dirX;
     private void Start()
     {
@@ -31,19 +33,27 @@ public class PlayerMovement : MonoBehaviour
         FallCheck();
        ContinueJump();
         FlipPlayerSprite();
-    
+        IncreasSpeed();
+        ForceBoolVariable();
     }
     private void HandleMovement()
     {
         Vector2 inputVector = GameInput.Instance.GetMovementVectorNormalized();
         Vector2 moveDir = new Vector2(inputVector.x, 0);
         dirX = moveDir.x;
-        float moveDistance = Player.Instance.Speed * Time.deltaTime;
+        float moveDistance = increasingSpeed * Time.deltaTime;
         //RaycastHit2D hit = Physics2D.Raycast(Player.Instance.transform.position, inputVector);
-      
-        
 
-        transform.Translate(moveDir * moveDistance);
+
+        if (isFalling || isJumping)
+        {
+            transform.Translate(moveDir * moveDistance/2);
+        }
+        else
+        {
+            transform.Translate(moveDir * moveDistance);
+
+        }
        // Debug.Log(moveDir);
     }
 
@@ -85,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
         {
             isJumping = false;
             isFalling = true;
+            
         }
     }
 
@@ -118,5 +129,25 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
+    }
+    private void IncreasSpeed()
+    {
+        if (increasingSpeed < Player.Instance.Speed)
+        {
+            increasingSpeed += .5f;
+        }
+        else { increasingSpeed = Player.Instance.Speed; }
+    }
+    private void ForceBoolVariable()
+    {
+        if (isGround)
+        {
+            isFalling=false;
+            isJumping=false;
+        }
+    }
+    public void RestIncreasingSpeed()
+    {
+        increasingSpeed = 5f;
     }
 }

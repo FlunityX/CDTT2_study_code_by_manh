@@ -5,18 +5,21 @@ using UnityEngine;
 
 public class RunState : PlayerBaseState
 {
+    
     public override void EnterState(PlayerStateManager playerStateManager)
     {
        // Player.Instance._playerMovement.ResetGravity();
 
         base.EnterState(playerStateManager);
         Player.Instance._playerVisual.PlayRunAnim();
+        Player.Instance._playerMovement.RestIncreasingSpeed();
         Debug.Log("run");
     }
 
     public override void ExitState()
     {
-       
+        Player.Instance._playerMovement.RestIncreasingSpeed();
+
     }
 
     public override void Update()

@@ -42,7 +42,7 @@ public class NEnemyCollider : MonoBehaviour
     private void DetectObstacle()
     {
         Collider2D hit;
-        hit = Physics2D.OverlapBox(playerCheckPoint.position, new Vector2(2, .5f), 0);
+        hit = Physics2D.OverlapBox(playerCheckPoint.position, new Vector2(.5f, .5f), 0);
         if (hit != null)
         {
             if (hit.CompareTag("Ground"))

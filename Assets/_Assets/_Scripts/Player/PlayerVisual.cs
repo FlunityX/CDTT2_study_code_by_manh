@@ -11,6 +11,8 @@ public class PlayerVisual : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+   
+
     public void PlayerIdleAnim()
     {
         animator.CrossFade("main_idle", .2f, 0);

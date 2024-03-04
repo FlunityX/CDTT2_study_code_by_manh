@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
         HandleMovement();
         FallCheck();
        ContinueJump();
+        FlipPlayerSprite();
 
     }
     private void HandleMovement()
@@ -101,5 +102,19 @@ public class PlayerMovement : MonoBehaviour
         }
 
         
+    }
+    private void FlipPlayerSprite()
+    {
+        if(dirX >0)
+        {
+            transform.localScale = Vector3.one;
+        }else if(dirX < 0)
+        {
+            transform.localScale =new Vector3(-1,1,1);
+        }
+        else
+        {
+            return;
+        }
     }
 }

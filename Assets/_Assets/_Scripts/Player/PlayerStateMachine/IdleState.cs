@@ -47,7 +47,7 @@ public class IdleState : PlayerBaseState
 
     private bool CheckIfCanAttack()
     {
-        return GameInput.Instance.AttackPerform();
+        return GameInput.Instance.AttackPerform() && Player.Instance._playerAttack.IsAttackingReady();
     }
     
 

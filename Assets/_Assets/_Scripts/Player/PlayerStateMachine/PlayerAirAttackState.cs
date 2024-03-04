@@ -11,7 +11,7 @@ public class PlayerAirAttackState : PlayerBaseState
         base.EnterState(playerStateManager);
         Player.Instance._playerVisual.PlayAirAttackAnim();
         Player.Instance._playerAttack.MeleeAttack(Player.Instance.Dmg);
-        Player.Instance._playerMovement.AddingFallForce(5f);
+        Player.Instance._playerMovement.AddingFallForce(10f);
         Debug.Log("air strike!!!");
     }
 

@@ -31,7 +31,7 @@ public class PlayerAirAttackState : PlayerBaseState
 
     private bool CheckIfCanGrounded()
     {
-        return Player.Instance._playerCollider.AirAttackGroundCheck();
+        return Player.Instance._playerCollider.AirAttackGroundCheck();  
     }
     
     

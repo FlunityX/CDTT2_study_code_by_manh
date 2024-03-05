@@ -10,4 +10,5 @@ public interface IUnitStat
     float Hp { get; set; }
     float AttackDmg { get; set; }
     float AttackSpeed { get; set; }
+    float AttackRange { get; set; }
 }

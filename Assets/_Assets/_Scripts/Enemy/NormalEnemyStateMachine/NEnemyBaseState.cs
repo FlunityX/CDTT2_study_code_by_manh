@@ -19,6 +19,21 @@ public class NEnemyBaseState : CharacterBaseState
 
     public override void FixedUpdate() { }
 
-    public virtual void ChangeDirection() { }
+    public virtual void ChangeDirection() {
+        if (_NEnemyManager._normalEnemy.transform.localScale == Vector3.one)
+        {
+            _NEnemyManager._normalEnemy.transform.localScale = new Vector3(-1, 1, 1);
+            _NEnemyManager._normalEnemy._isFacingLeft = true;
+            _NEnemyManager._normalEnemy._isFacingRight = false;
+
+        }
+        else
+        {
+            _NEnemyManager._normalEnemy.transform.localScale = new Vector3(1, 1, 1);
+            _NEnemyManager._normalEnemy._isFacingLeft = false;
+            _NEnemyManager._normalEnemy._isFacingRight = true;
+
+        }
+    }
 
 }

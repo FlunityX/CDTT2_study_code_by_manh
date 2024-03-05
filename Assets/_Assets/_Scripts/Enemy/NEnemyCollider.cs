@@ -5,44 +5,41 @@ using UnityEngine;
 public class NEnemyCollider : MonoBehaviour
 {
     [SerializeField] private NormalEnemy _normalEnemy;
-   [SerializeField] private LayerMask _playerLayer;
-   [SerializeField] private LayerMask _groundLayer;
+    [SerializeField] private BoxCollider2D _checkPlayerCollider;
     [SerializeField] private bool isHitObstacle=false;
     [SerializeField] private bool isHitPlayer=false;
     [SerializeField] private Transform groundCheckPoint;
-    [SerializeField] private Transform playerCheckPoint;
 
+    private void Start()
+    {
+        _checkPlayerCollider= gameObject.GetComponent<BoxCollider2D>();
+    }
     private void Update()
     {
         DetectObstacle();
-        DetectPlayer();
+
+
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            isHitPlayer = true;
+        }
         
     }
-    private void DetectPlayer()
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        Collider2D hit;
-       hit= Physics2D.OverlapBox(playerCheckPoint.position, new Vector2(4, .5f), 0);
-        if (hit.GetComponent<Collider>() != null)
+        if (collision.CompareTag("Player"))
         {
-
-            if (hit.GetComponent<Collider>().CompareTag("Player"))
-            {
-                isHitPlayer = true;
-                //Debug.Log(isHitPlayer);
-            }
+            isHitPlayer = false;
         }
-        else
-        {
-
-                isHitPlayer= false;
-        }
-            
-            
+        
     }
     private void DetectObstacle()
     {
         Collider2D hit;
-        hit = Physics2D.OverlapBox(playerCheckPoint.position, new Vector2(.5f, .5f), 0);
+        hit = Physics2D.OverlapBox(groundCheckPoint.position, new Vector2(.5f, .5f),0);
         if (hit != null)
         {
             if (hit.CompareTag("Ground"))
@@ -57,6 +54,7 @@ public class NEnemyCollider : MonoBehaviour
         {
 
                 isHitObstacle = false;
+            return;
         }
             
     }
@@ -69,9 +67,5 @@ public class NEnemyCollider : MonoBehaviour
     {
         return isHitObstacle;
     }
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawCube(playerCheckPoint.position, new Vector2(4, .5f));
-    }
+    
 }

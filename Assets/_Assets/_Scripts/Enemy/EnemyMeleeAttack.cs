@@ -8,10 +8,12 @@ public class EnemyMeleeAttack :MonoBehaviour, IMeleeAttack
     [SerializeField] private float attackRange;
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private NormalEnemy _normalEnemy;
+    private float attackSpeedCounter;
 
-    private void Start()
+    private void Update()
     {
-       // attackRange = _normalEnemy.en
+        attackSpeedCounter += Time.deltaTime;
+      
     }
     public void MeleeAttack(float dmg)
     {
@@ -24,9 +26,18 @@ public class EnemyMeleeAttack :MonoBehaviour, IMeleeAttack
                 Player.Instance.ReduceHp(dmg);
             }
         }
+        ResetAttackSpeedCounter();
 
     }
 
+    public bool IsReadyToAttack()
+    {
+        return attackSpeedCounter > _normalEnemy.GetEnemyStat().attackSpeed;
+    }
+    private void ResetAttackSpeedCounter()
+    {
+        attackSpeedCounter = 0;
+    }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;

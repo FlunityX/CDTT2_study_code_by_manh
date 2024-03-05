@@ -61,7 +61,7 @@ public class NEnemyPartrolState : NEnemyBaseState
     public override void ChangeDirection()
     {
         base.ChangeDirection();
-        if(_NEnemyManager._normalEnemy.transform.localScale == Vector3.one)
+       /* if(_NEnemyManager._normalEnemy.transform.localScale == Vector3.one)
         {
             _NEnemyManager._normalEnemy.transform.localScale =  new Vector3(-1,1,1);
             _NEnemyManager._normalEnemy._isFacingLeft = true;
@@ -74,7 +74,7 @@ public class NEnemyPartrolState : NEnemyBaseState
             _NEnemyManager._normalEnemy._isFacingLeft = false;
             _NEnemyManager._normalEnemy._isFacingRight = true;
 
-        }
+        }*/
     }
     public override void FixedUpdate() {
         

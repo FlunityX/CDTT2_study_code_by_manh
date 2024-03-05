@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class NEnemyManager : CharacterManager
 {
-   // [SerializeField] private  NEnemyBaseState _state;
-    public NEnemyPartrolState _NEnemyPartrolState= new();
-    public NEnemyAttackState _NEnemyAttackState= new();
+  
     public NEnemyIdleState _NEnemyIdleState= new();
-    public NEnemyGetHitState _NEnemyGetHitState= new();
+    public NEnemyPartrolState _NEnemyPartrolState= new();
     public NEnemyChaseState _NEnemyChaseState= new();
+    public NEnemyAttackState _NEnemyAttackState= new();
+    public NEnemyGetHitState _NEnemyGetHitState= new();
     public NormalEnemy _normalEnemy;
 
   /*  public NEnemyIdleState GetNEnemyIdleState() { return _NEnemyIdleState; }

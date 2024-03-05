@@ -11,5 +11,7 @@ public class PlayerStat : MonoBehaviour, IUnitStat
 
     public UnitSO UnitSO => throw new System.NotImplementedException();
 
+    public float AttackRange { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+
     public void GetPlayerStat() { }
 }

@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerAttack : MonoBehaviour, IMeleeAttack
+public class PlayerAttack : MonoBehaviour, IMeleeAttack,IRangeAttack
 {
-    private float attackSpeed = 1.5f;
+    private float attackSpeed = 1f;
     private float attackCounter;
-
     public bool isAttackReady;
     [SerializeField] private Transform attackPoint;
-
+    [SerializeField] private Transform airAttackPoint;
     [SerializeField] private LayerMask _enemyLayer;
+    [SerializeField] private GameObject rangeAttackPrefab;
 
     private void Update()
     {
@@ -31,11 +31,37 @@ public class PlayerAttack : MonoBehaviour, IMeleeAttack
         }
         ResetAttackCounter();
     }
+    public void PlayerAirAttack(float dmg)
+    {
+        Collider2D[] hits = Physics2D.OverlapBoxAll(airAttackPoint.position, new Vector3(8, 2, 0), 0);
+        if (hits != null)
+        {
+            foreach (Collider2D hit in hits)
+            {
+                if (hit.CompareTag("Enemy"))
+                {
+                    hit.GetComponent<IReceiveDamage>().ReduceHp(dmg);
+                }
+            }
+        }
+        ResetAttackCounter();
+    }
    public bool IsAttackingReady() {
         return attackCounter >= attackSpeed;
     }
     public void ResetAttackCounter()
     {
         attackCounter = 0;
+    }
+
+    public void RangeAttack()
+    {
+        Instantiate(rangeAttackPrefab, attackPoint.position, transform.rotation);
+        
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawCube(airAttackPoint.position, new Vector3(8,2,0));
     }
 }

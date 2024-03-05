@@ -10,6 +10,7 @@ public class EnemyStat : MonoBehaviour
     public float Hp;
     public float attackDamage;
     public float attackSpeed;
+    public float attackRange;
 
     private void Start()
     {
@@ -22,5 +23,6 @@ public class EnemyStat : MonoBehaviour
         currentHp = Hp;
         attackDamage = _unitSO.AttackDmg;
         attackSpeed = _unitSO.AttackSpeed;
+        attackRange = _unitSO.AttackRange;
     }
 }

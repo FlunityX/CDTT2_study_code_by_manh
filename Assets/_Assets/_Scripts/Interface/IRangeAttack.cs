@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IRangeAttack
 {
-    void RangeAttack(float dmg);
+    void RangeAttack();
 }

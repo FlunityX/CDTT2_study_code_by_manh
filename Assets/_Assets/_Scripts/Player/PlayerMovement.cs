@@ -7,9 +7,8 @@ using UnityEngine.Rendering;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private CapsuleCollider2D _boxCollider;
     [SerializeField] public Rigidbody2D _boxRigidbody;
-    [SerializeField]public bool isGround = true;
+    [SerializeField] public bool isGround = true;
     [SerializeField] public bool isJumping ;
     [SerializeField] public bool isFalling ;
     private float jumpTimeCounter;
@@ -99,19 +98,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-
-            isGround = true;
-            isJumping= false;
-            isFalling= false;
-            
-        }
-
-        
-    }
+    
     public void AddingFallForce(float force)
     {
         _boxRigidbody.velocity = Vector2.down * force;

@@ -9,6 +9,7 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
     public PlayerMovement _playerMovement;
     [SerializeField]public PlayerVisual _playerVisual;
     [SerializeField] public PlayerAttack _playerAttack;
+    [SerializeField] public PlayerCollider _playerCollider;
 
     public float Speed=1f;
     public float Dmg=1f;

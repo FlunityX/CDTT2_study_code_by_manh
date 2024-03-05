@@ -14,6 +14,7 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerComboAttack2 _playerComboAttack2 = new();
     public PlayerFinishAttack _PlayerFinishAttack = new();
     public PlayerAirAttackState _playerAirAttackState = new();
+    public PlayerAirAttackGroundedState _playerAirAttackGroundedState = new();
 
 
     private void Start()

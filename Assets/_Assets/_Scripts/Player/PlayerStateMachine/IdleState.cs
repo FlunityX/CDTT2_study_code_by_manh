@@ -31,6 +31,9 @@ public class IdleState : PlayerBaseState
         else if (CheckIfCanAttack())
         {
             _playerStateManager.ChangeState(_playerStateManager._playerEntryAttackState);
+        }else if (CheckIfCanFall())
+        {
+            _playerStateManager.ChangeState(_playerStateManager.fallState);
         }
        
     }
@@ -49,7 +52,10 @@ public class IdleState : PlayerBaseState
     {
         return GameInput.Instance.AttackPerform() && Player.Instance._playerAttack.IsAttackingReady();
     }
-    
+    private bool CheckIfCanFall()
+    {
+        return Player.Instance.GetRigidbody().velocity.y < 0;
+    }
 
     public override void FixedUpdate()
     {

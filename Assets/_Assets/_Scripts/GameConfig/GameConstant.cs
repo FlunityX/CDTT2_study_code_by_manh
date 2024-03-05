@@ -23,6 +23,7 @@ public static class GameConstant
     public const string PLAYER_COMBO_ATTACK2_ANIM = "main_attack_3";
     public const string PLAYER_FINISH_ATTACK_ANIM = "main_attack_4";
     public const string PLAYER_AIR_ATTACK_ANIM = "main_attackFromAir";
+    public const string PLAYER_AIR_ATTACK_GROUNDED_ANIM = "main_attackFromAir_grounded";
 
     #endregion
 }

@@ -10,7 +10,7 @@ public class PlayerAirAttackState : PlayerBaseState
     {
         base.EnterState(playerStateManager);
         Player.Instance._playerVisual.PlayAirAttackAnim();
-        Player.Instance._playerAttack.MeleeAttack(Player.Instance.Dmg);
+
         Player.Instance._playerMovement.AddingFallForce(10f);
         Debug.Log("air strike!!!");
     }
@@ -22,16 +22,16 @@ public class PlayerAirAttackState : PlayerBaseState
 
     public override void Update()
     {
-        if (CheckIfCanIdle())
+        if (CheckIfCanGrounded())
         {
 
-        _playerStateManager.ChangeState(_playerStateManager.idleState);
+        _playerStateManager.ChangeState(_playerStateManager._playerAirAttackGroundedState);
         }
     }
 
-    private bool CheckIfCanIdle()
+    private bool CheckIfCanGrounded()
     {
-        return Player.Instance._playerMovement.isGround;
+        return Player.Instance._playerCollider.AirAttackGroundCheck();
     }
     
     

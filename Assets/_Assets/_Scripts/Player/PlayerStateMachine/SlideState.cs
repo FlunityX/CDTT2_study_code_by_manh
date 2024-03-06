@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class SlideState : PlayerBaseState
 {
-    private float slideTime = 2f;
+    private float slideTime = 1.5f;
     private float slideTimeCounter;
     public override void EnterState(PlayerStateManager playerStateManager)
     {
         base.EnterState(playerStateManager);
-        Player.Instance._playerMovement.Slide(20f);
+        Player.Instance._playerMovement.Slide(15f);
         Player.Instance._playerVisual.PlaySlideAnim();
     }
 
@@ -32,10 +32,10 @@ public class SlideState : PlayerBaseState
         {
             _playerStateManager.ChangeState((_playerStateManager.runState));
         }
-        else if (CheckIfCanJump())
-        {
-            _playerStateManager.ChangeState(_playerStateManager._playerAirAttackState);
-        }
+        //else if (CheckIfCanJump())
+        // {
+        //    _playerStateManager.ChangeState(_playerStateManager._playerAirAttackState);
+      //  }
 
     }
 
@@ -50,7 +50,7 @@ public class SlideState : PlayerBaseState
     }
     private bool CheckIfCanJump()
     {
-        return (GameInput.Instance.JumpPerform() && !Player.Instance._playerMovement.isGround);
+        return (GameInput.Instance.JumpPerform() && Player.Instance._playerMovement.isGround);
     }
 
     private void ResetSlideTimeCounter()

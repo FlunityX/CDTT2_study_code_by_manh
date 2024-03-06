@@ -35,6 +35,9 @@ public class RunState : PlayerBaseState
             _playerStateManager.ChangeState(_playerStateManager.jumpState);
             Debug.Log("jump");
 
+        }else if(CheckIfCanSlide())
+        {
+            _playerStateManager.ChangeState(_playerStateManager.slideState);
         }
     }
 
@@ -46,7 +49,10 @@ public class RunState : PlayerBaseState
     {
         return GameInput.Instance.JumpPerform();//&& Player.Instance._playerMovement.isGround;
     }
-
+    private bool CheckIfCanSlide()
+    {
+        return GameInput.Instance.SlidePerform();
+    }
 
     public override void FixedUpdate()
     {

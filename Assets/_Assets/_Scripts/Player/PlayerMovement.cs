@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
 
 public class PlayerMovement : MonoBehaviour
@@ -15,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private float jumpTime=.5f;
     private float jumpForce = 6f;
     private float increasingSpeed = 5f;
+    
     public float dirX;
     private void Start()
     {
@@ -102,6 +104,11 @@ public class PlayerMovement : MonoBehaviour
     public void AddingFallForce(float force)
     {
         _boxRigidbody.velocity = Vector2.down * force;
+    }
+    public void Slide(float force)
+    {
+        _boxRigidbody.velocity = new Vector2(dirX,0) * force;
+
     }
     private void FlipPlayerSprite()
     {

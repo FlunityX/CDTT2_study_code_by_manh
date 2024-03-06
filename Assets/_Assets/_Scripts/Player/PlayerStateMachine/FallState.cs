@@ -9,6 +9,7 @@ public class FallState : PlayerBaseState
         base.EnterState(playerStateManager);
         Player.Instance._playerMovement.AddingFallForce(8f);
         Player.Instance._playerVisual.PlayFallAnim();
+        Debug.Log("fall");
     }
 
     public override void ExitState()

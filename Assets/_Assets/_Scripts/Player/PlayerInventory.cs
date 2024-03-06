@@ -4,12 +4,29 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
-    private List<Item> items = new List<Item>();
+    public static PlayerInventory Instance {  get; private set; }
+    
+    [SerializeField]private List<ItemSO> items = new List<ItemSO>();
+    [SerializeField]private int space = 10;
 
-    public void Add(Item item)
+
+    private void Awake()
     {
-        items.Add(item);
-    }public void Remove(Item item)
+        Instance = this;
+    }
+    public bool Add(ItemSO item)
+    {
+        if(items.Count <= space)
+        {
+            items.Add(item);
+            return true;
+
+        }
+        else {
+            Debug.Log("Inventory full");
+            return false; 
+        }
+    }public void Remove(ItemSO item)
     {
         items.Remove(item);
     }

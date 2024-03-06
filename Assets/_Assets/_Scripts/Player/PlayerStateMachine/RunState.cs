@@ -39,6 +39,10 @@ public class RunState : PlayerBaseState
         {
             _playerStateManager.ChangeState(_playerStateManager.slideState);
         }
+        else if (CheckIfCanFall())
+        {
+            _playerStateManager.ChangeState(_playerStateManager.fallState);
+        }
     }
 
     private bool CheckIfNotRun()
@@ -53,7 +57,10 @@ public class RunState : PlayerBaseState
     {
         return GameInput.Instance.SlidePerform();
     }
-
+    private bool CheckIfCanFall()
+    {
+        return Player.Instance.GetRigidbody().velocity.y < 0 && Player.Instance._playerMovement.isGround;
+    }
     public override void FixedUpdate()
     {
        

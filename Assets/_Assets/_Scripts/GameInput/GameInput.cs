@@ -22,7 +22,10 @@ public class GameInput : MonoBehaviour
         playerInputAction.PlayerActionMap.Attack.performed += Attack_performed;
         playerInputAction.PlayerActionMap.Interact.performed += Interact_performed;
         playerInputAction.PlayerActionMap.Slide.performed += Slide_performed;
+ 
     }
+
+    
 
     private void Slide_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {

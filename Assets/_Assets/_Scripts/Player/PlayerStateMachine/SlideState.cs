@@ -21,7 +21,6 @@ public class SlideState : PlayerBaseState
 
     public override void Update()
     {
-        slideTimeCounter += Time.deltaTime;
         // Player.Instance._playerMovement.IncreaseGravity();
         if (CheckIfCanIdle())
         {
@@ -32,10 +31,8 @@ public class SlideState : PlayerBaseState
         {
             _playerStateManager.ChangeState((_playerStateManager.runState));
         }
-        //else if (CheckIfCanJump())
-        // {
-        //    _playerStateManager.ChangeState(_playerStateManager._playerAirAttackState);
-      //  }
+        slideTimeCounter += Time.deltaTime;
+
 
     }
 
@@ -48,10 +45,7 @@ public class SlideState : PlayerBaseState
     {
         return (Player.Instance.GetDirX() != 0 && Player.Instance._playerMovement.isGround) && slideTimeCounter >= slideTime;
     }
-    private bool CheckIfCanJump()
-    {
-        return (GameInput.Instance.JumpPerform() && Player.Instance._playerMovement.isGround);
-    }
+
 
     private void ResetSlideTimeCounter()
     {

@@ -708,7 +708,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 5.05, z: 0.12386799}
-  m_LocalScale: {x: 5.52, y: 4.12, z: 4.12}
+  m_LocalScale: {x: 6.66, y: 5.2, z: 4.12}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 860434852}
@@ -776,11 +776,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 317873361}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b9f84109de6fc549a77f8a42cda9692, type: 3}
+  m_Script: {fileID: 11500000, guid: e55dbee128b199249b3613181cbd971d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1704620043}
-  parallexEffect: 0.8
+  parallexEffect: 0.7
 --- !u!1 &393640815
 GameObject:
   m_ObjectHideFlags: 0
@@ -4081,7 +4081,7 @@ GameObject:
   m_Component:
   - component: {fileID: 908012446}
   - component: {fileID: 908012447}
-  - component: {fileID: 908012448}
+  - component: {fileID: 908012449}
   m_Layer: 0
   m_Name: main_background
   m_TagString: Untagged
@@ -4100,7 +4100,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.16, y: 14.27, z: 0.12386799}
   m_LocalScale: {x: 4.12, y: 4.12, z: 4.12}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2035258417}
   - {fileID: 399567804}
@@ -4158,7 +4158,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &908012448
+--- !u!114 &908012449
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4167,11 +4167,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 908012445}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b9f84109de6fc549a77f8a42cda9692, type: 3}
+  m_Script: {fileID: 11500000, guid: e55dbee128b199249b3613181cbd971d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1704620043}
-  parallexEffect: 1.2
+  parallexEffect: 1.1
 --- !u!1 &926414172
 GameObject:
   m_ObjectHideFlags: 0
@@ -4615,10 +4615,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5cb7ab1c5e375438fc1ce6f9bc3447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _boxCollider: {fileID: 996121514}
   _boxRigidbody: {fileID: 996121521}
   isGround: 1
   isJumping: 0
+  isFalling: 0
   dirX: 0
 --- !u!114 &996121523
 MonoBehaviour:
@@ -4634,7 +4634,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerMovement: {fileID: 996121522}
   _playerVisual: {fileID: 204657474}
+  _playerAttack: {fileID: 0}
+  _playerCollider: {fileID: 0}
   Speed: 10
+  Dmg: 1
   HpMax: 10
   currentHp: 1
 --- !u!4 &996121524
@@ -4840,7 +4843,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.39, z: 0.12386799}
-  m_LocalScale: {x: 5.52, y: 4.12, z: 4.12}
+  m_LocalScale: {x: 6.66, y: 5.2, z: 4.12}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 999406259}
@@ -4908,7 +4911,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1216500671}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b9f84109de6fc549a77f8a42cda9692, type: 3}
+  m_Script: {fileID: 11500000, guid: e55dbee128b199249b3613181cbd971d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1704620043}
@@ -5025,7 +5028,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.69, z: 0.12386799}
-  m_LocalScale: {x: 5.52, y: 4.12, z: 4.12}
+  m_LocalScale: {x: 6.66, y: 5.2, z: 4.12}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1754614549}
@@ -5093,7 +5096,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1271312903}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b9f84109de6fc549a77f8a42cda9692, type: 3}
+  m_Script: {fileID: 11500000, guid: e55dbee128b199249b3613181cbd971d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1704620043}
@@ -5126,7 +5129,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 2.96, z: 0.12386799}
-  m_LocalScale: {x: 5.52, y: 4.12, z: 4.12}
+  m_LocalScale: {x: 6.66, y: 5.2, z: 4.12}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 926414173}
@@ -5194,7 +5197,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1325262511}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b9f84109de6fc549a77f8a42cda9692, type: 3}
+  m_Script: {fileID: 11500000, guid: e55dbee128b199249b3613181cbd971d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1704620043}
@@ -5262,7 +5265,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 13
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -5346,12 +5349,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1704620043}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f1f8aa5397af0e49856442ea83e506a, type: 3}
+  m_Script: {fileID: 11500000, guid: ab8415f6da5316c4484c886dde0aac59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 1704620045}
-  player: {fileID: 0}
-  yOffSetValue: 3
+  player: {fileID: 996121524}
+  xBound: 0.1
+  yBound: 0.2
+  yOffSetValue: 5
 --- !u!1 &1754614548
 GameObject:
   m_ObjectHideFlags: 0
@@ -5464,7 +5469,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 6.58, z: 0.12386799}
-  m_LocalScale: {x: 5.52, y: 4.12, z: 4.12}
+  m_LocalScale: {x: 6.66, y: 5.2, z: 4.12}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 138347248}
@@ -5532,11 +5537,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1817874946}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b9f84109de6fc549a77f8a42cda9692, type: 3}
+  m_Script: {fileID: 11500000, guid: e55dbee128b199249b3613181cbd971d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1704620043}
-  parallexEffect: 1
+  parallexEffect: 0.9
 --- !u!1 &1975045396
 GameObject:
   m_ObjectHideFlags: 0

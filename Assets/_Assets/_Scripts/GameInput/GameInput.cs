@@ -9,6 +9,7 @@ public class GameInput : MonoBehaviour
     public static GameInput Instance { get; private set; }
     private PlayerInputAction playerInputAction;
     public event EventHandler OnJumpAction;
+    public event EventHandler OnInteract;
     private void Awake()
     {
         Instance = this;
@@ -19,6 +20,12 @@ public class GameInput : MonoBehaviour
         playerInputAction.PlayerActionMap.Enable();
         playerInputAction.PlayerActionMap.Jump.performed += Jump_performed;
         playerInputAction.PlayerActionMap.Attack.performed += Attack_performed;
+        playerInputAction.PlayerActionMap.Interact.performed += Interact_performed;
+    }
+
+    private void Interact_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        OnInteract?.Invoke(this, EventArgs.Empty);
     }
 
     private void Attack_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -49,7 +56,7 @@ public class GameInput : MonoBehaviour
     
     public Vector2 GetMovementVectorNormalized()
     {
-        Vector2 inputVector = playerInputAction.PlayerActionMap.Moving.ReadValue<Vector2>();
+        Vector2 inputVector = playerInputAction.PlayerActionMap.Move.ReadValue<Vector2>();
         inputVector.Normalize();
         return inputVector;
     }

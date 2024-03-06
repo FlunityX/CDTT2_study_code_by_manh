@@ -6,7 +6,7 @@ public class PlayerCollider : MonoBehaviour
 {
     [SerializeField] private CapsuleCollider2D _boxCollider;
     [SerializeField] private Transform _groundCheckPoint;
-
+    [SerializeField] private LayerMask _ItemLayer;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
@@ -31,6 +31,16 @@ public class PlayerCollider : MonoBehaviour
         {
             return false;
         }
+    }
+    public void InteractableCollider()
+    {
+
+        Collider2D hit = Physics2D.OverlapCircle(transform.position,4f,_ItemLayer);
+        if (hit.CompareTag(GameConstant.INTERACTABLE_TAG))
+        {
+            hit.GetComponent<IInteractable>().InteractHandler();
+        }
+       
     }
 
 }

@@ -17,6 +17,7 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
     public float currentHp = 1;
     
     public event EventHandler<IHasHpBar.OnHpChangeEventArgs> OnHpChange;
+   
 
     private void Awake()
     {
@@ -27,6 +28,12 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
         _playerMovement = GetComponent<PlayerMovement>();
         _playerVisual = GetComponentInChildren<PlayerVisual>();
         _playerAttack = GetComponentInChildren<PlayerAttack>();
+        GameInput.Instance.OnInteract += GameInput_OnInteract;
+    }
+
+    private void GameInput_OnInteract(object sender, EventArgs e)
+    {
+        _playerCollider.InteractableCollider();
     }
 
     //deal dmg and receive dmg

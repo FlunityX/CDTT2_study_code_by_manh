@@ -8,6 +8,7 @@ public static class GameConstant
     public const string PLAYER_TAG = "Player";
     public const string ENEMY_TAG = "Enemy";
     public const string GROUND_TAG = "Ground";
+    public const string INTERACTABLE_TAG = "Interactable";
     #endregion
 
     #region PlayerAnimation Constant

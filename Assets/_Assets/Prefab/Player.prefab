@@ -276,7 +276,6 @@ GameObject:
   - component: {fileID: 7518467147612842308}
   - component: {fileID: 3720703132013897456}
   - component: {fileID: 5613310377791299261}
-  - component: {fileID: 7888148083538368282}
   - component: {fileID: 8683958047579783694}
   - component: {fileID: 77621592553340946}
   - component: {fileID: 4576663906097087839}
@@ -321,7 +320,7 @@ MonoBehaviour:
   _playerMovement: {fileID: 5613310377791299261}
   _playerVisual: {fileID: 4773488544579514569}
   _playerAttack: {fileID: 6030669955739078900}
-  _playerCollider: {fileID: 7888148083538368282}
+  _playerCollider: {fileID: 0}
   Speed: 10
   Dmg: 1
   HpMax: 10
@@ -343,20 +342,6 @@ MonoBehaviour:
   isJumping: 0
   isFalling: 0
   dirX: 0
---- !u!114 &7888148083538368282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8044295190917503782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b1770707c16e3e42a63c3aca37a94fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _boxCollider: {fileID: 4576663906097087839}
-  _groundCheckPoint: {fileID: 3715809198387381732}
 --- !u!114 &8683958047579783694
 MonoBehaviour:
   m_ObjectHideFlags: 0

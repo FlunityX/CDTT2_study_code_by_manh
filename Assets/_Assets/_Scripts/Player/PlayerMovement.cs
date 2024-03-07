@@ -144,4 +144,9 @@ public class PlayerMovement : MonoBehaviour
     {
         increasingSpeed = 5f;
     }
+
+    public void KnockBack()
+    {
+        _boxRigidbody.velocity = new Vector2(-dirX, .25f) * 15f;
+    }
 }

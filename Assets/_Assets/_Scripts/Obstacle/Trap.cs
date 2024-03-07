@@ -6,10 +6,10 @@ using Unity.VisualScripting;
 // using System.Numerics;
 using UnityEngine;
 
-public class GameController : MonoBehaviour
+public class Trap : MonoBehaviour
 {
 
-    [SerializationField] public float dmg;
+    [SerializeField] public float dmg;
 
 
 
@@ -18,13 +18,10 @@ public class GameController : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             collision.GetComponent<IReceiveDamage>().ReduceHp(dmg);
+            collision.GetComponent<Player>()._playerMovement.KnockBack();
         }
     }
 
-  
+   
 
-}
-
-internal class SerializationFieldAttribute : Attribute
-{
 }

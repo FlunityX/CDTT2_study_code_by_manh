@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8fbb7ac7fbe537d4f81c7dec9dbede37, type: 3}
-  m_Name: New Potion SO
+  m_Name: BigPotionSO
   m_EditorClassIdentifier: 
-  ItemName: potion1
-  Icon: {fileID: 21300000, guid: 262333245abf28146b684660d1c6d727, type: 3}
+  ItemName: Big potion
+  Icon: {fileID: -1123130712, guid: 809131b1aac8c24429e70890902d2640, type: 3}
+  HealAmount: 5

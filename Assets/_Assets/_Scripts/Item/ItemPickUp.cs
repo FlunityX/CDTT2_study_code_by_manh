@@ -5,7 +5,7 @@ using UnityEngine;
 public class ItemPickUp: MonoBehaviour,IInteractable
 {
     public ItemSO _item;
-    public Sprite icon;
+   // public Sprite icon;
 
     public void InteractHandler()
     {

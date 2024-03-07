@@ -40,7 +40,7 @@ public class ItemSlot : MonoBehaviour
     // Called when the item is pressed
     public void UseItem()
     {
-        if (item != null)
+        if (item != null && Player.Instance.canUsePotion)
         {
             PotionSO potionSO = (PotionSO)item;
             potionSO.OnConsume();

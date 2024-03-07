@@ -62,6 +62,6 @@ public class PlayerAttack : MonoBehaviour, IMeleeAttack,IRangeAttack
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawCube(airAttackPoint.position, new Vector3(8,2,0));
+       // Gizmos.DrawCube(airAttackPoint.position, new Vector3(8,2,0));
     }
 }

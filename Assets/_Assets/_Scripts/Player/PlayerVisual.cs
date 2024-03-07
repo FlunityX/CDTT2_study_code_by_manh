@@ -64,4 +64,8 @@ public class PlayerVisual : MonoBehaviour
         animator.CrossFade(GameConstant.PLAYER_GET_HIT_ANIM, .2f,0);
 
     }
+    public void PlayUsePotionAnim()
+    {
+        animator.CrossFade(GameConstant.PLAYER_HEAL_ANIM, .2f, 0);
+    }
 }

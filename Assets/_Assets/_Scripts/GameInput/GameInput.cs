@@ -24,6 +24,7 @@ public class GameInput : MonoBehaviour
         playerInputAction.PlayerActionMap.Interact.performed += Interact_performed;
         playerInputAction.PlayerActionMap.Slide.performed += Slide_performed;
         playerInputAction.PlayerActionMap.OpenInventory.performed += OpenInventory_performed;
+        
  
     }
 

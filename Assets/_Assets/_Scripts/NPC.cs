@@ -44,6 +44,7 @@ public class NPC : MonoBehaviour
 
 
     }
+   
 
     public void zeroText()
     {
@@ -64,19 +65,23 @@ public class NPC : MonoBehaviour
 
     public void NextLine()
     {
-
-        contButton.SetActive(false);
-
-
-        if (index < dialogue.Length -1)
+        if (GameInput.Instance.NextLinePerform())
         {
-            index ++;
-            dialogueText.text = "";
-            StartCoroutine(Typing());
-        }
-        else
-        {
-            zeroText();
+
+
+            contButton.SetActive(false);
+
+
+            if (index < dialogue.Length - 1)
+            {
+                index++;
+                dialogueText.text = "";
+                StartCoroutine(Typing());
+            }
+            else
+            {
+                zeroText();
+            }
         }
     }
 

@@ -1,16 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
+
 
 [CreateAssetMenu()]
 
 public class PotionSO : ItemSO, IConsumable
 {
 
-
+    public float HealAmount;
     public void OnConsume()
     {
+        Player.Instance.HealHp(HealAmount);
+        Player.Instance.isUsePotion = true;
         Debug.Log("used");
     }
 

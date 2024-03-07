@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
     {
         HandleMovement();
         FallCheck();
-       ContinueJump();
+        ContinueJump();
         FlipPlayerSprite();
         IncreasSpeed();
         ForceBoolVariable();

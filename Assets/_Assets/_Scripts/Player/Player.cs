@@ -15,6 +15,8 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
     public float Dmg=1f;
     public float HpMax = 10;
     public float currentHp = 1;
+
+    Vector2 checkpointPos;
     
     public event EventHandler<IHasHpBar.OnHpChangeEventArgs> OnHpChange;
    
@@ -25,6 +27,7 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
     }
     private void Start()
     {
+        checkpointPos = transform.position;
         _playerMovement = GetComponent<PlayerMovement>();
         _playerVisual = GetComponentInChildren<PlayerVisual>();
         _playerAttack = GetComponentInChildren<PlayerAttack>();
@@ -32,7 +35,7 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
     }
     private void Update()
     {
-        Debug.Log(_playerMovement._boxRigidbody.velocity.y);
+        Die();
     }
     private void GameInput_OnInteract(object sender, EventArgs e)
     {
@@ -50,6 +53,28 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
         currentHp -= dmg;
         OnHpChange?.Invoke(this, new IHasHpBar.OnHpChangeEventArgs
         {
+            HpNormalized = currentHp / HpMax
+        }); ;
+        
+        
+    }
+
+    public void Die()
+    {
+        if (currentHp <= 0)
+        {
+            transform.position = checkpointPos;
+            currentHp = 0;
+            HealHp(HpMax);
+        }
+        
+    }
+
+    public void HealHp(float Hp)
+    {
+        currentHp += Hp;
+        OnHpChange?.Invoke(this, new IHasHpBar.OnHpChangeEventArgs
+        {   
             HpNormalized = currentHp / HpMax
         }); ;
     }
@@ -71,4 +96,9 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
         return _playerMovement._boxRigidbody;
     }
 
+
+    public void UpdateCheckpoint(Vector2 pos)
+    {
+        checkpointPos = pos;
+    }
 }

@@ -17,6 +17,7 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerAirAttackGroundedState _playerAirAttackGroundedState = new();
     public SlideState slideState = new();
     public GetHitState GetHitState = new();
+    public UsePotionState UsePotionState = new();
 
 
     private void Start()

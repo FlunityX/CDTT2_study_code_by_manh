@@ -11,6 +11,8 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
     [SerializeField] public PlayerAttack _playerAttack;
     [SerializeField] public PlayerCollider _playerCollider;
     public bool isGetHit=false;
+    public bool canUsePotion;
+    public bool isUsePotion = false;
     public float Speed=1f;
     public float Dmg=1f;
     public float HpMax = 10;

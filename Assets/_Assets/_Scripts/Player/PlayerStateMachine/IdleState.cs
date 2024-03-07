@@ -9,14 +9,16 @@ public class IdleState : PlayerBaseState
        // Player.Instance._playerMovement.ResetGravity();
         base.EnterState(playerStateManager);
         Player.Instance._playerVisual.PlayerIdleAnim();
+        Player.Instance.canUsePotion = true;
         Debug.Log("idle");
     }
 
     public override void ExitState()
     {
-        
+        Player.Instance.canUsePotion = false;
+
     }
-    
+
     public override void Update()
     {
         if (CheckIfCanRun()) {
@@ -38,6 +40,9 @@ public class IdleState : PlayerBaseState
         else if (CheckIfGetHit())
         {
             _playerStateManager.ChangeState(_playerStateManager.GetHitState);
+        }else if (CheckIfUsePotion())
+        {
+            _playerStateManager.ChangeState(_playerStateManager.UsePotionState);
         }
 
     }
@@ -63,6 +68,10 @@ public class IdleState : PlayerBaseState
     private bool CheckIfGetHit()
     {
         return Player.Instance.isGetHit;
+    }
+    private bool CheckIfUsePotion()
+    {
+        return Player.Instance.isUsePotion;
     }
     public override void FixedUpdate()
     {

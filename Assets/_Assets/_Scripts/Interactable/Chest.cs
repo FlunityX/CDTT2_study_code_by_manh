@@ -5,6 +5,7 @@ using UnityEngine;
 public class Chest : MonoBehaviour, IInteractable
 {
     private Animator animator;
+    [SerializeField]private PotionSO[] potionSO ;
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -12,6 +13,7 @@ public class Chest : MonoBehaviour, IInteractable
     public void InteractHandler()
     {
         Debug.Log("Chest loot");
+        ChestLoot();
         AnimationAndDestroy();
     }
 
@@ -26,5 +28,10 @@ public class Chest : MonoBehaviour, IInteractable
     {
         Destroy(gameObject);
     }
-    
+    public void ChestLoot()
+    {
+        int rand = Random.Range(0, 3);
+        PlayerInventory.Instance.Add(potionSO[rand]);
+        Player.Instance.coin += Random.Range(10, 50);
+    }
 }

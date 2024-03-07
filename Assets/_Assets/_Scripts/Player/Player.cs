@@ -15,6 +15,7 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
     public float Dmg=1f;
     public float HpMax = 10;
     public float currentHp = 1;
+    public float coin;
     Vector2 checkpointPos;
     
     public event EventHandler<IHasHpBar.OnHpChangeEventArgs> OnHpChange;

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fbb7ac7fbe537d4f81c7dec9dbede37, type: 3}
   m_Name: MedumPortionSO
   m_EditorClassIdentifier: 
-  ItemName: 
-  Icon: {fileID: 0}
-  HealAmount: 0
+  ItemName: Medium potion
+  Icon: {fileID: 262369700, guid: 809131b1aac8c24429e70890902d2640, type: 3}
+  HealAmount: 2

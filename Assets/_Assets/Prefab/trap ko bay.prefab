@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 143249675288945698}
   - component: {fileID: 3518997729809571057}
   m_Layer: 0
-  m_Name: shuriken
+  m_Name: trap ko bay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

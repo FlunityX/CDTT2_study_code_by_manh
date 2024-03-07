@@ -117,8 +117,6 @@ GameObject:
   - component: {fileID: 2699697219194707536}
   - component: {fileID: 2517902207910641397}
   - component: {fileID: 2793872623637584271}
-  - component: {fileID: 1645608341395537128}
-  - component: {fileID: 6675334259409018910}
   m_Layer: 0
   m_Name: boss
   m_TagString: Untagged
@@ -134,7 +132,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4902796474110956993}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 82.15, y: 27.1, z: 0.08033639}
   m_LocalScale: {x: 11.9, y: 11.9, z: 11.9}
   m_ConstrainProportionsScale: 1
@@ -204,33 +202,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1645608341395537128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4902796474110956993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d34936af725ab7141be1c94f5345c508, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _enemyStat: {fileID: 0}
-  _enemyMeleeAttack: {fileID: 0}
-  _enemyCollider: {fileID: 0}
-  _rb: {fileID: 0}
-  detectRange: 4
---- !u!114 &6675334259409018910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4902796474110956993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 953068fbf6957eb41ab23c3daf9de0a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _normalEnemy: {fileID: 0}

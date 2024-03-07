@@ -53,6 +53,14 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
             HpNormalized = currentHp / HpMax
         }); ;
     }
+    public void HealHp(float dmg)
+    {
+        currentHp += dmg;
+        OnHpChange?.Invoke(this, new IHasHpBar.OnHpChangeEventArgs
+        {
+            HpNormalized = currentHp / HpMax
+        }); ;
+    }
     //return value
     public float GetDirX()
     {

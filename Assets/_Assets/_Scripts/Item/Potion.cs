@@ -17,7 +17,7 @@ public class Potion : Item, IConsumable,IInteractable
     public override void PickUp()
     {
         base.PickUp();
-        bool wasPickUp= PlayerInventory.Instance.Add(_itemSO);
+        bool wasPickUp= PlayerInventory.Instance.Add(_item);
         if(wasPickUp)
         {
             Destroy(gameObject);

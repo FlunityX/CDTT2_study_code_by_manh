@@ -4,8 +4,8 @@ using UnityEngine;
 
 public abstract class Item: MonoBehaviour 
 {
-    public ItemSO _itemSO;
-
+    public Item _item;
+    public Sprite icon;
 
     public virtual void PickUp() { }
 

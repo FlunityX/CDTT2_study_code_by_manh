@@ -10,6 +10,7 @@ public class GameInput : MonoBehaviour
     private PlayerInputAction playerInputAction;
     public event EventHandler OnJumpAction;
     public event EventHandler OnInteract;
+    public event EventHandler OnOpenInventory;
     private void Awake()
     {
         Instance = this;
@@ -22,10 +23,14 @@ public class GameInput : MonoBehaviour
         playerInputAction.PlayerActionMap.Attack.performed += Attack_performed;
         playerInputAction.PlayerActionMap.Interact.performed += Interact_performed;
         playerInputAction.PlayerActionMap.Slide.performed += Slide_performed;
+        playerInputAction.PlayerActionMap.OpenInventory.performed += OpenInventory_performed;
  
     }
 
-    
+    private void OpenInventory_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        OnOpenInventory?.Invoke(this, EventArgs.Empty);
+    }
 
     private void Slide_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {

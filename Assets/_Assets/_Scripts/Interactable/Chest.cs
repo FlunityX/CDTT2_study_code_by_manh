@@ -19,7 +19,7 @@ public class Chest : MonoBehaviour, IInteractable
     public void AnimationAndDestroy()
     {
         animator.CrossFade("chest_1_open", .3f, 0);
-        Invoke("DestroyGameObject", .5f);
+        Invoke("DestroyGameObject", 1f);
     }
 
     public void DestroyGameObject()

@@ -10,12 +10,11 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
     [SerializeField]public PlayerVisual _playerVisual;
     [SerializeField] public PlayerAttack _playerAttack;
     [SerializeField] public PlayerCollider _playerCollider;
-
+    public bool isGetHit=false;
     public float Speed=1f;
     public float Dmg=1f;
     public float HpMax = 10;
     public float currentHp = 1;
-
     Vector2 checkpointPos;
     
     public event EventHandler<IHasHpBar.OnHpChangeEventArgs> OnHpChange;
@@ -51,6 +50,7 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
     public void ReduceHp(float dmg)
     {
         currentHp -= dmg;
+        GetHit();
         OnHpChange?.Invoke(this, new IHasHpBar.OnHpChangeEventArgs
         {
             HpNormalized = currentHp / HpMax
@@ -89,9 +89,16 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
         return _playerMovement._boxRigidbody;
     }
 
+    private void GetHit()
+    {
+        isGetHit = true;
+        //isGetHit =false;
+    }
 
     public void UpdateCheckpoint(Vector2 pos)
     {
         checkpointPos = pos;
     }
+
+  
 }

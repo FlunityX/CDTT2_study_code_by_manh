@@ -32,6 +32,10 @@ public class FallState : PlayerBaseState
         {
             _playerStateManager.ChangeState(_playerStateManager._playerAirAttackState);
         }
+        else if (CheckIfGetHit())
+        {
+            _playerStateManager.ChangeState(_playerStateManager.GetHitState);
+        }
 
     }
 
@@ -49,7 +53,10 @@ public class FallState : PlayerBaseState
         return !Player.Instance._playerMovement.isGround && GameInput.Instance.AttackPerform() && Player.Instance._playerMovement._boxRigidbody.velocity.y >= -2f;
     }
 
-
+    private bool CheckIfGetHit()
+    {
+        return Player.Instance.isGetHit;
+    }
 
     public override void FixedUpdate()
     {

@@ -42,6 +42,9 @@ public class RunState : PlayerBaseState
         else if (CheckIfCanFall())
         {
             _playerStateManager.ChangeState(_playerStateManager.fallState);
+        }else if (CheckIfGetHit())
+        {
+            _playerStateManager.ChangeState(_playerStateManager.GetHitState);
         }
     }
 
@@ -60,6 +63,10 @@ public class RunState : PlayerBaseState
     private bool CheckIfCanFall()
     {
         return Player.Instance.GetRigidbody().velocity.y < 0 && Player.Instance._playerMovement.isGround;
+    }
+    private bool CheckIfGetHit()
+    {
+        return Player.Instance.isGetHit;
     }
     public override void FixedUpdate()
     {

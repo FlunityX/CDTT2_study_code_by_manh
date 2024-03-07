@@ -16,7 +16,7 @@ public static class GameConstant
     public const string PLAYER_WALK_ANIM = "main_walk";
     public const string PLAYER_JUMP_ANIM = "main_jump";
     public const string PLAYER_FALL_ANIM = "main_fall";
-    public const string PLAYER_GET_HIT_ANIM = "main_gethit";
+    public const string PLAYER_GET_HIT_ANIM = "main_hurt";
     public const string PLAYER_DEAD_ANIM = "main_dead";
     public const string PLAYER_SLIDE_ANIM = "main_slide";
     public const string PLAYER_ENTRY_ATTACK_ANIM = "main_attack_1";

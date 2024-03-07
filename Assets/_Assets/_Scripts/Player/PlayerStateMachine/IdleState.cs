@@ -35,7 +35,11 @@ public class IdleState : PlayerBaseState
         {
             _playerStateManager.ChangeState(_playerStateManager.fallState);
         }
-       
+        else if (CheckIfGetHit())
+        {
+            _playerStateManager.ChangeState(_playerStateManager.GetHitState);
+        }
+
     }
 
     private bool CheckIfCanRun()
@@ -56,7 +60,10 @@ public class IdleState : PlayerBaseState
     {
         return Player.Instance.GetRigidbody().velocity.y < 0;
     }
-
+    private bool CheckIfGetHit()
+    {
+        return Player.Instance.isGetHit;
+    }
     public override void FixedUpdate()
     {
   

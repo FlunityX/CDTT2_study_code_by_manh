@@ -27,14 +27,21 @@ public class PlayerAirAttackState : PlayerBaseState
 
         _playerStateManager.ChangeState(_playerStateManager._playerAirAttackGroundedState);
         }
+        else if (CheckIfGetHit())
+        {
+            _playerStateManager.ChangeState(_playerStateManager.GetHitState);
+        }
     }
 
     private bool CheckIfCanGrounded()
     {
         return Player.Instance._playerCollider.AirAttackGroundCheck();  
     }
-    
-    
+    private bool CheckIfGetHit()
+    {
+        return Player.Instance.isGetHit;
+    }
+
 
     public override void FixedUpdate()
     {

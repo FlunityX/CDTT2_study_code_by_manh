@@ -31,6 +31,10 @@ public class SlideState : PlayerBaseState
         {
             _playerStateManager.ChangeState((_playerStateManager.runState));
         }
+        else if (CheckIfGetHit())
+        {
+            _playerStateManager.ChangeState(_playerStateManager.GetHitState);
+        }
         slideTimeCounter += Time.deltaTime;
 
 
@@ -46,7 +50,10 @@ public class SlideState : PlayerBaseState
         return (Player.Instance.GetDirX() != 0 && Player.Instance._playerMovement.isGround) && slideTimeCounter >= slideTime;
     }
 
-
+    private bool CheckIfGetHit()
+    {
+        return Player.Instance.isGetHit;
+    }
     private void ResetSlideTimeCounter()
     {
         slideTimeCounter = 0;

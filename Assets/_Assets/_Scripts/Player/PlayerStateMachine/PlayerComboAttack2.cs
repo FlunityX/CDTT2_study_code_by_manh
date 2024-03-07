@@ -25,6 +25,8 @@ public class PlayerComboAttack2 : PlayerBaseState
 
     public override void Update()
     {
+        comboDurationCounter += Time.deltaTime;
+
         if (CheckIfCanCombo())
         {
             _playerStateManager.ChangeState(_playerStateManager._PlayerFinishAttack);
@@ -40,6 +42,10 @@ public class PlayerComboAttack2 : PlayerBaseState
         else if (CheckIfCanJump())
         {
             _playerStateManager.ChangeState(_playerStateManager.jumpState);
+        }
+        else if (CheckIfGetHit())
+        {
+            _playerStateManager.ChangeState(_playerStateManager.GetHitState);
         }
     }
 
@@ -59,6 +65,10 @@ public class PlayerComboAttack2 : PlayerBaseState
     private bool CheckIfCanJump()
     {
         return (GameInput.Instance.JumpPerform() && !Player.Instance._playerMovement.isGround);
+    }
+    private bool CheckIfGetHit()
+    {
+        return Player.Instance.isGetHit;
     }
     private void ResetCounter()
     {

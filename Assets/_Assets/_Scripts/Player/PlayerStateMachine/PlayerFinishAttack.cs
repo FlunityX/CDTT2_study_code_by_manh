@@ -40,7 +40,10 @@ public class PlayerFinishAttack : PlayerBaseState
         {
             _playerStateManager.ChangeState(_playerStateManager.jumpState);
         }
-        comboDurationCounter += Time.deltaTime;
+        else if (CheckIfGetHit())
+        {
+            _playerStateManager.ChangeState(_playerStateManager.GetHitState);
+        }
     }
 
     private bool CheckIfCanCombo()
@@ -59,6 +62,10 @@ public class PlayerFinishAttack : PlayerBaseState
     private bool CheckIfCanJump()
     {
         return (GameInput.Instance.JumpPerform() && !Player.Instance._playerMovement.isGround);
+    }
+    private bool CheckIfGetHit()
+    {
+        return Player.Instance.isGetHit;
     }
     private void ResetCounter()
     {

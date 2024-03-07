@@ -32,6 +32,10 @@ public class JumpState : PlayerBaseState
         {
             _playerStateManager.ChangeState(_playerStateManager._playerAirAttackState);
         }
+        else if (CheckIfGetHit())
+        {
+            _playerStateManager.ChangeState(_playerStateManager.GetHitState);
+        }
 
     }
 
@@ -44,7 +48,10 @@ public class JumpState : PlayerBaseState
     {
         return Player.Instance._playerMovement.isJumping && GameInput.Instance.AttackPerform() && Player.Instance._playerMovement._boxRigidbody.velocity.y <=4f;
     }
-
+    private bool CheckIfGetHit()
+    {
+        return Player.Instance.isGetHit;
+    }
 
 
     public override void FixedUpdate()

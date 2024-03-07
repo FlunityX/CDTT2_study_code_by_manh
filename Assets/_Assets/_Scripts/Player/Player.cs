@@ -30,7 +30,10 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
         _playerAttack = GetComponentInChildren<PlayerAttack>();
         GameInput.Instance.OnInteract += GameInput_OnInteract;
     }
-
+    private void Update()
+    {
+        Debug.Log(_playerMovement._boxRigidbody.velocity.y);
+    }
     private void GameInput_OnInteract(object sender, EventArgs e)
     {
         _playerCollider.InteractableCollider();

@@ -9,14 +9,14 @@ public class ItemSlot : MonoBehaviour
     public Image icon;          // Reference to the Icon image
     public Button removeButton; // Reference to the remove button
 
-    Item item;  // Current item in the slot
+    ItemSO item;  // Current item in the slot
 
     // Add item to the slot
-    public void AddItem(Item newItem)
+    public void AddItem(ItemSO newItem)
     {
         item = newItem;
 
-        icon.sprite = item.icon;
+        icon.sprite = item.Icon;
         icon.enabled = true;
         removeButton.interactable = true;
     }
@@ -42,7 +42,11 @@ public class ItemSlot : MonoBehaviour
     {
         if (item != null)
         {
-            item.GetComponent<IConsumable>().OnConsume();
+            PotionSO potionSO = (PotionSO)item;
+            potionSO.OnConsume();
+            PlayerInventory.Instance.Remove(item);
+            Debug.Log("consume");
+          
         }
     }
 

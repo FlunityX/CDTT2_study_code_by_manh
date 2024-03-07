@@ -12,7 +12,7 @@ public class InventoryUI : MonoBehaviour
     void Start()
     {
         inventory = PlayerInventory.Instance;
-        inventory.OnItemChanged += Inventory_OnItemChanged;    // Subscribe to the onItemChanged callback
+        inventory.OnItemChanged += Inventory_OnItemChanged;    
         GameInput.Instance.OnOpenInventory += GameInput_OnOpenInventory;
         // Populate our slots array
         slots = itemsParent.GetComponentsInChildren<ItemSlot>();

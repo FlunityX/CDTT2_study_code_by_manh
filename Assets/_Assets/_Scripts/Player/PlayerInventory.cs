@@ -7,15 +7,15 @@ public class PlayerInventory : MonoBehaviour
 {
     public static PlayerInventory Instance { get; private set; }
 
-    [SerializeField] public List<Item> items = new List<Item>();
-    [SerializeField]private int space = 10;
+    [SerializeField] public List<ItemSO> items = new List<ItemSO>();
+    [SerializeField]private int space = 9;
     public event EventHandler OnItemChanged;
 
     private void Awake()
     {
         Instance = this;
     }
-    public bool Add(Item item)
+    public bool Add(ItemSO item)
     {
         if(items.Count <= space)
         {
@@ -28,10 +28,10 @@ public class PlayerInventory : MonoBehaviour
             Debug.Log("Inventory full");
             return false; 
         }
-    }public void Remove(Item item)
+    }public void Remove(ItemSO item)
     {
-        OnItemChanged?.Invoke(this, EventArgs.Empty);
 
         items.Remove(item);
+        OnItemChanged?.Invoke(this, EventArgs.Empty);
     }
 }

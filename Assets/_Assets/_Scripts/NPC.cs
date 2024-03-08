@@ -65,7 +65,7 @@ public class NPC : MonoBehaviour
 
     public void NextLine()
     {
-        if (GameInput.Instance.NextLinePerform())
+        //if (GameInput.Instance.NextLinePerform())
         {
 
 

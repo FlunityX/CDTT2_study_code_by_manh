@@ -67,9 +67,9 @@ public class NPC : MonoBehaviour
     {
         //if (GameInput.Instance.NextLinePerform())
         {
-
-
             contButton.SetActive(false);
+
+
 
 
             if (index < dialogue.Length - 1)

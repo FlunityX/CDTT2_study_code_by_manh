@@ -7,7 +7,7 @@ public abstract class ItemSO : ScriptableObject
 {
     public string ItemName;
     public Sprite Icon;
-
+    public bool IsConsumable;
     
 
  

@@ -89,6 +89,15 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UseAbility"",
+                    ""type"": ""Button"",
+                    ""id"": ""99324dcb-88d9-4789-886c-4222efa3b8be"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -223,6 +232,17 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""action"": ""Nextline"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c2805e6c-6144-4ecf-89a4-3203038a3607"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseAbility"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -238,6 +258,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         m_PlayerActionMap_Slide = m_PlayerActionMap.FindAction("Slide", throwIfNotFound: true);
         m_PlayerActionMap_OpenInventory = m_PlayerActionMap.FindAction("OpenInventory", throwIfNotFound: true);
         m_PlayerActionMap_Nextline = m_PlayerActionMap.FindAction("Nextline", throwIfNotFound: true);
+        m_PlayerActionMap_UseAbility = m_PlayerActionMap.FindAction("UseAbility", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -306,6 +327,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerActionMap_Slide;
     private readonly InputAction m_PlayerActionMap_OpenInventory;
     private readonly InputAction m_PlayerActionMap_Nextline;
+    private readonly InputAction m_PlayerActionMap_UseAbility;
     public struct PlayerActionMapActions
     {
         private @PlayerInputAction m_Wrapper;
@@ -317,6 +339,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         public InputAction @Slide => m_Wrapper.m_PlayerActionMap_Slide;
         public InputAction @OpenInventory => m_Wrapper.m_PlayerActionMap_OpenInventory;
         public InputAction @Nextline => m_Wrapper.m_PlayerActionMap_Nextline;
+        public InputAction @UseAbility => m_Wrapper.m_PlayerActionMap_UseAbility;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActionMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -347,6 +370,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @Nextline.started += instance.OnNextline;
             @Nextline.performed += instance.OnNextline;
             @Nextline.canceled += instance.OnNextline;
+            @UseAbility.started += instance.OnUseAbility;
+            @UseAbility.performed += instance.OnUseAbility;
+            @UseAbility.canceled += instance.OnUseAbility;
         }
 
         private void UnregisterCallbacks(IPlayerActionMapActions instance)
@@ -372,6 +398,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @Nextline.started -= instance.OnNextline;
             @Nextline.performed -= instance.OnNextline;
             @Nextline.canceled -= instance.OnNextline;
+            @UseAbility.started -= instance.OnUseAbility;
+            @UseAbility.performed -= instance.OnUseAbility;
+            @UseAbility.canceled -= instance.OnUseAbility;
         }
 
         public void RemoveCallbacks(IPlayerActionMapActions instance)
@@ -398,5 +427,6 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         void OnSlide(InputAction.CallbackContext context);
         void OnOpenInventory(InputAction.CallbackContext context);
         void OnNextline(InputAction.CallbackContext context);
+        void OnUseAbility(InputAction.CallbackContext context);
     }
 }

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BossBaseState : CharacterBaseState
 {
-    public BossManager _bossManager
-        ;
+    public BossManager _bossManager;
+        
 
 
 

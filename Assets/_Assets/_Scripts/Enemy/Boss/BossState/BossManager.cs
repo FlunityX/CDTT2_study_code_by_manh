@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class BossManager : CharacterManager
 {
-       public Boss _Boss { get; private set; }
+    public Boss _Boss;
+    
+    public BossIdleState _IdleState = new();
+    public BossWalkState _WalkState = new();
+    public BossMeleeAttackState _MeleeAttack =new();
+    public BossCastSpellState _CastSpellState = new();
+    public BossHurtState _HurtState = new();
+    public BossDeathState _DeathState = new();
 
     
 
@@ -19,7 +26,7 @@ public class BossManager : CharacterManager
     }
     private void SetUpProperties()
     {
-        //_state ;
+        _state = _IdleState;
         _state.EnterState(this);
     }
 }

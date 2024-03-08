@@ -25,15 +25,15 @@ public class BossBaseState : CharacterBaseState
        if (_bossManager._Boss.transform.localScale == Vector3.one)
         {
             _bossManager._Boss.transform.localScale = new Vector3(-1, 1, 1);
-            _bossManager._Boss.transform._isFacingLeft = true;
-            _bossManager._Boss.transform._isFacingRight = false;
+            _bossManager._Boss._isFacingLeft = true;
+            _bossManager._Boss._isFacingRight = false;
 
         }
         else
         {
-            _NEnemyManager._normalEnemy.transform.localScale = new Vector3(1, 1, 1);
-            _NEnemyManager._normalEnemy._isFacingLeft = false;
-            _NEnemyManager._normalEnemy._isFacingRight = true;
+            _bossManager._Boss.transform.localScale = new Vector3(1, 1, 1);
+            _bossManager._Boss._isFacingLeft = false;
+            _bossManager._Boss._isFacingRight = true;
 
         }
     }

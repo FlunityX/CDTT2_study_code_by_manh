@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerEntryAttackState : PlayerBaseState
 {
-    private float comboDuration = .3f;
+    private float comboDuration = 1f;
     private float comboDurationCounter;
    
     public override void EnterState(PlayerStateManager playerStateManager)
@@ -49,7 +49,7 @@ public class PlayerEntryAttackState : PlayerBaseState
 
     private bool CheckIfCanCombo()
     {
-        return comboDurationCounter <= comboDuration && GameInput.Instance.AttackPerform() && Player.Instance._playerAttack.IsAttackingReady();
+        return  GameInput.Instance.AttackPerform() && Player.Instance._playerAttack.IsAttackingReady();
 
     }
     private bool CheckIfCanIdle()

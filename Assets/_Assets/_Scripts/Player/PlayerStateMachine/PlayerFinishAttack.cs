@@ -48,7 +48,7 @@ public class PlayerFinishAttack : PlayerBaseState
 
     private bool CheckIfCanCombo()
     {
-        return comboDurationCounter <= comboDuration && GameInput.Instance.AttackPerform() && Player.Instance._playerAttack.IsAttackingReady();
+        return GameInput.Instance.AttackPerform() && Player.Instance._playerAttack.IsAttackingReady();
 
     }
     private bool CheckIfCanIdle()

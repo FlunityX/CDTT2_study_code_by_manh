@@ -11,6 +11,7 @@ public class ItemSlot : MonoBehaviour
 
     ItemSO item;  // Current item in the slot
 
+   
     // Add item to the slot
     public void AddItem(ItemSO newItem)
     {
@@ -18,6 +19,7 @@ public class ItemSlot : MonoBehaviour
 
         icon.sprite = item.Icon;
         icon.enabled = true;
+        removeButton.image.enabled = true;
         removeButton.interactable = true;
     }
 

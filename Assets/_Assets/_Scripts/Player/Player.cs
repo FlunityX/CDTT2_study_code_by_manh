@@ -10,6 +10,7 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
     [SerializeField]public PlayerVisual _playerVisual;
     [SerializeField] public PlayerAttack _playerAttack;
     [SerializeField] public PlayerCollider _playerCollider;
+    [SerializeField] public AbilityHolder _abilityHolder;
     public bool isGetHit=false;
     public bool canUsePotion;
     public bool isUsePotion = false;

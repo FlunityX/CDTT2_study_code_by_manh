@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IInteractable
+public interface INonConsumable 
 {
-    public void InteractHandler();
+    public void OnEquip();
 }

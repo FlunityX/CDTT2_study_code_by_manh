@@ -11,6 +11,7 @@ public class GameInput : MonoBehaviour
     public event EventHandler OnJumpAction;
     public event EventHandler OnInteract;
     public event EventHandler OnOpenInventory;
+    public event EventHandler OnUseAbility;
     private void Awake()
     {
         Instance = this;
@@ -25,8 +26,14 @@ public class GameInput : MonoBehaviour
         playerInputAction.PlayerActionMap.Slide.performed += Slide_performed;
         playerInputAction.PlayerActionMap.OpenInventory.performed += OpenInventory_performed;
         playerInputAction.PlayerActionMap.Nextline.performed += Nextline_performed;
+        playerInputAction.PlayerActionMap.UseAbility.performed += UseAbility_performed;
 
 
+    }
+
+    private void UseAbility_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        OnUseAbility?.Invoke(this, EventArgs.Empty);
     }
 
     private void Nextline_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)

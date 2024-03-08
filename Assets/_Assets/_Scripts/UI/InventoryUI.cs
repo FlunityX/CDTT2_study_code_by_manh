@@ -7,6 +7,7 @@ public class InventoryUI : MonoBehaviour
     public Transform itemsParent;   // The parent object of all the items
     public GameObject inventoryUI;  // The entire UI
     PlayerInventory inventory;    // Our current inventory
+    public Transform BuffHolder;
     ItemSlot[] slots;  // List of all the slots
 
     void Start()
@@ -37,9 +38,9 @@ public class InventoryUI : MonoBehaviour
     void UpdateUI()
     {
         // Loop through all the slots
-        for (int i = 0; i < slots.Length; i++)
+        for (int i = 0; i < slots.Length-1; i++)
         {
-            if (i < inventory.items.Count)  // If there is an item to add
+            if (i < inventory.items.Count && inventory.items[i].IsConsumable)  // If there is an item to add
             {
                 slots[i].AddItem(inventory.items[i]);   // Add it
             }
@@ -49,6 +50,15 @@ public class InventoryUI : MonoBehaviour
                 slots[i].ClearSlot();
             }
         }
+        for(int i=0;i< inventory.items.Count; i++)
+        {
+            if (!inventory.items[i].IsConsumable) {
+                slots[9].AddItem(inventory.items[i]);
+                BuffItemSO buff = (BuffItemSO)inventory.items[i];
+                buff.OnEquip();
+            }
+        }
+        
     }
  
 }

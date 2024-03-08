@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
+public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataPersistence
 {
     public static Player Instance {  get; private set; }
     public PlayerMovement _playerMovement;
@@ -104,5 +104,15 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
         checkpointPos = pos;
     }
 
+    public void LoadData(GameData data)
+    {
+        this.currentHp = data.currentHp;
+    }
+
+
+    public void SaveData(ref GameData data)
+    {
+        data.currentHp = this.currentHp;
+    }
   
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3499cc9107fb7ff45a8823f318962a42
+guid: 406a2b775edbecb4fbfb3456ddd29763
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Health_0
+      name: Retro Impact Effect Pack 2 E_0
       rect:
         serializedVersion: 2
-        x: 48
-        y: 192
-        width: 30
-        height: 47
+        x: 0
+        y: 1105
+        width: 64
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0889f53d21add7941810951ff71e4d5e
-      internalID: -712878576
+      spriteID: dac56ec351ec4a54f848bd12c2e007a1
+      internalID: 922194027
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Health_1
+      name: Retro Impact Effect Pack 2 E_1
       rect:
         serializedVersion: 2
-        x: 176
-        y: 192
-        width: 30
-        height: 47
+        x: 64
+        y: 1105
+        width: 64
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1755a5f174f11d4ba3b743700e7f2f6
-      internalID: 529565984
+      spriteID: 7707bd9b8acf49d449b3c4ffcfee7f68
+      internalID: -79643957
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Health_2
+      name: Retro Impact Effect Pack 2 E_2
       rect:
         serializedVersion: 2
-        x: 48
-        y: 128
-        width: 30
-        height: 47
+        x: 128
+        y: 1105
+        width: 64
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,113 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34704632e58d4af42a04d4027bc13b8e
-      internalID: -1536474452
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Health_3
-      rect:
-        serializedVersion: 2
-        x: 176
-        y: 128
-        width: 30
-        height: 47
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2bd37d4103ae90d43ae4b7590f5333e9
-      internalID: -821863827
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Health_4
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 64
-        width: 31
-        height: 47
-      alignment: 9
-      pivot: {x: 0.48387095, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b9d366dbd04d49248897befcf1010f14
-      internalID: -752723931
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Health_5
-      rect:
-        serializedVersion: 2
-        x: 176
-        y: 64
-        width: 33
-        height: 47
-      alignment: 9
-      pivot: {x: 0.45454547, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 095b8767ce8ce8e4eaae5debba58e3b2
-      internalID: 1740305425
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Health_6
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 36
-        height: 46
-      alignment: 9
-      pivot: {x: 0.41666666, y: 0.51086956}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 30aa0f97f78b95e4ba3fce126e28bfea
-      internalID: -332760751
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Health_7
-      rect:
-        serializedVersion: 2
-        x: 176
-        y: 0
-        width: 37
-        height: 46
-      alignment: 9
-      pivot: {x: 0.4054054, y: 0.51086956}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8cfe43ad5d8905e46ad649bea2ed2979
-      internalID: 1216068953
+      spriteID: 29ccb6edcc5460a4281abbcda58db6de
+      internalID: 21103270
       vertices: []
       indices: 
       edges: []
@@ -288,15 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Health_0: -712878576
-      Health_1: 529565984
-      Health_2: -1536474452
-      Health_3: -821863827
-      Health_4: -752723931
-      Health_5: 1740305425
-      Health_6: -332760751
-      Health_7: 1216068953
-      Health_8: 693533061
+      Retro Impact Effect Pack 2 E_0: 922194027
+      Retro Impact Effect Pack 2 E_1: -79643957
+      Retro Impact Effect Pack 2 E_2: 21103270
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

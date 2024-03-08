@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, IDataPersistence
 {
     [SerializeField] public Rigidbody2D _boxRigidbody;
     [SerializeField] public bool isGround = true;
@@ -148,5 +148,15 @@ public class PlayerMovement : MonoBehaviour
     public void KnockBack()
     {
         _boxRigidbody.velocity = new Vector2(-dirX, .25f) * 15f;
+    }
+
+    public void LoadData(GameData data)
+    {
+        this.transform.position = data.playerPosition;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.playerPosition = this.transform.position;
     }
 }

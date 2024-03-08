@@ -20,11 +20,17 @@ public class BossWalkState : BossBaseState
 
     public override void Update()
     {
-
+        if (CheckIfCanMeleeAttack())
+        {
+            _bossManager.ChangeState(_bossManager._MeleeAttack); 
+        }
     }
 
 
-
+    private bool CheckIfCanMeleeAttack()
+    {
+        return _bossManager._Boss.GetBossMeleeAttack().IsReadyToAttack() && _bossManager._Boss.attackCount < 3 && _bossManager._Boss.GetBossCollider().isPlayerInRange;
+    }
 
 
 

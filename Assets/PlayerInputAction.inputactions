@@ -60,9 +60,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "NextLine",
+                    "name": "Nextline",
                     "type": "Button",
-                    "id": "8f8139df-54ca-4d46-9e0f-285979efdeb9",
+                    "id": "f7545f2e-56ad-4369-b566-34b3e0c5e6f4",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -193,12 +193,12 @@
                 },
                 {
                     "name": "",
-                    "id": "8cd5b7bf-402f-4eb1-8cdd-797b52cdeffd",
+                    "id": "2e0a41b6-1c8c-48a2-82c6-591c43826f87",
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "NextLine",
+                    "action": "Nextline",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

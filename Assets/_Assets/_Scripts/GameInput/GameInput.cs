@@ -24,8 +24,14 @@ public class GameInput : MonoBehaviour
         playerInputAction.PlayerActionMap.Interact.performed += Interact_performed;
         playerInputAction.PlayerActionMap.Slide.performed += Slide_performed;
         playerInputAction.PlayerActionMap.OpenInventory.performed += OpenInventory_performed;
-        
- 
+        playerInputAction.PlayerActionMap.Nextline.performed += Nextline_performed;
+
+
+    }
+
+    private void Nextline_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        return;
     }
 
     private void OpenInventory_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -71,7 +77,11 @@ public class GameInput : MonoBehaviour
     {
         return playerInputAction.PlayerActionMap.Slide.ReadValue<float>() > .9f;
     }
+    public bool NextLinePerform()
+    {
+        return playerInputAction.PlayerActionMap.Nextline.ReadValue<float>() > .9f;
 
+    }
 
     public Vector2 GetMovementVectorNormalized()
     {

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76fdec4666c3e76459a58e619b6e90c2, type: 3}
   m_Name: AttackBuff
   m_EditorClassIdentifier: 
-  AbilityName: 
-  coolDown: 0
-  duration: 0
+  AbilityName: Attack
+  coolDown: 10
+  duration: 5

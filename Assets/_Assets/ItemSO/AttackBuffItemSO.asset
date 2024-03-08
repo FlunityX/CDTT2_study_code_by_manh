@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aedc91bcfe9e61e4ba4c0fc86436579d, type: 3}
   m_Name: AttackBuffItemSO
   m_EditorClassIdentifier: 
-  ItemName: 
-  Icon: {fileID: 0}
+  ItemName: AttackBuf
+  Icon: {fileID: -497659738, guid: 7f9ca0ff21f2d414583d0cb1eb00a7a5, type: 3}
+  IsConsumable: 0
+  _abilitySO: {fileID: 11400000, guid: e40dc4305dcbcdd4ebae8f314ee3ad00, type: 2}

@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameData
 {
     public float currentHp = 1;
-    public Vector3 playerPosition;
+    public Vector3 lastCheckpoint;
 
 
 

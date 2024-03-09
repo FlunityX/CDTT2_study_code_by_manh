@@ -106,13 +106,13 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
 
     public void LoadData(GameData data)
     {
-        this.currentHp = data.currentHp;
+        this.transform.position = data.lastCheckpoint;
     }
 
 
     public void SaveData(ref GameData data)
     {
-        data.currentHp = this.currentHp;
+        data.lastCheckpoint = this.checkpointPos;
     }
-  
+
 }

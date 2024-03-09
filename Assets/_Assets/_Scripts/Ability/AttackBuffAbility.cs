@@ -13,4 +13,9 @@ public class AttackBuffAbility : AbilitySO
         Player.Instance.Dmg += 10f;
         Debug.Log("attackIncrease");
     }
+    public override void Deactivate()
+    {
+        base.Deactivate();
+        Player.Instance.Dmg -= 10f;
+    }
 }

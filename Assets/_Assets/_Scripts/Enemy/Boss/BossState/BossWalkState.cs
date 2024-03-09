@@ -22,7 +22,7 @@ public class BossWalkState : BossBaseState
     {
         if (CheckIfCanMeleeAttack())
         {
-            _bossManager.ChangeState(_bossManager._MeleeAttack); 
+            _bossManager.ChangeState(_bossManager._MeleeAttack);  
         }
     }
 

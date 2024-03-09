@@ -8,6 +8,7 @@ public class AbilityHolder : MonoBehaviour
     public float coolDown;
     public float duration;
     public bool IsUsed;
+    public bool IsActive=false;
     enum abilityState
     {
         ready,
@@ -23,7 +24,11 @@ public class AbilityHolder : MonoBehaviour
 
     private void GameInput_OnUseAbility(object sender, System.EventArgs e)
     {
+        if (_abilitySO !=null)
+        {
         OnUsedAbility();
+            
+        }
     }
 
     private void Update()
@@ -41,6 +46,7 @@ public class AbilityHolder : MonoBehaviour
                 {
                     Debug.Log("runiing");
                     state = abilityState.active;
+                    IsActive = false;
                 }
                 break;
 
@@ -54,10 +60,15 @@ public class AbilityHolder : MonoBehaviour
                     IsUsed = false;
                     Debug.Log("to cool");
                     DurationReset();
+                    _abilitySO.Deactivate();
                 }
                 else
                 {
-                _abilitySO.Activate();
+                    if (!IsActive)
+                    {
+                        _abilitySO.Activate();
+                        IsActive = true;
+                    }
                 }
 
                 break; 

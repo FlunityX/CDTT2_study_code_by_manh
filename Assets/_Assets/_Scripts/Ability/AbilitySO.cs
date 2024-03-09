@@ -9,4 +9,6 @@ public class AbilitySO : ScriptableObject
     public float duration;
 
     public virtual void Activate() { }
+
+    public virtual void Deactivate() { }
 }

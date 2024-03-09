@@ -140,7 +140,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8552590202253312580}
-  - component: {fileID: 1963087494133523933}
   - component: {fileID: 4552462273361933394}
   m_Layer: 0
   m_Name: goblinScoutVisual
@@ -164,27 +163,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7350929813600337913}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1963087494133523933
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2725101843639331797}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: aeeaef089f0bb374ca14855605ebce83, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &4552462273361933394
 SpriteRenderer:
   m_ObjectHideFlags: 0

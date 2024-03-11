@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour, IMeleeAttack,IRangeAttack
 {
-    private float attackSpeed = .5f;
+    public float attackSpeed = .5f;
     private float attackCounter;
     public bool isAttackReady;
     [SerializeField] private Transform attackPoint;

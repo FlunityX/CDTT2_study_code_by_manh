@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public bool isFalling ;
     private float jumpTimeCounter;
     private float jumpTime=.1f;
-    private float jumpForce = 6f;
+    private float jumpForce = 7f;
     private float increasingSpeed = 5f;
     
     public float dirX;

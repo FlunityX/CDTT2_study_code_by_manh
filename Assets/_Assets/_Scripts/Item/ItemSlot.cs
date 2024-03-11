@@ -30,6 +30,7 @@ public class ItemSlot : MonoBehaviour
 
         icon.sprite = null;
         icon.enabled = false;
+        removeButton.image.enabled = false;
         removeButton.interactable = false;
     }
 

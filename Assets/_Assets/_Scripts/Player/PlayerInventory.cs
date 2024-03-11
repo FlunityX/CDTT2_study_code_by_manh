@@ -8,8 +8,10 @@ public class PlayerInventory : MonoBehaviour
     public static PlayerInventory Instance { get; private set; }
 
     [SerializeField] public List<ItemSO> items = new List<ItemSO>();
+    [SerializeField] public ItemSO buffItem;
     [SerializeField]private int space = 9;
     public event EventHandler OnItemChanged;
+    public event EventHandler OnBuffItemChange;
 
     private void Awake()
     {
@@ -17,21 +19,49 @@ public class PlayerInventory : MonoBehaviour
     }
     public bool Add(ItemSO item)
     {
-        if(items.Count <= space)
+        if (item.IsConsumable)
         {
-            items.Add(item);
-            OnItemChanged?.Invoke(this, EventArgs.Empty);
-            return true;
+            if (items.Count <= space)
+            {
+                items.Add(item);
+                OnItemChanged?.Invoke(this, EventArgs.Empty);
+                return true;
 
+            }
+            else
+            {
+                Debug.Log("Inventory full");
+                return false;
+            }
         }
-        else {
-            Debug.Log("Inventory full");
-            return false; 
+        else
+        {
+            if(buffItem == null)
+            {
+                buffItem=item;
+                OnItemChanged?.Invoke(this, EventArgs.Empty);
+                return true;
+            }
+            else
+            {
+                Debug.Log("Inventory full");
+                return false;
+            }
         }
     }public void Remove(ItemSO item)
     {
+        if(item.IsConsumable)
+        {
+            items.Remove(item);
+            OnItemChanged?.Invoke(this, EventArgs.Empty);
 
-        items.Remove(item);
-        OnItemChanged?.Invoke(this, EventArgs.Empty);
+        }
+        else
+        {
+            buffItem = null;
+            OnItemChanged?.Invoke(this, EventArgs.Empty);
+            OnBuffItemChange?.Invoke(this, EventArgs.Empty);
+
+        }
     }
 }

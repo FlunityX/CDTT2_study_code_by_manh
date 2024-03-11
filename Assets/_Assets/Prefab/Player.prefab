@@ -169,7 +169,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 7
+  m_SortingOrder: 5
   m_Sprite: {fileID: -1222535055, guid: 6db184022a4291140af614c074a2fdb9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -245,101 +245,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7913359446244449206}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &5353903477435668804
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7702578482689751253}
-  - component: {fileID: 5097332911448387308}
-  - component: {fileID: 8258732152295455540}
-  m_Layer: 10
-  m_Name: PlayerCollider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7702578482689751253
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5353903477435668804}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7518467147612842308}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5097332911448387308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5353903477435668804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b1770707c16e3e42a63c3aca37a94fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _groundCollider: {fileID: 8258732152295455540}
-  _groundCheckPoint: {fileID: 3715809198387381732}
-  _ItemLayer:
-    serializedVersion: 2
-    m_Bits: 256
---- !u!61 &8258732152295455540
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5353903477435668804}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.4113617, y: -3.174633}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.445343, y: 0.123809814}
-  m_EdgeRadius: 0
 --- !u!1 &5519541760842264908
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,6 +372,7 @@ GameObject:
   - component: {fileID: 3720703132013897456}
   - component: {fileID: 5613310377791299261}
   - component: {fileID: 8683958047579783694}
+  - component: {fileID: 6602849923772191843}
   - component: {fileID: 77621592553340946}
   - component: {fileID: 4576663906097087839}
   m_Layer: 10
@@ -494,7 +400,6 @@ Transform:
   - {fileID: 3680156905866097741}
   - {fileID: 3715809198387381732}
   - {fileID: 8735061300784772189}
-  - {fileID: 7702578482689751253}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3720703132013897456
@@ -512,13 +417,13 @@ MonoBehaviour:
   _playerMovement: {fileID: 5613310377791299261}
   _playerVisual: {fileID: 4773488544579514569}
   _playerAttack: {fileID: 6030669955739078900}
-  _playerCollider: {fileID: 5097332911448387308}
-  _abilityHolder: {fileID: 0}
+  _playerCollider: {fileID: 4413420376385118334}
+  _abilityHolder: {fileID: 6602849923772191843}
   isGetHit: 0
   canUsePotion: 0
   isUsePotion: 0
   Speed: 10
-  Dmg: 1
+  Dmg: 2
   HpMax: 10
   currentHp: 10
   coin: 0
@@ -551,6 +456,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6b431ca45ea175459ac03d96a99f481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6602849923772191843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8044295190917503782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 094769a91afcd45478bd7ae22d487d1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _abilitySO: {fileID: 0}
+  coolDown: 0
+  duration: 0
+  IsUsed: 0
+  IsActive: 0
 --- !u!50 &77621592553340946
 Rigidbody2D:
   serializedVersion: 4

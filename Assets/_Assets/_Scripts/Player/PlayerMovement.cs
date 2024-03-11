@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (isFalling || isJumping)
         {
-            transform.Translate(moveDir * moveDistance*2);
+            transform.Translate(moveDir * moveDistance/1.5f);
         }
         else
         {

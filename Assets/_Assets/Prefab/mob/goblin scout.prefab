@@ -141,7 +141,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8552590202253312580}
   - component: {fileID: 4552462273361933394}
-  - component: {fileID: 359339230098557137}
+  - component: {fileID: 6628759164673436936}
   m_Layer: 0
   m_Name: goblinScoutVisual
   m_TagString: Untagged
@@ -216,7 +216,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &359339230098557137
+--- !u!95 &6628759164673436936
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -226,7 +226,7 @@ Animator:
   m_GameObject: {fileID: 2725101843639331797}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: aeeaef089f0bb374ca14855605ebce83, type: 2}
+  m_Controller: {fileID: 9100000, guid: bb854982e57b9b348b505de510d7123f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

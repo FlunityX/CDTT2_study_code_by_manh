@@ -13,8 +13,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public bool isJumping ;
     [SerializeField] public bool isFalling ;
     private float jumpTimeCounter;
-    private float jumpTime=.4f;
-    private float jumpForce = 4.5f;
+    private float jumpTime=.1f;
+    private float jumpForce = 6f;
     private float increasingSpeed = 5f;
     
     public float dirX;
@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (isFalling || isJumping)
         {
-            transform.Translate(moveDir * moveDistance);
+            transform.Translate(moveDir * moveDistance*2);
         }
         else
         {

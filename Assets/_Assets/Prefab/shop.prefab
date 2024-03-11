@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6846824472739405371}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: shop
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 8746665978818228187}
   - component: {fileID: 8757456986964275641}
   - component: {fileID: 7061202291213983553}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: shopVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}

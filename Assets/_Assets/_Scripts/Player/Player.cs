@@ -20,6 +20,7 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
     public float currentHp = 1;
     public float coin;
     Vector2 checkpointPos;
+    AudioManager audioManager;
     
     public event EventHandler<IHasHpBar.OnHpChangeEventArgs> OnHpChange;
    
@@ -27,6 +28,7 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
     private void Awake()
     {
         Instance = this;
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
     private void Start()
     {
@@ -67,6 +69,7 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
     {
         if (currentHp <= 0)
         {
+            audioManager.PlaySFX(audioManager.die);
             transform.position = checkpointPos;
             currentHp = 0;
             HealHp(HpMax);

@@ -8,8 +8,14 @@ using UnityEngine;
 
 public class Trap : MonoBehaviour
 {
+    AudioManager audioManager;
 
     [SerializeField] public float dmg;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
 
 
@@ -19,6 +25,7 @@ public class Trap : MonoBehaviour
         {
             collision.GetComponent<IReceiveDamage>().ReduceHp(dmg);
             collision.GetComponent<Player>()._playerMovement.KnockBack();
+            audioManager.PlaySFX(audioManager.hurtByObstacle);
         }
     }
 

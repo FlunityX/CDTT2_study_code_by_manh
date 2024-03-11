@@ -5,14 +5,11 @@ using UnityEngine;
 
 public class PlayerComboAttack1 : PlayerBaseState
 {
-    AudioManager audioManager;
+
     private float comboDuration = .5f;
     private float comboDurationCounter;
 
-    private void Awake()
-    {
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-    }
+
 
     public override void EnterState(PlayerStateManager playerStateManager)
     {
@@ -21,7 +18,7 @@ public class PlayerComboAttack1 : PlayerBaseState
        // Player.Instance._playerVisual.PlayerIdleAnim();
         Player.Instance._playerAttack.MeleeAttack(Player.Instance.Dmg);
 
-        // audioManager.PlaySFX(audioManager.swingSword);
+
 
         Debug.Log("2");
     }

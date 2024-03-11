@@ -7,7 +7,7 @@ public class InventoryUI : MonoBehaviour
     public Transform itemsParent;   // The parent object of all the items
     public GameObject inventoryUI;  // The entire UI
     PlayerInventory inventory;    // Our current inventory
-    public Transform BuffHolder;
+   // public Transform BuffHolder;
     ItemSlot[] slots;  // List of all the slots
 
     void Start()
@@ -17,6 +17,7 @@ public class InventoryUI : MonoBehaviour
         GameInput.Instance.OnOpenInventory += GameInput_OnOpenInventory;
         // Populate our slots array
         slots = itemsParent.GetComponentsInChildren<ItemSlot>();
+        gameObject.SetActive(false);
     }
 
     private void GameInput_OnOpenInventory(object sender, System.EventArgs e)

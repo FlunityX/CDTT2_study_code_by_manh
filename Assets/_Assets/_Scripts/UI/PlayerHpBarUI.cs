@@ -29,7 +29,12 @@ public class PlayerHpBarUI : MonoBehaviour, IHasHpBar
     private void HasHpBar_OnHpChange(object sender, IHasHpBar.OnHpChangeEventArgs e)
     {
         HpBarImage.fillAmount = e.HpNormalized;
-        if(e.HpNormalized <= .5f && e.HpNormalized >=.25f ) {
+        if(e.HpNormalized == 1)
+        {
+            HpBarImage.color = Color.green;
+
+        }
+        else if(e.HpNormalized <= .5f && e.HpNormalized >=.25f ) {
             HpBarImage.color = Color.yellow;
 
         }

@@ -51,15 +51,18 @@ public class InventoryUI : MonoBehaviour
                 slots[i].ClearSlot();
             }
         }
-        for(int i=0;i< inventory.items.Count; i++)
-        {
-            if (!inventory.items[i].IsConsumable) {
-                slots[9].AddItem(inventory.items[i]);
-                BuffItemSO buff = (BuffItemSO)inventory.items[i];
+        
+            if (inventory.buffItem!=null) {
+                slots[9].AddItem(inventory.buffItem);
+                BuffItemSO buff = (BuffItemSO)inventory.buffItem;
                 buff.OnEquip();
+            }
+            else
+            {
+                slots[9].ClearSlot();
             }
         }
         
     }
  
-}
+

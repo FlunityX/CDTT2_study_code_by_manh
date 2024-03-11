@@ -20,6 +20,21 @@ public class AbilityHolder : MonoBehaviour
     private void Start()
     {
         GameInput.Instance.OnUseAbility += GameInput_OnUseAbility;
+        PlayerInventory.Instance.OnBuffItemChange += PlayerInventory_OnBuffItemChange;
+    }
+
+    private void PlayerInventory_OnBuffItemChange(object sender, System.EventArgs e)
+    {
+        
+        BuffItemSO abilitySO = (BuffItemSO)PlayerInventory.Instance.buffItem;
+        if(abilitySO != null ) {
+            _abilitySO = abilitySO._abilitySO;
+        }
+        else
+        {
+            _abilitySO = null;
+
+        }
     }
 
     private void GameInput_OnUseAbility(object sender, System.EventArgs e)

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aedc91bcfe9e61e4ba4c0fc86436579d, type: 3}
-  m_Name: AttackBuffItemSO
+  m_Name: AttackSpeedBuffItemSO
   m_EditorClassIdentifier: 
-  ItemName: AttackBuf
-  Icon: {fileID: -2109219854, guid: 850350d47b68225458ea71cb18ca0ed3, type: 3}
+  ItemName: ASBuff
+  Icon: {fileID: -1709066327, guid: 850350d47b68225458ea71cb18ca0ed3, type: 3}
   IsConsumable: 0
-  _abilitySO: {fileID: 11400000, guid: e40dc4305dcbcdd4ebae8f314ee3ad00, type: 2}
+  _abilitySO: {fileID: 11400000, guid: 8a87b4502f06f61429ec6f5f5b4401a4, type: 2}

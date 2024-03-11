@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3811543732527852287}
   - component: {fileID: 8901497319929070037}
   m_Layer: 8
-  m_Name: Chest
+  m_Name: wooden chest
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 2587448429714509475}
   - component: {fileID: 3696277640517915605}
   m_Layer: 8
-  m_Name: Chest Visual
+  m_Name: woodenChestVisual
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,7 +123,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.02, y: 0.64, z: 0}
-  m_LocalScale: {x: 2.57, y: 2.57, z: 2.57}
+  m_LocalScale: {x: 2.5999997, y: 2.5999997, z: 2.5999997}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5672089599228774618}

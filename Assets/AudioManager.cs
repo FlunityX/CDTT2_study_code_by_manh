@@ -11,6 +11,11 @@ public class AudioManager : MonoBehaviour
     [Header("------- Audio Clip -------")]
     public AudioClip background;
     public AudioClip swingSword;
+    public AudioClip hurtByObstacle;
+    public AudioClip die;
+    public AudioClip walk;
+    public AudioClip hit;
+    public AudioClip jump;
 
     private void Start()
     {

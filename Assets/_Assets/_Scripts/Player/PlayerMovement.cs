@@ -18,6 +18,12 @@ public class PlayerMovement : MonoBehaviour
     private float increasingSpeed = 5f;
     
     public float dirX;
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     private void Start()
     {
         GameInput.Instance.OnJumpAction += GameInput_OnJumpAction;
@@ -44,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
         dirX = moveDir.x;
         float moveDistance = increasingSpeed * Time.deltaTime;
         //RaycastHit2D hit = Physics2D.Raycast(Player.Instance.transform.position, inputVector);
+        // audioManager.PlaySFX(audioManager.walk);
 
 
         if (isFalling || isJumping)
@@ -62,14 +69,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if(isGround)
         {
-           
+           audioManager.PlaySFX(audioManager.jump);
            _boxRigidbody.velocity = Vector2.up * jumpForce;
             
             
             jumpTimeCounter = jumpTime;
             isGround = false;
-            isFalling=false;
-           isJumping = true;
+            isFalling = false;
+            isJumping = true;
 
         }
         

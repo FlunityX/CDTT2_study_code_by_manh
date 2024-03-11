@@ -12,6 +12,12 @@ public class PlayerAttack : MonoBehaviour, IMeleeAttack,IRangeAttack
     [SerializeField] private Transform airAttackPoint;
     [SerializeField] private LayerMask _enemyLayer;
     [SerializeField] private GameObject rangeAttackPrefab;
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     private void Update()
     {
@@ -22,9 +28,12 @@ public class PlayerAttack : MonoBehaviour, IMeleeAttack,IRangeAttack
         Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position,2f,_enemyLayer);
         if(hits != null)
         {
+            audioManager.PlaySFX(audioManager.swingSword);
             foreach(Collider2D hit in hits) {
+ 
                 if (hit.CompareTag("Enemy"))
                 {
+                    audioManager.PlaySFX(audioManager.hit);
                     hit.GetComponent<IReceiveDamage>().ReduceHp(dmg);
                 } 
             }

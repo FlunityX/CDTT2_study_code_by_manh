@@ -30,7 +30,8 @@ public class PlayerInventory : MonoBehaviour
             }
             else
             {
-                Debug.Log("Inventory full");
+                NotificationUI.Instance.Show(GameConstant.INVENTORY_FULL_TEXT);
+
                 return false;
             }
         }
@@ -44,7 +45,7 @@ public class PlayerInventory : MonoBehaviour
             }
             else
             {
-                Debug.Log("Inventory full");
+                NotificationUI.Instance.Show(GameConstant.INVENTORY_BUFF_ITEM_TEXT);
                 return false;
             }
         }

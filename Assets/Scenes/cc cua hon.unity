@@ -9105,7 +9105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items: []
   buffItem: {fileID: 0}
-  space: 10
+  space: 9
 --- !u!4 &1103604156
 Transform:
   m_ObjectHideFlags: 0
@@ -10544,6 +10544,7 @@ RectTransform:
   - {fileID: 1071073749}
   - {fileID: 6887886945303210396}
   - {fileID: 2742305727644669771}
+  - {fileID: 1435885708909890370}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -11628,12 +11629,12 @@ RectTransform:
   m_Children:
   - {fileID: 2154064646588015426}
   - {fileID: 7278790987139817948}
-  m_Father: {fileID: 2742305727644669771}
+  m_Father: {fileID: 2056916877}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -201.01398, y: 340}
-  m_SizeDelta: {x: 855.8033, y: 100}
+  m_AnchoredPosition: {x: 57.5459, y: -26.108154}
+  m_SizeDelta: {x: 1074.8654, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1498527284394792194
 GameObject:
@@ -12306,7 +12307,6 @@ RectTransform:
   - {fileID: 4403042055865417829}
   - {fileID: 1714357004386349797}
   - {fileID: 7891589009759131834}
-  - {fileID: 1435885708909890370}
   m_Father: {fileID: 2056916877}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
@@ -12366,7 +12366,7 @@ GameObject:
   - component: {fileID: 1435885708909890370}
   - component: {fileID: 4764286342212704851}
   m_Layer: 5
-  m_Name: InsufficentCoinNoti
+  m_Name: Notification
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13839,6 +13839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10cb879e73603d24db019017f78dc069, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NotifText: {fileID: 981649664750858248}
   ShowTime: 0.5
 --- !u!114 &4769921378201885158
 MonoBehaviour:
@@ -16668,7 +16669,6 @@ MonoBehaviour:
   itemInfoText: {fileID: 4769921378201885158}
   itemPrice: {fileID: 715424957698619069}
   itemName: {fileID: 4614456718161473718}
-  CoinNotif: {fileID: 4764286342212704851}
 --- !u!224 &8963561359977944850
 RectTransform:
   m_ObjectHideFlags: 0

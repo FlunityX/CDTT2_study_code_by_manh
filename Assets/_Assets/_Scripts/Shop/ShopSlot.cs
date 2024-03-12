@@ -12,7 +12,7 @@ public class ShopSlot : MonoBehaviour
     public TextMeshProUGUI itemInfoText;
     public TextMeshProUGUI itemPrice;
     public TextMeshProUGUI itemName;
-    public NotificationUI CoinNotif;
+   
     ItemSO item;  // Current item in the slot
 
 
@@ -60,7 +60,7 @@ public class ShopSlot : MonoBehaviour
         }
         else
         {
-            CoinNotif.Show();
+            NotificationUI.Instance.Show(GameConstant.INSUFFICENT_COIN_TEXT);
             
         }
     }

@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aedc91bcfe9e61e4ba4c0fc86436579d, type: 3}
   m_Name: AttackSpeedBuffItemSO
   m_EditorClassIdentifier: 
-  ItemName: ASBuff
+  ItemName: Power necklace
   Icon: {fileID: -1709066327, guid: 850350d47b68225458ea71cb18ca0ed3, type: 3}
   IsConsumable: 0
+  Price: 100
+  ItemInfo: 
   _abilitySO: {fileID: 11400000, guid: 8a87b4502f06f61429ec6f5f5b4401a4, type: 2}

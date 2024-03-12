@@ -4,12 +4,12 @@ using UnityEngine;
 
 public abstract class ObjectPool :MonoBehaviour
 {
-    [SerializeField] private Transform holder;
-    [SerializeField] private List<GameObject> _objectPool;
-    [SerializeField] private GameObject _objectToSpawn;
-    [SerializeField] private Transform spawnPos;
+    [SerializeField] public Transform holder;
+    [SerializeField] public List<GameObject> _objectPool;
+    [SerializeField] public GameObject _objectToSpawn;
 
-    [SerializeField]private int amountToSpawn;
+
+    [SerializeField]public int amountToSpawn;
 
 
     public virtual void Start()
@@ -32,6 +32,7 @@ public abstract class ObjectPool :MonoBehaviour
             _objectPool.Add(tmp);
         }
     }
+ 
 
     public virtual GameObject GetObject()
     {

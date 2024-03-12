@@ -3,20 +3,23 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ShopUI : MonoBehaviour, IInteractable
+public class ShopUI : ObjectPool
 {
     public Transform itemsParent;   
     public GameObject _ShopUI;  
-    PlayerInventory inventory;
+    
     public TextMeshProUGUI playerCoin;
-    public ItemSO[] _itemSO;               
-    ItemSlot[] slots; 
+    public List<ItemSO> _itemSO;               
+    ShopSlot[] slots; 
 
-    void Start()
+   
+    public override void Start()
     {
-        inventory = PlayerInventory.Instance;
-        // Populate our slots array
-        slots = itemsParent.GetComponentsInChildren<ItemSlot>();
+        amountToSpawn = _itemSO.Count-1;
+       base.Start();
+        // Populate our slots array\
+        SpawnShopSlot();
+        slots = itemsParent.GetComponentsInChildren<ShopSlot>();
         gameObject.SetActive(false);
     }
 
@@ -28,15 +31,28 @@ public class ShopUI : MonoBehaviour, IInteractable
 
     }
  
-
-
-
-    void UpdateUI()
+    private void SpawnShopSlot()
     {
-        
-        for (int i = 0; i < slots.Length - 1; i++)
+        for (int i = 0; i < _itemSO.Count; i++) {
+            GameObject slot = GetObject();
+            if(slot != null) { 
+                slot.SetActive(true);
+            }
+        }
+    }
+
+    public void RemoveItem(ItemSO itemSo)
+    {
+        _itemSO.Remove(itemSo);
+    }
+
+     public void UpdateUI()
+    {
+       
+
+        for (int i = 0; i < slots.Length ; i++)
         {
-            if (i < inventory.items.Count && inventory.items[i].IsConsumable)  
+            if (i < _itemSO.Count )  
             {
                 slots[i].AddItem(_itemSO[i]);  
             }
@@ -46,12 +62,9 @@ public class ShopUI : MonoBehaviour, IInteractable
                 slots[i].ClearSlot();
             }
         }
-
+        playerCoin.text =Player.Instance.coin.ToString();
         
     }
 
-    public void InteractHandler()
-    {
-        ShopOpen();
-    }
+    
 }

@@ -15,4 +15,6 @@ MonoBehaviour:
   ItemName: Medium potion
   Icon: {fileID: 262369700, guid: 809131b1aac8c24429e70890902d2640, type: 3}
   IsConsumable: 1
+  Price: 15
+  ItemInfo: 
   HealAmount: 2

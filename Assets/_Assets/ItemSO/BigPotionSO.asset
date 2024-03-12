@@ -15,4 +15,6 @@ MonoBehaviour:
   ItemName: Big potion
   Icon: {fileID: -1123130712, guid: 809131b1aac8c24429e70890902d2640, type: 3}
   IsConsumable: 1
+  Price: 20
+  ItemInfo: 
   HealAmount: 5

@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shop : MonoBehaviour
+public class Shop : MonoBehaviour, IInteractable
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private ShopUI shopUI;
 
-    // Update is called once per frame
-    void Update()
+    public void InteractHandler()
     {
-        
+        shopUI.ShopOpen();
     }
+    
 }

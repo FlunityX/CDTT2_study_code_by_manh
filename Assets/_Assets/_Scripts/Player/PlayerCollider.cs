@@ -37,9 +37,16 @@ public class PlayerCollider : MonoBehaviour
     {
 
         Collider2D hit = Physics2D.OverlapCircle(transform.position,4f,_ItemLayer);
+        if (hit == null) {
+            return;
+        }
+        else
+        {
+
         if (hit.CompareTag(GameConstant.INTERACTABLE_TAG))
         {
             hit.GetComponent<IInteractable>().InteractHandler();
+        }
         }
        
     }

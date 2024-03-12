@@ -4,26 +4,22 @@ using UnityEngine;
 
 public class Chest : MonoBehaviour, IInteractable
 {
-    private Animator animator;
-    [SerializeField]private PotionSO[] potionSO ;
+    [SerializeField] private ChestSO chestSO;
+    [SerializeField] private ChestVisual _chestVisual;
     private void Start()
     {
-        animator = GetComponentInChildren<Animator>();
+     _chestVisual = GetComponentInChildren<ChestVisual>();
+     
     }
     public void InteractHandler()
     {
         Debug.Log("Chest loot");
         ChestLoot();
-        AnimationAndDestroy();
+        _chestVisual.AnimationAndDestroy();
     }
 
 
-    public void AnimationAndDestroy()
-    {
-        animator.CrossFade("chest_1_open", .3f, 0);
-        Invoke("DestroyGameObject", 1f);
-    }
-
+   
     public void DestroyGameObject()
     {
         Destroy(gameObject);
@@ -31,7 +27,7 @@ public class Chest : MonoBehaviour, IInteractable
     public void ChestLoot()
     {
         int rand = Random.Range(0, 3);
-        PlayerInventory.Instance.Add(potionSO[rand]);
-        Player.Instance.coin += Random.Range(10, 50);
+        PlayerInventory.Instance.Add(chestSO.itemSOs[rand]);
+        Player.Instance.coin += chestSO.coinAmount;
     }
 }

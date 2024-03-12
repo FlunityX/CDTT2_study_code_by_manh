@@ -46,10 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 702bd8bada649b947b97571b723972f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  potionSO:
-  - {fileID: 11400000, guid: 99cd4aa3c2921e245b3b83573de9ac57, type: 2}
-  - {fileID: 11400000, guid: 7fa2afbf798d5494086322a24305d68a, type: 2}
-  - {fileID: 11400000, guid: 59fa57f497024d6459ee38580be1d304, type: 2}
+  chestSO: {fileID: 11400000, guid: 32f91ad777b3a7b41979a4b519c3cc53, type: 2}
+  _chestVisual: {fileID: 5825442095431236265}
 --- !u!61 &5402279138762763494
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -106,6 +104,7 @@ GameObject:
   - component: {fileID: 1438236197806516407}
   - component: {fileID: 1251261217175478598}
   - component: {fileID: 3214825865112278563}
+  - component: {fileID: 5825442095431236265}
   m_Layer: 8
   m_Name: diamonChestVisual
   m_TagString: Interactable
@@ -201,3 +200,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5825442095431236265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8352341348212512090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46017204e9292a444a2003a11268f3bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

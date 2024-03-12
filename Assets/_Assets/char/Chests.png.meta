@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Chests_0
+      name: Chests_Wooden
       rect:
         serializedVersion: 2
         x: 2
@@ -530,7 +530,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chests_20
+      name: Chests_Golden
       rect:
         serializedVersion: 2
         x: 2
@@ -740,7 +740,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chests_30
+      name: Chests_Diamond
       rect:
         serializedVersion: 2
         x: 2
@@ -960,7 +960,6 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Chests_0: -1565534159
       Chests_1: 1221150012
       Chests_10: 684779086
       Chests_11: 2016285444
@@ -973,7 +972,6 @@ TextureImporter:
       Chests_18: 592885488
       Chests_19: 966606617
       Chests_2: -156748163
-      Chests_20: -899884589
       Chests_21: 1118686070
       Chests_22: 134247362
       Chests_23: -1023526352
@@ -984,7 +982,6 @@ TextureImporter:
       Chests_28: 2080866999
       Chests_29: -1799994754
       Chests_3: 570043711
-      Chests_30: -1085274142
       Chests_31: 1839612417
       Chests_32: -1019098330
       Chests_33: -648947935
@@ -1000,6 +997,9 @@ TextureImporter:
       Chests_7: -697205384
       Chests_8: -990079644
       Chests_9: -1243912427
+      Chests_Diamond: -1085274142
+      Chests_Golden: -899884589
+      Chests_Wooden: -1565534159
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

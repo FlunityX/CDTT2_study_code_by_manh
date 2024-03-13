@@ -46,7 +46,7 @@ public class JumpState : PlayerBaseState
     }
     private bool CheckIfCanAirAttack()
     {
-        return Player.Instance._playerMovement.isJumping && GameInput.Instance.AttackPerform() && Player.Instance._playerMovement._boxRigidbody.velocity.y <=4f;
+        return Player.Instance._playerMovement.isJumping && GameInput.Instance.AttackPerform() && Player.Instance._playerMovement._boxRigidbody.velocity.y <=2f;
     }
     private bool CheckIfGetHit()
     {

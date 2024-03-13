@@ -50,7 +50,7 @@ public class FallState : PlayerBaseState
     }
     private bool CheckIfCanAirAttack()
     {
-        return !Player.Instance._playerMovement.isGround && GameInput.Instance.AttackPerform() && Player.Instance._playerMovement._boxRigidbody.velocity.y >= -2f;
+        return !Player.Instance._playerMovement.isGround && GameInput.Instance.AttackPerform() && Player.Instance._playerMovement._boxRigidbody.velocity.y >= -1f;
     }
 
     private bool CheckIfGetHit()

@@ -16,6 +16,7 @@ public class Chest : MonoBehaviour, IInteractable
         Debug.Log("Chest loot");
         ChestLoot();
         _chestVisual.AnimationAndDestroy();
+        Invoke("DestroyGameObject", 1f);
     }
 
 

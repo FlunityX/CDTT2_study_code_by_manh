@@ -15,7 +15,7 @@ public class ChestVisual : MonoBehaviour
     public void AnimationAndDestroy()
     {
         animator.CrossFade("chest_1_open", .3f, 0);
-        Invoke("DestroyGameObject", 1f);
+        
     }
 
 }

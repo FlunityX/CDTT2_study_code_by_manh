@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private float jumpTimeCounter;
     private float jumpTime=.1f;
     private float jumpForce = 7f;
-    private float increasingSpeed = 5f;
+    [SerializeField]private float increasingSpeed = 7f;
     
     public float dirX;
     AudioManager audioManager;
@@ -115,6 +115,15 @@ public class PlayerMovement : MonoBehaviour
     public void Slide(float force)
     {
         _boxRigidbody.velocity = new Vector2(dirX,0) * force;
+        if(Player.Instance._playerSlideCollider.isCollideEnemy)
+        {
+            Physics2D.IgnoreCollision(Player.Instance.Collider, Player.Instance._playerSlideCollider.enemyColider, true);
+        }
+        else
+        {
+            Physics2D.IgnoreCollision(Player.Instance.Collider, Player.Instance._playerSlideCollider.enemyColider, false);
+
+        }
 
     }
     private void FlipPlayerSprite()

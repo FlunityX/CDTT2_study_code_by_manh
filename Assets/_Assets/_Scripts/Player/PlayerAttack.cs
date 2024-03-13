@@ -34,7 +34,8 @@ public class PlayerAttack : MonoBehaviour, IMeleeAttack,IRangeAttack
                 if (hit.CompareTag("Enemy"))
                 {
                     audioManager.PlaySFX(audioManager.hit);
-                    hit.GetComponent<IReceiveDamage>().ReduceHp(dmg);
+                    //hit.GetComponent<IReceiveDamage>().ReduceHp(dmg);
+                    Player.Instance.DealDamage(hit.GetComponent<IReceiveDamage>(), dmg);
                 } 
             }
         }
@@ -49,7 +50,9 @@ public class PlayerAttack : MonoBehaviour, IMeleeAttack,IRangeAttack
             {
                 if (hit.CompareTag("Enemy"))
                 {
-                    hit.GetComponent<IReceiveDamage>().ReduceHp(dmg);
+                    //hit.GetComponent<IReceiveDamage>().ReduceHp(dmg);
+                    Player.Instance.DealDamage(hit.GetComponent<IReceiveDamage>(), dmg);
+
                 }
             }
         }

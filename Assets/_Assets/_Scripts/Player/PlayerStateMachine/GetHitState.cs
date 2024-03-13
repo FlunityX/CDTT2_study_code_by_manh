@@ -11,7 +11,7 @@ public class GetHitState : PlayerBaseState
     {
         base.EnterState(playerStateManager);
         Player.Instance._playerVisual.PlayGetHitAnim();
-        Debug.Log("get hit");
+        //Debug.Log("get hit");
     }
 
     public override void ExitState()

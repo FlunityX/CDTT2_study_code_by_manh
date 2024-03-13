@@ -27,7 +27,17 @@ public static class GameConstant
     public const string PLAYER_AIR_ATTACK_GROUNDED_ANIM = "main_attackFromAir_grounded";
     public const string PLAYER_HEAL_ANIM = "main_heal";
 
+    #endregion
 
+    #region BossAnimation Constant
+    public const string BOSS_IDLE_ANIM = "BOSS_IDLE_ANIM";    
+    public const string BOSS_ATTACK_ANIM = "BOSS_MELEE_ANIM";    
+    public const string BOSS_SPELL_ANIM = "BOSS_CAST_ANIM";
+    public const string BOSS_WALK_ANIM = "BOSS_WALK_ANIM";
+    public const string BOSS_HURT_ANIM = "BOSS_HURT_ANIM";
+    public const string BOSS_DEAD_ANIM = "BOSS_DED_ANIM";
+   
+    
 
     #endregion
 

@@ -6,11 +6,12 @@ public class PlayerCollider : MonoBehaviour
 {
     
     [SerializeField] private BoxCollider2D _groundCollider;
+    [SerializeField] private BoxCollider2D _slideCollider;
     [SerializeField] private Transform _groundCheckPoint;
     [SerializeField] private LayerMask _ItemLayer;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag(GameConstant.GROUND_TAG))
         {
 
            Player.Instance._playerMovement.isGround = true;

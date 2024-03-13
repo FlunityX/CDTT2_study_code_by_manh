@@ -8,7 +8,7 @@ public class JumpState : PlayerBaseState
     {
         base.EnterState(playerStateManager);
         Player.Instance._playerVisual.PlayJumpAnim();
-        Debug.Log("jump");
+        //Debug.Log("jump");
     }
 
     public override void ExitState()
@@ -18,12 +18,7 @@ public class JumpState : PlayerBaseState
 
     public override void Update()
     {
-       /* if (CheckIfCanIdle())
-        {
-            _playerStateManager.ChangeState(_playerStateManager.runState);
-           //s Debug.Log("ruin");
-
-        }*/
+       
          if(CheckIfCanFall())
         {
             _playerStateManager.ChangeState(_playerStateManager.fallState);

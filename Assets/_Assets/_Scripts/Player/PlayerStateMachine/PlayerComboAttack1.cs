@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerComboAttack1 : PlayerBaseState
 {
 
-    private float comboDuration = .5f;
+    private float comboDuration = 1f;
     private float comboDurationCounter;
 
 

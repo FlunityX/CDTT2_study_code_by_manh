@@ -8,7 +8,8 @@ public class BossIdleState : BossBaseState
     public override void EnterState(CharacterManager characterManager)
     {
         base.EnterState(characterManager);
-       
+        _bossManager._Boss.GetBossVisual().PlayBossIdelAnim();
+        Debug.Log("Idel");
 
 
     }
@@ -21,31 +22,19 @@ public class BossIdleState : BossBaseState
 
     public override void Update()
     {
-       if(CheckIfCanMeleeAttack())
+       if(_bossManager.CheckIfCanMeleeAttack())
         {
             _bossManager.ChangeState(_bossManager._MeleeAttack);
-        }else if(CheckIfCanUseSpell())
+        }else if(_bossManager.CheckIfCanUseSpell())
         {
             _bossManager.ChangeState(_bossManager._CastSpellState);
-        }else if(CheckIfNeedChase())
+        }else if(_bossManager.CheckIfNeedChase())
         {
             _bossManager.ChangeState(_bossManager._WalkState);
         }
     }
 
-    private bool CheckIfCanMeleeAttack()
-    {
-        return _bossManager._Boss.GetBossMeleeAttack().IsReadyToAttack() && _bossManager._Boss.attackCount <3 && _bossManager._Boss.GetBossCollider().isPlayerInRange;
-    }
-    private bool CheckIfCanUseSpell()
-    {
-        return _bossManager._Boss.GetBossMeleeAttack().IsReadyToAttack() && _bossManager._Boss.attackCount == 3;
-    }
-
-    private bool CheckIfNeedChase()
-    {
-        return _bossManager._Boss.GetBossCollider().isPlayerInRange;
-    }
+   
 
 
 

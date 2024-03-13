@@ -10,26 +10,23 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
-    m_State: {fileID: -1382502493496307097}
-    m_Position: {x: 200, y: 0, z: 0}
+    m_State: {fileID: 1480943346380341719}
+    m_Position: {x: 290.43973, y: 36.188934, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: -2755305047561307808}
-    m_Position: {x: 235, y: 65, z: 0}
+    m_State: {fileID: 7818643539278958545}
+    m_Position: {x: 620, y: 110, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: -5970863623010508158}
-    m_Position: {x: 270, y: 130, z: 0}
+    m_State: {fileID: -274209321033723970}
+    m_Position: {x: 567.7035, y: 344.3974, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: -7849141956092504717}
-    m_Position: {x: 305, y: 195, z: 0}
+    m_State: {fileID: -1578525303531213092}
+    m_Position: {x: 396.8892, y: 296.1238, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 61511794073570780}
-    m_Position: {x: 340, y: 260, z: 0}
+    m_State: {fileID: -4258052811494494397}
+    m_Position: {x: 183.99026, y: 265.17914, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: -485606875937214572}
-    m_Position: {x: 375, y: 325, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 4162881164482847547}
-    m_Position: {x: 410, y: 390, z: 0}
+    m_State: {fileID: -1876460502869155384}
+    m_Position: {x: 375.8469, y: 150.06516, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -39,41 +36,15 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: -1382502493496307097}
---- !u!1102 &-7849141956092504717
+  m_DefaultState: {fileID: 1480943346380341719}
+--- !u!1102 &-4258052811494494397
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: boss_hurt
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b78e94bf4aebc6740816cd99e901e9a5, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
---- !u!1102 &-5970863623010508158
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: boss_melee
+  m_Name: BOSS_MELEE_ANIM
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -92,14 +63,14 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &-2755305047561307808
+--- !u!1102 &-1876460502869155384
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: boss_walk
+  m_Name: BOSS_WALK_ANIM
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -118,14 +89,14 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &-1382502493496307097
+--- !u!1102 &-1578525303531213092
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: boss_idle
+  m_Name: BOSS_HURT_ANIM
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -138,20 +109,20 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 4319512743c57cb4ea2df344bf4aca99, type: 2}
+  m_Motion: {fileID: 7400000, guid: b78e94bf4aebc6740816cd99e901e9a5, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &-485606875937214572
+--- !u!1102 &-274209321033723970
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: boss_cast
+  m_Name: BOSS_DED_ANIM
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -164,7 +135,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: cdb312aa9e8689b47b2f7a6a5c251335, type: 2}
+  m_Motion: {fileID: 7400000, guid: 6a249ff6173973a48a9e5ba2ee5caa2b, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -192,14 +163,14 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!1102 &61511794073570780
+--- !u!1102 &1480943346380341719
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: boss_ded
+  m_Name: BOSS_IDLE_ANIM
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -212,20 +183,20 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 6a249ff6173973a48a9e5ba2ee5caa2b, type: 2}
+  m_Motion: {fileID: 7400000, guid: 4319512743c57cb4ea2df344bf4aca99, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &4162881164482847547
+--- !u!1102 &7818643539278958545
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: boss_spell
+  m_Name: BOSS_CAST_ANIM
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -238,7 +209,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: cbd935375e9cf4946b6a7d8668be11f0, type: 2}
+  m_Motion: {fileID: 7400000, guid: cdb312aa9e8689b47b2f7a6a5c251335, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

@@ -7,8 +7,8 @@ public class BossMeleeAttack : MonoBehaviour,IMeleeAttack
     [SerializeField] private Transform attackPoint;
     [SerializeField] private float attackRange;
     [SerializeField] private LayerMask playerLayer;
-    private Boss _boss;
-    private float attackSpeedCounter;
+    [SerializeField]private Boss _boss;
+   [SerializeField] private float attackSpeedCounter;
 
     private void Start()
     {
@@ -18,6 +18,7 @@ public class BossMeleeAttack : MonoBehaviour,IMeleeAttack
     private void Update()
     {
         attackSpeedCounter += Time.deltaTime;
+
 
     }
     public void MeleeAttack(float dmg)
@@ -42,7 +43,7 @@ public class BossMeleeAttack : MonoBehaviour,IMeleeAttack
 
     public bool IsReadyToAttack()
     {
-        return attackSpeedCounter > _boss.attackSpeed;
+        return attackSpeedCounter >= _boss.GetEnemyStat().attackSpeed;
     }
     private void ResetAttackSpeedCounter()
     {

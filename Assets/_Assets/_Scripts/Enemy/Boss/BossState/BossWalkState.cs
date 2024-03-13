@@ -7,8 +7,9 @@ public class BossWalkState : BossBaseState
     public override void EnterState(CharacterManager characterManager)
     {
         base.EnterState(characterManager);
-
-
+        _bossManager._Boss.GetBossVisual().PlayBossWalkAnim();
+       
+        Debug.Log("chase");
 
     }
 
@@ -20,17 +21,20 @@ public class BossWalkState : BossBaseState
 
     public override void Update()
     {
-        if (CheckIfCanMeleeAttack())
+        _bossManager.UpdateChaseDir();
+        
+        _bossManager.Chase();
+        if (_bossManager.CheckIfCanMeleeAttack())
         {
             _bossManager.ChangeState(_bossManager._MeleeAttack);  
+        }else if(_bossManager.CheckIfCanIdle())
+        {
+            _bossManager.ChangeState(_bossManager._IdleState);
         }
     }
 
 
-    private bool CheckIfCanMeleeAttack()
-    {
-        return _bossManager._Boss.GetBossMeleeAttack().IsReadyToAttack() && _bossManager._Boss.attackCount < 3 && _bossManager._Boss.GetBossCollider().isPlayerInRange;
-    }
+    
 
 
 

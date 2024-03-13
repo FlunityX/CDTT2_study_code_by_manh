@@ -10,7 +10,7 @@ public class IdleState : PlayerBaseState
         base.EnterState(playerStateManager);
         Player.Instance._playerVisual.PlayerIdleAnim();
         Player.Instance.canUsePotion = true;
-        Debug.Log("idle");
+        //Debug.Log("idle");
     }
 
     public override void ExitState()

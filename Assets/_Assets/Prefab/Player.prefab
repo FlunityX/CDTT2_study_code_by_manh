@@ -30,7 +30,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3842283912880362550}
   m_Father: {fileID: 7518467147612842308}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4413420376385118334
@@ -46,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _groundCollider: {fileID: 4805757760175281263}
+  _slideCollider: {fileID: 0}
   _groundCheckPoint: {fileID: 3715809198387381732}
   _ItemLayer:
     serializedVersion: 2
@@ -245,6 +247,98 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7913359446244449206}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4412264303939105954
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3842283912880362550}
+  - component: {fileID: 7506424781228923922}
+  - component: {fileID: 8927167916593471362}
+  m_Layer: 10
+  m_Name: PlayerSlideCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3842283912880362550
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4412264303939105954}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8735061300784772189}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &7506424781228923922
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4412264303939105954}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 2.2860107, y: -1.8482647}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.5720215, y: 1.6809387}
+  m_EdgeRadius: 0
+--- !u!114 &8927167916593471362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4412264303939105954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d10406fef7573484d97556c0906c6060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCollideEnemy: 0
+  enemyColider: {fileID: 0}
 --- !u!1 &5519541760842264908
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,6 +385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06b208d9918baa14eb0db48d55118d3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackSpeed: 0.5
   isAttackReady: 0
   attackPoint: {fileID: 1624791288305613892}
   airAttackPoint: {fileID: 7282419563299004984}
@@ -418,7 +513,9 @@ MonoBehaviour:
   _playerVisual: {fileID: 4773488544579514569}
   _playerAttack: {fileID: 6030669955739078900}
   _playerCollider: {fileID: 4413420376385118334}
+  _playerSlideCollider: {fileID: 8927167916593471362}
   _abilityHolder: {fileID: 6602849923772191843}
+  Collider: {fileID: 4576663906097087839}
   isGetHit: 0
   canUsePotion: 0
   isUsePotion: 0
@@ -426,7 +523,7 @@ MonoBehaviour:
   Dmg: 2
   HpMax: 10
   currentHp: 10
-  coin: 0
+  coin: 100
 --- !u!114 &5613310377791299261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,6 +540,7 @@ MonoBehaviour:
   isGround: 1
   isJumping: 0
   isFalling: 0
+  increasingSpeed: 7
   dirX: 0
 --- !u!114 &8683958047579783694
 MonoBehaviour:

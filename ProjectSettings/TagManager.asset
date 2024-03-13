@@ -8,6 +8,7 @@ TagManager:
   - Interactable
   - Obstacle
   - Audio
+  - Enemy
   layers:
   - Default
   - TransparentFX

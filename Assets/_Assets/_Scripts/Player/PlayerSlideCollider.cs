@@ -8,23 +8,32 @@ public class PlayerSlideCollider : MonoBehaviour
     public Collider2D enemyColider;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag(GameConstant.ENEMY_TAG))
+        if (collision != null)
         {
-            enemyColider = collision;
-            isCollideEnemy = true;
 
+            if (collision.gameObject.CompareTag(GameConstant.ENEMY_TAG))
+            {
+                enemyColider = collision;
+                isCollideEnemy = true;
+
+            }
         }
+        else return;
 
 
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag(GameConstant.ENEMY_TAG))
+        if (collision != null)
         {
-            enemyColider = collision;
 
-            isCollideEnemy = false;
+            if (collision.gameObject.CompareTag(GameConstant.ENEMY_TAG))
+            {
+                enemyColider = collision;
+                isCollideEnemy = false;
 
+            }
         }
+        else return;
     }
 }

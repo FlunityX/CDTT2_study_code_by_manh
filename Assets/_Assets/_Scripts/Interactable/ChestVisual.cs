@@ -12,9 +12,9 @@ public class ChestVisual : MonoBehaviour
         animator = GetComponent<Animator>();
 
     }
-    public void AnimationAndDestroy()
+    public void ChestOpenAnim(string chestName)
     {
-        animator.CrossFade("chest_1_open", .3f, 0);
+        animator.CrossFade(chestName, .2f, 0);
         
     }
 

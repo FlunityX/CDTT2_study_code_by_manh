@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GoldenChest
   m_EditorClassIdentifier: 
   chestSprite: {fileID: -899884589, guid: daf46c83d8de0ee46a1a0c3cfdf4251f, type: 3}
-  chestName: Golden Chest
+  chestName: GoldenChest
   itemSOs:
   - {fileID: 11400000, guid: 7179ee12d692f4e4899403442e9e5e73, type: 2}
   - {fileID: 11400000, guid: 59fa57f497024d6459ee38580be1d304, type: 2}

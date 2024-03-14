@@ -7,6 +7,7 @@ public class NEnemyAttackState : NEnemyBaseState
     public override void EnterState(CharacterManager characterManager)
     {
         base.EnterState(characterManager);
+        _NEnemyManager._normalEnemy.GetEnemyVisual().PlayAttackAnim();
         _NEnemyManager._normalEnemy.GetNEnemyAttack().MeleeAttack(_NEnemyManager._normalEnemy.GetEnemyStat().attackDamage);
         Debug.Log("Attack");
     }

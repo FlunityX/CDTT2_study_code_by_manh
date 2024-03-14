@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu()]
 public class UnitSO :ScriptableObject
 {
-    
+    public string UnitName;
    public float Speed;
     public float Hp;
     public float AttackDmg;

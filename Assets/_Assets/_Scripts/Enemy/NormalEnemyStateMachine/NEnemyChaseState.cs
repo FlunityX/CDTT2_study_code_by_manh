@@ -12,6 +12,8 @@ public class NEnemyChaseState : NEnemyBaseState
     {
         base.EnterState(characterManager);
         ChaseDir = Player.Instance.transform.position.x - _NEnemyManager._normalEnemy.transform.position.x;
+        _NEnemyManager._normalEnemy.GetEnemyVisual().PlayWalkAnim();
+
 
 
         Debug.Log("chase");
@@ -42,7 +44,7 @@ public class NEnemyChaseState : NEnemyBaseState
             return;
         }
         
-        UpdateChaseDir();
+        _NEnemyManager.UpdateChaseDir();
     }
     private bool CheckIfCanIdle()
     {
@@ -71,17 +73,6 @@ public class NEnemyChaseState : NEnemyBaseState
     }
 
    
-
-    private void UpdateChaseDir()
-    {
-        ChaseDir = Player.Instance.transform.position.x - _NEnemyManager._normalEnemy.transform.position.x;
-
-    }
-    public override void ChangeDirection()
-    {
-        base.ChangeDirection();
-    }
-
 
 
     public override void FixedUpdate() { }

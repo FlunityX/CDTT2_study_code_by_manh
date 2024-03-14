@@ -7,6 +7,7 @@ public class Shop : MonoBehaviour, IInteractable
     [SerializeField] private ShopUI shopUI;
     [SerializeField] private Transform shopTile;
 
+  
     public void InteractHandler()
     {
         shopUI.ShopOpen();

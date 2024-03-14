@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyStat : MonoBehaviour
 {
     [SerializeField]private UnitSO _unitSO;
+    public UnitSO GetUnitSO() { return _unitSO; }   
     public float currentHp;
     public float speed;
     public float Hp;

@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyMeleeAttack :MonoBehaviour, IMeleeAttack
 {
     [SerializeField] private Transform attackPoint;
-    [SerializeField] private float attackRange;
+
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private NormalEnemy _normalEnemy;
     private float attackSpeedCounter;
@@ -17,13 +17,18 @@ public class EnemyMeleeAttack :MonoBehaviour, IMeleeAttack
     }
     public void MeleeAttack(float dmg)
     {
-        Collider2D hit = Physics2D.OverlapCircle(attackPoint.position, attackRange, playerLayer);
-        if (hit != null)
+        Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, _normalEnemy.GetEnemyStat().attackRange, playerLayer);
+        if (hits != null)
         {
-            if (hit.CompareTag("Player"))
+            foreach (Collider2D hit in hits)
             {
-                hit.GetComponent<Player>().ReduceHp(dmg);
-                Player.Instance.ReduceHp(dmg);
+
+                if (hit.CompareTag(GameConstant.PLAYER_TAG))
+                {
+                    _normalEnemy.DealDamage(hit.GetComponent<IReceiveDamage>(),_normalEnemy.GetEnemyStat().attackDamage);
+                
+                
+            }
             }
         }
         ResetAttackSpeedCounter();
@@ -41,7 +46,7 @@ public class EnemyMeleeAttack :MonoBehaviour, IMeleeAttack
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        Gizmos.DrawWireSphere(attackPoint.position, _normalEnemy.GetEnemyStat().attackRange);
     }
 
 }

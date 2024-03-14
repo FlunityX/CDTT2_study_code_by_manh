@@ -38,6 +38,10 @@ public class NEnemyIdleState : NEnemyBaseState
         {
             _NEnemyManager.ChangeState(_NEnemyManager._NEnemyChaseState);
         }
+        else if (_NEnemyManager.CheckIfGetHit())
+        {
+            _NEnemyManager.ChangeState(_NEnemyManager._NEnemyGetHitState);
+        }
     }
 
     private  bool CheckIfCanPatrol()

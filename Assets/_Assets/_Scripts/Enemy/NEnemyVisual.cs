@@ -21,6 +21,7 @@ public class NEnemyVisual : MonoBehaviour
     }public void PlayAttackAnim()
     {
         animator.CrossFade(_normalEnemy.GetEnemyStat().GetUnitSO().UnitName + "_attack", .2f, 0);
+        
     }public void PlayHurtAnim()
     {
         animator.CrossFade(_normalEnemy.GetEnemyStat().GetUnitSO().UnitName + "_hurt", .2f, 0);

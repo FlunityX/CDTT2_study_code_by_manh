@@ -27,6 +27,7 @@ public class GameInput : MonoBehaviour
         playerInputAction.PlayerActionMap.OpenInventory.performed += OpenInventory_performed;
         playerInputAction.PlayerActionMap.Nextline.performed += Nextline_performed;
         playerInputAction.PlayerActionMap.UseAbility.performed += UseAbility_performed;
+        
 
 
     }
@@ -75,6 +76,14 @@ public class GameInput : MonoBehaviour
       return  playerInputAction.PlayerActionMap.Jump.ReadValue<float>();
         
     } 
+    public void DisableJump()
+    {
+        playerInputAction.PlayerActionMap.Jump.Disable();
+    }
+    public void EnableJump()
+    {
+        playerInputAction.PlayerActionMap.Jump.Enable();
+    }
 
     public bool AttackPerform()
     {

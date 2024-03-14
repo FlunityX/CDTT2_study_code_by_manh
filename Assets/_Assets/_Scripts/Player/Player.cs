@@ -73,6 +73,7 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
         if (currentHp <= 0)
         {
             audioManager.PlaySFX(audioManager.die);
+ 
             transform.position = checkpointPos;
             currentHp = 0;
             HealHp(HpMax);

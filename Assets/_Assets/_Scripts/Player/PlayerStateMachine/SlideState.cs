@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class SlideState : PlayerBaseState
 {
-    private float slideTime = 1.5f;
+    private float slideTime = .5f;
     private float slideTimeCounter;
     public override void EnterState(PlayerStateManager playerStateManager)
     {
         base.EnterState(playerStateManager);
-        Player.Instance._playerMovement.Slide(15f);
+        Player.Instance._playerMovement.Slide(20f);
         Player.Instance._playerVisual.PlaySlideAnim();
     }
 

@@ -49,7 +49,7 @@ public class IdleState : PlayerBaseState
 
     private bool CheckIfCanRun()
     {
-        return (Player.Instance.GetDirX() != 0 && Player.Instance._playerMovement.isGround);  
+        return (Player.Instance._playerMovement.dirX != 0 && Player.Instance._playerMovement.isGround);  
     }
 
     private bool CheckIfCanJump()

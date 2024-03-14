@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+
+    public static AudioManager Instance;
     [Header("------- Audio Source -------")]
     [SerializeField] AudioSource musicSource;
     [SerializeField] AudioSource SFXSource;
@@ -17,6 +19,11 @@ public class AudioManager : MonoBehaviour
     public AudioClip hit;
     public AudioClip jump;
 
+
+    private void Awake()
+    {
+        Instance = this;
+    }
     private void Start()
     {
         musicSource.clip = background;

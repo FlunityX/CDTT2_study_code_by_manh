@@ -5,6 +5,7 @@ using UnityEngine;
 public class BossSpellAttack : MonoBehaviour,IRangeAttack
 {
     [SerializeField] private Transform _bossSpell;
+    [SerializeField] private Transform spellHeighPoint;
     private Boss _boss;
     private void Start()
     {
@@ -14,7 +15,7 @@ public class BossSpellAttack : MonoBehaviour,IRangeAttack
     {
         _boss.attackCount = 0;
         Transform spell = Instantiate(_bossSpell, _boss.transform);
-        spell.transform.position = Player.Instance.transform.position;
+        spell.transform.position = new Vector2(Player.Instance.transform.position.x, spellHeighPoint.position.y);
     }
 
    

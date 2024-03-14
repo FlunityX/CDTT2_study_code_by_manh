@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 3
   Hp: 1000
-  AttackDmg: 10
+  AttackDmg: 2
   AttackSpeed: 1
-  AttackRange: 8
+  AttackRange: 12

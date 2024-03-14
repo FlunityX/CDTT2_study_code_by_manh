@@ -12,8 +12,8 @@ public class BossMeleeAttack : MonoBehaviour,IMeleeAttack
 
     private void Start()
     {
-        
         _boss = GetComponentInParent<Boss>();
+       // attackRange = _boss.GetEnemyStat().attackRange;   
     }
     private void Update()
     {
@@ -23,13 +23,16 @@ public class BossMeleeAttack : MonoBehaviour,IMeleeAttack
     }
     public void MeleeAttack(float dmg)
     {
-        Collider2D hit = Physics2D.OverlapCircle(attackPoint.position, attackRange, playerLayer);
-        if (hit != null)
+        Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, _boss.GetEnemyStat().attackRange, playerLayer);
+        if (hits != null)
         {
-            if (hit.CompareTag("Player"))
+            foreach (Collider2D hit in hits)
             {
-                hit.GetComponent<Player>().ReduceHp(dmg);
-                Player.Instance.ReduceHp(dmg);
+                if (hit.CompareTag(GameConstant.PLAYER_TAG))
+                {
+                    _boss.DealDamage(hit.GetComponent<IReceiveDamage>(), dmg);
+                    Debug.Log(hit.name);
+                }
             }
         }
         ResetAttackSpeedCounter();
@@ -53,6 +56,6 @@ public class BossMeleeAttack : MonoBehaviour,IMeleeAttack
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        Gizmos.DrawWireSphere(attackPoint.position, _boss.GetEnemyStat().attackRange);
     }
 }

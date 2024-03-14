@@ -12,13 +12,13 @@ public class RunState : PlayerBaseState
 
         base.EnterState(playerStateManager);
         Player.Instance._playerVisual.PlayRunAnim();
-        Player.Instance._playerMovement.RestIncreasingSpeed();
+        Player.Instance._playerMovement.ResetIncreasingSpeed();
         Debug.Log("run");
     }
 
     public override void ExitState()
     {
-        Player.Instance._playerMovement.RestIncreasingSpeed();
+        Player.Instance._playerMovement.ResetIncreasingSpeed();
 
     }
 

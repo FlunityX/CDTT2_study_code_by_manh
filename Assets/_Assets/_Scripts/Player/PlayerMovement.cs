@@ -12,9 +12,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public bool isGround = true;
     [SerializeField] public bool isJumping ;
     [SerializeField] public bool isFalling ;
+    public bool isReadSlide=true;
     private float jumpTimeCounter;
     private float jumpTime=.1f;
     private float jumpForce = 7f;
+    private float slideTimer;
+    private float slideTimerMax=3f;
+
     [SerializeField]private float increasingSpeed = 7f;
     
     public float dirX;
@@ -42,6 +46,11 @@ public class PlayerMovement : MonoBehaviour
         FlipPlayerSprite();
         IncreasSpeed();
         ForceBoolVariable();
+        if (slideTimer < slideTimerMax)
+        {
+        slideTimer += Time.deltaTime;
+           
+        }
     }
     private void HandleMovement()
     {
@@ -119,12 +128,12 @@ public class PlayerMovement : MonoBehaviour
         {
             Physics2D.IgnoreCollision(Player.Instance.Collider, Player.Instance._playerSlideCollider.enemyColider, true);
         }
-        else
+        else if(!Player.Instance._playerSlideCollider.isCollideEnemy && Player.Instance._playerSlideCollider.enemyColider != null)
         {
             Physics2D.IgnoreCollision(Player.Instance.Collider, Player.Instance._playerSlideCollider.enemyColider, false);
 
         }
-
+        ResetSlideTimer();
     }
     private void FlipPlayerSprite()
     {
@@ -156,9 +165,17 @@ public class PlayerMovement : MonoBehaviour
             isJumping=false;
         }
     }
-    public void RestIncreasingSpeed()
+    public bool IsReadyToSlide()
     {
-        increasingSpeed = 5f;
+        return slideTimer >= slideTimerMax;
+    }
+    public void ResetIncreasingSpeed()
+    {
+        increasingSpeed = 7f;
+    } 
+    public void ResetSlideTimer()
+    {
+        slideTimer = 0f;
     }
 
     public void KnockBack()

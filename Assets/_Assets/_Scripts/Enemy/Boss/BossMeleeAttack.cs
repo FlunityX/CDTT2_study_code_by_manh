@@ -17,24 +17,18 @@ public class BossMeleeAttack : MonoBehaviour,IMeleeAttack
     }
     private void Update()
     {
+        if(attackSpeedCounter< _boss.GetEnemyStat().attackSpeed)
+        {
         attackSpeedCounter += Time.deltaTime;
+
+        }
 
 
     }
     public void MeleeAttack(float dmg)
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, _boss.GetEnemyStat().attackRange, playerLayer);
-        if (hits != null)
-        {
-            foreach (Collider2D hit in hits)
-            {
-                if (hit.CompareTag(GameConstant.PLAYER_TAG))
-                {
-                    _boss.DealDamage(hit.GetComponent<IReceiveDamage>(), dmg);
-                    Debug.Log(hit.name);
-                }
-            }
-        }
+        StartCoroutine(DelayedAttack(dmg));
+        
         ResetAttackSpeedCounter();
         _boss.attackCount++;
        
@@ -57,5 +51,26 @@ public class BossMeleeAttack : MonoBehaviour,IMeleeAttack
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(attackPoint.position, _boss.GetEnemyStat().attackRange);
+    }
+
+    IEnumerator  DelayedAttack(float dmg) 
+    {
+        yield return new WaitForSeconds(.3f);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, _boss.GetEnemyStat().attackRange, playerLayer);
+        if (hits != null)
+        {
+            foreach (Collider2D hit in hits)
+            {
+                if (hit.CompareTag(GameConstant.PLAYER_TAG))
+                {
+                    _boss.DealDamage(hit.GetComponent<IReceiveDamage>(), dmg);
+
+
+
+                    Debug.Log(hit.name);
+                }
+            }
+        }
+
     }
 }

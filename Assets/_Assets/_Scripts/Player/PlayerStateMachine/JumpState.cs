@@ -13,7 +13,7 @@ public class JumpState : PlayerBaseState
 
     public override void ExitState()
     {
-        
+        GameInput.Instance.DisableJump();
     }
 
     public override void Update()
@@ -33,8 +33,8 @@ public class JumpState : PlayerBaseState
         }
 
     }
+    
 
-  
     private bool CheckIfCanFall()
     {
         return Player.Instance.GetRigidbody().velocity.y < 0;

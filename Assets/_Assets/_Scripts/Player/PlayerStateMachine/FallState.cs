@@ -14,7 +14,7 @@ public class FallState : PlayerBaseState
 
     public override void ExitState()
     {
-
+        GameInput.Instance.EnableJump();
     }
 
     public override void Update()

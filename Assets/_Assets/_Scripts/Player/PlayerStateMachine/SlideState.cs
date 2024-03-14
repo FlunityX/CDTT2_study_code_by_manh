@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SlideState : PlayerBaseState
 {
-    private float slideTime = 1.5f;
+    private float slideTime = 1f;
     private float slideTimeCounter;
     public override void EnterState(PlayerStateManager playerStateManager)
     {
@@ -17,6 +17,8 @@ public class SlideState : PlayerBaseState
     public override void ExitState()
     {
         ResetSlideTimeCounter();
+        Player.Instance._playerMovement.Slide(0);
+
     }
 
     public override void Update()

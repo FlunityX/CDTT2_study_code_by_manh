@@ -78,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(isGround)
         {
-           audioManager.PlaySFX(audioManager.jump);
+           audioManager.PlaySFX(audioManager.jump); 
            _boxRigidbody.velocity = Vector2.up * jumpForce;
             
             

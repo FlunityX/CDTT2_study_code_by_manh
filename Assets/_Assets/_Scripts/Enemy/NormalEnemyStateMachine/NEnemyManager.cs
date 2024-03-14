@@ -12,12 +12,13 @@ public class NEnemyManager : CharacterManager
     public NEnemyAttackState _NEnemyAttackState= new();
     public NEnemyGetHitState _NEnemyGetHitState= new();
     public NormalEnemy _normalEnemy;
+    private float ChaseDir;
 
-  /*  public NEnemyIdleState GetNEnemyIdleState() { return _NEnemyIdleState; }
-    public NEnemyAttackState GetNEnemyAttackState() { return _NEnemyAttackState; }
-    public NEnemyChaseState GetNEnemyChaseState() { return _NEnemyChaseState;}
-    public NEnemyGetHitState GetNEnemyGetHitState() { return _NEnemyGetHitState;}
-    public NEnemyPartrolState GetNEnemyPartrolState() { return _NEnemyPartrolState;}*/
+    /*  public NEnemyIdleState GetNEnemyIdleState() { return _NEnemyIdleState; }
+      public NEnemyAttackState GetNEnemyAttackState() { return _NEnemyAttackState; }
+      public NEnemyChaseState GetNEnemyChaseState() { return _NEnemyChaseState;}
+      public NEnemyGetHitState GetNEnemyGetHitState() { return _NEnemyGetHitState;}
+      public NEnemyPartrolState GetNEnemyPartrolState() { return _NEnemyPartrolState;}*/
 
 
     private void Start()
@@ -33,5 +34,36 @@ public class NEnemyManager : CharacterManager
         _state = _NEnemyIdleState;
         _state.EnterState(this);
     }
+    public  void ChangeDirection()
+    {
+        if (_normalEnemy.transform.localScale == Vector3.one)
+        {
+            _normalEnemy.transform.localScale = new Vector3(-1, 1, 1);
+            _normalEnemy._isFacingLeft = true;
+            _normalEnemy._isFacingRight = false;
 
+        }
+        else
+        {
+            _normalEnemy.transform.localScale = new Vector3(1, 1, 1);
+            _normalEnemy._isFacingLeft = false;
+            _normalEnemy._isFacingRight = true;
+
+        }
+    }
+    public void UpdateChaseDir()
+    {
+        ChaseDir = Player.Instance.transform.position.x - _normalEnemy.transform.position.x;
+        if (ChaseDir > 0)
+        {
+            _normalEnemy.transform.localScale = new Vector3(-1, 1, 1);
+
+        }
+        else
+        {
+            _normalEnemy.transform.localScale = new Vector3(1, 1, 1);
+
+        }
+
+    }
 }

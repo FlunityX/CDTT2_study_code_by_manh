@@ -14,7 +14,9 @@ public class NEnemyIdleState : NEnemyBaseState
     {
         base.EnterState(characterManager);
         _NEnemyManager = (NEnemyManager)characterManager;
+
         entryTime = Time.time;
+        _NEnemyManager._normalEnemy.GetEnemyVisual().PlayIdleAnim();
         Debug.Log("chillin");
 
 

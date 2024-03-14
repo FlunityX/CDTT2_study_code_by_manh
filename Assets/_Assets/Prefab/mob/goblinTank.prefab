@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 4119346948745951954}
   - component: {fileID: 3530834299307331895}
   - component: {fileID: 5730559977068738693}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: goblinTank
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,6 +54,7 @@ MonoBehaviour:
   _enemyStat: {fileID: 7509129074142170604}
   _enemyMeleeAttack: {fileID: 5551609050987482127}
   _enemyCollider: {fileID: 113398083620854684}
+  _enemyVisual: {fileID: 5680478879552523244}
   _rb: {fileID: 3530834299307331895}
   detectRange: 4
 --- !u!114 &4119346948745951954
@@ -140,7 +141,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7077856632169018087}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +157,7 @@ Transform:
   m_GameObject: {fileID: 5772901577155007435}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -4.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -171,7 +172,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 660481566352775294}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ObstacleCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3421020311797192732}
   - component: {fileID: 7509129074142170604}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Stat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,7 +256,7 @@ GameObject:
   - component: {fileID: 6145579325904908050}
   - component: {fileID: 113398083620854684}
   - component: {fileID: 705724547527424941}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EnemyCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,7 +352,8 @@ GameObject:
   - component: {fileID: 2563229726485808608}
   - component: {fileID: 1707758985725373603}
   - component: {fileID: 1271971561500217394}
-  m_Layer: 0
+  - component: {fileID: 5680478879552523244}
+  m_Layer: 11
   m_Name: goblinTankVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -368,7 +370,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7350929813600337913}
@@ -446,6 +448,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5680478879552523244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8236293907283022179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b2bc934aec421d48979cd6c200e768f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8965037947994198186
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,7 +470,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1633723245829598134}
   - component: {fileID: 5551609050987482127}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}

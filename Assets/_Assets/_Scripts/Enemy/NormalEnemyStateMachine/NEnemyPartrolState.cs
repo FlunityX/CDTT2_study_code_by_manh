@@ -13,6 +13,8 @@ public class NEnemyPartrolState : NEnemyBaseState
         base.EnterState(characterManager);
         _NEnemyManager = (NEnemyManager)characterManager;
         entryTime = Time.time;
+        _NEnemyManager._normalEnemy.GetEnemyVisual().PlayWalkAnim();
+
         Debug.Log("enter");
         
     }
@@ -52,30 +54,13 @@ public class NEnemyPartrolState : NEnemyBaseState
 
         if (_NEnemyManager._normalEnemy.GetNEnemyCollider().CheckIfHitObstacle())
         {
-            ChangeDirection();
+            _NEnemyManager.ChangeDirection();
             _NEnemyManager.ChangeState(_NEnemyManager._NEnemyIdleState);
             
         }
     }
 
-    public override void ChangeDirection()
-    {
-        base.ChangeDirection();
-       /* if(_NEnemyManager._normalEnemy.transform.localScale == Vector3.one)
-        {
-            _NEnemyManager._normalEnemy.transform.localScale =  new Vector3(-1,1,1);
-            _NEnemyManager._normalEnemy._isFacingLeft = true;
-            _NEnemyManager._normalEnemy._isFacingRight = false;
-
-        }
-        else
-        {
-            _NEnemyManager._normalEnemy.transform.localScale = new Vector3(1, 1, 1);
-            _NEnemyManager._normalEnemy._isFacingLeft = false;
-            _NEnemyManager._normalEnemy._isFacingRight = true;
-
-        }*/
-    }
+    
     public override void FixedUpdate() {
         
     }

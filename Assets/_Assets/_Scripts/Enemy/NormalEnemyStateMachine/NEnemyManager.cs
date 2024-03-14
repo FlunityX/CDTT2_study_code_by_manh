@@ -13,7 +13,10 @@ public class NEnemyManager : CharacterManager
     public NEnemyGetHitState _NEnemyGetHitState= new();
     public NormalEnemy _normalEnemy;
     private float ChaseDir;
+    public float getHitDuration = .2f;
+    public float attackDuration = .5f;
 
+    public float durationCounter;
     /*  public NEnemyIdleState GetNEnemyIdleState() { return _NEnemyIdleState; }
       public NEnemyAttackState GetNEnemyAttackState() { return _NEnemyAttackState; }
       public NEnemyChaseState GetNEnemyChaseState() { return _NEnemyChaseState;}
@@ -65,5 +68,15 @@ public class NEnemyManager : CharacterManager
 
         }
 
+    }
+
+    public bool CheckIfGetHit()
+    {
+        return _normalEnemy.isGetHit;
+    }
+
+    public void ResetCounter()
+    {
+        durationCounter = 0;
     }
 }

@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class GetHitState : PlayerBaseState
 {
-    private float gethitTime = .2f;
+    private float gethitTime = .1f;
     private float gethitTimeCounter;
 
     public override void EnterState(PlayerStateManager playerStateManager)
     {
         base.EnterState(playerStateManager);
         Player.Instance._playerVisual.PlayGetHitAnim();
+        Player.Instance.isGetHit = false;
+
         //Debug.Log("get hit");
     }
 
@@ -22,7 +24,6 @@ public class GetHitState : PlayerBaseState
     public override void Update()
     {
         gethitTimeCounter += Time.deltaTime;
-       Player.Instance.isGetHit = false;
         if (CheckIfCanIdle())
        {
             _playerStateManager.ChangeState(_playerStateManager.idleState);

@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99da319440db7cf428847c34af93b390, type: 3}
   m_Name: GoblinTankSO
   m_EditorClassIdentifier: 
+  UnitName: GoblinTank
   Speed: 2
   Hp: 10
-  AttackDmg: 10
-  AttackSpeed: 1
-  AttackRange: 4
+  AttackDmg: 1
+  AttackSpeed: 5
+  AttackRange: 2

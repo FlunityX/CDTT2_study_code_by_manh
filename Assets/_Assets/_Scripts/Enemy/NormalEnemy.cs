@@ -10,7 +10,8 @@ public class NormalEnemy :MonoBehaviour, INormalEnemy, IDealDamage, IReceiveDama
     [SerializeField]private NEnemyVisual _enemyVisual;
     [SerializeField] private Rigidbody2D _rb;
     public float detectRange = 4f; // player vao tam nay se bi phat hien
-   
+    public bool isGetHit;
+
     public bool _isFacingLeft { get;set; }
     public bool _isFacingRight { get; set; }
     public NEnemyCollider GetNEnemyCollider() { return _enemyCollider; }
@@ -28,6 +29,7 @@ public class NormalEnemy :MonoBehaviour, INormalEnemy, IDealDamage, IReceiveDama
 
     public void ReduceHp(float dmg)
     {
-        _enemyStat.Hp -= dmg;
+        _enemyStat.currentHp -= dmg;
+        isGetHit = true;
     }
 }

@@ -30,11 +30,11 @@ public class PlayerAttack : MonoBehaviour, IMeleeAttack,IRangeAttack
         {
             audioManager.PlaySFX(audioManager.swingSword);
             foreach(Collider2D hit in hits) {
- 
-                if (hit.CompareTag("Enemy"))
+                Debug.Log(hit.name);
+                if (hit.CompareTag(GameConstant.ENEMY_TAG))
                 {
                     audioManager.PlaySFX(audioManager.hit);
-                    //hit.GetComponent<IReceiveDamage>().ReduceHp(dmg);
+              
                     Player.Instance.DealDamage(hit.GetComponent<IReceiveDamage>(), dmg);
                 } 
             }
@@ -43,7 +43,7 @@ public class PlayerAttack : MonoBehaviour, IMeleeAttack,IRangeAttack
     }
     public void PlayerAirAttack(float dmg)
     {
-        Collider2D[] hits = Physics2D.OverlapBoxAll(airAttackPoint.position, new Vector3(8, 2, 0), 0);
+        Collider2D[] hits = Physics2D.OverlapBoxAll(airAttackPoint.position, new Vector3(8, 2, 0), 0,_enemyLayer);
         if (hits != null)
         {
             foreach (Collider2D hit in hits)
@@ -74,6 +74,6 @@ public class PlayerAttack : MonoBehaviour, IMeleeAttack,IRangeAttack
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-       // Gizmos.DrawCube(airAttackPoint.position, new Vector3(8,2,0));
+        Gizmos.DrawSphere(attackPoint.position,2f);
     }
 }

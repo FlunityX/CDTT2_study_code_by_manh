@@ -28,17 +28,6 @@ public class Boss : MonoBehaviour, IReceiveDamage, IDealDamage, IHasHpBar
 
     public event EventHandler<IHasHpBar.OnHpChangeEventArgs> OnHpChange;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void DealDamage(IReceiveDamage receiveDmg, float dmg)
     {

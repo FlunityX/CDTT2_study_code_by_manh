@@ -28,7 +28,14 @@ public class PlayerRangeAttackPrefab : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        collision?.GetComponent<IReceiveDamage>().ReduceHp(Player.Instance.Dmg);
+        if (collision != null)
+        {
+            if(collision.CompareTag(GameConstant.ENEMY_TAG))
+            {
+               Player.Instance.DealDamage( collision.GetComponent<IReceiveDamage>(), Player.Instance.Dmg);
+
+            }
+        }
         //Instantiate(impactEffect, transform.position, transform.rotation);//instantiate effect
         Destroy(gameObject);
     }

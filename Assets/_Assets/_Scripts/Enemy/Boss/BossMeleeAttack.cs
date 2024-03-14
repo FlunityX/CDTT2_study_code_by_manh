@@ -17,7 +17,11 @@ public class BossMeleeAttack : MonoBehaviour,IMeleeAttack
     }
     private void Update()
     {
+        if(attackSpeedCounter< _boss.GetEnemyStat().attackSpeed)
+        {
         attackSpeedCounter += Time.deltaTime;
+
+        }
 
 
     }

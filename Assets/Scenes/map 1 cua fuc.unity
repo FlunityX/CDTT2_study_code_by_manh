@@ -10342,10 +10342,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: shop
       objectReference: {fileID: 0}
-    - target: {fileID: 6634797371496741405, guid: 16b00a28c780296488a29193ecfa3959, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6846824472739405371, guid: 16b00a28c780296488a29193ecfa3959, type: 3}
       propertyPath: m_LocalPosition.x
       value: 85.13
@@ -10386,7 +10382,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8601139406162406103, guid: 16b00a28c780296488a29193ecfa3959, type: 3}
+    - target: {fileID: 7282294903560824237, guid: 16b00a28c780296488a29193ecfa3959, type: 3}
       propertyPath: shopUI
       value: 
       objectReference: {fileID: 1345274923}
@@ -12042,6 +12038,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23fa93ee626294c49a74d7450c7f9c7f, type: 3}
+--- !u!1001 &1488999590308824793
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 834087578175208968, guid: c6350e4f9a1a77f4caa508b43981c889, type: 3}
+      propertyPath: m_Name
+      value: goblinTank
+      objectReference: {fileID: 0}
+    - target: {fileID: 7350929813600337913, guid: c6350e4f9a1a77f4caa508b43981c889, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 7350929813600337913, guid: c6350e4f9a1a77f4caa508b43981c889, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 7350929813600337913, guid: c6350e4f9a1a77f4caa508b43981c889, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7350929813600337913, guid: c6350e4f9a1a77f4caa508b43981c889, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7350929813600337913, guid: c6350e4f9a1a77f4caa508b43981c889, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7350929813600337913, guid: c6350e4f9a1a77f4caa508b43981c889, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7350929813600337913, guid: c6350e4f9a1a77f4caa508b43981c889, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7350929813600337913, guid: c6350e4f9a1a77f4caa508b43981c889, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7350929813600337913, guid: c6350e4f9a1a77f4caa508b43981c889, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7350929813600337913, guid: c6350e4f9a1a77f4caa508b43981c889, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c6350e4f9a1a77f4caa508b43981c889, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -12062,3 +12115,4 @@ SceneRoots:
   - {fileID: 1057965661}
   - {fileID: 447270238}
   - {fileID: 277551226}
+  - {fileID: 1488999590308824793}

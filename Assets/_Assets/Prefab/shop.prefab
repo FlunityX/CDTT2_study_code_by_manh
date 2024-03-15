@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6846824472739405371}
   - component: {fileID: 7370471169107503914}
   - component: {fileID: 3910520135688172270}
-  - component: {fileID: 3009708836926987881}
+  - component: {fileID: 7282294903560824237}
   m_Layer: 8
   m_Name: shop
   m_TagString: Interactable
@@ -126,7 +126,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8.1111145, y: 5.20405}
   m_EdgeRadius: 0
---- !u!114 &3009708836926987881
+--- !u!114 &7282294903560824237
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopUI: {fileID: 0}
-  shopTile: {fileID: 0}
+  shopTile: {fileID: 2475567938832230502}
 --- !u!1 &6634797371496741405
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,7 +158,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2475567938832230502
 RectTransform:
   m_ObjectHideFlags: 0

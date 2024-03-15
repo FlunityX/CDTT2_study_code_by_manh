@@ -42,15 +42,15 @@ public class NEnemyManager : CharacterManager
         if (_normalEnemy.transform.localScale == Vector3.one)
         {
             _normalEnemy.transform.localScale = new Vector3(-1, 1, 1);
-            _normalEnemy._isFacingLeft = true;
-            _normalEnemy._isFacingRight = false;
+            _normalEnemy._isFacingRight = true;
+            _normalEnemy._isFacingLeft = false;
 
         }
         else
         {
             _normalEnemy.transform.localScale = new Vector3(1, 1, 1);
-            _normalEnemy._isFacingLeft = false;
-            _normalEnemy._isFacingRight = true;
+            _normalEnemy._isFacingRight = false;
+            _normalEnemy._isFacingLeft = true;
 
         }
     }

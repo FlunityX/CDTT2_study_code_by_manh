@@ -44,14 +44,14 @@ public class NEnemyPartrolState : NEnemyBaseState
     
     public void Move()
     {
-        if (_NEnemyManager._normalEnemy._isFacingLeft)
+        if (_NEnemyManager._normalEnemy._isFacingRight)
         {
-        _NEnemyManager._normalEnemy.transform.Translate(Vector2.left * _NEnemyManager._normalEnemy.GetEnemyStat().speed/2 * Time.deltaTime)   ;
+        _NEnemyManager._normalEnemy.transform.Translate(Vector2.right * _NEnemyManager._normalEnemy.GetEnemyStat().speed/2 * Time.deltaTime)   ;
 
         }
         else 
         {
-            _NEnemyManager._normalEnemy.transform.Translate(Vector2.right * _NEnemyManager._normalEnemy.GetEnemyStat().speed/2 * Time.deltaTime);
+            _NEnemyManager._normalEnemy.transform.Translate(Vector2.left * _NEnemyManager._normalEnemy.GetEnemyStat().speed/2 * Time.deltaTime);
 
         }
 

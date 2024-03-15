@@ -17,20 +17,7 @@ public class EnemyMeleeAttack :MonoBehaviour, IMeleeAttack
     }
     public void MeleeAttack(float dmg)
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, _normalEnemy.GetEnemyStat().attackRange, playerLayer);
-        if (hits != null)
-        {
-            foreach (Collider2D hit in hits)
-            {
-
-                if (hit.CompareTag(GameConstant.PLAYER_TAG))
-                {
-                    _normalEnemy.DealDamage(hit.GetComponent<IReceiveDamage>(),_normalEnemy.GetEnemyStat().attackDamage);
-                
-                
-            }
-            }
-        }
+        StartCoroutine(DelayedMeleeAttack(dmg));    
         ResetAttackSpeedCounter();
 
     }
@@ -46,7 +33,25 @@ public class EnemyMeleeAttack :MonoBehaviour, IMeleeAttack
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(attackPoint.position, _normalEnemy.GetEnemyStat().attackRange);
+        Gizmos.DrawWireSphere(attackPoint.position, _normalEnemy.GetEnemyStat().attackRange/2f);
+    }
+    IEnumerator DelayedMeleeAttack(float dmg)
+    {
+        yield return new WaitForSeconds(.3f);
+        Collider2D hit = Physics2D.OverlapCircle(attackPoint.position, _normalEnemy.GetEnemyStat().attackRange / 2f, playerLayer);
+        if (hit != null)
+        {
+
+
+            if (hit.CompareTag(GameConstant.PLAYER_TAG))
+            {
+                _normalEnemy.DealDamage(hit.GetComponent<IReceiveDamage>(), _normalEnemy.GetEnemyStat().attackDamage);
+
+
+
+            }
+        }
+
     }
 
 }

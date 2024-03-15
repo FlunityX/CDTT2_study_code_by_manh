@@ -12,8 +12,8 @@ public class NormalEnemy :MonoBehaviour, INormalEnemy, IDealDamage, IReceiveDama
     public float detectRange = 4f; // player vao tam nay se bi phat hien
     public bool isGetHit;
 
-    public bool _isFacingLeft { get;set; }
-    public bool _isFacingRight { get; set; }
+    public bool _isFacingRight { get;set; }
+    public bool _isFacingLeft { get; set; }
     public NEnemyCollider GetNEnemyCollider() { return _enemyCollider; }
     public EnemyMeleeAttack GetNEnemyAttack() { return _enemyMeleeAttack; }
     public EnemyStat GetEnemyStat() { return _enemyStat;}

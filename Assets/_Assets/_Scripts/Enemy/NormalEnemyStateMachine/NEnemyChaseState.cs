@@ -45,6 +45,10 @@ public class NEnemyChaseState : NEnemyBaseState
             Chase();
 
         }
+        else
+        {
+            StayAtPos();
+        }
         _NEnemyManager.UpdateChaseDir();
     }
     private bool CheckIfCanIdle()
@@ -55,11 +59,11 @@ public class NEnemyChaseState : NEnemyBaseState
 
     private bool CheckIfCanAttack()
     {
-        return Mathf.Abs(Player.Instance.transform.position.x - _NEnemyManager._normalEnemy.transform.position.x) <= _NEnemyManager._normalEnemy.GetEnemyStat().attackRange && _NEnemyManager._normalEnemy.GetNEnemyAttack().IsReadyToAttack();
+        return Mathf.Abs(Player.Instance.transform.position.x - _NEnemyManager._normalEnemy.transform.position.x) <= _NEnemyManager._normalEnemy.GetEnemyStat().attackRange*2 && _NEnemyManager._normalEnemy.GetNEnemyAttack().IsReadyToAttack();
     }
     private bool CheckIfNeedChase()
     {
-        return Mathf.Abs(Player.Instance.transform.position.x - _NEnemyManager._normalEnemy.transform.position.x) > _NEnemyManager._normalEnemy.GetEnemyStat().attackRange ;
+        return Mathf.Abs(Player.Instance.transform.position.x - _NEnemyManager._normalEnemy.transform.position.x) > _NEnemyManager._normalEnemy.GetEnemyStat().attackRange*2 ;
     }
     private void Chase()
     {
@@ -72,6 +76,10 @@ public class NEnemyChaseState : NEnemyBaseState
 
         }
         Debug.Log("chasing"); 
+    }
+    private void StayAtPos()
+    {
+        _NEnemyManager._normalEnemy.transform.Translate(Vector2.zero);
     }
 
    

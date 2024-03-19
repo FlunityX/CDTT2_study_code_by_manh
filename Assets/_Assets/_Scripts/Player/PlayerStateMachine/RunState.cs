@@ -45,6 +45,9 @@ public class RunState : PlayerBaseState
         }else if (CheckIfGetHit())
         {
             _playerStateManager.ChangeState(_playerStateManager.GetHitState);
+        }else if (CheckIfCanAttack())
+        {
+            _playerStateManager.ChangeState(_playerStateManager._playerEntryAttackState);
         }
     }
 
@@ -67,6 +70,10 @@ public class RunState : PlayerBaseState
     private bool CheckIfGetHit()
     {
         return Player.Instance.isGetHit;
+    }
+    private bool CheckIfCanAttack()
+    {
+        return GameInput.Instance.AttackPerform() && Player.Instance._playerAttack.IsAttackingReady();
     }
     public override void FixedUpdate()
     {

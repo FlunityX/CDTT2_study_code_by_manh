@@ -5,13 +5,16 @@ using UnityEngine;
 public class PlayerEntryAttackState : PlayerBaseState
 {
     private float comboDuration = 1f;
+    private float attackDuration = .3f;
     private float comboDurationCounter;
-   
+    private Vector2 entryPos;
+
     public override void EnterState(PlayerStateManager playerStateManager)
     {
         base.EnterState(playerStateManager);
         Player.Instance._playerVisual.PlayEntryAttackAnim();
-       // Player.Instance._playerVisual.PlayerIdleAnim();
+       
+        entryPos = Player.Instance.transform.position;
 
         Player.Instance._playerAttack.MeleeAttack(Player.Instance.Dmg);
         Debug.Log("1");
@@ -26,7 +29,7 @@ public class PlayerEntryAttackState : PlayerBaseState
     public override void Update()
     {
         comboDurationCounter += Time.deltaTime;
-
+        NailPlayer();
         if (CheckIfCanCombo())
         {
             _playerStateManager.ChangeState(_playerStateManager._playerComboAttack1);
@@ -58,7 +61,7 @@ public class PlayerEntryAttackState : PlayerBaseState
     }
     private bool CheckIfCanRun()
     {
-        return (Player.Instance.GetDirX() != 0 && Player.Instance._playerMovement.isGround);
+        return (Player.Instance.GetDirX() != 0 && Player.Instance._playerMovement.isGround) && comboDurationCounter>=attackDuration;
     }
     private bool CheckIfCanJump()
     {
@@ -72,7 +75,10 @@ public class PlayerEntryAttackState : PlayerBaseState
     {
         comboDurationCounter = 0f;
     }
-
+    private void NailPlayer()
+    {
+        Player.Instance.transform.position = entryPos;
+    }
     public override void FixedUpdate()
     {
 

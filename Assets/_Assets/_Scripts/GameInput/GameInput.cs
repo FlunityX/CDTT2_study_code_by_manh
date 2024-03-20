@@ -2,22 +2,41 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 
 public class GameInput : MonoBehaviour
 {
     public static GameInput Instance { get; private set; }
+    private const string PLAYER_PREFS_BIDNINGS = "IOnputBindings";
+
     private PlayerInputAction playerInputAction;
     public event EventHandler OnJumpAction;
     public event EventHandler OnInteract;
     public event EventHandler OnOpenInventory;
     public event EventHandler OnUseAbility;
+
+    public enum Binding
+    {
+        Attack,
+        Jump,
+        Slide,
+        ActiveItem,
+        Move_Left,
+        Move_Right,
+        Interact,
+        Pause,
+    }
     private void Awake()
     {
         Instance = this;
         if(playerInputAction == null)
         {
             playerInputAction = new PlayerInputAction();
+        }
+        if (PlayerPrefs.HasKey(PLAYER_PREFS_BIDNINGS))
+        {
+            playerInputAction.LoadBindingOverridesFromJson(PlayerPrefs.GetString(PLAYER_PREFS_BIDNINGS));
         }
         playerInputAction.PlayerActionMap.Enable();
         playerInputAction.PlayerActionMap.Jump.performed += Jump_performed;
@@ -30,6 +49,19 @@ public class GameInput : MonoBehaviour
         
 
 
+    }
+
+    private void OnDestroy()
+    {
+        playerInputAction.PlayerActionMap.Jump.performed -= Jump_performed;
+        playerInputAction.PlayerActionMap.Attack.performed -= Attack_performed;
+        playerInputAction.PlayerActionMap.Interact.performed -= Interact_performed;
+        playerInputAction.PlayerActionMap.Slide.performed -= Slide_performed;
+        playerInputAction.PlayerActionMap.OpenInventory.performed -= OpenInventory_performed;
+        playerInputAction.PlayerActionMap.Nextline.performed -= Nextline_performed;
+        playerInputAction.PlayerActionMap.UseAbility.performed -= UseAbility_performed;
+
+        playerInputAction.Dispose();
     }
 
     private void UseAbility_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -104,5 +136,102 @@ public class GameInput : MonoBehaviour
         Vector2 inputVector = playerInputAction.PlayerActionMap.Move.ReadValue<Vector2>();
         inputVector.Normalize();
         return inputVector;
+    }
+
+    public string GetBindingText(Binding binding)
+    {
+        switch (binding)
+        {
+            default:
+            case Binding.Attack:
+                return playerInputAction.PlayerActionMap.Move.bindings[0].ToDisplayString();
+
+
+            case Binding.Jump:
+                return playerInputAction.PlayerActionMap.Move.bindings[0].ToDisplayString();
+
+
+            case Binding.Move_Left:
+                return playerInputAction.PlayerActionMap.Move.bindings[1].ToDisplayString();
+
+
+            case Binding.Move_Right:
+                return playerInputAction.PlayerActionMap.Move.bindings[2].ToDisplayString();
+
+
+            case Binding.Interact:
+                return playerInputAction.PlayerActionMap.Interact.bindings[0].ToDisplayString();
+
+
+            case Binding.ActiveItem:
+                return playerInputAction.PlayerActionMap.Slide.bindings[0].ToDisplayString();
+
+            case Binding.Slide:
+                return playerInputAction.PlayerActionMap.Slide.bindings[0].ToDisplayString();
+
+
+            case Binding.Pause:
+                return playerInputAction.PlayerActionMap.Pause.bindings[0].ToDisplayString();
+
+
+
+        }
+
+    }
+    public void RebidnBinding(Binding binding, Action onActionRebound)
+    {
+        playerInputAction.PlayerActionMap.Disable();
+        InputAction inputAction;
+        int bindingIndex;
+
+        switch (binding)
+        {
+            default:
+            case Binding.Attack:
+                inputAction = playerInputAction.PlayerActionMap.Move;
+                bindingIndex = 0;
+                break;
+            case Binding.Jump:
+                inputAction = playerInputAction.PlayerActionMap.Move;
+                bindingIndex = 0;
+                break;
+            case Binding.Slide:
+                inputAction = playerInputAction.PlayerActionMap.Slide;
+                bindingIndex = 0;
+                break;
+            case Binding.ActiveItem:
+                inputAction = playerInputAction.PlayerActionMap.Slide;
+                bindingIndex = 0;
+                break;
+            case Binding.Move_Left:
+                inputAction = playerInputAction.PlayerActionMap.Move;
+                bindingIndex = 1;
+                break;
+            case Binding.Move_Right:
+                inputAction = playerInputAction.PlayerActionMap.Move;
+                bindingIndex = 2;
+                break;
+            case Binding.Interact:
+                inputAction = playerInputAction.PlayerActionMap.Interact;
+                bindingIndex = 0;
+                break;
+            
+            case Binding.Pause:
+                inputAction = playerInputAction.PlayerActionMap.Pause;
+                bindingIndex = 0;
+                break;
+
+        }
+
+        inputAction.PerformInteractiveRebinding(bindingIndex)
+         .OnComplete(callback =>
+         {
+             callback.Dispose();
+             playerInputAction.PlayerActionMap.Enable();
+             onActionRebound();
+             PlayerPrefs.SetString(PLAYER_PREFS_BIDNINGS, playerInputAction.SaveBindingOverridesAsJson());
+             PlayerPrefs.Save();
+         })
+         .Start();
     }
 }

@@ -13,7 +13,7 @@ public class GamePauseUI : MonoBehaviour
     {
         resumeButton.onClick.AddListener(() =>
         {
-           // GameManager.Instance.PauseGame();
+            GameManager.Instance.PauseGame();
         });
         menuButton.onClick.AddListener(() =>
         {
@@ -28,25 +28,27 @@ public class GamePauseUI : MonoBehaviour
     }
     private void Start()
     {
-        //GameManager.Instance.OnGamePause += GameManager_OnGamePause;
-       // GameManager.Instance.OnGameResume += GameManager_OnGameResume;
+        GameManager.Instance.OnGamePause += Instance_OnGamePause;
+        GameManager.Instance.OnGameResume += Instance_OnGameResume;
         Hide();
     }
 
-    private void GameManager_OnGameResume(object sender, System.EventArgs e)
+    private void Instance_OnGamePause(object sender, System.EventArgs e)
+    {
+        Show();
+    }
+
+    private void Instance_OnGameResume(object sender, System.EventArgs e)
     {
         Hide();
     }
 
-    private void GameManager_OnGamePause(object sender, System.EventArgs e)
-    {
-       Show();
-    }
+    
 
     private void Show()
     {
         gameObject.SetActive(true);
-        resumeButton.Select();
+       // resumeButton.Select();
     }
 
     private void Hide()

@@ -15,6 +15,7 @@ public class GameInput : MonoBehaviour
     public event EventHandler OnInteract;
     public event EventHandler OnOpenInventory;
     public event EventHandler OnUseAbility;
+    public event EventHandler OnPauseAction;
 
     public enum Binding
     {
@@ -46,10 +47,13 @@ public class GameInput : MonoBehaviour
         playerInputAction.PlayerActionMap.OpenInventory.performed += OpenInventory_performed;
         playerInputAction.PlayerActionMap.Nextline.performed += Nextline_performed;
         playerInputAction.PlayerActionMap.UseAbility.performed += UseAbility_performed;
+        playerInputAction.PlayerActionMap.Pause.performed += Pause_performed;
         
 
 
     }
+
+   
 
     private void OnDestroy()
     {
@@ -64,6 +68,10 @@ public class GameInput : MonoBehaviour
         playerInputAction.Dispose();
     }
 
+    private void Pause_performed(InputAction.CallbackContext obj)
+    {
+        OnPauseAction?.Invoke(this, EventArgs.Empty);
+    }
     private void UseAbility_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         OnUseAbility?.Invoke(this, EventArgs.Empty);
@@ -130,6 +138,16 @@ public class GameInput : MonoBehaviour
         return playerInputAction.PlayerActionMap.Nextline.ReadValue<float>() > .9f;
 
     }
+    public void DisableGameInput()
+    {
+        playerInputAction.PlayerActionMap.Disable();
+
+    }
+    public void EnableGameInput()
+    {
+        playerInputAction.PlayerActionMap.Enable();
+
+    }
 
     public Vector2 GetMovementVectorNormalized()
     {
@@ -144,11 +162,11 @@ public class GameInput : MonoBehaviour
         {
             default:
             case Binding.Attack:
-                return playerInputAction.PlayerActionMap.Move.bindings[0].ToDisplayString();
+                return playerInputAction.PlayerActionMap.Attack.bindings[0].ToDisplayString();
 
 
             case Binding.Jump:
-                return playerInputAction.PlayerActionMap.Move.bindings[0].ToDisplayString();
+                return playerInputAction.PlayerActionMap.Jump.bindings[0].ToDisplayString();
 
 
             case Binding.Move_Left:
@@ -164,7 +182,7 @@ public class GameInput : MonoBehaviour
 
 
             case Binding.ActiveItem:
-                return playerInputAction.PlayerActionMap.Slide.bindings[0].ToDisplayString();
+                return playerInputAction.PlayerActionMap.UseAbility.bindings[0].ToDisplayString();
 
             case Binding.Slide:
                 return playerInputAction.PlayerActionMap.Slide.bindings[0].ToDisplayString();
@@ -188,11 +206,11 @@ public class GameInput : MonoBehaviour
         {
             default:
             case Binding.Attack:
-                inputAction = playerInputAction.PlayerActionMap.Move;
+                inputAction = playerInputAction.PlayerActionMap.Attack;
                 bindingIndex = 0;
                 break;
             case Binding.Jump:
-                inputAction = playerInputAction.PlayerActionMap.Move;
+                inputAction = playerInputAction.PlayerActionMap.Jump;
                 bindingIndex = 0;
                 break;
             case Binding.Slide:
@@ -200,7 +218,7 @@ public class GameInput : MonoBehaviour
                 bindingIndex = 0;
                 break;
             case Binding.ActiveItem:
-                inputAction = playerInputAction.PlayerActionMap.Slide;
+                inputAction = playerInputAction.PlayerActionMap.UseAbility;
                 bindingIndex = 0;
                 break;
             case Binding.Move_Left:

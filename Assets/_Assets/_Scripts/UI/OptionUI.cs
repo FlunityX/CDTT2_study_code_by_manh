@@ -11,13 +11,13 @@ public class OptionUI : MonoBehaviour
     [SerializeField] private Button soundEffectButton;
     [SerializeField] private Button musicButton;
     [SerializeField] private Button closeButton;
-    [SerializeField] private Button AttackBtn;
-    [SerializeField] private Button JumpBtn;
+    [SerializeField] private Button attackBtn;
+    [SerializeField] private Button jumpBtn;
     [SerializeField] private Button moveRightBtn;
     [SerializeField] private Button moveLeftBtn;
     [SerializeField] private Button interactBtn;
     [SerializeField] private Button slideBtn;
-    [SerializeField] private Button ActiveItemBtn;
+    [SerializeField] private Button activeItemBtn;
     [SerializeField] private Button pauseBtn;
     [SerializeField] private TextMeshProUGUI soundEffectText;
     [SerializeField] private TextMeshProUGUI musicText;
@@ -51,10 +51,11 @@ public class OptionUI : MonoBehaviour
             onCloseButtonAction();
         });
 
-        AttackBtn.onClick.AddListener(() => {
+        attackBtn.onClick.AddListener(() =>
+        {
             RebindBinding(GameInput.Binding.Attack);
         });
-        JumpBtn.onClick.AddListener(() => {
+        jumpBtn.onClick.AddListener(() => {
             RebindBinding(GameInput.Binding.Jump);
 
         });
@@ -74,7 +75,7 @@ public class OptionUI : MonoBehaviour
             RebindBinding(GameInput.Binding.Slide);
 
         });
-        ActiveItemBtn.onClick.AddListener(() => { 
+        activeItemBtn.onClick.AddListener(() => { 
             RebindBinding(GameInput.Binding.ActiveItem);
 
         });

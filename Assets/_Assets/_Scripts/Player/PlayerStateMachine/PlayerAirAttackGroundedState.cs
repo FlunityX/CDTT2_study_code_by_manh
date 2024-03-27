@@ -21,25 +21,18 @@ public class PlayerAirAttackGroundedState : PlayerBaseState
 
     public override void Update()
     {
-        if (CheckIfCanIdle())
+        if (_playerStateManager.CheckIfCanIdleAAGround())
         {
 
             _playerStateManager.ChangeState(_playerStateManager.idleState);
         }
-        else if (CheckIfGetHit())
+        else if (_playerStateManager.CheckIfGetHit())
         {
             _playerStateManager.ChangeState(_playerStateManager.GetHitState);
         }
     }
 
-    private bool CheckIfCanIdle()
-    {
-        return Player.Instance._playerMovement.isGround;
-    }
-    private bool CheckIfGetHit()
-    {
-        return Player.Instance.isGetHit;
-    }
+
 
 
     public override void FixedUpdate()

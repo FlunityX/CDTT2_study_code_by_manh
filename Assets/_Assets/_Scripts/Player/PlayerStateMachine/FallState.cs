@@ -20,43 +20,26 @@ public class FallState : PlayerBaseState
     public override void Update()
     {
        // Player.Instance._playerMovement.IncreaseGravity();
-        if (CheckIfCanIdle())
+        if (_playerStateManager.CheckIfCanIdle())
         {
             _playerStateManager.ChangeState(_playerStateManager.idleState);
         
-        }else if(CheckIfCanRun())
+        }else if(_playerStateManager.CheckIfCanRun())
         {
             _playerStateManager.ChangeState((_playerStateManager.runState));
         }
-        else if (CheckIfCanAirAttack())
+        else if (_playerStateManager.CheckIfCanAirAttack())
         {
             _playerStateManager.ChangeState(_playerStateManager._playerAirAttackState);
         }
-        else if (CheckIfGetHit())
+        else if (_playerStateManager.CheckIfGetHit())
         {
             _playerStateManager.ChangeState(_playerStateManager.GetHitState);
         }
 
     }
 
-    private bool CheckIfCanIdle()
-    {
-        return Player.Instance.GetDirX() == 0 && Player.Instance._playerMovement.isGround;
-    }
 
-    private bool CheckIfCanRun()
-    {
-        return (Player.Instance.GetDirX() != 0 && Player.Instance._playerMovement.isGround);
-    }
-    private bool CheckIfCanAirAttack()
-    {
-        return !Player.Instance._playerMovement.isGround && GameInput.Instance.AttackPerform() && Player.Instance._playerMovement._boxRigidbody.velocity.y >= -1f;
-    }
-
-    private bool CheckIfGetHit()
-    {
-        return Player.Instance.isGetHit;
-    }
 
     public override void FixedUpdate()
     {

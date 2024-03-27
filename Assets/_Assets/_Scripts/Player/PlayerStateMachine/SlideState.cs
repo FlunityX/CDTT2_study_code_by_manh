@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class SlideState : PlayerBaseState
 {
-    private float slideTime = 1f;
-    private float slideTimeCounter;
+   
     public override void EnterState(PlayerStateManager playerStateManager)
     {
         base.EnterState(playerStateManager);
@@ -16,49 +15,30 @@ public class SlideState : PlayerBaseState
 
     public override void ExitState()
     {
-        ResetSlideTimeCounter();
+        _playerStateManager.counter = 0;
         Player.Instance._playerMovement.Slide(0);
 
     }
 
     public override void Update()
     {
-        // Player.Instance._playerMovement.IncreaseGravity();
-        if (CheckIfCanIdle())
+        _playerStateManager.counter += Time.deltaTime;
+
+        if (_playerStateManager.CheckIfCanIdleSlide())
         {
             _playerStateManager.ChangeState(_playerStateManager.idleState);
 
         }
-        else if (CheckIfCanRun())
+        else if (_playerStateManager.CheckIfCanRunSlide())
         {
             _playerStateManager.ChangeState((_playerStateManager.runState));
         }
-        else if (CheckIfGetHit())
+        else if (_playerStateManager.CheckIfGetHit())
         {
             _playerStateManager.ChangeState(_playerStateManager.GetHitState);
         }
-        slideTimeCounter += Time.deltaTime;
 
 
-    }
-
-    private bool CheckIfCanIdle()
-    {
-        return Player.Instance.GetDirX() == 0 && Player.Instance._playerMovement.isGround || slideTimeCounter>=slideTime;
-    }
-
-    private bool CheckIfCanRun()
-    {
-        return (Player.Instance.GetDirX() != 0 && Player.Instance._playerMovement.isGround) && slideTimeCounter >= slideTime;
-    }
-
-    private bool CheckIfGetHit()
-    {
-        return Player.Instance.isGetHit;
-    }
-    private void ResetSlideTimeCounter()
-    {
-        slideTimeCounter = 0;
     }
 
     public override void FixedUpdate()

@@ -24,29 +24,16 @@ public class GetHitState : PlayerBaseState
     public override void Update()
     {
         gethitTimeCounter += Time.deltaTime;
-        if (CheckIfCanIdle())
+        if (_playerStateManager.CheckIfCanIdle())
        {
             _playerStateManager.ChangeState(_playerStateManager.idleState);
 
        }
-        else if (CheckIfCanRun())
+        else if (_playerStateManager.CheckIfCanRun())
         {
             _playerStateManager.ChangeState((_playerStateManager.runState));
         }
     }
-
-
-    private bool CheckIfCanIdle()
-    {
-        return Player.Instance.GetDirX() == 0 && Player.Instance._playerMovement.isGround && gethitTimeCounter >=gethitTime;
-    }
-
-    private bool CheckIfCanRun()
-    {
-        return (Player.Instance.GetDirX() != 0 && Player.Instance._playerMovement.isGround ) && gethitTimeCounter >= gethitTime;
-    }
-
-
 
     public override void FixedUpdate()
     {

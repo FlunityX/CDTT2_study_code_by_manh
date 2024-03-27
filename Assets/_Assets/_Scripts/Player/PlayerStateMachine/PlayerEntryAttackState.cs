@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class PlayerEntryAttackState : PlayerBaseState
 {
-    private float comboDuration = 1f;
-    private float attackDuration = .3f;
-    private float comboDurationCounter;
-    private Vector2 entryPos;
+
+    
 
     public override void EnterState(PlayerStateManager playerStateManager)
     {
         base.EnterState(playerStateManager);
         Player.Instance._playerVisual.PlayEntryAttackAnim();
        
-        entryPos = Player.Instance.transform.position;
+        _playerStateManager.entryPos = Player.Instance.transform.position;
 
         Player.Instance._playerAttack.MeleeAttack(Player.Instance.Dmg);
         Debug.Log("1");
@@ -23,62 +21,36 @@ public class PlayerEntryAttackState : PlayerBaseState
 
     public override void ExitState()
     {
-        ResetCounter();
+        _playerStateManager.counter = 0;
     }
 
     public override void Update()
     {
-        comboDurationCounter += Time.deltaTime;
-        NailPlayer();
-        if (CheckIfCanCombo())
+        _playerStateManager.counter += Time.deltaTime;
+        _playerStateManager.NailPlayer();
+        if (_playerStateManager.CheckIfCanCombo())
         {
             _playerStateManager.ChangeState(_playerStateManager._playerComboAttack1);
         }
-        else if (CheckIfCanIdle())
+        else if (_playerStateManager.CheckIfCanIdleEAttack())
         {
             _playerStateManager.ChangeState(_playerStateManager.idleState);
-        }else if(CheckIfCanRun())
+        }else if(_playerStateManager.CheckIfCanRunEAttack())
         {
             _playerStateManager.ChangeState(_playerStateManager.runState);
-        }else if(CheckIfCanJump())
+        }else if(_playerStateManager.CheckIfCanJump())
         {
             _playerStateManager.ChangeState(_playerStateManager.jumpState);
         }
-        else if (CheckIfGetHit())
+        else if (_playerStateManager.CheckIfGetHit())
         {
             _playerStateManager.ChangeState(_playerStateManager.GetHitState);
         }
     }
 
-    private bool CheckIfCanCombo()
-    {
-        return  GameInput.Instance.AttackPerform() && Player.Instance._playerAttack.IsAttackingReady();
-
-    }
-    private bool CheckIfCanIdle()
-    {
-        return comboDurationCounter > comboDuration;
-    }
-    private bool CheckIfCanRun()
-    {
-        return (Player.Instance.GetDirX() != 0 && Player.Instance._playerMovement.isGround) && comboDurationCounter>=attackDuration;
-    }
-    private bool CheckIfCanJump()
-    {
-        return (GameInput.Instance.JumpPerform() && !Player.Instance._playerMovement.isGround);
-    }
-    private bool CheckIfGetHit()
-    {
-        return Player.Instance.isGetHit;
-    }
-    private void ResetCounter()
-    {
-        comboDurationCounter = 0f;
-    }
-    private void NailPlayer()
-    {
-        Player.Instance.transform.position = entryPos;
-    }
+ 
+ 
+   
     public override void FixedUpdate()
     {
 

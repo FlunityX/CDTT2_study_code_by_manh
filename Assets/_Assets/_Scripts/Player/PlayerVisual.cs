@@ -68,4 +68,8 @@ public class PlayerVisual : MonoBehaviour
     {
         animator.CrossFade(GameConstant.PLAYER_HEAL_ANIM, .2f, 0);
     }
+    public void PlayDeadAnim()
+    {
+        animator.CrossFade(GameConstant.PLAYER_DEAD_ANIM, .2f, 0);
+    }
 }

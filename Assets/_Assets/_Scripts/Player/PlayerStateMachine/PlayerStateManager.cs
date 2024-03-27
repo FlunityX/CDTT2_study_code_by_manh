@@ -18,7 +18,15 @@ public class PlayerStateManager : MonoBehaviour
     public SlideState slideState = new();
     public GetHitState GetHitState = new();
     public UsePotionState UsePotionState = new();
+    public DeadState DeadState = new();
 
+    public float slideTime = 1f;
+    public float usePotionTime = .5f;
+    public float gethitTime = .1f;
+    public float comboDuration = 1f;
+    public float attackDuration = .3f;
+    public float counter;
+    public Vector2 entryPos;
 
     private void Start()
     {
@@ -42,6 +50,105 @@ public class PlayerStateManager : MonoBehaviour
         _state.EnterState(this);
     }
 
- 
+    public bool CheckIfCanIdle()
+    {
+        return Player.Instance.GetDirX() == 0 && Player.Instance._playerMovement.isGround;
+    }
+    public bool CheckIfCanRun()
+    {
+        return (Player.Instance._playerMovement.dirX != 0 && Player.Instance._playerMovement.isGround);
+    }
+
+    public bool CheckIfCanJump()
+    {
+        return (GameInput.Instance.JumpPerform() && !Player.Instance._playerMovement.isGround);
+    }
+
+    public bool CheckIfCanAttack()
+    {
+        return GameInput.Instance.AttackPerform() && Player.Instance._playerAttack.IsAttackingReady();
+    }
+    public bool CheckIfCanCombo()
+    {
+        return GameInput.Instance.AttackPerform() && Player.Instance._playerAttack.IsAttackingReady();
+
+    }
+    public bool CheckIfCanIdleAttack()
+    {
+        return counter > comboDuration;
+    }
+    public bool CheckIfCanAirAttack()
+    {
+        return !Player.Instance._playerMovement.isGround && GameInput.Instance.AttackPerform() && Player.Instance._playerMovement._boxRigidbody.velocity.y >= -1f;
+    }
+    public bool CheckIfCanFall()
+    {
+        return Player.Instance.GetRigidbody().velocity.y < 0;
+    }
+    public bool CheckIfGetHit()
+    {
+        return Player.Instance.isGetHit;
+    }
+    public bool CheckIfUsePotion()
+    {
+        return Player.Instance.isUsePotion;
+    }
+    public bool CheckIfCanIdleUsePotion()
+    {
+        return Player.Instance.GetDirX() == 0 && Player.Instance._playerMovement.isGround && counter >= gethitTime;
+    }
+
+    public bool CheckIfCanRunUsePotion()
+    {
+        return (Player.Instance.GetDirX() != 0 && Player.Instance._playerMovement.isGround) && counter >= gethitTime;
+    }
+    public bool CheckIfCanGrounded()
+    {
+        return Player.Instance._playerCollider.AirAttackGroundCheck();
+    }
+    public bool CheckIfCanIdleAAGround()
+    {
+        return Player.Instance._playerMovement.isGround;
+    }
+    public bool CheckIfCanIdleEAttack()
+    {
+        return counter > comboDuration;
+    }
+    public bool CheckIfCanRunEAttack()
+    {
+        return (Player.Instance.GetDirX() != 0 && Player.Instance._playerMovement.isGround) && counter >= attackDuration;
+    }
+    public bool CheckIfCanAirAttackJump()
+    {
+        return Player.Instance._playerMovement.isJumping && GameInput.Instance.AttackPerform() && Player.Instance._playerMovement._boxRigidbody.velocity.y <= 2f;
+    }
+
+    public bool CheckIfCanIdleRun()
+    {
+        return Player.Instance.GetDirX() == 0;
+    }
+
+    public bool CheckIfCanSlide()
+    {
+        return GameInput.Instance.SlidePerform();
+    }
+    public bool CheckIfCanIdleC2()
+    {
+        return counter > comboDuration;
+    }
+
+    public bool CheckIfCanIdleSlide()
+    {
+        return Player.Instance.GetDirX() == 0 && Player.Instance._playerMovement.isGround || counter >= slideTime;
+    }
+
+    public bool CheckIfCanRunSlide()
+    {
+        return (Player.Instance.GetDirX() != 0 && Player.Instance._playerMovement.isGround) && counter >= slideTime;
+    }
+    public void NailPlayer()
+    {
+        Player.Instance.transform.position = entryPos;
+    }
 
 }

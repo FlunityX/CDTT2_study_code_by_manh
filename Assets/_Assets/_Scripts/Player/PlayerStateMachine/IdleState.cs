@@ -21,58 +21,33 @@ public class IdleState : PlayerBaseState
 
     public override void Update()
     {
-        if (CheckIfCanRun()) {
+        if (_playerStateManager.CheckIfCanRun()) {
             _playerStateManager.ChangeState(_playerStateManager.runState); 
         // Debug.Log("run");
 
         }
-        else if (CheckIfCanJump()) { 
+        else if (_playerStateManager.CheckIfCanJump()) { 
             _playerStateManager.ChangeState(_playerStateManager.jumpState);
 
         }
-        else if (CheckIfCanAttack())
+        else if (_playerStateManager.   CheckIfCanAttack())
         {
             _playerStateManager.ChangeState(_playerStateManager._playerEntryAttackState);
-        }else if (CheckIfCanFall())
+        }else if (_playerStateManager.CheckIfCanFall())
         {
             _playerStateManager.ChangeState(_playerStateManager.fallState);
         }
-        else if (CheckIfGetHit())
+        else if (_playerStateManager.CheckIfGetHit())
         {
             _playerStateManager.ChangeState(_playerStateManager.GetHitState);
-        }else if (CheckIfUsePotion())
+        }else if (  _playerStateManager.CheckIfUsePotion())
         {
             _playerStateManager.ChangeState(_playerStateManager.UsePotionState);
         }
 
     }
 
-    private bool CheckIfCanRun()
-    {
-        return (Player.Instance._playerMovement.dirX != 0 && Player.Instance._playerMovement.isGround);  
-    }
-
-    private bool CheckIfCanJump()
-    {
-        return (GameInput.Instance.JumpPerform() && !Player.Instance._playerMovement.isGround) ;
-    }
-
-    private bool CheckIfCanAttack()
-    {
-        return GameInput.Instance.AttackPerform() && Player.Instance._playerAttack.IsAttackingReady();
-    }
-    private bool CheckIfCanFall()
-    {
-        return Player.Instance.GetRigidbody().velocity.y < 0;
-    }
-    private bool CheckIfGetHit()
-    {
-        return Player.Instance.isGetHit;
-    }
-    private bool CheckIfUsePotion()
-    {
-        return Player.Instance.isUsePotion;
-    }
+    
     public override void FixedUpdate()
     {
   

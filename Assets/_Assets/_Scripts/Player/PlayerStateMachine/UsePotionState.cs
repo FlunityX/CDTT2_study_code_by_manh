@@ -4,54 +4,36 @@ using UnityEngine;
 
 public class UsePotionState : PlayerBaseState
 {
-    private float gethitTime = .5f;
-    private float gethitTimeCounter;
-    private Vector2 usePos;
+   
+
     public override void EnterState(PlayerStateManager playerStateManager)
     {
 
         base.EnterState(playerStateManager);
         Player.Instance._playerVisual.PlayUsePotionAnim();
-        usePos = Player.Instance.transform.position;
+        _playerStateManager.entryPos = Player.Instance.transform.position;
         Debug.Log("heal");
     }
 
     public override void ExitState()
     {
-        gethitTimeCounter = 0;
+        _playerStateManager.counter = 0;
     }
 
     public override void Update()
     {
-        gethitTimeCounter += Time.deltaTime;
+        _playerStateManager.counter += Time.deltaTime;
         Player.Instance.isUsePotion = false;
 
-        NailPlayer();
-        if (CheckIfCanIdle())
+        _playerStateManager.NailPlayer();
+        if (_playerStateManager.CheckIfCanIdleUsePotion())
         {
             _playerStateManager.ChangeState(_playerStateManager.idleState);
 
         }
-        else if (CheckIfCanRun())
-        {
+        else if (_playerStateManager.CheckIfCanRunUsePotion()) { 
             _playerStateManager.ChangeState((_playerStateManager.runState));
         }
-    }
-
-
-    private bool CheckIfCanIdle()
-    {
-        return Player.Instance.GetDirX() == 0 && Player.Instance._playerMovement.isGround && gethitTimeCounter >= gethitTime;
-    }
-
-    private bool CheckIfCanRun()
-    {
-        return (Player.Instance.GetDirX() != 0 && Player.Instance._playerMovement.isGround) && gethitTimeCounter >= gethitTime;
-    }
-
-    private void NailPlayer()
-    {
-        Player.Instance.transform.position = usePos;
     }
 
     public override void FixedUpdate()

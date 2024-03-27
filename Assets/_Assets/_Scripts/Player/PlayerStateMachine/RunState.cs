@@ -24,57 +24,39 @@ public class RunState : PlayerBaseState
 
     public override void Update()
     {
-       if(CheckIfNotRun())
+       if(_playerStateManager.CheckIfCanIdleRun())
         {
             _playerStateManager.ChangeState(_playerStateManager.idleState);
             //Debug.Log("idle");
 
         }
-        else if (CheckIfCanJump())
+        else if (_playerStateManager.CheckIfCanJump())
         {
             _playerStateManager.ChangeState(_playerStateManager.jumpState);
             Debug.Log("jump");
 
-        }else if(CheckIfCanSlide())
+        }else if(_playerStateManager.CheckIfCanSlide())
         {
             _playerStateManager.ChangeState(_playerStateManager.slideState);
         }
-        else if (CheckIfCanFall())
+        else if (_playerStateManager.CheckIfCanFall())
         {
             _playerStateManager.ChangeState(_playerStateManager.fallState);
-        }else if (CheckIfGetHit())
+        }else if (_playerStateManager.CheckIfGetHit())
         {
             _playerStateManager.ChangeState(_playerStateManager.GetHitState);
-        }else if (CheckIfCanAttack())
+        }else if (_playerStateManager.CheckIfCanAttack())
         {
             _playerStateManager.ChangeState(_playerStateManager._playerEntryAttackState);
         }
     }
 
-    private bool CheckIfNotRun()
-    {
-        return  Player.Instance.GetDirX() == 0;
-    }
-    private bool CheckIfCanJump()
-    {
-        return GameInput.Instance.JumpPerform();//&& Player.Instance._playerMovement.isGround;
-    }
-    private bool CheckIfCanSlide()
-    {
-        return GameInput.Instance.SlidePerform();
-    }
-    private bool CheckIfCanFall()
+   
+   /* private bool CheckIfCanFall()
     {
         return Player.Instance.GetRigidbody().velocity.y < 0 && Player.Instance._playerMovement.isGround;
-    }
-    private bool CheckIfGetHit()
-    {
-        return Player.Instance.isGetHit;
-    }
-    private bool CheckIfCanAttack()
-    {
-        return GameInput.Instance.AttackPerform() && Player.Instance._playerAttack.IsAttackingReady();
-    }
+    }*/
+ 
     public override void FixedUpdate()
     {
        

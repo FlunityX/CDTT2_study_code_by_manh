@@ -19,15 +19,15 @@ public class JumpState : PlayerBaseState
     public override void Update()
     {
        
-         if(CheckIfCanFall())
+         if(_playerStateManager.CheckIfCanFall())
         {
             _playerStateManager.ChangeState(_playerStateManager.fallState);
         }
-        else if (CheckIfCanAirAttack())
+        else if (_playerStateManager.CheckIfCanAirAttackJump())
         {
             _playerStateManager.ChangeState(_playerStateManager._playerAirAttackState);
         }
-        else if (CheckIfGetHit())
+        else if (_playerStateManager.CheckIfGetHit())
         {
             _playerStateManager.ChangeState(_playerStateManager.GetHitState);
         }
@@ -35,19 +35,7 @@ public class JumpState : PlayerBaseState
     }
     
 
-    private bool CheckIfCanFall()
-    {
-        return Player.Instance.GetRigidbody().velocity.y < 0;
-    }
-    private bool CheckIfCanAirAttack()
-    {
-        return Player.Instance._playerMovement.isJumping && GameInput.Instance.AttackPerform() && Player.Instance._playerMovement._boxRigidbody.velocity.y <=2f;
-    }
-    private bool CheckIfGetHit()
-    {
-        return Player.Instance.isGetHit;
-    }
-
+    
 
     public override void FixedUpdate()
     {

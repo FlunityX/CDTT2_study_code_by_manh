@@ -26,8 +26,15 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
     AudioManager audioManager;
     
     public event EventHandler<IHasHpBar.OnHpChangeEventArgs> OnHpChange;
-   
+    //event
+    public event EventHandler OnPlayerAttack;
+    public event EventHandler OnPlayerHeal;
+    public event EventHandler OnPlayerGetHit;
+    public event EventHandler OnPlayerInteract;
+    public event EventHandler OnPlayerSlide;
+    public event EventHandler OnPlayerJump;
 
+    
     private void Awake()
     {
         Instance = this;
@@ -106,11 +113,38 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
         //isGetHit =false;
     }
 
+    //invoke event
+    public void PlayerAttackInvoke()
+    {
+        OnPlayerAttack?.Invoke(this, EventArgs.Empty);
+    }
+    public void PlayerHealInvoke()
+    {
+        OnPlayerHeal?.Invoke(this, EventArgs.Empty);
+    }
+    public void PlayerGetHitInvoke()
+    {
+        OnPlayerGetHit?.Invoke(this, EventArgs.Empty);
+    }
+    public void PlayerInteractInvoke()
+    {
+        OnPlayerInteract?.Invoke(this, EventArgs.Empty);
+    }
+    public void PlayerSlideInvoke()
+    {
+        OnPlayerSlide?.Invoke(this, EventArgs.Empty);
+    }
+    public void PlayerJumpInvoke()
+    {
+        OnPlayerJump?.Invoke(this, EventArgs.Empty);
+    }
+    //end invoke event
+
+
     public void UpdateCheckpoint(Vector2 pos)
     {
         checkpointPos = pos;
     }
-
     public void LoadData(GameData data)
     {
         this.transform.position = data.lastCheckpoint;

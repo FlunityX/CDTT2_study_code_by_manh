@@ -15,6 +15,8 @@ public class PlayerEntryAttackState : PlayerBaseState
         _playerStateManager.entryPos = Player.Instance.transform.position;
 
         Player.Instance._playerAttack.MeleeAttack(Player.Instance.Dmg);
+        Player.Instance.PlayerAttackInvoke();
+
         Debug.Log("1");
         
     }

@@ -12,6 +12,7 @@ public class GetHitState : PlayerBaseState
         base.EnterState(playerStateManager);
         Player.Instance._playerVisual.PlayGetHitAnim();
         Player.Instance.isGetHit = false;
+        Player.Instance.PlayerGetHitInvoke();
 
         //Debug.Log("get hit");
     }

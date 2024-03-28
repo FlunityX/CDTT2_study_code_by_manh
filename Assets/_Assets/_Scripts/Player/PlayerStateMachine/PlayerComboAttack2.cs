@@ -13,6 +13,8 @@ public class PlayerComboAttack2 : PlayerBaseState
         //Player.Instance._playerVisual.PlayerIdleAnim();
 
         Player.Instance._playerAttack.MeleeAttack(Player.Instance.Dmg);
+        Player.Instance.PlayerAttackInvoke();
+
         Debug.Log("3");
     }
 

@@ -11,8 +11,8 @@ public class SlideState : PlayerBaseState
         base.EnterState(playerStateManager);
         Player.Instance._playerMovement.Slide(15f);
         Player.Instance._playerVisual.PlaySlideAnim();
+        Player.Instance.PlayerSlideInvoke();
     }
-
     public override void ExitState()
     {
         _playerStateManager.counter = 0;

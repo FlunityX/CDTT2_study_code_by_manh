@@ -11,6 +11,7 @@ public class PlayerFinishAttack : PlayerBaseState
         base.EnterState(playerStateManager);
         Player.Instance._playerVisual.PlayFinishAttackAnim();
         Player.Instance._playerAttack.MeleeAttack(Player.Instance.Dmg);
+        Player.Instance.PlayerAttackInvoke();
         Player.Instance._playerAttack.RangeAttack();
 
         Debug.Log("4");

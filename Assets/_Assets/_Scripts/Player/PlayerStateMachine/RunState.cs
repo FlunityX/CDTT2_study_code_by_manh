@@ -13,6 +13,7 @@ public class RunState : PlayerBaseState
         base.EnterState(playerStateManager);
         Player.Instance._playerVisual.PlayRunAnim();
         Player.Instance._playerMovement.ResetIncreasingSpeed();
+        
         Debug.Log("run");
     }
 
@@ -24,6 +25,7 @@ public class RunState : PlayerBaseState
 
     public override void Update()
     {
+        SoundManager.Instance.Player_Moving(Player.Instance.transform.position);
        if(_playerStateManager.CheckIfCanIdleRun())
         {
             _playerStateManager.ChangeState(_playerStateManager.idleState);

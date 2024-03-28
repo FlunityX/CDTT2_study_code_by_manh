@@ -12,7 +12,7 @@ public class UsePotionState : PlayerBaseState
         base.EnterState(playerStateManager);
         Player.Instance._playerVisual.PlayUsePotionAnim();
         _playerStateManager.entryPos = Player.Instance.transform.position;
-        Debug.Log("heal");
+        Player.Instance.PlayerHealInvoke();
     }
 
     public override void ExitState()

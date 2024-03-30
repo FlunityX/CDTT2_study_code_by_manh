@@ -26,7 +26,7 @@ public class ShopUI : ObjectPool
   
     public void ShopOpen()
     {
-        gameObject.SetActive(!gameObject.activeSelf);
+        Show();
         UpdateUI();
 
     }
@@ -65,6 +65,15 @@ public class ShopUI : ObjectPool
         playerCoin.text =Player.Instance.coin.ToString();
         
     }
+    public void Show()
+    {
+        gameObject.SetActive(true);
+        
+    }
 
-    
+    public void Hide()
+    {
+        gameObject.SetActive(false);
+    }
+
 }

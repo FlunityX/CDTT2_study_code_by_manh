@@ -83,6 +83,7 @@ public class OptionUI : MonoBehaviour
             RebindBinding(GameInput.Binding.Pause);
 
         });
+        musicButton.Select();
     }
 
     private void Start()

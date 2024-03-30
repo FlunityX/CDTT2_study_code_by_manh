@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3456b5cd66599e47b4563536aada377, type: 3}
+  m_Name: SoundSO
+  m_EditorClassIdentifier: 
+  moving:
+  - {fileID: 8300000, guid: 58b8aec08e8673446876a1e3929d428b, type: 3}
+  attack:
+  - {fileID: 8300000, guid: 84e331a4e6f780841a4fddd3a8ab7bb1, type: 3}
+  jump:
+  - {fileID: 8300000, guid: 5fea7fe753534fc4989ea11df37eb7bf, type: 3}
+  airAttack:
+  - {fileID: 8300000, guid: 84e331a4e6f780841a4fddd3a8ab7bb1, type: 3}
+  fall:
+  - {fileID: 8300000, guid: 070a270800d447e48a19f0a7b881a1e3, type: 3}
+  getHit:
+  - {fileID: 8300000, guid: c116aa129edc4004ba9b0d957c02a039, type: 3}
+  - {fileID: 8300000, guid: b68dc8dfd1c47a441af196150ca55475, type: 3}
+  usePotion:
+  - {fileID: 8300000, guid: c116aa129edc4004ba9b0d957c02a039, type: 3}
+  dead:
+  - {fileID: 8300000, guid: 070a270800d447e48a19f0a7b881a1e3, type: 3}
+  slide:
+  - {fileID: 8300000, guid: c116aa129edc4004ba9b0d957c02a039, type: 3}
+  interact:
+  - {fileID: 8300000, guid: c116aa129edc4004ba9b0d957c02a039, type: 3}
+  boss_moving: []
+  boss_attack: []
+  boss_spell: []
+  boss_getHit: []
+  boss_dead: []

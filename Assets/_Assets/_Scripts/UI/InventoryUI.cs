@@ -5,7 +5,7 @@ using UnityEngine;
 public class InventoryUI : MonoBehaviour
 {
     public Transform itemsParent;   // The parent object of all the items
-    public GameObject inventoryUI;  // The entire UI
+    //public GameObject inventoryUI;  // The entire UI
     PlayerInventory inventory;    // Our current inventory
    // public Transform BuffHolder;
     ItemSlot[] slots;  // List of all the slots
@@ -22,7 +22,7 @@ public class InventoryUI : MonoBehaviour
 
     private void GameInput_OnOpenInventory(object sender, System.EventArgs e)
     {
-        inventoryUI.SetActive(!inventoryUI.activeSelf);
+        gameObject.SetActive(!gameObject.activeSelf);
     }
 
     private void Inventory_OnItemChanged(object sender, System.EventArgs e)
@@ -62,6 +62,15 @@ public class InventoryUI : MonoBehaviour
                 slots[9].ClearSlot();
             }
         }
+
+    public void Show()
+    {
+        gameObject.SetActive(true);
+    }
+    public void Hide()
+    {
+        gameObject.SetActive(false);
+    }
         
     }
  

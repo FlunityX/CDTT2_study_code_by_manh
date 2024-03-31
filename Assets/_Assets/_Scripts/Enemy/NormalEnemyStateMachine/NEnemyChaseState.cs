@@ -59,20 +59,20 @@ public class NEnemyChaseState : NEnemyBaseState
 
     private bool CheckIfCanAttack()
     {
-        return Mathf.Abs(Player.Instance.transform.position.x - _NEnemyManager._normalEnemy.transform.position.x) <= _NEnemyManager._normalEnemy.GetEnemyStat().attackRange*2 && _NEnemyManager._normalEnemy.GetNEnemyAttack().IsReadyToAttack();
+        return Mathf.Abs(Player.Instance.transform.position.x - _NEnemyManager._normalEnemy.transform.position.x) <= _NEnemyManager._normalEnemy.GetEnemyStat().AttackRange *2 && _NEnemyManager._normalEnemy.GetNEnemyAttack().IsReadyToAttack();
     }
     private bool CheckIfNeedChase()
     {
-        return Mathf.Abs(Player.Instance.transform.position.x - _NEnemyManager._normalEnemy.transform.position.x) > _NEnemyManager._normalEnemy.GetEnemyStat().attackRange*2 ;
+        return Mathf.Abs(Player.Instance.transform.position.x - _NEnemyManager._normalEnemy.transform.position.x) > _NEnemyManager._normalEnemy.GetEnemyStat().AttackRange *2 ;
     }
     private void Chase()
     {
         if(ChaseDir > 0)
         {
-            _NEnemyManager._normalEnemy.transform.Translate(Vector2.right * _NEnemyManager._normalEnemy.GetEnemyStat().speed * 2 * Time.deltaTime);
+            _NEnemyManager._normalEnemy.transform.Translate(Vector2.right * _NEnemyManager._normalEnemy.GetEnemyStat().Speed * 2 * Time.deltaTime);
         }
         else{
-            _NEnemyManager._normalEnemy.transform.Translate(Vector2.left * _NEnemyManager._normalEnemy.GetEnemyStat().speed * 2 * Time.deltaTime);
+            _NEnemyManager._normalEnemy.transform.Translate(Vector2.left * _NEnemyManager._normalEnemy.GetEnemyStat().Speed * 2 * Time.deltaTime);
 
         }
         Debug.Log("chasing"); 

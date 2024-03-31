@@ -17,7 +17,7 @@ public class BossMeleeAttack : MonoBehaviour,IMeleeAttack
     }
     private void Update()
     {
-        if(attackSpeedCounter< _boss.GetEnemyStat().attackSpeed)
+        if(attackSpeedCounter< _boss.GetEnemyStat().AttackSpeed)
         {
         attackSpeedCounter += Time.deltaTime;
 
@@ -40,7 +40,7 @@ public class BossMeleeAttack : MonoBehaviour,IMeleeAttack
 
     public bool IsReadyToAttack()
     {
-        return attackSpeedCounter >= _boss.GetEnemyStat().attackSpeed;
+        return attackSpeedCounter >= _boss.GetEnemyStat().AttackSpeed;
     }
     private void ResetAttackSpeedCounter()
     {
@@ -50,13 +50,13 @@ public class BossMeleeAttack : MonoBehaviour,IMeleeAttack
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(attackPoint.position, _boss.GetEnemyStat().attackRange);
+        Gizmos.DrawWireSphere(attackPoint.position, _boss.GetEnemyStat().AttackRange);
     }
 
     IEnumerator  DelayedAttack(float dmg) 
     {
         yield return new WaitForSeconds(.3f);
-        Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, _boss.GetEnemyStat().attackRange, playerLayer);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, _boss.GetEnemyStat().AttackRange, playerLayer);
         if (hits != null)
         {
             foreach (Collider2D hit in hits)

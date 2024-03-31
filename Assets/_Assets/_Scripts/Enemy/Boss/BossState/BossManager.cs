@@ -71,11 +71,11 @@ public class BossManager : CharacterManager
     {
         if (ChaseDir > 0)
         {
-            _Boss.transform.Translate(Vector2.right * _Boss.GetEnemyStat().speed  * Time.deltaTime);
+            _Boss.transform.Translate(Vector2.right * _Boss.GetEnemyStat().Speed  * Time.deltaTime);
         }
         else
         {
-            _Boss.transform.Translate(Vector2.left * _Boss.GetEnemyStat().speed  * Time.deltaTime);
+            _Boss.transform.Translate(Vector2.left * _Boss.GetEnemyStat().Speed  * Time.deltaTime);
 
         }
     }

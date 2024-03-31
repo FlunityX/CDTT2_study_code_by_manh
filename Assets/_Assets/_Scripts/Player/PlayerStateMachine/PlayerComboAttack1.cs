@@ -11,7 +11,7 @@ public class PlayerComboAttack1 : PlayerBaseState
         base.EnterState(playerStateManager);
         Player.Instance._playerVisual.PlayComboAttack1Anim();
        // Player.Instance._playerVisual.PlayerIdleAnim();
-        Player.Instance._playerAttack.MeleeAttack(Player.Instance.Dmg);
+        Player.Instance._playerAttack.MeleeAttack(Player.Instance._playerStat.AttackDmg);
         Player.Instance.PlayerAttackInvoke();
 
 

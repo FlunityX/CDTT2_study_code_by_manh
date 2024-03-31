@@ -9,7 +9,7 @@ public class PlayerAirAttackGroundedState : PlayerBaseState
         base.EnterState(playerStateManager);
         Player.Instance._playerVisual.PlayAirAttackGroundAnim();
         CameraShake.Instance.Shake();
-        Player.Instance._playerAttack.MeleeAttack(Player.Instance.Dmg);
+        Player.Instance._playerAttack.MeleeAttack(Player.Instance._playerStat.AttackDmg);
 
         Debug.Log("grounded");
     }

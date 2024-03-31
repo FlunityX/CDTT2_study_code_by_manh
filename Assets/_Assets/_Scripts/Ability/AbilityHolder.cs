@@ -75,13 +75,13 @@ public class AbilityHolder : MonoBehaviour
                     IsUsed = false;
                     Debug.Log("to cool");
                     DurationReset();
-                    _abilitySO.Deactivate();
+                    _abilitySO.Deactivate(Player.Instance.gameObject);
                 }
                 else
                 {
                     if (!IsActive)
                     {
-                        _abilitySO.Activate();
+                        _abilitySO.Activate(Player.Instance.gameObject);
                         IsActive = true;
                     }
                 }

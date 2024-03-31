@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu()]
@@ -7,15 +8,17 @@ using UnityEngine;
 public class AttackBuffAbility : AbilitySO
 {
 
-    public override void Activate()
+    public override void Activate(GameObject holder)
     {
-        base.Activate();
-        Player.Instance.Dmg += 10f;
+        base.Activate(holder);
+       AttackUpSO attack= (AttackUpSO)statusEffectSO;
+        attack.OnAttach(holder);
         Debug.Log("attackIncrease");
     }
-    public override void Deactivate()
+    public override void Deactivate(GameObject holder)
     {
-        base.Deactivate();
-        Player.Instance.Dmg -= 10f;
+        base.Deactivate(holder);
+        AttackUpSO attack = (AttackUpSO)statusEffectSO;
+        attack.OnDetach(holder);
     }
 }

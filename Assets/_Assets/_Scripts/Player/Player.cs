@@ -12,15 +12,16 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
     [SerializeField] public PlayerCollider _playerCollider;
     [SerializeField] public PlayerSlideCollider _playerSlideCollider;
     [SerializeField] public AbilityHolder _abilityHolder;
+    [SerializeField] public PlayerStat _playerStat;
     [SerializeField] public CapsuleCollider2D Collider;
 
     public bool isGetHit=false;
     public bool canUsePotion;
     public bool isUsePotion = false;
-    public float Speed=1f;
+   /* public float Speed=1f;
     public float Dmg=1f;
     public float HpMax = 10;
-    public float currentHp = 1;
+    public float currentHp = 1;*/
     public float coin;
     Vector2 checkpointPos;
     AudioManager audioManager;
@@ -65,11 +66,11 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
 
     public void ReduceHp(float dmg)
     {
-        currentHp -= dmg;
+        _playerStat.currentHp -= dmg;
         GetHit();
         OnHpChange?.Invoke(this, new IHasHpBar.OnHpChangeEventArgs
         {
-            HpNormalized = currentHp / HpMax
+            HpNormalized = _playerStat.currentHp / _playerStat.Hp
         }); ;
         
         
@@ -77,23 +78,23 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
 
     public void Die()
     {
-        if (currentHp <= 0)
+        if (_playerStat.currentHp <= 0)
         {
-            audioManager.PlaySFX(audioManager.die);
+            //audioManager.PlaySFX(audioManager.die);
  
             transform.position = checkpointPos;
-            currentHp = 0;
-            HealHp(HpMax);
+            _playerStat.currentHp = 0;
+            HealHp(_playerStat.Hp);
         }
         
     }
 
     public void HealHp(float Hp)
     {
-        currentHp += Hp;
+        _playerStat.currentHp += Hp;
         OnHpChange?.Invoke(this, new IHasHpBar.OnHpChangeEventArgs
         {   
-            HpNormalized = currentHp / HpMax
+            HpNormalized = _playerStat.currentHp / _playerStat.Hp
         }); ;
     }
     
@@ -110,7 +111,7 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
     private void GetHit()
     {
         isGetHit = true;
-        //isGetHit =false;
+        
     }
 
     //invoke event

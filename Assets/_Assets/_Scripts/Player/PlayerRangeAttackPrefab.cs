@@ -32,7 +32,7 @@ public class PlayerRangeAttackPrefab : MonoBehaviour
         {
             if(collision.CompareTag(GameConstant.ENEMY_TAG))
             {
-               Player.Instance.DealDamage( collision.GetComponent<IReceiveDamage>(), Player.Instance.Dmg);
+               Player.Instance.DealDamage( collision.GetComponent<IReceiveDamage>(), Player.Instance._playerStat.AttackDmg);
 
             }
         }

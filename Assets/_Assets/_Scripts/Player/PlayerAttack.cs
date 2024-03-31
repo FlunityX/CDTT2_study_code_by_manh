@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour, IMeleeAttack,IRangeAttack
 {
-    public float attackSpeed = .5f;
+    
     private float attackCounter;
     public bool isAttackReady;
     [SerializeField] private Transform attackPoint;
@@ -18,7 +18,7 @@ public class PlayerAttack : MonoBehaviour, IMeleeAttack,IRangeAttack
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
-
+   
     private void Update()
     {
         attackCounter += Time.deltaTime;
@@ -46,7 +46,7 @@ public class PlayerAttack : MonoBehaviour, IMeleeAttack,IRangeAttack
         ResetAttackCounter();
     }
    public bool IsAttackingReady() {
-        return attackCounter >= attackSpeed;
+        return attackCounter >= Player.Instance._playerStat.AttackSpeed;
     }
     public void ResetAttackCounter()
     {

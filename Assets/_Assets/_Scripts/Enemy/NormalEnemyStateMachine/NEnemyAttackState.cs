@@ -10,7 +10,7 @@ public class NEnemyAttackState : NEnemyBaseState
     {
         base.EnterState(characterManager);
         _NEnemyManager._normalEnemy.GetEnemyVisual().PlayAttackAnim();
-        _NEnemyManager._normalEnemy.GetNEnemyAttack().MeleeAttack(_NEnemyManager._normalEnemy.GetEnemyStat().attackDamage);
+        _NEnemyManager._normalEnemy.GetNEnemyAttack().MeleeAttack(_NEnemyManager._normalEnemy.GetEnemyStat().AttackDmg);
         usePos= _NEnemyManager._normalEnemy.transform.position;
         Debug.Log("Attack");
     }
@@ -42,7 +42,7 @@ public class NEnemyAttackState : NEnemyBaseState
     }
     private bool CheckIfInAttackRange()
     {
-        return (Player.Instance.transform.position.x - _NEnemyManager._normalEnemy.transform.position.x )<= _NEnemyManager._normalEnemy.GetEnemyStat().attackRange;
+        return (Player.Instance.transform.position.x - _NEnemyManager._normalEnemy.transform.position.x )<= _NEnemyManager._normalEnemy.GetEnemyStat().AttackRange;
     }
     private void NailPosition()
     {

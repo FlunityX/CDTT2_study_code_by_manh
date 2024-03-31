@@ -151,11 +151,11 @@ public class PlayerMovement : MonoBehaviour
     }
     private void IncreasSpeed()
     {
-        if (increasingSpeed < Player.Instance.Speed)
+        if (increasingSpeed < Player.Instance._playerStat.Speed)
         {
             increasingSpeed += .5f;
         }
-        else { increasingSpeed = Player.Instance.Speed; }
+        else { increasingSpeed = Player.Instance._playerStat.Speed; }
     }
     private void ForceBoolVariable()
     {

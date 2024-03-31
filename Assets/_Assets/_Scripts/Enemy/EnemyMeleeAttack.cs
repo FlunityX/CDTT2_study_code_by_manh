@@ -24,7 +24,7 @@ public class EnemyMeleeAttack :MonoBehaviour, IMeleeAttack
 
     public bool IsReadyToAttack()
     {
-        return attackSpeedCounter > _normalEnemy.GetEnemyStat().attackSpeed;
+        return attackSpeedCounter > _normalEnemy.GetEnemyStat().AttackSpeed;
     }
     private void ResetAttackSpeedCounter()
     {
@@ -33,19 +33,19 @@ public class EnemyMeleeAttack :MonoBehaviour, IMeleeAttack
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(attackPoint.position, _normalEnemy.GetEnemyStat().attackRange/2f);
+        Gizmos.DrawWireSphere(attackPoint.position, _normalEnemy.GetEnemyStat().AttackRange /2f);
     }
     IEnumerator DelayedMeleeAttack(float dmg)
     {
         yield return new WaitForSeconds(.3f);
-        Collider2D hit = Physics2D.OverlapCircle(attackPoint.position, _normalEnemy.GetEnemyStat().attackRange / 2f, playerLayer);
+        Collider2D hit = Physics2D.OverlapCircle(attackPoint.position, _normalEnemy.GetEnemyStat().AttackRange / 2f, playerLayer);
         if (hit != null)
         {
 
 
             if (hit.CompareTag(GameConstant.PLAYER_TAG))
             {
-                _normalEnemy.DealDamage(hit.GetComponent<IReceiveDamage>(), _normalEnemy.GetEnemyStat().attackDamage);
+                _normalEnemy.DealDamage(hit.GetComponent<IReceiveDamage>(), _normalEnemy.GetEnemyStat().AttackDmg);
 
 
 

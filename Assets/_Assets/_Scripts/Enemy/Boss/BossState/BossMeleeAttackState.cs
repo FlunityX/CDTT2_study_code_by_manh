@@ -7,7 +7,7 @@ public class BossMeleeAttackState : BossBaseState
     public override void EnterState(CharacterManager characterManager)
     {
         base.EnterState(characterManager);
-        _bossManager._Boss.GetBossMeleeAttack().MeleeAttack(_bossManager._Boss.GetEnemyStat().attackDamage);
+        _bossManager._Boss.GetBossMeleeAttack().MeleeAttack(_bossManager._Boss.GetEnemyStat().AttackDmg);
         _bossManager._Boss.GetBossVisual().PlayBossAttackAnim();
         Debug.Log("mmeeee");
 

@@ -31,6 +31,8 @@ public class JumpState : PlayerBaseState
         else if (_playerStateManager.CheckIfGetHit())
         {
             _playerStateManager.ChangeState(_playerStateManager.GetHitState);
+        }else if( _playerStateManager.CheckIfCanRun()) {
+            _playerStateManager.ChangeState(_playerStateManager.runState);    
         }
 
     }

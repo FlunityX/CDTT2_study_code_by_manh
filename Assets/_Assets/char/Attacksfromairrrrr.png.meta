@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9f3fb3bd1fbdcd54c9f0100f95234dc1
+guid: 4e2e184136eeda545b605b5a3ce0e4ff
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -110,169 +110,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Suriken_0
+      name: Attacksfromairrrrr_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 48
+        y: 254
+        width: 28
+        height: 49
+      alignment: 9
+      pivot: {x: 0.53571427, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af9e000b32ffa1f48a1c2a0c328de9b7
-      internalID: 166485842
+      spriteID: a33822e764ee2e7488d5e3c5fd54be28
+      internalID: 1527152483
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Suriken_1
+      name: Attacksfromairrrrr_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 172
+        y: 255
+        width: 34
+        height: 48
+      alignment: 9
+      pivot: {x: 0.61764705, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31dd3544e6d1808458062e0877df863f
-      internalID: -1899722441
+      spriteID: 12d36714c419ccc46b83ff6fe77dd1b8
+      internalID: 1703840225
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Suriken_2
+      name: Attacksfromairrrrr_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 298
+        y: 253
+        width: 37
+        height: 50
+      alignment: 9
+      pivot: {x: 0.6486486, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e82cc48a123c9794f87d914b81757d92
-      internalID: 291719628
+      spriteID: d15e48b032c5eb941bfd8c2f641d53ef
+      internalID: 1735622017
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Suriken_3
+      name: Attacksfromairrrrr_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 438
+        y: 253
+        width: 43
+        height: 49
+      alignment: 9
+      pivot: {x: 0.25581396, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee4e94331f3997e489d8ac74d0370f90
-      internalID: 1765671626
+      spriteID: dc2ae0eb9f5d498479ce286cff5eb59a
+      internalID: 88994276
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Suriken_4
+      name: Attacksfromairrrrr_4
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 560
+        y: 253
+        width: 45
+        height: 50
+      alignment: 9
+      pivot: {x: 0.42222223, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af4ac6d1bcb96e94d8c2821effb4140f
-      internalID: 939292407
+      spriteID: e0409facacd68084ea6af0e9a3d570a4
+      internalID: 1140438336
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Suriken_5
+      name: Attacksfromairrrrr_5
       rect:
         serializedVersion: 2
-        x: 160
-        y: 0
+        x: 687
+        y: 253
         width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 50
+      alignment: 9
+      pivot: {x: 0.59375, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6609c04ec98913c4baa496e1781fd10e
-      internalID: 169705514
+      spriteID: bfbdd1a5045ed494d9a143a16c240351
+      internalID: 1400699728
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Suriken_6
+      name: Attacksfromairrrrr_6
       rect:
         serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 817
+        y: 253
+        width: 31
+        height: 50
+      alignment: 9
+      pivot: {x: 0.58064514, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e4f1bc533052a840a5ac7ea6786d380
-      internalID: -503607744
+      spriteID: ab273c65f66adc84981ed3c3ba62287d
+      internalID: 1201546267
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Suriken_7
+      name: Attacksfromairrrrr_7
       rect:
         serializedVersion: 2
-        x: 224
-        y: 0
-        width: 32
-        height: 32
+        x: 942
+        y: 256
+        width: 51
+        height: 44
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1749b17bea99de241ab1125b2b36c020
-      internalID: 2113857772
+      spriteID: 77b8a339e125c134c822deab2b62c4f7
+      internalID: -1606769717
       vertices: []
       indices: 
       edges: []
@@ -288,14 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Suriken_0: 166485842
-      Suriken_1: -1899722441
-      Suriken_2: 291719628
-      Suriken_3: 1765671626
-      Suriken_4: 939292407
-      Suriken_5: 169705514
-      Suriken_6: -503607744
-      Suriken_7: 2113857772
+      Attacksfromairrrrr_0: 1527152483
+      Attacksfromairrrrr_1: 1703840225
+      Attacksfromairrrrr_2: 1735622017
+      Attacksfromairrrrr_3: 88994276
+      Attacksfromairrrrr_4: 1140438336
+      Attacksfromairrrrr_5: 1400699728
+      Attacksfromairrrrr_6: 1201546267
+      Attacksfromairrrrr_7: -1606769717
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

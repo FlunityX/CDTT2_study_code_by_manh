@@ -14,7 +14,8 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
     [SerializeField] public AbilityHolder _abilityHolder;
     [SerializeField] public PlayerStat _playerStat;
     [SerializeField] public CapsuleCollider2D Collider;
-
+    [SerializeField] public CapsuleCollider2D SlideCollider;
+    [SerializeField] private StatusEffectSO _status;
     public bool isGetHit=false;
     public bool canUsePotion;
     public bool isUsePotion = false;
@@ -52,6 +53,20 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
     private void Update()
     {
         Die();
+    }
+
+    public StatusEffectSO GetEffect()
+    {
+        return _status;
+    }
+    public void SetStatusEffect()
+    {
+        
+        _status = PlayerInventory.Instance.GetStatusEffect();
+    }
+    public void RemoveEffect()
+    {
+        _status = null;
     }
     private void GameInput_OnInteract(object sender, EventArgs e)
     {

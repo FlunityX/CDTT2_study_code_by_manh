@@ -123,7 +123,8 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Slide(float force)
     {
-        _boxRigidbody.velocity = new Vector2(dirX,0) * force;
+        _boxRigidbody.velocity = new Vector2(dirX,-2) * force;
+        AddingFallForce(force);
         if(Player.Instance._playerSlideCollider.isCollideEnemy)
         {
             Physics2D.IgnoreCollision(Player.Instance.Collider, Player.Instance._playerSlideCollider.enemyColider, true);

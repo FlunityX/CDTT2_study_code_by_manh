@@ -7,7 +7,9 @@ public class AbilitySO : ScriptableObject
     public string AbilityName;
     public float coolDown;
     public float duration;
-    public StatusEffectSO statusEffectSO = null;
+    public bool isActive;
+    public StatusEffectSO statusEffectSO;
+    public StatusEffectSO passiveEffect;
 
     public virtual void Activate(GameObject holder) { }
 

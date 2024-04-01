@@ -15,3 +15,6 @@ MonoBehaviour:
   AbilityName: SpeedBuff
   coolDown: 5
   duration: 10
+  isActive: 0
+  statusEffectSO: {fileID: 11400000, guid: a77e6795b5bb4ae4690a09840a13709d, type: 2}
+  passiveEffect: {fileID: 0}

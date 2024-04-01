@@ -41,6 +41,7 @@ public class PlayerInventory : MonoBehaviour
             {
                 buffItem=item;
                 OnItemChanged?.Invoke(this, EventArgs.Empty);
+                Player.Instance.SetStatusEffect();
                 return true;
             }
             else
@@ -59,10 +60,29 @@ public class PlayerInventory : MonoBehaviour
         }
         else
         {
+            BuffItemSO _buffItem = (BuffItemSO)buffItem;
+            if (!_buffItem._abilitySO.isActive)
+            {
+            
             buffItem = null;
+            Player.Instance.RemoveEffect();
             OnItemChanged?.Invoke(this, EventArgs.Empty);
             OnBuffItemChange?.Invoke(this, EventArgs.Empty);
 
+            }
+
         }
+    }
+
+    public StatusEffectSO GetStatusEffect()
+    {
+
+        BuffItemSO buffItemSO = (BuffItemSO)buffItem;
+        if (buffItemSO._abilitySO.passiveEffect != null)
+        {
+        return buffItemSO._abilitySO.passiveEffect;
+
+        }
+        return null;
     }
 }

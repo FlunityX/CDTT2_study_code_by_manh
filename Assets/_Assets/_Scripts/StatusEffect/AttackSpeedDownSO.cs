@@ -3,23 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu()]
-public class AttackUpSO : StatusEffectSO
+public class AttackSpeedDownSO : StatusEffectSO
 {
     public float amount;
     public override void OnAttach(GameObject holder)
     {
         base.OnAttach(holder);
         UnitStat target = holder.GetComponent<UnitStat>();
-        if(target != null){
-            target.AttackDmg += amount;
+        if (target != null)
+        {
+            target.AttackSpeed += (amount/100) * target.AttackSpeed;
         }
 
-        
+
     }
     public override void OnDetach(GameObject holder)
     {
         base.OnDetach(holder);
-        holder.GetComponent<UnitStat>().AttackDmg -= amount;
+        holder.GetComponent<UnitStat>().AttackSpeed -= (amount / 100) * holder.GetComponent<UnitStat>().AttackSpeed;
 
     }
 }

@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99da319440db7cf428847c34af93b390, type: 3}
   m_Name: PlayerSO
   m_EditorClassIdentifier: 
-  Speed: 2
-  Hp: 1
+  UnitName: 
+  Speed: 10
+  Hp: 10
   AttackDmg: 0
   AttackSpeed: 1
   AttackRange: 1

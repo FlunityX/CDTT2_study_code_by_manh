@@ -64,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (isFalling || isJumping)
         {
-            transform.Translate(moveDir * moveDistance/1.5f);
+            transform.Translate(moveDir * moveDistance/1.25f);
         }
         else
         {
@@ -123,8 +123,8 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Slide(float force)
     {
-        _boxRigidbody.velocity = new Vector2(dirX,-2) * force;
-        AddingFallForce(force);
+        _boxRigidbody.velocity = new Vector2(dirX,-.5f) * force;
+        
         if(Player.Instance._playerSlideCollider.isCollideEnemy)
         {
             Physics2D.IgnoreCollision(Player.Instance.Collider, Player.Instance._playerSlideCollider.enemyColider, true);

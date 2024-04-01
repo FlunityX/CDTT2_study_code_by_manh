@@ -45,8 +45,8 @@ public class EnemyMeleeAttack :MonoBehaviour, IMeleeAttack
 
             if (hit.CompareTag(GameConstant.PLAYER_TAG))
             {
-                _normalEnemy.DealDamage(hit.GetComponent<IReceiveDamage>(), _normalEnemy.GetEnemyStat().AttackDmg);
-
+               // _normalEnemy.DealDamage(hit.GetComponent<IReceiveDamage>(), _normalEnemy.GetEnemyStat().AttackDmg);
+                hit.GetComponent<IReceiveDamage>().ReduceHp(_normalEnemy.GetEnemyStat().AttackDmg);
 
 
             }

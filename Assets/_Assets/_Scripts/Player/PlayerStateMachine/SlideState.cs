@@ -9,7 +9,7 @@ public class SlideState : PlayerBaseState
     public override void EnterState(PlayerStateManager playerStateManager)
     {
         base.EnterState(playerStateManager);
-        Player.Instance._playerMovement.Slide(15f);
+        Player.Instance._playerMovement.Slide(20f);
         Player.Instance._playerVisual.PlaySlideAnim();
         Player.Instance.PlayerSlideInvoke();
     }

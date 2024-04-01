@@ -4,33 +4,33 @@ using UnityEngine;
 
 public class GetHitState : PlayerBaseState
 {
-    private float gethitTime = .1f;
-    private float gethitTimeCounter;
+    
 
     public override void EnterState(PlayerStateManager playerStateManager)
     {
         base.EnterState(playerStateManager);
         Player.Instance._playerVisual.PlayGetHitAnim();
-        Player.Instance.isGetHit = false;
         Player.Instance.PlayerGetHitInvoke();
 
-        //Debug.Log("get hit");
+        Debug.Log("get hit");
     }
 
     public override void ExitState()
     {
-        gethitTimeCounter = 0;
+        Player.Instance.isGetHit = false;
+
+        _playerStateManager.counter = 0;
     }
 
     public override void Update()
     {
-        gethitTimeCounter += Time.deltaTime;
-        if (_playerStateManager.CheckIfCanIdle())
+        _playerStateManager.counter += Time.deltaTime;
+        if (_playerStateManager.CheckIfCanIdleGetHit())
        {
             _playerStateManager.ChangeState(_playerStateManager.idleState);
 
        }
-        else if (_playerStateManager.CheckIfCanRun())
+        else if (_playerStateManager.CheckIfCanRunGetHit())
         {
             _playerStateManager.ChangeState((_playerStateManager.runState));
         }

@@ -23,7 +23,7 @@ public class RunState : PlayerBaseState
 
     public override void Update()
     {
-        SoundManager.Instance.Player_Moving(Player.Instance.transform.position);
+        SoundManager.Instance.Player_Moving(Player.Instance.transform.position);                    
        if(_playerStateManager.CheckIfCanIdleRun())
         {
             _playerStateManager.ChangeState(_playerStateManager.idleState);

@@ -16,7 +16,7 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
     [SerializeField] public CapsuleCollider2D Collider;
     [SerializeField] public CapsuleCollider2D SlideCollider;
     [SerializeField] private StatusEffectSO _status;
-    public bool isGetHit=false;
+    public bool isGetHit;
     public bool canUsePotion;
     public bool isUsePotion = false;
    /* public float Speed=1f;
@@ -126,7 +126,7 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
     private void GetHit()
     {
         isGetHit = true;
-        
+        Debug.Log("hitdsjfsnjfksjkasljsldjsldsa");
     }
 
     //invoke event

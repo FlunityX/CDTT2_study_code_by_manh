@@ -54,9 +54,17 @@ public class PlayerStateManager : MonoBehaviour
     {
         return Player.Instance.GetDirX() == 0 && Player.Instance._playerMovement.isGround;
     }
+    public bool CheckIfCanIdleGetHit()
+    {
+        return Player.Instance.GetDirX() == 0 && Player.Instance._playerMovement.isGround && gethitTime<=counter;
+    }
     public bool CheckIfCanRun()
     {
         return (Player.Instance._playerMovement.dirX != 0 && Player.Instance._playerMovement.isGround);
+    }
+    public bool CheckIfCanRunGetHit()
+    {
+        return (Player.Instance._playerMovement.dirX != 0 && Player.Instance._playerMovement.isGround) && gethitTime <= counter;
     }
 
     public bool CheckIfCanJump()
@@ -99,12 +107,12 @@ public class PlayerStateManager : MonoBehaviour
     }
     public bool CheckIfCanIdleUsePotion()
     {
-        return Player.Instance.GetDirX() == 0 && Player.Instance._playerMovement.isGround && counter >= gethitTime;
+        return Player.Instance.GetDirX() == 0 && Player.Instance._playerMovement.isGround && counter >= usePotionTime;
     }
 
     public bool CheckIfCanRunUsePotion()
     {
-        return (Player.Instance.GetDirX() != 0 && Player.Instance._playerMovement.isGround) && counter >= gethitTime;
+        return (Player.Instance.GetDirX() != 0 && Player.Instance._playerMovement.isGround) && counter >= usePotionTime;
     }
     public bool CheckIfCanGrounded()
     {

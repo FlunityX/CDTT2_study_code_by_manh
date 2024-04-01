@@ -48,7 +48,11 @@ public class AbilityHolder : MonoBehaviour
 
     private void Update()
     {
+        if (_abilitySO != null)
+        {
         abilityStateUpdate();
+
+        }
         
     }
     private void abilityStateUpdate()
@@ -56,7 +60,8 @@ public class AbilityHolder : MonoBehaviour
         switch (state)
         {
             case abilityState.ready:
-                
+                _abilitySO.isActive = false;
+
                 if (IsUsed)
                 {
                     Debug.Log("runiing");
@@ -68,6 +73,7 @@ public class AbilityHolder : MonoBehaviour
             case abilityState.active:
                 Debug.Log("usung");
                 duration += Time.deltaTime;
+                _abilitySO.isActive = true;
                 if(duration >= _abilitySO.duration)
                 {
 
@@ -90,7 +96,9 @@ public class AbilityHolder : MonoBehaviour
             case abilityState.coolDown:
                 Debug.Log("end");
                 coolDown += Time.deltaTime;
-                if(coolDown >= _abilitySO.coolDown)
+                _abilitySO.isActive = false;
+
+                if (coolDown >= _abilitySO.coolDown)
                 {
                     state = abilityState.ready;
                     CoolDownReset();

@@ -9,12 +9,14 @@ public class AttackSpeedBuffAbility : AbilitySO
     public override void Activate(GameObject holder)
     {
         base.Activate(holder);
-        Player.Instance._playerStat.AttackSpeed += Player.Instance._playerStat.AttackSpeed * .2f;
+        AttackSpeedUpSO attackSpeedUp = (AttackSpeedUpSO)statusEffectSO;
+        attackSpeedUp.OnAttach(holder);
         Debug.Log("attackIncrease");
     }
     public override void Deactivate(GameObject holder)
     {
         base.Deactivate(holder);
-        Player.Instance._playerStat.AttackDmg -= Player.Instance._playerStat.AttackSpeed * .2f;
+        AttackSpeedUpSO attackSpeedUp = (AttackSpeedUpSO)statusEffectSO;
+        attackSpeedUp.OnDetach(holder);
     }
 }

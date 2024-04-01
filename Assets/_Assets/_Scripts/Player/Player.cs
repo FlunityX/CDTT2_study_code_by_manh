@@ -14,6 +14,7 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
     [SerializeField] public AbilityHolder _abilityHolder;
     [SerializeField] public PlayerStat _playerStat;
     [SerializeField] public CapsuleCollider2D Collider;
+    [SerializeField] public CapsuleCollider2D SlideCollider;
     [SerializeField] private StatusEffectSO _status;
     public bool isGetHit=false;
     public bool canUsePotion;

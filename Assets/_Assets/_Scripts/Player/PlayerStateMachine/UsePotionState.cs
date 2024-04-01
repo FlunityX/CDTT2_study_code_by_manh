@@ -12,6 +12,8 @@ public class UsePotionState : PlayerBaseState
         base.EnterState(playerStateManager);
         Player.Instance._playerVisual.PlayUsePotionAnim();
         _playerStateManager.entryPos = Player.Instance.transform.position;
+        _playerStateManager.NailPlayer();
+
         Player.Instance.PlayerHealInvoke();
     }
 
@@ -25,7 +27,6 @@ public class UsePotionState : PlayerBaseState
         _playerStateManager.counter += Time.deltaTime;
         Player.Instance.isUsePotion = false;
 
-        _playerStateManager.NailPlayer();
         if (_playerStateManager.CheckIfCanIdleUsePotion())
         {
             _playerStateManager.ChangeState(_playerStateManager.idleState);

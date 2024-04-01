@@ -54,11 +54,7 @@ public class PlayerVisual : MonoBehaviour
     {
         animator.CrossFade(GameConstant.PLAYER_AIR_ATTACK_ANIM, .2f,0);
     }
-    public void PlayAirAttackGroundAnim()
-    {
-        animator.CrossFade(GameConstant.PLAYER_AIR_ATTACK_GROUNDED_ANIM, .2f,0);
-
-    }
+   
     public void PlayGetHitAnim()
     {
         animator.CrossFade(GameConstant.PLAYER_GET_HIT_ANIM, .2f,0);

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8735061300784772189}
   - component: {fileID: 4413420376385118334}
   - component: {fileID: 4805757760175281263}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: PlayerCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,8 @@ GameObject:
   - component: {fileID: 6481107952310004503}
   - component: {fileID: 1887910805873117793}
   - component: {fileID: 4773488544579514569}
-  m_Layer: 10
+  - component: {fileID: 7500944696742768163}
+  m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,6 +217,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69169fd7ec966354ca554c7ddf81db75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7500944696742768163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507396316453146665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d3822b0db2678549bc35114cc21940c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1689467965324785434
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,7 +238,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1624791288305613892}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: AttakPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +271,7 @@ GameObject:
   - component: {fileID: 3842283912880362550}
   - component: {fileID: 7506424781228923922}
   - component: {fileID: 8927167916593471362}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: PlayerSlideCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -312,7 +325,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.2860107, y: -1.8482647}
+  m_Offset: {x: 0.7625694, y: -1.7332869}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -323,7 +336,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.5720215, y: 1.6809387}
+  m_Size: {x: 2.065239, y: 1.450983}
   m_EdgeRadius: 0
 --- !u!114 &8927167916593471362
 MonoBehaviour:
@@ -349,7 +362,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7913359446244449206}
   - component: {fileID: 6030669955739078900}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: PlayerAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -401,7 +414,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3680156905866097741}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: PlayerAirAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,7 +445,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3715809198387381732}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: GroundCheckPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -467,9 +480,11 @@ GameObject:
   - component: {fileID: 5613310377791299261}
   - component: {fileID: 8683958047579783694}
   - component: {fileID: 6602849923772191843}
+  - component: {fileID: 7754998157533963337}
   - component: {fileID: 8627757907698632808}
   - component: {fileID: 77621592553340946}
   - component: {fileID: 4576663906097087839}
+  - component: {fileID: 5238153249958223821}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -515,8 +530,10 @@ MonoBehaviour:
   _playerCollider: {fileID: 4413420376385118334}
   _playerSlideCollider: {fileID: 8927167916593471362}
   _abilityHolder: {fileID: 6602849923772191843}
-  _playerStat: {fileID: 8627757907698632808}
+  _playerStat: {fileID: 7754998157533963337}
   Collider: {fileID: 4576663906097087839}
+  SlideCollider: {fileID: 5238153249958223821}
+  _status: {fileID: 0}
   isGetHit: 0
   canUsePotion: 0
   isUsePotion: 0
@@ -552,6 +569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6b431ca45ea175459ac03d96a99f481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  airAttackTime: 1
   slideTime: 1
   usePotionTime: 0.5
   gethitTime: 0.1
@@ -576,6 +594,25 @@ MonoBehaviour:
   duration: 0
   IsUsed: 0
   IsActive: 0
+--- !u!114 &7754998157533963337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8044295190917503782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9357e825afda434ea9994ec650dc318, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unitSO: {fileID: 11400000, guid: c765c3e25ca336b40a131a68c31de187, type: 2}
+  currentHp: 0
+  Speed: 0
+  Hp: 0
+  AttackDmg: 0
+  AttackSpeed: 0
+  AttackRange: 0
 --- !u!114 &8627757907698632808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -654,9 +691,44 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.51, y: -0.06328654}
+  m_Offset: {x: 0.51, y: -0.21}
   m_Size: {x: 2.4672413, y: 5.943602}
   m_Direction: 0
+--- !u!70 &5238153249958223821
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8044295190917503782}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.65700895, y: -1.9528862}
+  m_Size: {x: 5.470393, y: 2.6961858}
+  m_Direction: 1
 --- !u!1 &8322488988794449910
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,7 +738,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7282419563299004984}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: AirAttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

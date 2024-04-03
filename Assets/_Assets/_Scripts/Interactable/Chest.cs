@@ -6,6 +6,8 @@ public class Chest : MonoBehaviour, IInteractable
 {
     [SerializeField] private ChestSO chestSO;
     [SerializeField] private ChestVisual _chestVisual;
+    public GameObject interactUI;
+
     private void Start()
     {
      _chestVisual = GetComponentInChildren<ChestVisual>();
@@ -30,5 +32,20 @@ public class Chest : MonoBehaviour, IInteractable
         int rand = Random.Range(0, 3);
         PlayerInventory.Instance.Add(chestSO.itemSOs[rand]);
         Player.Instance.coin += chestSO.coinAmount;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag(GameConstant.PLAYER_TAG))
+        {
+            interactUI.SetActive(true);
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag(GameConstant.PLAYER_TAG))
+        {
+            interactUI.SetActive(false);
+        }
     }
 }

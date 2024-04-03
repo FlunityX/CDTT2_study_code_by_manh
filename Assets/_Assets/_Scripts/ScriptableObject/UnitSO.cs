@@ -6,9 +6,9 @@ using UnityEngine;
 public class UnitSO :ScriptableObject
 {
     public string UnitName;
-   public float Speed;
-    public float Hp;
-    public float AttackDmg;
-    public float AttackSpeed;
-    public float AttackRange;
+   public Stat Speed;
+    public Stat Hp;
+    public Stat AttackDmg;
+    public Stat AttackSpeed;
+    public Stat AttackRange;
 }

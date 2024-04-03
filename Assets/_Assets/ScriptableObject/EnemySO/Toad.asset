@@ -13,8 +13,13 @@ MonoBehaviour:
   m_Name: Toad
   m_EditorClassIdentifier: 
   UnitName: Toad
-  Speed: 3
-  Hp: 10
-  AttackDmg: 1
-  AttackSpeed: 3
-  AttackRange: 4
+  Speed:
+    baseValue: 7
+  Hp:
+    baseValue: 20
+  AttackDmg:
+    baseValue: 5
+  AttackSpeed:
+    baseValue: 1
+  AttackRange:
+    baseValue: 3

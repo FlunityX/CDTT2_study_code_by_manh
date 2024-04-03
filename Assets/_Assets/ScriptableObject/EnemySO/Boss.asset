@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99da319440db7cf428847c34af93b390, type: 3}
   m_Name: Boss
   m_EditorClassIdentifier: 
-  Speed: 3
-  Hp: 1000
-  AttackDmg: 2
-  AttackSpeed: 3
-  AttackRange: 12
+  UnitName: Boss
+  Speed:
+    baseValue: 7
+  Hp:
+    baseValue: 1100
+  AttackDmg:
+    baseValue: 10
+  AttackSpeed:
+    baseValue: 5
+  AttackRange:
+    baseValue: 5

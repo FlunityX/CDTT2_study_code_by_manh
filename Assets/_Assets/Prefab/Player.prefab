@@ -481,7 +481,6 @@ GameObject:
   - component: {fileID: 8683958047579783694}
   - component: {fileID: 6602849923772191843}
   - component: {fileID: 7754998157533963337}
-  - component: {fileID: 8627757907698632808}
   - component: {fileID: 77621592553340946}
   - component: {fileID: 4576663906097087839}
   - component: {fileID: 5238153249958223821}
@@ -536,6 +535,7 @@ MonoBehaviour:
   _status: {fileID: 0}
   isGetHit: 0
   canUsePotion: 0
+  isWalking: 0
   isUsePotion: 0
   coin: 100
 --- !u!114 &5613310377791299261
@@ -595,25 +595,6 @@ MonoBehaviour:
   IsUsed: 0
   IsActive: 0
 --- !u!114 &7754998157533963337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8044295190917503782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9357e825afda434ea9994ec650dc318, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _unitSO: {fileID: 11400000, guid: c765c3e25ca336b40a131a68c31de187, type: 2}
-  currentHp: 0
-  Speed: 0
-  Hp: 0
-  AttackDmg: 0
-  AttackSpeed: 0
-  AttackRange: 0
---- !u!114 &8627757907698632808
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

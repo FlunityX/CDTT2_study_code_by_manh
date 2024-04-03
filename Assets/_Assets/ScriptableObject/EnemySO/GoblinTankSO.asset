@@ -13,8 +13,13 @@ MonoBehaviour:
   m_Name: GoblinTankSO
   m_EditorClassIdentifier: 
   UnitName: GoblinTank
-  Speed: 2
-  Hp: 10
-  AttackDmg: 1
-  AttackSpeed: 5
-  AttackRange: 4
+  Speed:
+    baseValue: 5
+  Hp:
+    baseValue: 100
+  AttackDmg:
+    baseValue: 2
+  AttackSpeed:
+    baseValue: 2
+  AttackRange:
+    baseValue: 4

@@ -20,7 +20,7 @@ public class SpeedDownSO : StatusEffectSO
     public override void OnDetach(GameObject holder)
     {
         base.OnDetach(holder);
-        holder.GetComponent<UnitStat>().Speed += amount;
+        holder.GetComponent<UnitStat>()._unitSO.Speed.GetValue();
 
     }
 }

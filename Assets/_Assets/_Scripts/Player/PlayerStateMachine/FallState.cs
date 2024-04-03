@@ -7,9 +7,9 @@ public class FallState : PlayerBaseState
     public override void EnterState(PlayerStateManager playerStateManager)
     {
         base.EnterState(playerStateManager);
-        Player.Instance._playerMovement.AddingFallForce(8f);
         Player.Instance._playerVisual.PlayFallAnim();
-        //Debug.Log("fall");
+        Player.Instance._playerMovement.AddingFallForce(20f);
+        Debug.Log("fall");
     }
 
     public override void ExitState()
@@ -19,7 +19,6 @@ public class FallState : PlayerBaseState
 
     public override void Update()
     {
-       // Player.Instance._playerMovement.IncreaseGravity();
         if (_playerStateManager.CheckIfCanIdle())
         {
             _playerStateManager.ChangeState(_playerStateManager.idleState);

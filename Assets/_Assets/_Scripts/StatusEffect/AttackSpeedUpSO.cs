@@ -20,7 +20,7 @@ public class AttackSpeedUpSO : StatusEffectSO
     public override void OnDetach(GameObject holder)
     {
         base.OnDetach(holder);
-        holder.GetComponent<UnitStat>().AttackSpeed += (amount / 100) * holder.GetComponent<UnitStat>().AttackSpeed;
+        holder.GetComponent<UnitStat>().AttackSpeed += (amount / (100-amount)) * holder.GetComponent<UnitStat>().AttackSpeed;
 
     }
 }

@@ -9,21 +9,23 @@ public class PlayerAirAttackState : PlayerBaseState
     public override void EnterState(PlayerStateManager playerStateManager)
     {
         base.EnterState(playerStateManager);
-        _playerStateManager.entryPos = Player.Instance.transform.position;
+       
         Player.Instance._playerVisual.PlayAirAttackAnim();
-        _playerStateManager.NailPlayer();
-        
+        Debug.Log("airrskjnsdkjfs");
+      
         
     }
 
     public override void ExitState()
     {
+        _playerStateManager.counter = 0;
         
     }
 
     public override void Update()
     {
         _playerStateManager.counter += Time.deltaTime;
+  
         if (_playerStateManager.CheckIfCanFallAirAttack())
         {
             _playerStateManager.ChangeState(_playerStateManager.fallState);

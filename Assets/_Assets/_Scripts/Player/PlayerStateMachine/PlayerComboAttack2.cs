@@ -34,6 +34,7 @@ public class PlayerComboAttack2 : PlayerBaseState
         else if (_playerStateManager.CheckIfCanIdleC2())
         {
             _playerStateManager.ChangeState(_playerStateManager.idleState);
+
         }
         else if (_playerStateManager.CheckIfCanRun())
         {

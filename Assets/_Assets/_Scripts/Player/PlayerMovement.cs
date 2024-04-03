@@ -14,8 +14,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public bool isFalling ;
     public bool isReadSlide=true;
     private float jumpTimeCounter;
-    private float jumpTime=.1f;
-    private float jumpForce = 7f;
+    private float jumpTime=.2f;
+    private float jumpForce = 10f;
     private float slideTimer;
     private float slideTimerMax=3f;
 
@@ -125,15 +125,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _boxRigidbody.velocity = new Vector2(dirX,-.5f) * force;
         
-        if(Player.Instance._playerSlideCollider.isCollideEnemy)
-        {
-            Physics2D.IgnoreCollision(Player.Instance.Collider, Player.Instance._playerSlideCollider.enemyColider, true);
-        }
-        else if(!Player.Instance._playerSlideCollider.isCollideEnemy && Player.Instance._playerSlideCollider.enemyColider != null)
-        {
-            Physics2D.IgnoreCollision(Player.Instance.Collider, Player.Instance._playerSlideCollider.enemyColider, false);
-
-        }
+        
         ResetSlideTimer();
     }
     private void FlipPlayerSprite()

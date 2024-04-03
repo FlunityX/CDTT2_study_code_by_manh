@@ -19,13 +19,14 @@ public class PlayerStateManager : MonoBehaviour
     public UsePotionState UsePotionState = new();
     public DeadState DeadState = new();
 
-    public float airAttackTime = 1f;
+    public float airAttackTime = .05f;
     public float slideTime = 1f;
     public float usePotionTime = .5f;
     public float gethitTime = .1f;
     public float comboDuration = 1f;
     public float attackDuration = .3f;
     public float counter;
+  
     public Vector2 entryPos;
 
     private void Start()
@@ -87,7 +88,7 @@ public class PlayerStateManager : MonoBehaviour
     }
     public bool CheckIfCanAirAttack()
     {
-        return !Player.Instance._playerMovement.isGround && GameInput.Instance.AttackPerform() /*&& Player.Instance._playerMovement._boxRigidbody.velocity.y >= -1f*/;
+        return !Player.Instance._playerMovement.isGround && GameInput.Instance.AttackPerform() && Player.Instance._playerAttack.IsAttackingReady() ;
     }
     public bool CheckIfCanFall()
     {
@@ -132,7 +133,7 @@ public class PlayerStateManager : MonoBehaviour
     }
     public bool CheckIfCanAirAttackJump()
     {
-        return Player.Instance._playerMovement.isJumping && GameInput.Instance.AttackPerform() /*&& Player.Instance._playerMovement._boxRigidbody.velocity.y <= 2f*/;
+        return Player.Instance._playerMovement.isJumping && GameInput.Instance.AttackPerform() && Player.Instance._playerAttack.IsAttackingReady();
     }
 
     public bool CheckIfCanIdleRun()

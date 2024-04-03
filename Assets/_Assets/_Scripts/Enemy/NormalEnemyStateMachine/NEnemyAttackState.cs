@@ -9,25 +9,25 @@ public class NEnemyAttackState : NEnemyBaseState
     public override void EnterState(CharacterManager characterManager)
     {
         base.EnterState(characterManager);
+        usePos= _NEnemyManager._normalEnemy.transform.position;
         _NEnemyManager._normalEnemy.GetEnemyVisual().PlayAttackAnim();
         _NEnemyManager._normalEnemy.GetNEnemyAttack().MeleeAttack(_NEnemyManager._normalEnemy.GetEnemyStat().AttackDmg);
-        usePos= _NEnemyManager._normalEnemy.transform.position;
         Debug.Log("Attack");
     }
 
     public override void ExitState()
     {
-
+        _NEnemyManager.ResetCounter();
     }
 
     public override void Update()
     {
         NailPosition();
-        _NEnemyManager.attackDuration += Time.deltaTime;
+        _NEnemyManager.durationCounter += Time.deltaTime;
        if(CheckIfCanIdleAttack())
         {
 
-        _NEnemyManager.ChangeState(_NEnemyManager._NEnemyChaseState);
+        _NEnemyManager.ChangeState(_NEnemyManager._NEnemyIdleState );
         }else if(!CheckIfInAttackRange())
         {
             _NEnemyManager.ChangeState(_NEnemyManager._NEnemyChaseState);
@@ -38,11 +38,11 @@ public class NEnemyAttackState : NEnemyBaseState
     }
     private bool CheckIfCanIdleAttack()
     {
-        return _NEnemyManager.attackDuration >= _NEnemyManager.durationCounter;
+        return _NEnemyManager.attackDuration < _NEnemyManager.durationCounter;
     }
     private bool CheckIfInAttackRange()
     {
-        return (Player.Instance.transform.position.x - _NEnemyManager._normalEnemy.transform.position.x )<= _NEnemyManager._normalEnemy.GetEnemyStat().AttackRange;
+        return ((Player.Instance.transform.position.x - _NEnemyManager._normalEnemy.transform.position.x )<= _NEnemyManager._normalEnemy.GetEnemyStat().AttackRange) ;
     }
     private void NailPosition()
     {

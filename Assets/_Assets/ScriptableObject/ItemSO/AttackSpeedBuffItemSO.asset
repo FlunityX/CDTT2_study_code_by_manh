@@ -17,4 +17,4 @@ MonoBehaviour:
   IsConsumable: 0
   Price: 100
   ItemInfo: 
-  _abilitySO: {fileID: 11400000, guid: 8a87b4502f06f61429ec6f5f5b4401a4, type: 2}
+  _abilitySO: {fileID: 11400000, guid: 89e589386bc3cfd45a795869b2051535, type: 2}

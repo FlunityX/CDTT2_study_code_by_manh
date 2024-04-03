@@ -26,11 +26,11 @@ public class PlayerFinishAttack : PlayerBaseState
     {
         _playerStateManager.counter += Time.deltaTime;
 
-        if (_playerStateManager.CheckIfCanCombo())
+       /* if (_playerStateManager.CheckIfCanCombo())
         {
             _playerStateManager.ChangeState(_playerStateManager.idleState);
         }
-        else if (_playerStateManager.CheckIfCanIdleAttack())
+        else*/ if (_playerStateManager.CheckIfCanIdleAttack())
         {
             _playerStateManager.ChangeState(_playerStateManager.idleState);
         }

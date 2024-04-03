@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fca9ff890ab259947924c430b155e2e6, type: 3}
   m_Name: ASBuff
   m_EditorClassIdentifier: 
-  AbilityName: 
-  coolDown: 0
-  duration: 0
+  AbilityName: Attack Speed Buff
+  coolDown: 8
+  duration: 5
   isActive: 0
-  statusEffectSO: {fileID: 0}
+  statusEffectSO: {fileID: 11400000, guid: 4a5026f5c757a504ca7b9da091824828, type: 2}
   passiveEffect: {fileID: 0}

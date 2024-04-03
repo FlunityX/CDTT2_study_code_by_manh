@@ -37,7 +37,9 @@ public class PlayerEntryAttackState : PlayerBaseState
         else if (_playerStateManager.CheckIfCanIdleEAttack())
         {
             _playerStateManager.ChangeState(_playerStateManager.idleState);
-        }else if(_playerStateManager.CheckIfCanRunEAttack())
+
+        }
+        else if(_playerStateManager.CheckIfCanRunEAttack())
         {
             _playerStateManager.ChangeState(_playerStateManager.runState);
         }else if(_playerStateManager.CheckIfCanJump())

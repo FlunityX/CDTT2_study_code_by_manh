@@ -27,29 +27,23 @@ public class NEnemyChaseState : NEnemyBaseState
 
     public override void Update()
     {
-        if (CheckIfCanIdle())
-      {
-           _NEnemyManager.ChangeState(_NEnemyManager._NEnemyIdleState);
-       }else if(CheckIfCanAttack())
-        {
-            _NEnemyManager.ChangeState(_NEnemyManager._NEnemyAttackState);
-        }
-        
-        else if (_NEnemyManager.CheckIfGetHit())
-        {
-            _NEnemyManager.ChangeState(_NEnemyManager._NEnemyGetHitState);
-        }
-        
         if (CheckIfNeedChase())
         {
             Chase();
-
         }
-        else
+        else if (CheckIfCanAttack())
         {
-            StayAtPos();
+            _NEnemyManager.ChangeState(_NEnemyManager._NEnemyAttackState);
         }
-        _NEnemyManager.UpdateChaseDir();
+        else if (CheckIfGetHit())
+        {
+            _NEnemyManager.ChangeState(_NEnemyManager._NEnemyGetHitState);
+        }else if (CheckIfCanIdle())
+        {
+            _NEnemyManager.ChangeState(_NEnemyManager._NEnemyIdleState);
+        }
+        
+            _NEnemyManager.UpdateChaseDir();
     }
     private bool CheckIfCanIdle()
     {
@@ -75,8 +69,13 @@ public class NEnemyChaseState : NEnemyBaseState
             _NEnemyManager._normalEnemy.transform.Translate(Vector2.left * _NEnemyManager._normalEnemy.GetEnemyStat().Speed * 2 * Time.deltaTime);
 
         }
-        Debug.Log("chasing"); 
+        
     }
+    public bool CheckIfGetHit()
+    {
+        return _NEnemyManager._normalEnemy.isGetHit;
+    }
+
     private void StayAtPos()
     {
         _NEnemyManager._normalEnemy.transform.Translate(Vector2.zero);

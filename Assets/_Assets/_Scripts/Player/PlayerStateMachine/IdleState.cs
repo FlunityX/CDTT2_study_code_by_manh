@@ -10,7 +10,7 @@ public class IdleState : PlayerBaseState
         base.EnterState(playerStateManager);
         Player.Instance._playerVisual.PlayerIdleAnim();
         Player.Instance.canUsePotion = true;
-        //Debug.Log("idle");
+        Debug.Log("idle");
     }
 
     public override void ExitState()
@@ -30,10 +30,11 @@ public class IdleState : PlayerBaseState
             _playerStateManager.ChangeState(_playerStateManager.jumpState);
 
         }
-        else if (_playerStateManager.   CheckIfCanAttack())
+        else if (_playerStateManager.CheckIfCanAttack())
         {
             _playerStateManager.ChangeState(_playerStateManager._playerEntryAttackState);
-        }else if (_playerStateManager.CheckIfCanFall())
+        }
+        else if (_playerStateManager.CheckIfCanFall())
         {
             _playerStateManager.ChangeState(_playerStateManager.fallState);
         }

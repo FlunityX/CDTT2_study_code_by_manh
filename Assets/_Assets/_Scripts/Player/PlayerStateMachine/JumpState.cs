@@ -9,12 +9,14 @@ public class JumpState : PlayerBaseState
         base.EnterState(playerStateManager);
         Player.Instance._playerVisual.PlayJumpAnim();
         Player.Instance.PlayerJumpInvoke();
-        //Debug.Log("jump");
+
+        Debug.Log("jump");
     }
 
     public override void ExitState()
     {
         GameInput.Instance.DisableJump();
+       
     }
 
     public override void Update()

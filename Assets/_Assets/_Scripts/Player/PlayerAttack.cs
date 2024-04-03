@@ -8,6 +8,7 @@ public class PlayerAttack : MonoBehaviour, IMeleeAttack,IRangeAttack
     
     private float attackCounter;
     public bool isAttackReady;
+
     [SerializeField] private Transform attackPoint;
     [SerializeField] private Transform airAttackPoint;
     [SerializeField] private LayerMask _enemyLayer;
@@ -27,6 +28,7 @@ public class PlayerAttack : MonoBehaviour, IMeleeAttack,IRangeAttack
     {
         StartCoroutine(DelayedMeleeAttack(dmg));
         ResetAttackCounter();
+        
     }
     public void PlayerAirAttack(float dmg)
     {
@@ -48,6 +50,7 @@ public class PlayerAttack : MonoBehaviour, IMeleeAttack,IRangeAttack
    public bool IsAttackingReady() {
         return attackCounter >= Player.Instance._playerStat.AttackSpeed;
     }
+   
     public void ResetAttackCounter()
     {
         attackCounter = 0;
@@ -58,11 +61,13 @@ public class PlayerAttack : MonoBehaviour, IMeleeAttack,IRangeAttack
         Instantiate(rangeAttackPrefab, attackPoint.position, transform.rotation);
         
     }
-    private void OnDrawGizmos()
+    /*private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(attackPoint.position,2f);
-    }
+    }*/
+
+   
     IEnumerator DelayedMeleeAttack(float dmg)
     {
         yield return new WaitForSeconds(.2f);

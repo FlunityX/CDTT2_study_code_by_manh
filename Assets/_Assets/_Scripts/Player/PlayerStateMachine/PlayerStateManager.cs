@@ -115,14 +115,6 @@ public class PlayerStateManager : MonoBehaviour
     {
         return (Player.Instance.GetDirX() != 0 && Player.Instance._playerMovement.isGround) && counter >= usePotionTime;
     }
-    public bool CheckIfCanGrounded()
-    {
-        return Player.Instance._playerCollider.AirAttackGroundCheck();
-    }
-    public bool CheckIfCanIdleAAGround()
-    {
-        return Player.Instance._playerMovement.isGround;
-    }
     public bool CheckIfCanIdleEAttack()
     {
         return counter > comboDuration;
@@ -143,7 +135,7 @@ public class PlayerStateManager : MonoBehaviour
 
     public bool CheckIfCanSlide()
     {
-        return GameInput.Instance.SlidePerform();
+        return GameInput.Instance.SlidePerform() && Player.Instance._playerMovement.isGround;
     }
     public bool CheckIfCanIdleC2()
     {
@@ -158,6 +150,10 @@ public class PlayerStateManager : MonoBehaviour
     public bool CheckIfCanRunSlide()
     {
         return (Player.Instance.GetDirX() != 0 && Player.Instance._playerMovement.isGround) && counter >= slideTime;
+    }
+    public bool CheckIfCanFallSlide()
+    {
+        return Player.Instance._playerMovement.isFalling;
     }
     public void NailPlayer()
     {

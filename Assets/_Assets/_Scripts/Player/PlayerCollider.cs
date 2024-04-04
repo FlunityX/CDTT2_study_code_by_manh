@@ -6,8 +6,6 @@ public class PlayerCollider : MonoBehaviour
 {
     
     [SerializeField] private BoxCollider2D _groundCollider;
-    [SerializeField] private BoxCollider2D _slideCollider;
-    [SerializeField] private Transform _groundCheckPoint;
     [SerializeField] private LayerMask _ItemLayer;
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -22,18 +20,17 @@ public class PlayerCollider : MonoBehaviour
 
 
     }
-    public bool AirAttackGroundCheck()
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        Collider2D hit = Physics2D.OverlapBox(_groundCheckPoint.position, new Vector2(.5f, .5f), 0);
-        if (hit.CompareTag(GameConstant.GROUND_TAG))
+        if (collision.gameObject.CompareTag(GameConstant.GROUND_TAG))
         {
-            return true;
-        }
-        else
-        {
-            return false;
+
+            Player.Instance._playerMovement.isGround = false;
+            
+
         }
     }
+  
     public void InteractableCollider()
     {
 

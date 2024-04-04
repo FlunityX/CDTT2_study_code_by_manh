@@ -36,6 +36,10 @@ public class SlideState : PlayerBaseState
         else if (_playerStateManager.CheckIfGetHit())
         {
             _playerStateManager.ChangeState(_playerStateManager.GetHitState);
+        }else if (_playerStateManager.CheckIfCanFallSlide())
+        {
+            _playerStateManager.ChangeState(_playerStateManager.fallState);
+
         }
 
 

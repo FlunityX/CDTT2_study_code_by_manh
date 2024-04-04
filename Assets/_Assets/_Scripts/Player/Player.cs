@@ -10,7 +10,6 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
     [SerializeField]public PlayerVisual _playerVisual;
     [SerializeField] public PlayerAttack _playerAttack;
     [SerializeField] public PlayerCollider _playerCollider;
-    [SerializeField] public PlayerSlideCollider _playerSlideCollider;
     [SerializeField] public AbilityHolder _abilityHolder;
     [SerializeField] public PlayerStat _playerStat;
     [SerializeField] public CapsuleCollider2D Collider;

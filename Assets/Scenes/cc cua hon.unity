@@ -6809,7 +6809,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &589473373555581287
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8455,7 +8455,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1815235120739399414
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9777,6 +9777,10 @@ PrefabInstance:
     - target: {fileID: 905631292331490945, guid: 0f24af74fa48166499b3d2b24c12d6f3, type: 3}
       propertyPath: m_Name
       value: SmallPotion
+      objectReference: {fileID: 0}
+    - target: {fileID: 905631292331490945, guid: 0f24af74fa48166499b3d2b24c12d6f3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3500061955657292635, guid: 0f24af74fa48166499b3d2b24c12d6f3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11790,6 +11794,10 @@ PrefabInstance:
     - target: {fileID: 2381953556216389852, guid: c38fff32bd708204dbb9523309ab0ede, type: 3}
       propertyPath: m_Name
       value: SpeedBuffItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 2381953556216389852, guid: c38fff32bd708204dbb9523309ab0ede, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5230643048113621107, guid: c38fff32bd708204dbb9523309ab0ede, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16312,7 +16320,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7645939683163360018}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16461,7 +16469,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 74534547474538891}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: ObstacleCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17506,7 +17514,7 @@ GameObject:
   - component: {fileID: 6731535007398729447}
   - component: {fileID: 698218807339917929}
   - component: {fileID: 137764435660194392}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: EnemyCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18951,7 +18959,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2201813921263309379}
   - component: {fileID: 4983527374296692218}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18992,6 +19000,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4576663906097087839, guid: 241335bfa05bf6e4fba0a8af3b9bf2bd, type: 3}
+      propertyPath: m_Size.y
+      value: 5.7150326
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576663906097087839, guid: 241335bfa05bf6e4fba0a8af3b9bf2bd, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.09571552
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805757760175281263, guid: 241335bfa05bf6e4fba0a8af3b9bf2bd, type: 3}
+      propertyPath: m_Size.x
+      value: 1.6964798
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805757760175281263, guid: 241335bfa05bf6e4fba0a8af3b9bf2bd, type: 3}
+      propertyPath: m_Size.y
+      value: 0.08131027
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805757760175281263, guid: 241335bfa05bf6e4fba0a8af3b9bf2bd, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.2857933
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805757760175281263, guid: 241335bfa05bf6e4fba0a8af3b9bf2bd, type: 3}
+      propertyPath: m_Offset.y
+      value: -2.9988384
+      objectReference: {fileID: 0}
+    - target: {fileID: 5238153249958223821, guid: 241335bfa05bf6e4fba0a8af3b9bf2bd, type: 3}
+      propertyPath: m_Size.x
+      value: 5.4703937
+      objectReference: {fileID: 0}
+    - target: {fileID: 5238153249958223821, guid: 241335bfa05bf6e4fba0a8af3b9bf2bd, type: 3}
+      propertyPath: m_Size.y
+      value: 2.3281567
+      objectReference: {fileID: 0}
+    - target: {fileID: 5238153249958223821, guid: 241335bfa05bf6e4fba0a8af3b9bf2bd, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.657009
+      objectReference: {fileID: 0}
+    - target: {fileID: 5238153249958223821, guid: 241335bfa05bf6e4fba0a8af3b9bf2bd, type: 3}
+      propertyPath: m_Offset.y
+      value: -1.7688715
+      objectReference: {fileID: 0}
     - target: {fileID: 7518467147612842308, guid: 241335bfa05bf6e4fba0a8af3b9bf2bd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 69.63
@@ -19041,7 +19089,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4412264303939105954, guid: 241335bfa05bf6e4fba0a8af3b9bf2bd, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8044295190917503782, guid: 241335bfa05bf6e4fba0a8af3b9bf2bd, type: 3}
@@ -19969,7 +20018,7 @@ GameObject:
   - component: {fileID: 2274705962054194518}
   - component: {fileID: 1838805515611597255}
   - component: {fileID: 5113645835686916633}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: goblinTankVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}

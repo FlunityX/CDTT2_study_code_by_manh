@@ -5,7 +5,7 @@ using UnityEngine;
 public class NormalEnemy :MonoBehaviour, INormalEnemy, IDealDamage, IReceiveDamage
 {
     [SerializeField]private EnemyStat _enemyStat;
-    [SerializeField]private EnemyMeleeAttack _enemyMeleeAttack;
+    [SerializeField]private EnemyAttack _enemyAttack;
     [SerializeField]private NEnemyCollider _enemyCollider;
     [SerializeField]private NEnemyVisual _enemyVisual;
     [SerializeField] private Rigidbody2D _rb;
@@ -15,7 +15,7 @@ public class NormalEnemy :MonoBehaviour, INormalEnemy, IDealDamage, IReceiveDama
     public bool _isFacingRight { get;set; }
     public bool _isFacingLeft { get; set; }
     public NEnemyCollider GetNEnemyCollider() { return _enemyCollider; }
-    public EnemyMeleeAttack GetNEnemyAttack() { return _enemyMeleeAttack; }
+    public EnemyAttack GetNEnemyAttack() { return _enemyAttack; }
     public EnemyStat GetEnemyStat() { return _enemyStat;}
     public NEnemyVisual GetEnemyVisual() { return _enemyVisual;}
     public Rigidbody2D GetRigidBody()

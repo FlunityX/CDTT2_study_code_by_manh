@@ -2,13 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMeleeAttack :MonoBehaviour, IMeleeAttack
+public class EnemyMeleeAttack :EnemyAttack, IMeleeAttack
 {
-    [SerializeField] private Transform attackPoint;
 
-    [SerializeField] private LayerMask playerLayer;
-    [SerializeField] private NormalEnemy _normalEnemy;
-    private float attackSpeedCounter;
 
     private void Update()
     {
@@ -22,6 +18,7 @@ public class EnemyMeleeAttack :MonoBehaviour, IMeleeAttack
 
     }
 
+   
     public bool IsReadyToAttack()
     {
         return attackSpeedCounter > _normalEnemy.GetEnemyStat().AttackSpeed;

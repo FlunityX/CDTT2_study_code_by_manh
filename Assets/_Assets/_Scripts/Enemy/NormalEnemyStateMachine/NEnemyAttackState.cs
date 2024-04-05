@@ -11,7 +11,7 @@ public class NEnemyAttackState : NEnemyBaseState
         base.EnterState(characterManager);
         usePos= _NEnemyManager._normalEnemy.transform.position;
         _NEnemyManager._normalEnemy.GetEnemyVisual().PlayAttackAnim();
-        _NEnemyManager._normalEnemy.GetNEnemyAttack().MeleeAttack(_NEnemyManager._normalEnemy.GetEnemyStat().AttackDmg);
+        _NEnemyManager._normalEnemy.GetNEnemyAttack().EAttack();
         Debug.Log("Attack");
     }
 

@@ -23,3 +23,4 @@ MonoBehaviour:
     baseValue: 1
   AttackRange:
     baseValue: 3
+  IsRanger: 1

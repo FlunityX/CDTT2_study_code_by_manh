@@ -8,12 +8,12 @@ public class EnemyAttack : MonoBehaviour, IRangeAttack, IMeleeAttack
     [SerializeField] private NormalEnemy _normalEnemy;
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private GameObject projectivePrefab;
+    [SerializeField] private Transform projectiveHolder;
     private float attackSpeedCounter;
 
     private void Start()
     {
-        EnemyProjective enemyProjective = projectivePrefab.GetComponent<EnemyProjective>();
-        enemyProjective.dmg = _normalEnemy.GetEnemyStat().AttackDmg;
+         projectivePrefab.GetComponent<EnemyProjective>().dmg = _normalEnemy.GetEnemyStat().AttackDmg;
     }
     public void EAttack()
     {
@@ -28,7 +28,7 @@ public class EnemyAttack : MonoBehaviour, IRangeAttack, IMeleeAttack
     }
     public void RangeAttack()
     {
-        Instantiate(projectivePrefab, attackPoint.position, transform.rotation);
+        Instantiate(projectivePrefab, attackPoint.position, transform.rotation,projectiveHolder);
     }
 
     private void Update()

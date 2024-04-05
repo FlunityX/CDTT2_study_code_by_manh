@@ -22,4 +22,5 @@ MonoBehaviour:
   AttackSpeed:
     baseValue: 2
   AttackRange:
-    baseValue: 4
+    baseValue: 15
+  IsRanger: 1

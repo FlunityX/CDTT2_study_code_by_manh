@@ -29,6 +29,8 @@ public class EnemyAttack : MonoBehaviour, IRangeAttack, IMeleeAttack
     public void RangeAttack()
     {
         Instantiate(projectivePrefab, attackPoint.position, transform.rotation,projectiveHolder);
+        ResetAttackSpeedCounter();
+
     }
 
     private void Update()

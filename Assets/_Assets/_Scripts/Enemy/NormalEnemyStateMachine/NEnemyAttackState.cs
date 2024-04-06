@@ -32,6 +32,10 @@ public class NEnemyAttackState : NEnemyBaseState
         {
             _NEnemyManager.ChangeState(_NEnemyManager._NEnemyChaseState);
         }
+        else
+        {
+            _NEnemyManager.ChangeState(_NEnemyManager._NEnemyKeepDistanceState);
+        }
         
 
 

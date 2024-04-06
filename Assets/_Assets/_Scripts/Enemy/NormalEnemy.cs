@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NormalEnemy :MonoBehaviour, INormalEnemy, IDealDamage, IReceiveDamage
+public class NormalEnemy :MonoBehaviour, IDealDamage, IReceiveDamage
 {
     [SerializeField]private EnemyStat _enemyStat;
     [SerializeField]private EnemyAttack _enemyAttack;

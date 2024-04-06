@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.IO.LowLevel.Unsafe;
+using DG.Tweening;
 using UnityEngine;
+using System.Security.Cryptography;
 
 public class NEnemyManager : CharacterManager
 {
@@ -11,6 +13,7 @@ public class NEnemyManager : CharacterManager
     public NEnemyChaseState _NEnemyChaseState= new();
     public NEnemyAttackState _NEnemyAttackState= new();
     public NEnemyGetHitState _NEnemyGetHitState= new();
+    public NEnemyKeepDistanceState _NEnemyKeepDistanceState= new();
     public NormalEnemy _normalEnemy;
     private float ChaseDir;
     public float getHitDuration = .2f;
@@ -68,6 +71,12 @@ public class NEnemyManager : CharacterManager
 
         }
 
+    }
+    public void JumpBackWard()
+    {
+            Vector3 endValue = new Vector3(_normalEnemy.transform.position.x + 8*_normalEnemy.transform.localScale.x, _normalEnemy.transform.position.y, _normalEnemy.transform.position.z);;
+        _normalEnemy.transform.DOJump(endValue, 2f, 1, .5f);
+        Debug.Log("backWard");
     }
 
     public bool CheckIfGetHit()

@@ -26,13 +26,16 @@ public class GetHitState : PlayerBaseState
     {
         _playerStateManager.counter += Time.deltaTime;
         if (_playerStateManager.CheckIfCanIdleGetHit())
-       {
+        {
             _playerStateManager.ChangeState(_playerStateManager.idleState);
 
-       }
+        }
         else if (_playerStateManager.CheckIfCanRunGetHit())
         {
             _playerStateManager.ChangeState((_playerStateManager.runState));
+        }else if(_playerStateManager.CheckIfFallGetHit())
+        {
+            _playerStateManager.ChangeState(_playerStateManager.fallState);
         }
     }
 

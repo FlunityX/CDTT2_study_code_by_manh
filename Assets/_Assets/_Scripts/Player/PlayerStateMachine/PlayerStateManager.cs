@@ -67,7 +67,10 @@ public class PlayerStateManager : MonoBehaviour
     {
         return (Player.Instance._playerMovement.dirX != 0 && Player.Instance._playerMovement.isGround) && gethitTime <= counter;
     }
-
+    public bool CheckIfFallGetHit()
+    {
+        return Player.Instance._playerMovement.isFalling && gethitTime <= counter;
+    }
     public bool CheckIfCanJump()
     {
         return (GameInput.Instance.JumpPerform() && !Player.Instance._playerMovement.isGround);

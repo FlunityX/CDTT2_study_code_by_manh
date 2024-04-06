@@ -23,7 +23,7 @@ public class PlayerSound : MonoBehaviour
             {
 
                
-                SoundManager.Instance.Player_Moving(player.transform.position);
+                GameManager.Instance.soundManager.Player_Moving(player.transform.position);
 
             }
         }

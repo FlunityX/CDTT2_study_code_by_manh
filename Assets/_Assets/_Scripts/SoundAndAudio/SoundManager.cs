@@ -5,25 +5,31 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     private const string PLAYER_PREF_SOUND_EFFECT_VOLLUME = "SoundEffectVollume";
-    public static SoundManager Instance;
+    
     [SerializeField] private SoundRefSO SoundRefSO;
     private float vollume = 1f;
 
 
     private void Awake()
     {
-        Instance = this;
+        
         vollume = PlayerPrefs.GetFloat(PLAYER_PREF_SOUND_EFFECT_VOLLUME, 1f);
     }
     private void Start()
     {
         //playerSound
         Player.Instance.OnPlayerAttack += Player_OnPlayerAttack;
+        Player.Instance.OnPlayerAttackHit += Player_OnPlayerAttackHit;
         Player.Instance.OnPlayerGetHit += Player_OnPlayerGetHit;
         Player.Instance.OnPlayerHeal += Player_OnPlayerHeal;
         Player.Instance.OnPlayerInteract += Player_OnPlayerInteract;
         Player.Instance.OnPlayerSlide += Player_OnPlayerSlide;
         Player.Instance.OnPlayerJump += Player_OnPlayerJump;
+    }
+
+    private void Player_OnPlayerAttackHit(object sender, System.EventArgs e)
+    {
+        PlaySound(SoundRefSO.hit, Player.Instance.transform.position, vollume);
     }
 
     private void Player_OnPlayerJump(object sender, System.EventArgs e)
@@ -82,11 +88,12 @@ public class SoundManager : MonoBehaviour
     {
         AudioSource.PlayClipAtPoint(clipsArrray[Random.Range(0,clipsArrray.Length)], position, vollume);
     }
-    private void ChangeVollumme()
+    public void ChangeVollumme()
     {
         vollume += .1f;
-        if (vollume < 0f) vollume = 0f;
+        if (vollume> 1f) vollume = 0f;
         PlayerPrefs.SetFloat(PLAYER_PREF_SOUND_EFFECT_VOLLUME,vollume);
         PlayerPrefs.Save();
     }
+    public float GetVollume() { return vollume; }
 }

@@ -37,12 +37,12 @@ public class OptionUI : MonoBehaviour
         Instance = this;
         soundEffectButton.onClick.AddListener(() =>
         {
-           // SoundManager.Instance.ChangeVollume();
+            GameManager.Instance.soundManager.ChangeVollumme();
             UpdateVisual();
         });
         musicButton.onClick.AddListener(() =>
         {
-           // MusicManager.Instance.ChangeVollume();
+            GameManager.Instance.musicManager.ChangeVollume();
             UpdateVisual();
         });
         closeButton.onClick.AddListener(() =>
@@ -101,8 +101,8 @@ public class OptionUI : MonoBehaviour
 
     private void UpdateVisual ()
     {
-       // soundEffectText.text = "Sound Effect:" + Mathf.Round(SoundManager.Instance.GetVollume() * 10f);
-       // musicText.text = "Music:" + Mathf.Round(MusicManager.Instance.GetVollume() * 10f);
+        soundEffectText.text = "Sound Effect:" + Mathf.Round(GameManager.Instance.soundManager.GetVollume() * 10f);
+        musicText.text = "Music:" + Mathf.Round(GameManager.Instance.musicManager.GetVollume() * 10f);
 
         attackTxt.text = GameInput.Instance.GetBindingText(GameInput.Binding.Attack);
         jumpTxt.text = GameInput.Instance.GetBindingText (GameInput.Binding.Jump);

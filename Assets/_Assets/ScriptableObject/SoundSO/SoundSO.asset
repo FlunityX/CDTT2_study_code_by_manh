@@ -15,7 +15,9 @@ MonoBehaviour:
   moving:
   - {fileID: 8300000, guid: 58b8aec08e8673446876a1e3929d428b, type: 3}
   attack:
-  - {fileID: 8300000, guid: 84e331a4e6f780841a4fddd3a8ab7bb1, type: 3}
+  - {fileID: 8300000, guid: c116aa129edc4004ba9b0d957c02a039, type: 3}
+  hit:
+  - {fileID: 8300000, guid: c116aa129edc4004ba9b0d957c02a039, type: 3}
   jump:
   - {fileID: 8300000, guid: 5fea7fe753534fc4989ea11df37eb7bf, type: 3}
   airAttack:

@@ -9,7 +9,8 @@ public class GameManager : MonoBehaviour
     public event EventHandler OnGamePause;
     public event EventHandler OnGameResume;
     private bool isGamePause=false;
-
+    public SoundManager soundManager;
+    public MusicManager musicManager;
     private void Awake()
     {
         

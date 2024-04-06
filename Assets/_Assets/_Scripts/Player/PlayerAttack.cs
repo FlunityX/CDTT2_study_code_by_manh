@@ -30,23 +30,7 @@ public class PlayerAttack : MonoBehaviour, IMeleeAttack,IRangeAttack
         ResetAttackCounter();
         
     }
-    public void PlayerAirAttack(float dmg)
-    {
-        Collider2D[] hits = Physics2D.OverlapBoxAll(airAttackPoint.position, new Vector3(8, 2, 0), 0,_enemyLayer);
-        if (hits != null)
-        {
-            foreach (Collider2D hit in hits)
-            {
-                if (hit.CompareTag("Enemy"))
-                {
-                    //hit.GetComponent<IReceiveDamage>().ReduceHp(dmg);
-                    Player.Instance.DealDamage(hit.GetComponent<IReceiveDamage>(), dmg);
-
-                }
-            }
-        }
-        ResetAttackCounter();
-    }
+   
    public bool IsAttackingReady() {
         return attackCounter >= Player.Instance._playerStat.AttackSpeed;
     }
@@ -72,15 +56,15 @@ public class PlayerAttack : MonoBehaviour, IMeleeAttack,IRangeAttack
     {
         yield return new WaitForSeconds(.2f);
         Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, 2f, _enemyLayer);
+            Player.Instance.PlayerAttackInvoke();
         if (hits != null)
         {
-            audioManager.PlaySFX(audioManager.swingSword);
             foreach (Collider2D hit in hits)
             {
                 Debug.Log(hit.name);
                 if (hit.CompareTag(GameConstant.ENEMY_TAG))
                 {
-                    audioManager.PlaySFX(audioManager.hit);
+                    //Player.Instance.PlayerAttackHitInvoke();
 
                     Player.Instance.DealDamage(hit.GetComponent<IReceiveDamage>(), dmg);
                 }

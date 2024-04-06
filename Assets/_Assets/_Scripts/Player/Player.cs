@@ -30,6 +30,7 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
     public event EventHandler<IHasHpBar.OnHpChangeEventArgs> OnHpChange;
     //event
     public event EventHandler OnPlayerAttack;
+    public event EventHandler OnPlayerAttackHit;
     public event EventHandler OnPlayerHeal;
     public event EventHandler OnPlayerGetHit;
     public event EventHandler OnPlayerInteract;
@@ -130,6 +131,10 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
 
     //invoke event
     public void PlayerAttackInvoke()
+    {
+        OnPlayerAttack?.Invoke(this, EventArgs.Empty);
+    }
+    public void PlayerAttackHitInvoke()
     {
         OnPlayerAttack?.Invoke(this, EventArgs.Empty);
     }

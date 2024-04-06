@@ -8,6 +8,7 @@ public class SoundRefSO : ScriptableObject
     [Header("Player")]
     public AudioClip[] moving;
     public AudioClip[] attack;
+    public AudioClip[] hit;
     public AudioClip[] jump;
     public AudioClip[] airAttack;
     public AudioClip[] fall;

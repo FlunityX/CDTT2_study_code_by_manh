@@ -17,4 +17,4 @@ MonoBehaviour:
   IsConsumable: 0
   Price: 100
   ItemInfo: incease attack
-  _abilitySO: {fileID: 11400000, guid: e40dc4305dcbcdd4ebae8f314ee3ad00, type: 2}
+  _abilitySO: {fileID: 11400000, guid: 815e790bfd31a0641bffc89b07dbd1b1, type: 2}

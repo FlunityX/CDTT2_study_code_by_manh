@@ -12,12 +12,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public bool isGround = true;
     [SerializeField] public bool isJumping ;
     [SerializeField] public bool isFalling ;
-    public bool isReadSlide=true;
+    public bool isReadySlide=true;
     private float jumpTimeCounter;
     private float jumpTime=.2f;
     private float jumpForce = 10f;
-    private float slideTimer;
-    private float slideTimerMax=3f;
+    [SerializeField]private float slideTimer;
+    private float slideTimerMax=5f;
 
     [SerializeField]private float increasingSpeed = 7f;
     
@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
         ForceBoolVariable();
         if (slideTimer < slideTimerMax)
         {
-        slideTimer += Time.deltaTime;
+            slideTimer += Time.deltaTime;
            
         }
     }
@@ -126,7 +126,6 @@ public class PlayerMovement : MonoBehaviour
         _boxRigidbody.velocity = new Vector2(dirX,-.5f) * force;
         
         
-        ResetSlideTimer();
     }
     private void FlipPlayerSprite()
     {

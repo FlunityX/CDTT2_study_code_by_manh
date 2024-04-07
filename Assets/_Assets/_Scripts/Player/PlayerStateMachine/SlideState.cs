@@ -17,6 +17,7 @@ public class SlideState : PlayerBaseState
     {
         _playerStateManager.counter = 0;
         Player.Instance._playerMovement.Slide(0);
+        Player.Instance._playerMovement.ResetSlideTimer();
 
     }
 

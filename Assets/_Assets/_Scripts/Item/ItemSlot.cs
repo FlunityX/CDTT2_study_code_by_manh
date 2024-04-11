@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,10 +9,15 @@ public class ItemSlot : MonoBehaviour
 {
     public Image icon;          // Reference to the Icon image
     public Button removeButton; // Reference to the remove button
-
+    public Transform itemDes;
+    public TextMeshProUGUI itemDesTxt;
     ItemSO item;  // Current item in the slot
 
-   
+    private void Start()
+    {
+        itemDesHide();
+    }
+
     // Add item to the slot
     public void AddItem(ItemSO newItem)
     {
@@ -21,6 +27,8 @@ public class ItemSlot : MonoBehaviour
         icon.enabled = true;
         removeButton.image.enabled = true;
         removeButton.interactable = true;
+        itemDesTxt.text = item.ItemInfo;
+
     }
 
     // Clear the slot
@@ -51,6 +59,15 @@ public class ItemSlot : MonoBehaviour
             Debug.Log("consume");
           
         }
+    }
+    public void itemDesShow()
+    {
+       if(item!=null) itemDes.gameObject.SetActive(true);
+    }
+    public void itemDesHide()
+    {
+        
+        itemDes.gameObject.SetActive(false);
     }
 
 }

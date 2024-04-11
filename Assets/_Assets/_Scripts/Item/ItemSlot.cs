@@ -11,6 +11,8 @@ public class ItemSlot : MonoBehaviour
     public Button removeButton; // Reference to the remove button
     public Transform itemDes;
     public TextMeshProUGUI itemDesTxt;
+    [SerializeField] private int slotIndex;
+   
     ItemSO item;  // Current item in the slot
 
     private void Start()
@@ -27,7 +29,6 @@ public class ItemSlot : MonoBehaviour
         icon.enabled = true;
         removeButton.image.enabled = true;
         removeButton.interactable = true;
-        itemDesTxt.text = item.ItemInfo;
 
     }
 
@@ -62,12 +63,34 @@ public class ItemSlot : MonoBehaviour
     }
     public void itemDesShow()
     {
-       if(item!=null) itemDes.gameObject.SetActive(true);
+        if (item != null)
+        {
+
+        itemDesTxt.text = item.ItemInfo;
+            if (slotIndex == 2 || slotIndex == 3 || slotIndex == 6 || slotIndex == 7)
+            {
+                itemDes.localScale = new Vector3(-1, 1, 1);
+                itemDesTxt.transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else
+            {
+                itemDes.localScale = new Vector3(1, 1, 1);
+                itemDesTxt.transform.localScale = new Vector3(1, 1, 1);
+            }
+           itemDes.transform.position = Input.mousePosition;
+            itemDes.gameObject.SetActive(true);
+            
+        }
+        Debug.Log("hover");
+      
     }
     public void itemDesHide()
     {
-        
-        itemDes.gameObject.SetActive(false);
+
+         itemDes.gameObject.SetActive(false);
+
+        Debug.Log("out");
+
     }
 
 }

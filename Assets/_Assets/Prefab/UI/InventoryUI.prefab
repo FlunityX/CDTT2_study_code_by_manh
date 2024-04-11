@@ -693,6 +693,7 @@ GameObject:
   - component: {fileID: 2645247884310513879}
   - component: {fileID: 8276530208286346054}
   - component: {fileID: 1727953621475243697}
+  - component: {fileID: 6399006618251966665}
   m_Layer: 5
   m_Name: ItemSlot (7)
   m_TagString: Untagged
@@ -735,6 +736,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 2163838833764117729}
   removeButton: {fileID: 5474321878413362759}
+  itemDes: {fileID: 4468437439613338609}
+  itemDesTxt: {fileID: 4885230231173854089}
+  slotIndex: 7
 --- !u!222 &8276530208286346054
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -773,6 +777,51 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6399006618251966665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148036313609329364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2645247884310513879}
+          m_TargetAssemblyTypeName: ItemSlot, Assembly-CSharp
+          m_MethodName: itemDesShow
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2645247884310513879}
+          m_TargetAssemblyTypeName: ItemSlot, Assembly-CSharp
+          m_MethodName: itemDesHide
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1188876369672970823
 GameObject:
   m_ObjectHideFlags: 0
@@ -1102,6 +1151,7 @@ GameObject:
   - component: {fileID: 7521612922374981084}
   - component: {fileID: 8283800769794896087}
   - component: {fileID: 6393137887768484647}
+  - component: {fileID: 1467572774248119922}
   m_Layer: 5
   m_Name: ItemSlot
   m_TagString: Untagged
@@ -1144,6 +1194,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 8529623336523406002}
   removeButton: {fileID: 1443116648732069446}
+  itemDes: {fileID: 4468437439613338609}
+  itemDesTxt: {fileID: 4885230231173854089}
+  slotIndex: 0
 --- !u!222 &8283800769794896087
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1182,6 +1235,51 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1467572774248119922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749122754207688645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7521612922374981084}
+          m_TargetAssemblyTypeName: ItemSlot, Assembly-CSharp
+          m_MethodName: itemDesShow
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7521612922374981084}
+          m_TargetAssemblyTypeName: ItemSlot, Assembly-CSharp
+          m_MethodName: itemDesHide
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1750360995949496107
 GameObject:
   m_ObjectHideFlags: 0
@@ -1422,6 +1520,7 @@ RectTransform:
   - {fileID: 8491099347302045728}
   - {fileID: 738749661712115159}
   - {fileID: 8813523097203144143}
+  - {fileID: 4468437439613338609}
   - {fileID: 4876157372786223387}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1588,6 +1687,7 @@ GameObject:
   - component: {fileID: 1372533846258539734}
   - component: {fileID: 3042902184423056301}
   - component: {fileID: 6842938564758200634}
+  - component: {fileID: 5061097701232798480}
   m_Layer: 5
   m_Name: ItemSlot (6)
   m_TagString: Untagged
@@ -1630,6 +1730,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 2046493500820708123}
   removeButton: {fileID: 3972012191619316795}
+  itemDes: {fileID: 4468437439613338609}
+  itemDesTxt: {fileID: 4885230231173854089}
+  slotIndex: 6
 --- !u!222 &3042902184423056301
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1668,6 +1771,51 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5061097701232798480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2558524630886925616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1372533846258539734}
+          m_TargetAssemblyTypeName: ItemSlot, Assembly-CSharp
+          m_MethodName: itemDesShow
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1372533846258539734}
+          m_TargetAssemblyTypeName: ItemSlot, Assembly-CSharp
+          m_MethodName: itemDesHide
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &2634937339974256149
 GameObject:
   m_ObjectHideFlags: 0
@@ -2020,6 +2168,7 @@ GameObject:
   - component: {fileID: 102649513427905607}
   - component: {fileID: 6001253483628848870}
   - component: {fileID: 3942011563439233700}
+  - component: {fileID: 118072196356648670}
   m_Layer: 5
   m_Name: ItemSlot (4)
   m_TagString: Untagged
@@ -2062,6 +2211,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 7515430006187381856}
   removeButton: {fileID: 6366948672340438998}
+  itemDes: {fileID: 4468437439613338609}
+  itemDesTxt: {fileID: 4885230231173854089}
+  slotIndex: 4
 --- !u!222 &6001253483628848870
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2100,6 +2252,51 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &118072196356648670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3102657449778944576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 102649513427905607}
+          m_TargetAssemblyTypeName: ItemSlot, Assembly-CSharp
+          m_MethodName: itemDesShow
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 102649513427905607}
+          m_TargetAssemblyTypeName: ItemSlot, Assembly-CSharp
+          m_MethodName: itemDesHide
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &3364908570485288625
 GameObject:
   m_ObjectHideFlags: 0
@@ -2716,6 +2913,7 @@ GameObject:
   - component: {fileID: 8085744920148048927}
   - component: {fileID: 7093861831183605763}
   - component: {fileID: 7431825056634112636}
+  - component: {fileID: 7730723037746668603}
   m_Layer: 5
   m_Name: ItemSlot (9)
   m_TagString: Untagged
@@ -2758,6 +2956,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 8058752232636963763}
   removeButton: {fileID: 6565564991373662672}
+  itemDes: {fileID: 4468437439613338609}
+  itemDesTxt: {fileID: 4885230231173854089}
+  slotIndex: 9
 --- !u!222 &7093861831183605763
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2796,6 +2997,51 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7730723037746668603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4763990668542296107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8085744920148048927}
+          m_TargetAssemblyTypeName: ItemSlot, Assembly-CSharp
+          m_MethodName: itemDesShow
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8085744920148048927}
+          m_TargetAssemblyTypeName: ItemSlot, Assembly-CSharp
+          m_MethodName: itemDesHide
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &4958644244116644786
 GameObject:
   m_ObjectHideFlags: 0
@@ -2942,6 +3188,7 @@ GameObject:
   - component: {fileID: 1003903061561707016}
   - component: {fileID: 7968101226725454517}
   - component: {fileID: 2945634054312927694}
+  - component: {fileID: 1556450215947316523}
   m_Layer: 5
   m_Name: ItemSlot (5)
   m_TagString: Untagged
@@ -2984,6 +3231,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 4029857009669511378}
   removeButton: {fileID: 3369396185112741477}
+  itemDes: {fileID: 4468437439613338609}
+  itemDesTxt: {fileID: 4885230231173854089}
+  slotIndex: 5
 --- !u!222 &7968101226725454517
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3022,6 +3272,51 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1556450215947316523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5414252645563365751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1003903061561707016}
+          m_TargetAssemblyTypeName: ItemSlot, Assembly-CSharp
+          m_MethodName: itemDesShow
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1003903061561707016}
+          m_TargetAssemblyTypeName: ItemSlot, Assembly-CSharp
+          m_MethodName: itemDesHide
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &5548182775888531927
 GameObject:
   m_ObjectHideFlags: 0
@@ -3241,6 +3536,7 @@ GameObject:
   - component: {fileID: 1012726994547319809}
   - component: {fileID: 5932716562579000126}
   - component: {fileID: 7654376717896883}
+  - component: {fileID: 131496040726387943}
   m_Layer: 5
   m_Name: ItemSlot (2)
   m_TagString: Untagged
@@ -3283,6 +3579,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 7534963901459650602}
   removeButton: {fileID: 3455034183696919173}
+  itemDes: {fileID: 4468437439613338609}
+  itemDesTxt: {fileID: 4885230231173854089}
+  slotIndex: 2
 --- !u!222 &5932716562579000126
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3321,6 +3620,51 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &131496040726387943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5865188049452322499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1012726994547319809}
+          m_TargetAssemblyTypeName: ItemSlot, Assembly-CSharp
+          m_MethodName: itemDesShow
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1012726994547319809}
+          m_TargetAssemblyTypeName: ItemSlot, Assembly-CSharp
+          m_MethodName: itemDesHide
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &5941943309091247117
 GameObject:
   m_ObjectHideFlags: 0
@@ -3465,6 +3809,7 @@ GameObject:
   - component: {fileID: 194126029496380316}
   - component: {fileID: 1523808649964949451}
   - component: {fileID: 5300366111696566595}
+  - component: {fileID: 2416158333052321200}
   m_Layer: 5
   m_Name: ItemSlot (8)
   m_TagString: Untagged
@@ -3507,6 +3852,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 579044916460840701}
   removeButton: {fileID: 5795988113874352199}
+  itemDes: {fileID: 4468437439613338609}
+  itemDesTxt: {fileID: 4885230231173854089}
+  slotIndex: 8
 --- !u!222 &1523808649964949451
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3545,6 +3893,51 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2416158333052321200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6125487707463288842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 194126029496380316}
+          m_TargetAssemblyTypeName: ItemSlot, Assembly-CSharp
+          m_MethodName: itemDesShow
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 194126029496380316}
+          m_TargetAssemblyTypeName: ItemSlot, Assembly-CSharp
+          m_MethodName: itemDesHide
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &6252424646730416112
 GameObject:
   m_ObjectHideFlags: 0
@@ -3689,6 +4082,7 @@ GameObject:
   - component: {fileID: 8495714126185726238}
   - component: {fileID: 6413000434889022428}
   - component: {fileID: 4786829600769952779}
+  - component: {fileID: 7371931330467007115}
   m_Layer: 5
   m_Name: ItemSlot (3)
   m_TagString: Untagged
@@ -3731,6 +4125,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 7347938761738545778}
   removeButton: {fileID: 1930260634124468294}
+  itemDes: {fileID: 4468437439613338609}
+  itemDesTxt: {fileID: 4885230231173854089}
+  slotIndex: 3
 --- !u!222 &6413000434889022428
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3769,6 +4166,51 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7371931330467007115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6370754471813730265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8495714126185726238}
+          m_TargetAssemblyTypeName: ItemSlot, Assembly-CSharp
+          m_MethodName: itemDesShow
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8495714126185726238}
+          m_TargetAssemblyTypeName: ItemSlot, Assembly-CSharp
+          m_MethodName: itemDesHide
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &6448444710999363941
 GameObject:
   m_ObjectHideFlags: 0
@@ -3781,6 +4223,7 @@ GameObject:
   - component: {fileID: 348432918995770914}
   - component: {fileID: 3669819978871346799}
   - component: {fileID: 7904685421154122904}
+  - component: {fileID: 7753924467254860845}
   m_Layer: 5
   m_Name: ItemSlot (1)
   m_TagString: Untagged
@@ -3823,6 +4266,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 2278416711149966655}
   removeButton: {fileID: 2878785959362873418}
+  itemDes: {fileID: 4468437439613338609}
+  itemDesTxt: {fileID: 4885230231173854089}
+  slotIndex: 1
 --- !u!222 &3669819978871346799
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3861,6 +4307,51 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7753924467254860845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6448444710999363941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 348432918995770914}
+          m_TargetAssemblyTypeName: ItemSlot, Assembly-CSharp
+          m_MethodName: itemDesShow
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 348432918995770914}
+          m_TargetAssemblyTypeName: ItemSlot, Assembly-CSharp
+          m_MethodName: itemDesHide
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &6535766059386623969
 GameObject:
   m_ObjectHideFlags: 0
@@ -4784,3 +5275,116 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1001 &1842000486546277880
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6300734992110000923}
+    m_Modifications:
+    - target: {fileID: 577416860566446080, guid: edccfa9cd7899704693cd5ca0533f398, type: 3}
+      propertyPath: m_Name
+      value: ItemDes
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851637848929830409, guid: edccfa9cd7899704693cd5ca0533f398, type: 3}
+      propertyPath: m_Pivot.x
+      value: -0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851637848929830409, guid: edccfa9cd7899704693cd5ca0533f398, type: 3}
+      propertyPath: m_Pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851637848929830409, guid: edccfa9cd7899704693cd5ca0533f398, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851637848929830409, guid: edccfa9cd7899704693cd5ca0533f398, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851637848929830409, guid: edccfa9cd7899704693cd5ca0533f398, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851637848929830409, guid: edccfa9cd7899704693cd5ca0533f398, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851637848929830409, guid: edccfa9cd7899704693cd5ca0533f398, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 413.8684
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851637848929830409, guid: edccfa9cd7899704693cd5ca0533f398, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851637848929830409, guid: edccfa9cd7899704693cd5ca0533f398, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851637848929830409, guid: edccfa9cd7899704693cd5ca0533f398, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851637848929830409, guid: edccfa9cd7899704693cd5ca0533f398, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851637848929830409, guid: edccfa9cd7899704693cd5ca0533f398, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851637848929830409, guid: edccfa9cd7899704693cd5ca0533f398, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851637848929830409, guid: edccfa9cd7899704693cd5ca0533f398, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851637848929830409, guid: edccfa9cd7899704693cd5ca0533f398, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851637848929830409, guid: edccfa9cd7899704693cd5ca0533f398, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 567.8613
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851637848929830409, guid: edccfa9cd7899704693cd5ca0533f398, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -33.993652
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851637848929830409, guid: edccfa9cd7899704693cd5ca0533f398, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851637848929830409, guid: edccfa9cd7899704693cd5ca0533f398, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851637848929830409, guid: edccfa9cd7899704693cd5ca0533f398, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: edccfa9cd7899704693cd5ca0533f398, type: 3}
+--- !u!224 &4468437439613338609 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2851637848929830409, guid: edccfa9cd7899704693cd5ca0533f398, type: 3}
+  m_PrefabInstance: {fileID: 1842000486546277880}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4885230231173854089 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6511020534894818929, guid: edccfa9cd7899704693cd5ca0533f398, type: 3}
+  m_PrefabInstance: {fileID: 1842000486546277880}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

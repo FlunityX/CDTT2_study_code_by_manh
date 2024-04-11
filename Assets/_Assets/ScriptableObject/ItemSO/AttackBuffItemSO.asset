@@ -16,5 +16,5 @@ MonoBehaviour:
   Icon: {fileID: -2109219854, guid: 850350d47b68225458ea71cb18ca0ed3, type: 3}
   IsConsumable: 0
   Price: 100
-  ItemInfo: incease attack
+  ItemInfo: EXPLOSION!!!!!
   _abilitySO: {fileID: 11400000, guid: 815e790bfd31a0641bffc89b07dbd1b1, type: 2}

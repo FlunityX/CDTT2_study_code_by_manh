@@ -7,7 +7,7 @@ public class GameData
 {
     public float currentHp = 1;
     public Vector3 lastCheckpoint;
-
+    public List<ItemSO> itemsList;
 
 
 }

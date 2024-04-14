@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
+using DG.Tweening;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -15,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isReadySlide=true;
     private float jumpTimeCounter;
     private float jumpTime=.2f;
-    private float jumpForce = 10f;
+    private float jumpForce = 6f;
     [SerializeField]private float slideTimer;
     private float slideTimerMax=5f;
 
@@ -51,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
             slideTimer += Time.deltaTime;
            
         }
+        Debug .Log(_boxRigidbody.velocity);
     }
     private void HandleMovement()
     {
@@ -78,10 +76,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if(isGround)
         {
-          // audioManager.PlaySFX(audioManager.jump); 
-           _boxRigidbody.velocity = Vector2.up * jumpForce;
-            
-            
+            // audioManager.PlaySFX(audioManager.jump); 
+            _boxRigidbody.velocity = Vector2.up * jumpForce;
+
+
+
             jumpTimeCounter = jumpTime;
             isGround = false;
             isFalling = false;
@@ -97,13 +96,14 @@ public class PlayerMovement : MonoBehaviour
         {
             if (jumpTimeCounter > 0)
             {
-                _boxRigidbody.velocity = Vector2.up * jumpForce;
+                _boxRigidbody.velocity = _boxRigidbody.velocity + Vector2.up * jumpForce/2;
+                
                 jumpTimeCounter -= Time.deltaTime;
-                isGround = false;
+                isGround = false; 
                 isJumping = true;
             }
             
-        }
+        } 
     }
     
     private void FallCheck()
@@ -119,7 +119,7 @@ public class PlayerMovement : MonoBehaviour
     
     public void AddingFallForce(float force)
     {
-        _boxRigidbody.velocity = Vector2.down * force;
+        _boxRigidbody.velocity = Vector2.down * force ;
     }
     public void Slide(float force)
     {

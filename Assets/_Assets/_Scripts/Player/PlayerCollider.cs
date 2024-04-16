@@ -7,6 +7,14 @@ public class PlayerCollider : MonoBehaviour
     
     [SerializeField] private BoxCollider2D _groundCollider;
     [SerializeField] private LayerMask _ItemLayer;
+    [SerializeField] private LayerMask _GroundLayer;
+    public bool wall;
+
+
+    private void Update()
+    {
+        WallCheck();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag(GameConstant.GROUND_TAG))
@@ -48,5 +56,21 @@ public class PlayerCollider : MonoBehaviour
         }
        
     }
-
+    public void WallCheck()
+    {
+        RaycastHit2D wallCheck = Physics2D.BoxCast(transform.position, new Vector2(.5f, 5), 0f, new Vector2(Player.Instance.transform.localScale.x, 0), 1f, _GroundLayer);
+        if(wallCheck.collider == null)
+        {
+            wall = false;
+        }
+        else
+        {
+            wall = true;
+        }
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(transform.position, new Vector2(2,4));
+    }
 }

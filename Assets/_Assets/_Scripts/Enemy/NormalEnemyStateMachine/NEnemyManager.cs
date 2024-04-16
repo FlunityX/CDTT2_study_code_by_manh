@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.IO.LowLevel.Unsafe;
 using DG.Tweening;
 using UnityEngine;
 using System.Security.Cryptography;
@@ -15,6 +12,8 @@ public class NEnemyManager : CharacterManager
     public NEnemyGetHitState _NEnemyGetHitState= new();
     public NEnemyKeepDistanceState _NEnemyKeepDistanceState= new();
     public NormalEnemy _normalEnemy;
+    public Transform[] patrolPoint;
+    public Tween tween;
     private float ChaseDir;
     public float getHitDuration = .2f;
     public float attackDuration = .5f;
@@ -83,7 +82,26 @@ public class NEnemyManager : CharacterManager
     {
         return _normalEnemy.isGetHit;
     }
+    public int GeneratePointIndex(int lastIndex)
+    {
+        int index = Random.Range(0, patrolPoint.Length);
+        while(index == lastIndex)
+        {
+            index = Random.Range(0, patrolPoint.Length);
+        }
+        return index;
+    }
+    public void Move(int pointIndex)
+    {
+        tween = transform.DOMove(patrolPoint[pointIndex].position, Vector3.Distance(_normalEnemy.transform.position, patrolPoint[pointIndex].position) / _normalEnemy.GetEnemyStat().Speed)
+            .OnComplete(() => ChangeState(_NEnemyIdleState));
+     
 
+    }
+    public void InteruptMove()
+    {
+        tween.Kill(); 
+    }
     public void ResetCounter()
     {
         durationCounter = 0;

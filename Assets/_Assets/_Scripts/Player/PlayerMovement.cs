@@ -6,16 +6,16 @@ using DG.Tweening;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] public Rigidbody2D _boxRigidbody;
-    [SerializeField] public bool isGround = true;
+    [SerializeField] public bool isGround ;
     [SerializeField] public bool isJumping ;
     [SerializeField] public bool isFalling ;
     public bool isReadySlide=true;
     private float jumpTimeCounter;
     private float jumpTime=.2f;
-    private float jumpForce = 6f;
+    private float jumpForce = 20f;
     [SerializeField]private float slideTimer;
     private float slideTimerMax=5f;
-
+    public Vector3 moveDir;
     [SerializeField]private float increasingSpeed = 7f;
     
     public float dirX;
@@ -48,25 +48,29 @@ public class PlayerMovement : MonoBehaviour
             slideTimer += Time.deltaTime;
            
         }
-        Debug .Log(_boxRigidbody.velocity);
+        
     }
     private void HandleMovement()
     {
         Vector2 inputVector = GameInput.Instance.GetMovementVectorNormalized();
-        Vector2 moveDir = new Vector2(inputVector.x, 0);
+         moveDir = new Vector3(inputVector.x, 0,0);
         dirX = moveDir.x;
         float moveDistance = increasingSpeed * Time.deltaTime;
         //RaycastHit2D hit = Physics2D.Raycast(Player.Instance.transform.position, inputVector);
         // audioManager.PlaySFX(audioManager.walk);
-
-
+        float moveDuration = 1 / Player.Instance._playerStat.Speed;
+        if (Player.Instance._playerCollider.wall)
+       {
+            moveDir = Vector3.zero;
+        }
         if (isFalling || isJumping)
         {
-            transform.Translate(moveDir * moveDistance/1.25f);
+            transform.DOMove(transform.position + moveDir, moveDuration/1.5f);
         }
         else
         {
-            transform.Translate(moveDir * moveDistance);
+           // transform.Translate(moveDir * moveDistance);
+            transform.DOMove(transform.position + moveDir,moveDuration);
 
         }
        // Debug.Log(moveDir);
@@ -74,10 +78,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        if(isGround)
+       //if(isGround)
         {
             // audioManager.PlaySFX(audioManager.jump); 
-            _boxRigidbody.velocity = Vector2.up * jumpForce;
+            // Sequence jumpNrun = DOTween.Sequence();
+            //jumpNrun.Append(transform.DOMoveY(transform.position.y + jumpForce, .5f)).Append(transform.DOMove(transform.position + moveDir, 1f));
+            transform.DOJump(transform.position + new Vector3(0,100,0), 100f, 2, 2f);
+            //_boxRigidbody.velocity = Vector2.up * jumpForce;
 
 
 
@@ -96,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (jumpTimeCounter > 0)
             {
-                _boxRigidbody.velocity = _boxRigidbody.velocity + Vector2.up * jumpForce/2;
+                _boxRigidbody.velocity =  Vector2.up * jumpForce/2;
                 
                 jumpTimeCounter -= Time.deltaTime;
                 isGround = false; 

@@ -1,19 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Timeline.Actions;
-using UnityEditorInternal;
+using DG.Tweening;
 using UnityEngine;
 
 public class NEnemyPartrolState : NEnemyBaseState
 {
     private float entryTime;
     private float restTime = 1f;
+    private int pointIndex;
+    private int lastPointIndex=0;
+
     public override void EnterState(CharacterManager characterManager)
     {
         base.EnterState(characterManager);
         _NEnemyManager = (NEnemyManager)characterManager;
         entryTime = Time.time;
         _NEnemyManager._normalEnemy.GetEnemyVisual().PlayWalkAnim();
+        pointIndex = _NEnemyManager.GeneratePointIndex(lastPointIndex);
+        _NEnemyManager.Move(pointIndex);
 
         Debug.Log("enter");
         
@@ -21,14 +23,14 @@ public class NEnemyPartrolState : NEnemyBaseState
 
     public override void ExitState()
     {
-        
+        lastPointIndex = pointIndex;
     }
 
     public override void Update()
     {
-        Move();
         if (CheckIfCanChase())
         {
+            _NEnemyManager.InteruptMove();
             _NEnemyManager.ChangeState(_NEnemyManager._NEnemyChaseState);
         } else if (_NEnemyManager.CheckIfGetHit())
         {
@@ -42,26 +44,7 @@ public class NEnemyPartrolState : NEnemyBaseState
        
     }
     
-    public void Move()
-    {
-        if (_NEnemyManager._normalEnemy._isFacingRight)
-        {
-        _NEnemyManager._normalEnemy.transform.Translate(Vector2.right * _NEnemyManager._normalEnemy.GetEnemyStat().Speed /2 * Time.deltaTime)   ;
-
-        }
-        else 
-        {
-            _NEnemyManager._normalEnemy.transform.Translate(Vector2.left * _NEnemyManager._normalEnemy.GetEnemyStat().Speed /2 * Time.deltaTime);
-
-        }
-
-        if (_NEnemyManager._normalEnemy.GetNEnemyCollider().CheckIfHitObstacle())
-        {
-            _NEnemyManager.ChangeDirection();
-            _NEnemyManager.ChangeState(_NEnemyManager._NEnemyIdleState);
-            
-        }
-    }
+   
 
     
     public override void FixedUpdate() {

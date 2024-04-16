@@ -43,7 +43,7 @@ public class NEnemyChaseState : NEnemyBaseState
             _NEnemyManager.ChangeState(_NEnemyManager._NEnemyIdleState);
         }
         
-            _NEnemyManager.UpdateChaseDir();
+            _NEnemyManager.UpdateChaseDir(Player.Instance.transform);
     }
     private bool CheckIfCanIdle()
     {

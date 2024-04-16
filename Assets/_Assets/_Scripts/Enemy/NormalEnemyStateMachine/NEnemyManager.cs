@@ -56,9 +56,9 @@ public class NEnemyManager : CharacterManager
 
         }
     }
-    public void UpdateChaseDir()
+    public void UpdateChaseDir(Transform target)
     {
-        ChaseDir = Player.Instance.transform.position.x - _normalEnemy.transform.position.x;
+        ChaseDir = target.position.x - _normalEnemy.transform.position.x;
         if (ChaseDir > 0)
         {
             _normalEnemy.transform.localScale = new Vector3(-1, 1, 1);
@@ -95,7 +95,7 @@ public class NEnemyManager : CharacterManager
     {
         tween = transform.DOMove(patrolPoint[pointIndex].position, Vector3.Distance(_normalEnemy.transform.position, patrolPoint[pointIndex].position) / _normalEnemy.GetEnemyStat().Speed)
             .OnComplete(() => ChangeState(_NEnemyIdleState));
-     
+        UpdateChaseDir(patrolPoint[pointIndex]);
 
     }
     public void InteruptMove()

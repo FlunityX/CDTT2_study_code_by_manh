@@ -9,6 +9,7 @@ public class IdleState : PlayerBaseState
        // Player.Instance._playerMovement.ResetGravity();
         base.EnterState(playerStateManager);
         Player.Instance._playerVisual.PlayerIdleAnim();
+        Player.Instance._playerMovement.canIdleFall = false;
         Player.Instance.canUsePotion = true;
         Debug.Log("idle");
     }

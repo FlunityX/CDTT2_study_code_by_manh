@@ -28,7 +28,7 @@ public class PlayerVisual : MonoBehaviour
     }
     public void PlayJumpAnim()
     {
-        animator.CrossFade(GameConstant.PLAYER_JUMP_ANIM, .2f, 0);
+        animator.CrossFade(GameConstant.PLAYER_JUMP_ANIM, .5f, 0);
     }
     public void PlayFallAnim()
     {

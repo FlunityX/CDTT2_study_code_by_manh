@@ -9,20 +9,21 @@ public class JumpState : PlayerBaseState
         base.EnterState(playerStateManager);
         Player.Instance._playerVisual.PlayJumpAnim();
         Player.Instance.PlayerJumpInvoke();
-
+        Player.Instance._playerMovement.Jump();
         Debug.Log("jump");
     }
 
     public override void ExitState()
     {
-        GameInput.Instance.DisableJump();
-       
+        _playerStateManager.counter = 0;
+
     }
 
     public override void Update()
     {
-       
-         if(_playerStateManager.CheckIfCanFall())
+        _playerStateManager.counter += Time.deltaTime;
+
+        if (_playerStateManager.CheckIfCanFall())
         {
             _playerStateManager.ChangeState(_playerStateManager.fallState);
         }
@@ -33,8 +34,11 @@ public class JumpState : PlayerBaseState
         else if (_playerStateManager.CheckIfGetHit())
         {
             _playerStateManager.ChangeState(_playerStateManager.GetHitState);
-        }else if( _playerStateManager.CheckIfCanRun()) {
+        }else if( _playerStateManager.CheckIfCanRunJump()) {
             _playerStateManager.ChangeState(_playerStateManager.runState);    
+        } else if (_playerStateManager.CheckIfCanIdleJump())
+        {
+            _playerStateManager.ChangeState(_playerStateManager.idleState);
         }
 
     }

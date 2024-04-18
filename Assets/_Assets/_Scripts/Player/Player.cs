@@ -17,7 +17,7 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
     [SerializeField] private StatusEffectSO _status;
     public bool isGetHit;
     public bool canUsePotion;
-    public bool isWalking;
+
     public bool isUsePotion = false;
    /* public float Speed=1f;
     public float Dmg=1f;
@@ -54,6 +54,7 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
     private void Update()
     {
         Die();
+       
     }
 
     public StatusEffectSO GetEffect()
@@ -121,7 +122,7 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
     }
     public Rigidbody2D GetRigidbody()
     {
-        return _playerMovement._boxRigidbody;
+        return _playerMovement._rigidbody;
     }
 
     private void GetHit()

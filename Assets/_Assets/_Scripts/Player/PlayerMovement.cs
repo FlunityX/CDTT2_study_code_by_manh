@@ -5,19 +5,23 @@ using DG.Tweening;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] public Rigidbody2D _boxRigidbody;
+    [SerializeField] public Rigidbody2D _rigidbody;
     [SerializeField] public bool isGround ;
     [SerializeField] public bool isJumping ;
     [SerializeField] public bool isFalling ;
+    [SerializeField] public bool canIdleFall ;
     public bool isReadySlide=true;
     private float jumpTimeCounter;
     private float jumpTime=.2f;
     private float jumpForce = 20f;
+    public bool isRunning= false;
     [SerializeField]private float slideTimer;
     private float slideTimerMax=5f;
     public Vector3 moveDir;
-    [SerializeField]private float increasingSpeed = 7f;
-    
+    public LayerMask groundLayer;
+    [SerializeField]private float increasingSpeed = 5f;
+    private Tween moveTween;
+    private Tween jumpTween;
     public float dirX;
     AudioManager audioManager;
 
@@ -32,14 +36,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void GameInput_OnJumpAction(object sender, System.EventArgs e)
     {
-        Jump();
+        //Jump();
     }
 
     private void FixedUpdate()
     {
         HandleMovement();
-        FallCheck();
-        ContinueJump();
+   
         FlipPlayerSprite();
         IncreasSpeed();
         ForceBoolVariable();
@@ -59,43 +62,84 @@ public class PlayerMovement : MonoBehaviour
         //RaycastHit2D hit = Physics2D.Raycast(Player.Instance.transform.position, inputVector);
         // audioManager.PlaySFX(audioManager.walk);
         float moveDuration = 1 / Player.Instance._playerStat.Speed;
-        if (Player.Instance._playerCollider.wall)
-       {
-            moveDir = Vector3.zero;
-        }
+        
         if (isFalling || isJumping)
         {
-            transform.DOMove(transform.position + moveDir, moveDuration/1.5f);
+            if (!Player.Instance._playerCollider.wallCollider)
+            {
+                moveTween = transform.DOMoveX(transform.position.x + moveDir.x, moveDuration *2)
+                    .OnUpdate(() =>
+                    {
+                        
+                        isRunning = false; 
+                        if (Player.Instance._playerCollider.wallCollider)
+                        {
+                            moveTween.Kill();
+
+                        }
+                    });
+            }
         }
-        else
+        else if(!Player.Instance._playerCollider.wallCollider)
         {
-           // transform.Translate(moveDir * moveDistance);
-            transform.DOMove(transform.position + moveDir,moveDuration);
+           
+           moveTween =  transform.DOMoveX(transform.position.x + moveDir.x,moveDuration)
+                .OnUpdate(() =>
+                {
+                    if (moveDir.x != 0) {
+                        isRunning = true;
+                    }
+                    if (Player.Instance._playerCollider.wallCollider)
+                    {
+                        moveTween.Kill();
+
+                    }
+                });
 
         }
        // Debug.Log(moveDir);
     }
 
-    private void Jump()
+    public void Jump()
     {
-       //if(isGround)
-        {
-            // audioManager.PlaySFX(audioManager.jump); 
-            // Sequence jumpNrun = DOTween.Sequence();
-            //jumpNrun.Append(transform.DOMoveY(transform.position.y + jumpForce, .5f)).Append(transform.DOMove(transform.position + moveDir, 1f));
-            transform.DOJump(transform.position + new Vector3(0,100,0), 100f, 2, 2f);
-            //_boxRigidbody.velocity = Vector2.up * jumpForce;
+       
+        isJumping = true;
 
+        jumpTween = transform.DOMoveY(transform.position.y + 5f,.5f)
+            
+                .SetEase(Ease.OutQuad)
+                .OnComplete(() =>
+                {
+                    isFalling = true;
+                    isJumping= false;
+                })
+                .OnUpdate(() =>
+                {
+                    if (Player.Instance._playerCollider.ceilCollider)
+                    {
+                        jumpTween.Kill();
+                        isFalling = true; isJumping = false;
+                    }
 
+                })
+                ;
 
-            jumpTimeCounter = jumpTime;
+           
             isGround = false;
-            isFalling = false;
-            isJumping = true;
-
-        }
         
-        
+    }
+   
+    public void InteruptAirMovement()
+    {
+        jumpTween.Kill();
+    }
+    public void InteruptMovement()
+    {
+        moveTween.Pause();
+    } 
+    public void notInteruptMovement()
+    {
+        moveTween.Play();
     }
     private void ContinueJump()
     {
@@ -103,7 +147,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (jumpTimeCounter > 0)
             {
-                _boxRigidbody.velocity =  Vector2.up * jumpForce/2;
+                _rigidbody.velocity =  Vector2.up * jumpForce/2;
                 
                 jumpTimeCounter -= Time.deltaTime;
                 isGround = false; 
@@ -115,7 +159,7 @@ public class PlayerMovement : MonoBehaviour
     
     private void FallCheck()
     {
-       if(_boxRigidbody.velocity.y <0)
+       if(_rigidbody.velocity.y <0)
         {
             isJumping = false;
             isFalling = true;
@@ -126,11 +170,11 @@ public class PlayerMovement : MonoBehaviour
     
     public void AddingFallForce(float force)
     {
-        _boxRigidbody.velocity = Vector2.down * force ;
+        _rigidbody.velocity = Vector2.down * force ;
     }
     public void Slide(float force)
     {
-        _boxRigidbody.velocity = new Vector2(dirX,-.5f) * force;
+        _rigidbody.velocity = new Vector2(dirX,-.5f) * force;
         
         
     }
@@ -179,7 +223,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void KnockBack()
     {
-        _boxRigidbody.velocity = new Vector2(-dirX, .25f) * 15f;
+        _rigidbody.velocity = new Vector2(-dirX, .25f) * 15f;
     }
 
 }

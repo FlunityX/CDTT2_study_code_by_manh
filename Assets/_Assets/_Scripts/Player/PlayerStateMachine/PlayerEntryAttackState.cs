@@ -11,8 +11,8 @@ public class PlayerEntryAttackState : PlayerBaseState
     {
         base.EnterState(playerStateManager);
         Player.Instance._playerVisual.PlayEntryAttackAnim();
-       
-        _playerStateManager.entryPos = Player.Instance.transform.position;
+
+        Player.Instance._playerMovement.InteruptMovement();
 
         Player.Instance._playerAttack.MeleeAttack(Player.Instance._playerStat.AttackDmg);
         Player.Instance.PlayerAttackInvoke();
@@ -24,12 +24,14 @@ public class PlayerEntryAttackState : PlayerBaseState
     public override void ExitState()
     {
         _playerStateManager.counter = 0;
+        Player.Instance._playerMovement.notInteruptMovement();
+
     }
 
     public override void Update()
     {
         _playerStateManager.counter += Time.deltaTime;
-        _playerStateManager.NailPlayer();
+        
         if (_playerStateManager.CheckIfCanCombo())
         {
             _playerStateManager.ChangeState(_playerStateManager._playerComboAttack1);

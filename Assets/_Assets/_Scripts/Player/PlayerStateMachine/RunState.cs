@@ -12,13 +12,13 @@ public class RunState : PlayerBaseState
         Player.Instance._playerVisual.PlayRunAnim();
         Player.Instance._playerMovement.ResetIncreasingSpeed();
         Debug.Log("run");
-        Player.Instance.isWalking = true;   
+         
     }
 
     public override void ExitState()
     {
         Player.Instance._playerMovement.ResetIncreasingSpeed();
-        Player.Instance.isWalking = false;
+        Player.Instance._playerMovement.isRunning = false;
 
     }
 
@@ -33,7 +33,7 @@ public class RunState : PlayerBaseState
         else if (_playerStateManager.CheckIfCanJump())
         {
             _playerStateManager.ChangeState(_playerStateManager.jumpState);
-            Debug.Log("jump");
+            
 
         }else if(_playerStateManager.CheckIfCanSlide())
         {

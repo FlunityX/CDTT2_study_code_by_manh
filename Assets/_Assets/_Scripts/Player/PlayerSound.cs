@@ -19,7 +19,7 @@ public class PlayerSound : MonoBehaviour
         if (footStepTimer < 0f)
         {
             footStepTimer = footStepTimerMax;
-            if (player.isWalking)
+            if (player._playerMovement.isRunning)
             {
 
                

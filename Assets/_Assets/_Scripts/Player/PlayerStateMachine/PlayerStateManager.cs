@@ -21,13 +21,15 @@ public class PlayerStateManager : MonoBehaviour
 
     public float airAttackTime = .05f;
     public float slideTime = 1f;
+    public float jumpTime = .5f;
     public float usePotionTime = .5f;
     public float gethitTime = .1f;
     public float comboDuration = 1f;
-    public float attackDuration = .3f;
+    public float attackDuration = .5f;
     public float counter;
   
     public Vector2 entryPos;
+    public Vector3 jumpEntryPos;
 
     private void Start()
     {
@@ -53,7 +55,7 @@ public class PlayerStateManager : MonoBehaviour
 
     public bool CheckIfCanIdle()
     {
-        return Player.Instance.GetDirX() == 0 && Player.Instance._playerMovement.isGround;
+        return Player.Instance.GetDirX() == 0 && Player.Instance._playerMovement.isGround ;
     }
     public bool CheckIfCanIdleGetHit()
     {
@@ -61,7 +63,11 @@ public class PlayerStateManager : MonoBehaviour
     }
     public bool CheckIfCanRun()
     {
-        return (Player.Instance._playerMovement.dirX != 0 && Player.Instance._playerMovement.isGround);
+        return Player.Instance._playerMovement.dirX != 0 && Player.Instance._playerMovement.isGround  && (!Player.Instance._playerMovement.isFalling|| !Player.Instance._playerMovement.isJumping);
+    }
+    public bool CheckIfCanRunJump()
+    {
+        return Player.Instance._playerMovement.isRunning;
     }
     public bool CheckIfCanRunGetHit()
     {
@@ -73,7 +79,7 @@ public class PlayerStateManager : MonoBehaviour
     }
     public bool CheckIfCanJump()
     {
-        return (GameInput.Instance.JumpPerform() && !Player.Instance._playerMovement.isGround);
+        return (GameInput.Instance.JumpPerform() && Player.Instance._playerMovement.isGround);
     }
 
     public bool CheckIfCanAttack()
@@ -95,7 +101,8 @@ public class PlayerStateManager : MonoBehaviour
     }
     public bool CheckIfCanFall()
     {
-        return Player.Instance.GetRigidbody().velocity.y < 0;
+       
+        return Player.Instance._playerMovement.isFalling;
     }
     public bool CheckIfCanFallAirAttack()
     {
@@ -130,7 +137,10 @@ public class PlayerStateManager : MonoBehaviour
     {
         return Player.Instance._playerMovement.isJumping && GameInput.Instance.AttackPerform() && Player.Instance._playerAttack.IsAttackingReady();
     }
-
+    public bool CheckIfCanIdleJump()
+    {
+        return Player.Instance._playerMovement.isGround && counter > jumpTime;
+    }
     public bool CheckIfCanIdleRun()
     {
         return Player.Instance.GetDirX() == 0;

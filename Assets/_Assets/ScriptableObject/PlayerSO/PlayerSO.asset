@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitName: Player
   Speed:
-    baseValue: 10
+    baseValue: 7
   Hp:
     baseValue: 10
   AttackDmg:
@@ -23,3 +23,4 @@ MonoBehaviour:
     baseValue: 1
   AttackRange:
     baseValue: 4
+  IsRanger: 0

@@ -12,7 +12,7 @@ public class PlayerEntryAttackState : PlayerBaseState
         base.EnterState(playerStateManager);
         Player.Instance._playerVisual.PlayEntryAttackAnim();
 
-        Player.Instance._playerMovement.InteruptMovement();
+        //Player.Instance._playerMovement.InteruptMovement();
 
         Player.Instance._playerAttack.MeleeAttack(Player.Instance._playerStat.AttackDmg);
         Player.Instance.PlayerAttackInvoke();
@@ -24,7 +24,7 @@ public class PlayerEntryAttackState : PlayerBaseState
     public override void ExitState()
     {
         _playerStateManager.counter = 0;
-        Player.Instance._playerMovement.notInteruptMovement();
+       // Player.Instance._playerMovement.notInteruptMovement();
 
     }
 

@@ -108,14 +108,9 @@ public class GameInput : MonoBehaviour
     }
     public bool JumpPerform()
     {
-      return  playerInputAction.PlayerActionMap.Jump.ReadValue<float>() > .4f;
+      return playerInputAction.PlayerActionMap.Jump.triggered && playerInputAction.PlayerActionMap.Jump.ReadValue<float>() > .5f;
         
-    } 
-    public float GetJumpValue()
-    {
-      return  playerInputAction.PlayerActionMap.Jump.ReadValue<float>();
-        
-    } 
+    }
     public void DisableJump()
     {
         playerInputAction.PlayerActionMap.Jump.Disable();
@@ -131,7 +126,7 @@ public class GameInput : MonoBehaviour
     }
     public bool SlidePerform()
     {
-        return playerInputAction.PlayerActionMap.Slide.ReadValue<float>() > .9f;
+        return  playerInputAction.PlayerActionMap.Slide.triggered && playerInputAction.PlayerActionMap.Slide.ReadValue<float>() > .9f;
     }
     public bool NextLinePerform()
     {

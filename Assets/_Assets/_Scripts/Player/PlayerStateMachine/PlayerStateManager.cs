@@ -148,7 +148,7 @@ public class PlayerStateManager : MonoBehaviour
 
     public bool CheckIfCanSlide()
     {
-        return GameInput.Instance.SlidePerform() && Player.Instance._playerMovement.isGround && Player.Instance._playerMovement.IsReadyToSlide();
+        return GameInput.Instance.SlidePerform() && Player.Instance._playerMovement.isGround && Player.Instance._playerMovement.IsReadyToSlide() ;
     }
     public bool CheckIfCanIdleC2()
     {

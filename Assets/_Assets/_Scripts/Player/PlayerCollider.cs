@@ -1,5 +1,7 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class PlayerCollider : MonoBehaviour
@@ -18,6 +20,7 @@ public class PlayerCollider : MonoBehaviour
         WallCheck();
         GroundCheck();
         CeilCheck();
+     
     }
     
 
@@ -50,6 +53,7 @@ public class PlayerCollider : MonoBehaviour
         }
     }
 
+    
   
     public void InteractableCollider()
     {

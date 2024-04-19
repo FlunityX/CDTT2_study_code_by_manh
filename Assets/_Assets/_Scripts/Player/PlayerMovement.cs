@@ -10,18 +10,20 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public bool isJumping ;
     [SerializeField] public bool isFalling ;
     [SerializeField] public bool canIdleFall ;
-    public bool isReadySlide=true;
-    private float jumpTimeCounter;
-    private float jumpTime=.2f;
-    private float jumpForce = 20f;
     public bool isRunning= false;
+    [SerializeField] private float jumpTimeCounter;
+    [SerializeField] private float jumpTime=.2f;
+    [SerializeField] private float jumpForce = 20f;
+    [SerializeField] private float slideDistance = 20f;
+    [SerializeField] private float slideTimerMax=5f;
     [SerializeField]private float slideTimer;
-    private float slideTimerMax=5f;
+    [SerializeField]private float increasingSpeed = 5f;
+    [SerializeField] private Transform slideRaycastPoint;
     public Vector3 moveDir;
     public LayerMask groundLayer;
-    [SerializeField]private float increasingSpeed = 5f;
     private Tween moveTween;
     private Tween jumpTween;
+    private Tween slideTween;
     public float dirX;
     AudioManager audioManager;
 
@@ -36,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void GameInput_OnJumpAction(object sender, System.EventArgs e)
     {
-        //Jump();
+        Debug.Log("sjdsjskskssss");
     }
 
     private void FixedUpdate()
@@ -46,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
         FlipPlayerSprite();
         IncreasSpeed();
         ForceBoolVariable();
+        SlideColliderCheck();
         if (slideTimer < slideTimerMax)
         {
             slideTimer += Time.deltaTime;
@@ -129,18 +132,8 @@ public class PlayerMovement : MonoBehaviour
         
     }
    
-    public void InteruptAirMovement()
-    {
-        jumpTween.Kill();
-    }
-    public void InteruptMovement()
-    {
-        moveTween.Pause();
-    } 
-    public void notInteruptMovement()
-    {
-        moveTween.Play();
-    }
+ 
+  
     private void ContinueJump()
     {
         if (isJumping && GameInput.Instance.JumpPerform() && !Player.Instance._playerMovement.isGround)
@@ -156,28 +149,31 @@ public class PlayerMovement : MonoBehaviour
             
         } 
     }
-    
-    private void FallCheck()
+    public bool SlideColliderCheck()
     {
-       if(_rigidbody.velocity.y <0)
+        RaycastHit2D slide = Physics2D.Raycast(slideRaycastPoint.position, new Vector2(Player.Instance.transform.localScale.x, 0), 4f, groundLayer);
+        if (slide.collider == null)
         {
-            isJumping = false;
-            isFalling = true;
-            
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
+    public void Slide()
+    {
+            slideTween = transform.DOMoveX(transform.position.x + slideDistance, .5f)
+                .OnUpdate(() =>
+                {
+                    RaycastHit2D slideHit = Physics2D.Raycast(slideRaycastPoint.position, new Vector2(Player.Instance.transform.localScale.x, 0), 6f, groundLayer);
+                    if (slideHit.collider !=null)
+                    {
+                        slideTween.Kill();
+                    }
+                });
+    }
 
-    
-    public void AddingFallForce(float force)
-    {
-        _rigidbody.velocity = Vector2.down * force ;
-    }
-    public void Slide(float force)
-    {
-        _rigidbody.velocity = new Vector2(dirX,-.5f) * force;
-        
-        
-    }
     private void FlipPlayerSprite()
     {
         if(dirX >0)
@@ -210,7 +206,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public bool IsReadyToSlide()
     {
-        return slideTimer >= slideTimerMax;
+        return slideTimer >= slideTimerMax && SlideColliderCheck();
     }
     public void ResetIncreasingSpeed()
     {

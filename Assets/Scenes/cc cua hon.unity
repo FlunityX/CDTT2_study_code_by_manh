@@ -10618,6 +10618,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1700274138
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1700274139}
+  m_Layer: 10
+  m_Name: SlideRaycastPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1700274139
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700274138}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.49, y: -1.71, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2081058837290449457}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1736146605
 GameObject:
   m_ObjectHideFlags: 0
@@ -12151,6 +12182,7 @@ Transform:
   - {fileID: 1830281726734878915}
   - {fileID: 5162561963918845752}
   - {fileID: 976922733395027752}
+  - {fileID: 1700274139}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2164207632372870678
@@ -13017,19 +13049,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5cb7ab1c5e375438fc1ce6f9bc3447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rigidbody: {fileID: 0}
+  _rigidbody: {fileID: 8476994512332313447}
   isGround: 0
   isJumping: 0
   isFalling: 0
   canIdleFall: 0
   isReadySlide: 1
   isRunning: 0
+  jumpTimeCounter: 0
+  jumpTime: 0.2
+  jumpForce: 20
+  slideDistance: 7
+  slideTimerMax: 5
   slideTimer: 0
+  increasingSpeed: 10
+  slideRaycastPoint: {fileID: 1700274139}
   moveDir: {x: 0, y: 0, z: 0}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
-  increasingSpeed: 10
+    m_Bits: 512
   dirX: 0
 --- !u!4 &4172106664407288932
 Transform:
@@ -13416,7 +13454,7 @@ MonoBehaviour:
   wallColliderPos: {x: 0, y: 0, z: 0}
   ceilCollider: 0
   ishitGround: 0
-  ceilheigh: 0
+  ceilheigh: 3
 --- !u!212 &5328986858660453556
 SpriteRenderer:
   m_ObjectHideFlags: 0

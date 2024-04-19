@@ -9,13 +9,14 @@ public class FallState : PlayerBaseState
         base.EnterState(playerStateManager);
         Player.Instance._playerVisual.PlayFallAnim();
         Debug.Log("fall");
-        GameInput.Instance.DisableJump();
+       
     }
 
     public override void ExitState()
     {
-       GameInput.Instance.EnableJump();
+      
        Player.Instance._playerMovement.isFalling= false;
+        Debug.Log("exit fall"); 
     }
 
     public override void Update()

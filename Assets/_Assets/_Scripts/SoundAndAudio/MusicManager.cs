@@ -21,10 +21,9 @@ public class MusicManager : MonoBehaviour
         audioSource.Play();
     }
 
-    public void ChangeVollume()
+    public void ChangeVollume(float value)
     {
-        vollume += .1f;
-        if(vollume >1f) vollume = 0;
+         vollume = value;
         audioSource.volume = vollume;   
         PlayerPrefs.SetFloat(PLAYER_PREF_MUSIC_VOLLUME,vollume);
         PlayerPrefs.Save();

@@ -8,9 +8,10 @@ using UnityEngine.UI;
 public class OptionUI : MonoBehaviour
 {
     public static OptionUI Instance { get; private set; }
-    [SerializeField] private Button soundEffectButton;
-    [SerializeField] private Button musicButton;
+
     [SerializeField] private Button closeButton;
+    [SerializeField] private Slider soundVollumeSlider;
+    [SerializeField] private Slider musicVollumeSlider;
     [SerializeField] private Button attackBtn;
     [SerializeField] private Button jumpBtn;
     [SerializeField] private Button moveRightBtn;
@@ -35,14 +36,16 @@ public class OptionUI : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        soundEffectButton.onClick.AddListener(() =>
+        soundVollumeSlider.onValueChanged.AddListener((value) =>
         {
-            GameManager.Instance.soundManager.ChangeVollumme();
+           
+            GameManager.Instance.soundManager.ChangeVollumme(value);
             UpdateVisual();
         });
-        musicButton.onClick.AddListener(() =>
+
+        musicVollumeSlider.onValueChanged.AddListener(value =>
         {
-            GameManager.Instance.musicManager.ChangeVollume();
+            GameManager.Instance.musicManager.ChangeVollume(value);
             UpdateVisual();
         });
         closeButton.onClick.AddListener(() =>
@@ -83,7 +86,7 @@ public class OptionUI : MonoBehaviour
             RebindBinding(GameInput.Binding.Pause);
 
         });
-        musicButton.Select();
+        attackBtn.Select();
     }
 
     private void Start()
@@ -101,9 +104,10 @@ public class OptionUI : MonoBehaviour
 
     private void UpdateVisual ()
     {
-        soundEffectText.text = "Sound Effect:" + Mathf.Round(GameManager.Instance.soundManager.GetVollume() * 10f);
-        musicText.text = "Music:" + Mathf.Round(GameManager.Instance.musicManager.GetVollume() * 10f);
-
+        soundEffectText.text = "Sound Effect: " + Mathf.Round(GameManager.Instance.soundManager.GetVollume() * 10f);
+        musicText.text = "Music: " + Mathf.Round(GameManager.Instance.musicManager.GetVollume() * 10f);
+        musicVollumeSlider.value = GameManager.Instance.musicManager.GetVollume();
+        soundVollumeSlider.value = GameManager.Instance.soundManager.GetVollume();
         attackTxt.text = GameInput.Instance.GetBindingText(GameInput.Binding.Attack);
         jumpTxt.text = GameInput.Instance.GetBindingText (GameInput.Binding.Jump);
         moveLeftTxt.text = GameInput.Instance.GetBindingText(GameInput.Binding.Move_Left);
@@ -120,7 +124,8 @@ public class OptionUI : MonoBehaviour
     {
         this.onCloseButtonAction = onCloseButtonAction;
         gameObject.SetActive(true);
-        soundEffectButton.Select();
+        attackBtn.Select();
+        UpdateVisual();
     }
     public void Hide()
     {

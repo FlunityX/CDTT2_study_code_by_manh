@@ -11995,6 +11995,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2056570396041526319, guid: 00eb517e8534a954b930dcc70d3350af, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2056570396041526319, guid: 00eb517e8534a954b930dcc70d3350af, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2395925346071422920, guid: 00eb517e8534a954b930dcc70d3350af, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2395925346071422920, guid: 00eb517e8534a954b930dcc70d3350af, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2395925346071422920, guid: 00eb517e8534a954b930dcc70d3350af, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2608927813560036537, guid: 00eb517e8534a954b930dcc70d3350af, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2608927813560036537, guid: 00eb517e8534a954b930dcc70d3350af, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4293978029323302445, guid: 00eb517e8534a954b930dcc70d3350af, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4293978029323302445, guid: 00eb517e8534a954b930dcc70d3350af, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4293978029323302445, guid: 00eb517e8534a954b930dcc70d3350af, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9068515611278001540, guid: 00eb517e8534a954b930dcc70d3350af, type: 3}
       propertyPath: m_Name
       value: OptionUI
@@ -13054,7 +13094,6 @@ MonoBehaviour:
   isJumping: 0
   isFalling: 0
   canIdleFall: 0
-  isReadySlide: 1
   isRunning: 0
   jumpTimeCounter: 0
   jumpTime: 0.2

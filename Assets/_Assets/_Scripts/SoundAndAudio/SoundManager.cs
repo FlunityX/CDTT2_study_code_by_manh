@@ -88,10 +88,9 @@ public class SoundManager : MonoBehaviour
     {
         AudioSource.PlayClipAtPoint(clipsArrray[Random.Range(0,clipsArrray.Length)], position, vollume);
     }
-    public void ChangeVollumme()
+    public void ChangeVollumme(float value)
     {
-        vollume += .1f;
-        if (vollume> 1f) vollume = 0f;
+         vollume = value;
         PlayerPrefs.SetFloat(PLAYER_PREF_SOUND_EFFECT_VOLLUME,vollume);
         PlayerPrefs.Save();
     }

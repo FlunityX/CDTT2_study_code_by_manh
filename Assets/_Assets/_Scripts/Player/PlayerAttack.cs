@@ -67,6 +67,7 @@ public class PlayerAttack : MonoBehaviour, IMeleeAttack,IRangeAttack
                     //Player.Instance.PlayerAttackHitInvoke();
 
                     Player.Instance.DealDamage(hit.GetComponent<IReceiveDamage>(), dmg);
+                    Player.Instance.InstantiateHitEffect(hit.transform);
                 }
             }
         }

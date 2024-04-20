@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public bool isFalling ;
     [SerializeField] public bool canIdleFall ;
     public bool isRunning= false;
+    public bool canMove= true;
     [SerializeField] private float jumpTimeCounter;
     [SerializeField] private float jumpTime=.2f;
     [SerializeField] private float jumpForce = 20f;
@@ -38,12 +39,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void GameInput_OnJumpAction(object sender, System.EventArgs e)
     {
-        Debug.Log("sjdsjskskssss");
+      
     }
 
     private void FixedUpdate()
     {
+        if (canMove)
+        {
+            
         HandleMovement();
+        }
    
         FlipPlayerSprite();
         IncreasSpeed();

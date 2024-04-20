@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
 public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataPersistence
@@ -17,7 +18,7 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
     [SerializeField] private StatusEffectSO _status;
     public bool isGetHit;
     public bool canUsePotion;
-
+    public Transform hitVFX;
     public bool isUsePotion = false;
    /* public float Speed=1f;
     public float Dmg=1f;
@@ -130,6 +131,10 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
         isGetHit = true;
     }
 
+    public void InstantiateHitEffect(Transform enemy)
+    {
+        Instantiate(hitVFX, enemy.position, enemy.rotation,enemy);
+    }
     //invoke event
     public void PlayerAttackInvoke()
     {

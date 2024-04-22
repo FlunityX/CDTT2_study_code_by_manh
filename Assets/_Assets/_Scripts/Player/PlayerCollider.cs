@@ -87,6 +87,14 @@ public class PlayerCollider : MonoBehaviour
             wallCollider = true;
         }
     }
+    public void ImmuteAttack()
+    {
+        Physics2D.IgnoreLayerCollision(10,13, true);
+    }
+    public void UnimmuteAttack()
+    {
+        Physics2D.IgnoreLayerCollision(10, 13, false);
+    }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;

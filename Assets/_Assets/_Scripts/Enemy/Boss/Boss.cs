@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using TreeEditor;
 using UnityEngine;
 
 public class Boss : MonoBehaviour, IReceiveDamage, IDealDamage, IHasHpBar
@@ -20,8 +21,7 @@ public class Boss : MonoBehaviour, IReceiveDamage, IDealDamage, IHasHpBar
     public EnemyStat GetEnemyStat() { return _enemyStat; }  
 
 
-    public bool _isFacingLeft;
-    public bool _isFacingRight;
+
     public int attackCount;
     public bool isGetHit;
 
@@ -44,5 +44,10 @@ public class Boss : MonoBehaviour, IReceiveDamage, IDealDamage, IHasHpBar
         }); ; ;
 
 
+    }
+
+    public float GetDirX()
+    {
+        return transform.localScale.x;
     }
 }

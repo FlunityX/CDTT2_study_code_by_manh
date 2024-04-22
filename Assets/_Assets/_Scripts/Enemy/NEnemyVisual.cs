@@ -5,6 +5,7 @@ using UnityEngine;
 public class NEnemyVisual : MonoBehaviour
 {
    [SerializeField] private Animator animator;
+   [SerializeField] private SpriteRenderer sprite;
     [SerializeField]private NormalEnemy _normalEnemy;
     private string _name;
     private void Start()
@@ -29,5 +30,13 @@ public class NEnemyVisual : MonoBehaviour
     public void PlayHurtAnim()
     {
         animator.CrossFade(_name + "_hurt", .2f, 0);
+    }
+    public void Invisible()
+    {
+        sprite.enabled = false;
+    }
+    public void Visiable()
+    {
+        sprite.enabled = true;
     }
 }

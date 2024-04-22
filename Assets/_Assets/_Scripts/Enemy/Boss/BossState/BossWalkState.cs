@@ -22,8 +22,11 @@ public class BossWalkState : BossBaseState
     public override void Update()
     {
         _bossManager.UpdateChaseDir();
-        
-        _bossManager.Chase();
+        if (!_bossManager.IsPlayerInAttackRange())
+        {
+            _bossManager.Chase();
+
+        }
         if (_bossManager.CheckIfCanMeleeAttack())
         {
             _bossManager.ChangeState(_bossManager._MeleeAttack);  

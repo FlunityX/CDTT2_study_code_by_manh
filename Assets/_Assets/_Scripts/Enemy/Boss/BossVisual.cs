@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class BossVisual : MonoBehaviour
 {
     [SerializeField] private Animator animator;
+    [SerializeField] private SpriteRenderer sprite;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -33,5 +36,13 @@ public class BossVisual : MonoBehaviour
     public void PlayBossDeadAnim()
     {
         animator.CrossFade(GameConstant.BOSS_DEAD_ANIM, .2f, 0);
+    }
+    public void Invisible()
+    {
+        sprite.enabled = false;
+    }
+    public void Visible()
+    {
+        sprite.enabled = true;
     }
 }

@@ -7,7 +7,10 @@ public class TutorialInteract : MonoBehaviour
     [SerializeField] private GameObject tutorialUI;
     [SerializeField] private BoxCollider2D interactBox;
 
-
+    private void Awake()
+    {
+        tutorialUI.SetActive(false);
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag(GameConstant.PLAYER_TAG))

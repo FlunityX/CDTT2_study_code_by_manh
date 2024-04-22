@@ -6,6 +6,7 @@ using UnityEngine.Video;
 public class Checkpoint : MonoBehaviour
 {
     Player player;
+    public GameObject ActivedCheckpoint;
 
     private void Awake()
     {
@@ -15,6 +16,14 @@ public class Checkpoint : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            if (ActivedCheckpoint.activeInHierarchy == false)
+            {
+                ActivedCheckpoint.SetActive(true);
+            }
+            // else
+            // {
+            //     ActivedCheckpoint.SetActive(false);
+            // }
             player.UpdateCheckpoint(transform.position);
         }
     }

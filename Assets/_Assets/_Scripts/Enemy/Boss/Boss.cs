@@ -18,16 +18,27 @@ public class Boss : MonoBehaviour, IReceiveDamage, IDealDamage, IHasHpBar
     public BossSpellAttack GetBossSpellAttack() { return _spellAttack; }
     
     public BossVisual GetBossVisual() { return _bossVisual; }
-    public EnemyStat GetEnemyStat() { return _enemyStat; }  
+    public EnemyStat GetEnemyStat() { return _enemyStat; }
 
+    public float counter;
+    public float timer = 20f;
 
 
     public int attackCount;
     public bool isGetHit;
-
+    public bool canUseHidding;
 
     public event EventHandler<IHasHpBar.OnHpChangeEventArgs> OnHpChange;
 
+    private void Update()
+    {
+        counter += Time.deltaTime;
+        if(counter > timer)
+        {
+            canUseHidding = true;
+            counter = 0;
+        }
+    }
 
     public void DealDamage(IReceiveDamage receiveDmg, float dmg)
     {
@@ -42,6 +53,9 @@ public class Boss : MonoBehaviour, IReceiveDamage, IDealDamage, IHasHpBar
         {
             HpNormalized = _enemyStat.currentHp / _enemyStat.Hp
         }); ; ;
+        if(_enemyStat.currentHp < _enemyStat.Hp/2) {
+            canUseHidding = true;
+        }
 
 
     }

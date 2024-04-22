@@ -1,5 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
+using System.Collections;
+
 public class BossManager : CharacterManager
 {
     public Boss _Boss;
@@ -9,12 +11,14 @@ public class BossManager : CharacterManager
     public BossMeleeAttackState _MeleeAttack =new();
     public BossCastSpellState _CastSpellState = new();
     public BossHurtState _HurtState = new();
+    public BossHiddingState _HiddingState = new();
+    public BossAppearingState _AppearingState = new();
     public BossDeathState _DeathState = new();
-
     public float attackDuration = .5f;
     public float spellDuration = 5f;
     public float getHitDuration = .2f;
-    public float hiddingDuration = 5f;
+    public float hiddingDuration = 4f;
+    public float appearingDuration = .5f;
     public float durationCounter;
     public float ChaseDir;
 
@@ -65,15 +69,22 @@ public class BossManager : CharacterManager
     {
         return _Boss.GetBossCollider().isPlayerInRange;
     }
+    public bool CheckIfCanAppear()
+    {
+        return durationCounter >= hiddingDuration;
+    }
     public bool CheckIfCanAttackHidding()
     {
-        return durationCounter > hiddingDuration && _Boss.GetBossMeleeAttack().IsReadyToAttack();
+        return durationCounter > appearingDuration && _Boss.GetBossMeleeAttack().IsReadyToAttack();
     }
     public bool IsPlayerInAttackRange()
     {
         return _Boss.GetBossCollider().isPlayerInAttackRange;
     }
-
+    public bool CheckIfCanUseHidding()
+    {
+        return _Boss.canUseHidding;
+    }
     public void Chase()
     {
         if (ChaseDir > 0)
@@ -104,6 +115,7 @@ public class BossManager : CharacterManager
    
     public void ApproachingPlayerPos()
     {
+       
         transform.DOMoveX(Player.Instance.transform.position.x - Player.Instance.transform.localScale.x * _Boss.GetEnemyStat().AttackRange,.5f);
     }
        
@@ -113,4 +125,5 @@ public class BossManager : CharacterManager
     {
         durationCounter = 0;
     }
+    
 }

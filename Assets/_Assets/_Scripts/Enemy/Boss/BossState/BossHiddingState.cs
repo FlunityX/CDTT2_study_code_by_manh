@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BossHiddingState : BossBaseState 
@@ -9,30 +11,36 @@ public class BossHiddingState : BossBaseState
         base.EnterState(characterManager);
         _bossManager._Boss.GetBossCollider().ImmuteAttack();
         _bossManager._Boss.GetBossVisual().PlayBossDisappearAnim();
-        _bossManager._Boss.GetBossVisual().DelayInvisible();
-
     }
 
     public override void ExitState()
     {
-        base.ExitState();
         _bossManager._Boss.GetBossCollider().UnimmuteAttack();
-        _bossManager._Boss.GetBossVisual().Visible();
-        _bossManager._Boss.GetBossVisual().PlayBossAppearAnim();
-
+        _bossManager._Boss.canUseHidding = false;
+        _bossManager.durationCounter = 0;
+        base.ExitState();
 
     }
 
     public override void Update()
     {
         _bossManager.durationCounter += Time.deltaTime;
-        _bossManager.ApproachingPlayerPos();
-        if (_bossManager.CheckIfCanAttackHidding())
+        if(_bossManager.durationCounter > 3f)
         {
-            _bossManager.ChangeState(_bossManager._MeleeAttack);
-        }
-    }
+            _bossManager.UpdateChaseDir();
+            _bossManager.ApproachingPlayerPos();
 
+        }
+
+        if (_bossManager.CheckIfCanAppear())
+        {
+            _bossManager.ChangeState(_bossManager._AppearingState);
+        }
+            
+        
+
+    }
+    
 
 
 

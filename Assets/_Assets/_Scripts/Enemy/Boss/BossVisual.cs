@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph;
 using UnityEngine;
 using UnityEngine.U2D;
 
 public class BossVisual : MonoBehaviour
 {
     [SerializeField] private Animator animator;
-    [SerializeField] private SpriteRenderer sprite;
+
 
     private void Start()
     {
@@ -40,28 +41,25 @@ public class BossVisual : MonoBehaviour
     public void PlayBossAppearAnim()
     {
         animator.CrossFade(GameConstant.BOSS_APPEAR_ANIM, .2f, 0);
+        
+
     }
     public void PlayBossDisappearAnim()
     {
-        animator.CrossFade(GameConstant.BOSS_DISAPPEAR_ANIM, .2f, 0);
+        
+        animator.CrossFade(GameConstant.BOSS_DISAPPEAR_ANIM, .1f, 0);
+        Debug.Log("Hide");
     }
     public void Invisible()
     {
-        sprite.enabled = false;
+        gameObject.SetActive(false);
+
     }
     public void Visible()
     {
-        sprite.enabled = true;
+        gameObject.SetActive(true);
     }
 
-   public IEnumerator  DelayInvisible()
-    {
-        yield return new WaitForSeconds(1f);
-        Invisible();
-    }
-    IEnumerator  DelayAppearAnim()
-    {
-        yield return new WaitForSeconds(.5f);
-        PlayBossAppearAnim();
-    }
+   
+    
 }

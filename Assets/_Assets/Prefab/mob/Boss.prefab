@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 7367321456755680195}
+  sprite: {fileID: 0}
 --- !u!1 &984296330368430302
 GameObject:
   m_ObjectHideFlags: 0

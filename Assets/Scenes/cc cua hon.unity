@@ -12721,7 +12721,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1830281726734878915}
   - component: {fileID: 2812128164719412097}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: PlayerAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13796,6 +13796,10 @@ PrefabInstance:
     - target: {fileID: 5501983394432740538, guid: 8c856fa40a1e58948a6d910da1d2ea0b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7920836368162004907, guid: 8c856fa40a1e58948a6d910da1d2ea0b, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8212636001656693102, guid: 8c856fa40a1e58948a6d910da1d2ea0b, type: 3}
       propertyPath: m_Name
@@ -14964,6 +14968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 376403714570304772}
+  sprite: {fileID: 0}
   _normalEnemy: {fileID: 7074792761645445428}
 --- !u!223 &9057370531899142767
 Canvas:

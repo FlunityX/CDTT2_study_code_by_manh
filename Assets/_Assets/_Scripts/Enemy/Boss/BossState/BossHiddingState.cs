@@ -8,7 +8,8 @@ public class BossHiddingState : BossBaseState
     {
         base.EnterState(characterManager);
         _bossManager._Boss.GetBossCollider().ImmuteAttack();
-        _bossManager._Boss.GetBossVisual().Invisible();
+        _bossManager._Boss.GetBossVisual().PlayBossDisappearAnim();
+        _bossManager._Boss.GetBossVisual().DelayInvisible();
 
     }
 
@@ -17,6 +18,8 @@ public class BossHiddingState : BossBaseState
         base.ExitState();
         _bossManager._Boss.GetBossCollider().UnimmuteAttack();
         _bossManager._Boss.GetBossVisual().Visible();
+        _bossManager._Boss.GetBossVisual().PlayBossAppearAnim();
+
 
     }
 

@@ -37,6 +37,14 @@ public class BossVisual : MonoBehaviour
     {
         animator.CrossFade(GameConstant.BOSS_DEAD_ANIM, .2f, 0);
     }
+    public void PlayBossAppearAnim()
+    {
+        animator.CrossFade(GameConstant.BOSS_APPEAR_ANIM, .2f, 0);
+    }
+    public void PlayBossDisappearAnim()
+    {
+        animator.CrossFade(GameConstant.BOSS_DISAPPEAR_ANIM, .2f, 0);
+    }
     public void Invisible()
     {
         sprite.enabled = false;
@@ -44,5 +52,16 @@ public class BossVisual : MonoBehaviour
     public void Visible()
     {
         sprite.enabled = true;
+    }
+
+   public IEnumerator  DelayInvisible()
+    {
+        yield return new WaitForSeconds(1f);
+        Invisible();
+    }
+    IEnumerator  DelayAppearAnim()
+    {
+        yield return new WaitForSeconds(.5f);
+        PlayBossAppearAnim();
     }
 }

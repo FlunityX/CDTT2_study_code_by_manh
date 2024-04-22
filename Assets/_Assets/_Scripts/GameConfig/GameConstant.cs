@@ -38,6 +38,8 @@ public static class GameConstant
     public const string BOSS_WALK_ANIM = "BOSS_WALK_ANIM";
     public const string BOSS_HURT_ANIM = "BOSS_HURT_ANIM";
     public const string BOSS_DEAD_ANIM = "BOSS_DED_ANIM";
+    public const string BOSS_APPEAR_ANIM = "Boss_appear";
+    public const string BOSS_DISAPPEAR_ANIM = "Boss_disappear";
    
     
 

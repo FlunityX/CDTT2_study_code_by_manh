@@ -155,6 +155,7 @@ GameObject:
   - component: {fileID: 8865930814894733068}
   - component: {fileID: 4871365108679931609}
   - component: {fileID: 1247583192668839548}
+  - component: {fileID: 1086145697695159943}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -192,6 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundManager: {fileID: 1247583192668839548}
   musicManager: {fileID: 7435180931797024071}
+  resourceManager: {fileID: 1086145697695159943}
 --- !u!114 &4871365108679931609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,3 +222,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SoundRefSO: {fileID: 11400000, guid: b878af2118606fc458a2b3f8a278c57d, type: 2}
+--- !u!114 &1086145697695159943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6293733385684513078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6348a14d09afc6946852300225e8729b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerHitVFX: {fileID: 0}

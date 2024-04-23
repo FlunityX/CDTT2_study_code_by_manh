@@ -41,7 +41,7 @@ public class AbilityHolder : MonoBehaviour
     {
         if (_abilitySO !=null)
         {
-        OnUsedAbility();
+            OnUsedAbility();
             
         }
     }
@@ -50,7 +50,7 @@ public class AbilityHolder : MonoBehaviour
     {
         if (_abilitySO != null)
         {
-        abilityStateUpdate();
+            abilityStateUpdate();
 
         }
         

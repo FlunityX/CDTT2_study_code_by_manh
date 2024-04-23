@@ -18,7 +18,7 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
     [SerializeField] private StatusEffectSO _status;
     public bool isGetHit;
     public bool canUsePotion;
-    public Transform hitVFX;
+    public GameObject hitVFX;
     public bool isUsePotion = false;
    /* public float Speed=1f;
     public float Dmg=1f;
@@ -51,6 +51,7 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
         _playerVisual = GetComponentInChildren<PlayerVisual>();
         _playerAttack = GetComponentInChildren<PlayerAttack>();
         GameInput.Instance.OnInteract += GameInput_OnInteract;
+        hitVFX = GameManager.Instance.resourceManager.PlayerHitVFX;
     }
     private void Update()
     {

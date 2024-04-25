@@ -167,7 +167,15 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
     }
     //end invoke event
 
+    public void ImmuteAttack()
+    {
+        gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+    }
+    public void UnimmuteAttack()
+    {
+        gameObject.layer = LayerMask.NameToLayer(GameConstant.PLAYER_TAG);
 
+    }
     public void UpdateCheckpoint(Vector2 pos)
     {
         checkpointPos = pos;

@@ -7874,11 +7874,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &922910204 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 5927838097245257724, guid: 8c856fa40a1e58948a6d910da1d2ea0b, type: 3}
-  m_PrefabInstance: {fileID: 7351639112656704979}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &955950998
 GameObject:
   m_ObjectHideFlags: 0
@@ -13007,9 +13002,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9057901447720637962, guid: 241335bfa05bf6e4fba0a8af3b9bf2bd, type: 3}
-      propertyPath: hitVFX
-      value: 
+    - target: {fileID: 3539599466414072184, guid: 241335bfa05bf6e4fba0a8af3b9bf2bd, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13109,14 +13104,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2388144926404689907, guid: 8c856fa40a1e58948a6d910da1d2ea0b, type: 3}
-      propertyPath: timer
-      value: 20
+    - target: {fileID: 235432546315735328, guid: 8c856fa40a1e58948a6d910da1d2ea0b, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2395372365403404966, guid: 8c856fa40a1e58948a6d910da1d2ea0b, type: 3}
-      propertyPath: sprite
-      value: 
-      objectReference: {fileID: 922910204}
     - target: {fileID: 5501983394432740538, guid: 8c856fa40a1e58948a6d910da1d2ea0b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 143.1
@@ -13157,13 +13148,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5927838097245257724, guid: 8c856fa40a1e58948a6d910da1d2ea0b, type: 3}
-      propertyPath: m_Enabled
-      value: 1
+    - target: {fileID: 6800529408112060734, guid: 8c856fa40a1e58948a6d910da1d2ea0b, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7920836368162004907, guid: 8c856fa40a1e58948a6d910da1d2ea0b, type: 3}
       propertyPath: m_Layer
-      value: 13
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8212636001656693102, guid: 8c856fa40a1e58948a6d910da1d2ea0b, type: 3}
       propertyPath: m_Name

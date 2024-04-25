@@ -40,12 +40,5 @@ public class BossCollider : MonoBehaviour
            isPlayerInAttackRange= true;
         }
     }
-    public void ImmuteAttack()
-    {
-        Physics2D.IgnoreLayerCollision(11,12,true);
-    }
-    public void UnimmuteAttack()
-    {
-        Physics2D.IgnoreLayerCollision(11,12,false);
-    }
+   
 }

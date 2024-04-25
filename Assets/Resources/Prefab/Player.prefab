@@ -68,7 +68,7 @@ MonoBehaviour:
   _status: {fileID: 0}
   isGetHit: 0
   canUsePotion: 0
-  hitVFX: {fileID: 9107378912262712196, guid: 02eabf1c88020c242bc0fdcd627372f3, type: 3}
+  hitVFX: {fileID: 0}
   isUsePotion: 0
   coin: 100
 --- !u!114 &8130180633186624365
@@ -612,7 +612,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2923712589800931144}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: SlideRaycastPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

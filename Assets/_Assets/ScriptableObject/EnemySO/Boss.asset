@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitName: Boss
   Speed:
-    baseValue: 7
+    baseValue: 3
   Hp:
     baseValue: 1100
   AttackDmg:

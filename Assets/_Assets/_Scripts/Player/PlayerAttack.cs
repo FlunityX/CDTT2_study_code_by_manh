@@ -56,7 +56,7 @@ public class PlayerAttack : MonoBehaviour, IMeleeAttack,IRangeAttack
     {
         yield return new WaitForSeconds(.2f);
         Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, 2f, _enemyLayer);
-            Player.Instance.PlayerAttackInvoke();
+         Player.Instance.PlayerAttackInvoke();
         if (hits != null)
         {
             foreach (Collider2D hit in hits)

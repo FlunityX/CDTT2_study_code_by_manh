@@ -21,7 +21,7 @@ public class BossManager : CharacterManager
     public float appearingDuration = .5f;
     public float durationCounter;
     public float ChaseDir;
-
+    private Tween moveTween;
     private void Start()
     {
         SetUpProperties();
@@ -85,15 +85,35 @@ public class BossManager : CharacterManager
     {
         return _Boss.canUseHidding;
     }
+    public bool CheckIfPlayerTooClose()
+    {
+        return Vector3.Distance(Player.Instance.transform.position, transform.position) <= 5f;
+    }
     public void Chase()
     {
-        if (ChaseDir > 0)
+       if (ChaseDir > 0)
         {
-            _Boss.transform.Translate(Vector2.right * _Boss.GetEnemyStat().Speed  * Time.deltaTime);
+           //_Boss.transform.Translate(Vector2.right * _Boss.GetEnemyStat().Speed  * Time.deltaTime);
+           //float moveDuration = Vector3.Distance(Player.Instance.transform.position,transform.position)/_Boss.GetEnemyStat().Speed;
+            moveTween =  transform.DOMoveX(transform.position.x +  1f, 1/ _Boss.GetEnemyStat().Speed).OnUpdate(() =>
+            {
+                if (CheckIfPlayerTooClose())
+                {
+                    moveTween.Kill();
+                }
+            });
+
         }
-        else
+       else
         {
-            _Boss.transform.Translate(Vector2.left * _Boss.GetEnemyStat().Speed  * Time.deltaTime);
+            // _Boss.transform.Translate(Vector2.left * _Boss.GetEnemyStat().Speed  * Time.deltaTime);
+                moveTween=   transform.DOMoveX(transform.position.x - 1f, 1 / _Boss.GetEnemyStat().Speed).OnUpdate(() =>
+            {
+                if (CheckIfPlayerTooClose())
+                {
+                    moveTween.Kill();
+                }
+            });
 
         }
     }

@@ -64,4 +64,14 @@ public class Boss : MonoBehaviour, IReceiveDamage, IDealDamage, IHasHpBar
     {
         return transform.localScale.x;
     }
+
+    public void ImmuteAttack()
+    {
+        gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+    }
+    public void UnimmuteAttack()
+    {
+        gameObject.layer = LayerMask.NameToLayer(GameConstant.ENEMY_TAG);
+
+    }
 }

@@ -16,6 +16,8 @@ public class BossAppearingState : BossBaseState
     public override void ExitState()
     {
         base.ExitState();
+        _bossManager._Boss.UnimmuteAttack();
+
         _bossManager.durationCounter = 0;
     }
 

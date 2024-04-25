@@ -9,13 +9,12 @@ public class BossHiddingState : BossBaseState
     public override void EnterState(CharacterManager characterManager)
     {
         base.EnterState(characterManager);
-        _bossManager._Boss.GetBossCollider().ImmuteAttack();
+        _bossManager._Boss.ImmuteAttack();
         _bossManager._Boss.GetBossVisual().PlayBossDisappearAnim();
     }
 
     public override void ExitState()
     {
-        _bossManager._Boss.GetBossCollider().UnimmuteAttack();
         _bossManager._Boss.canUseHidding = false;
         _bossManager.durationCounter = 0;
         base.ExitState();

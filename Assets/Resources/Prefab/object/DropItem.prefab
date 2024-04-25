@@ -349,6 +349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _item: {fileID: 11400000, guid: 59fa57f497024d6459ee38580be1d304, type: 2}
   interactUI: {fileID: 7153232925562678106}
+  sprite: {fileID: 5660442897505461179}
 --- !u!61 &7434695202630824677
 BoxCollider2D:
   m_ObjectHideFlags: 0

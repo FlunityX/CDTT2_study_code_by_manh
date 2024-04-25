@@ -6,10 +6,11 @@ public class ItemPickUp: MonoBehaviour,IInteractable
 {
     public ItemSO _item;
     public GameObject interactUI;
-
+    public SpriteRenderer sprite;
     private void Start()
     {
         interactUI.SetActive(false);
+        sprite.sprite = _item.Icon;
     }
     public void InteractHandler()
     {

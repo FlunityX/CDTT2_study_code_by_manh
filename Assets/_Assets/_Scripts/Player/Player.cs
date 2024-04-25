@@ -17,16 +17,16 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
     [SerializeField] public CapsuleCollider2D SlideCollider;
     [SerializeField] private StatusEffectSO _status;
     public Transform _dropItemPoint;
+    public GameObject hitVFX;
     public bool isGetHit;
     public bool canUsePotion;
-    public GameObject hitVFX;
     public bool isUsePotion = false;
     public float coin;
     Vector2 checkpointPos;
     AudioManager audioManager;
     
-    public event EventHandler<IHasHpBar.OnHpChangeEventArgs> OnHpChange;
     //event
+    public event EventHandler<IHasHpBar.OnHpChangeEventArgs> OnHpChange;
     public event EventHandler OnPlayerAttack;
     public event EventHandler OnPlayerAttackHit;
     public event EventHandler OnPlayerHeal;

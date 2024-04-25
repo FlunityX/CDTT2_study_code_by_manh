@@ -5,15 +5,11 @@ using UnityEngine;
 public class NEnemyCollider : MonoBehaviour
 {
     [SerializeField] private NormalEnemy _normalEnemy;
-    [SerializeField] private BoxCollider2D _checkPlayerCollider;
     [SerializeField] private bool isHitObstacle=false;
     [SerializeField] private bool isHitPlayer=false;
     [SerializeField] private Transform groundCheckPoint;
 
-    private void Start()
-    {
-        _checkPlayerCollider= gameObject.GetComponent<BoxCollider2D>();
-    }
+    
     private void Update()
     {
         DetectObstacle();

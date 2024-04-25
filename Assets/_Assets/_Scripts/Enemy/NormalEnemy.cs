@@ -29,7 +29,7 @@ public class NormalEnemy :MonoBehaviour, IDealDamage, IReceiveDamage
 
     public void ReduceHp(float dmg)
     {
-        _enemyStat.currentHp -= dmg;
+        _enemyStat.currentHp -= dmg * (1 - _enemyStat.Defense/100);
         isGetHit = true;
     }
 }

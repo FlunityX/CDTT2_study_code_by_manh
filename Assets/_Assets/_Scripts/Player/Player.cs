@@ -16,14 +16,11 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
     [SerializeField] public CapsuleCollider2D Collider;
     [SerializeField] public CapsuleCollider2D SlideCollider;
     [SerializeField] private StatusEffectSO _status;
+    public Transform _dropItemPoint;
     public bool isGetHit;
     public bool canUsePotion;
     public GameObject hitVFX;
     public bool isUsePotion = false;
-   /* public float Speed=1f;
-    public float Dmg=1f;
-    public float HpMax = 10;
-    public float currentHp = 1;*/
     public float coin;
     Vector2 checkpointPos;
     AudioManager audioManager;
@@ -85,7 +82,7 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
 
     public void ReduceHp(float dmg)
     {
-        _playerStat.currentHp -= dmg;
+        _playerStat.currentHp -= dmg * 1 - (_playerStat.Defense/100);// imcome dmg reduce base on percentage of defense
         GetHit();
         OnHpChange?.Invoke(this, new IHasHpBar.OnHpChangeEventArgs
         {

@@ -47,7 +47,7 @@ public class Boss : MonoBehaviour, IReceiveDamage, IDealDamage, IHasHpBar
 
     public void ReduceHp(float dmg)
     {
-        _enemyStat.currentHp -= dmg;
+        _enemyStat.currentHp -= dmg * (1 - _enemyStat.Defense/100);
         isGetHit = true;
         OnHpChange?.Invoke(this, new IHasHpBar.OnHpChangeEventArgs
         {

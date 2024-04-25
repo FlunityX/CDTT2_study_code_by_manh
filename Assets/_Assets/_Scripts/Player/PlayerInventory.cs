@@ -54,6 +54,7 @@ public class PlayerInventory : MonoBehaviour
     {
         if(item.IsConsumable)
         {
+            DropItem(item);
             items.Remove(item);
             OnItemChanged?.Invoke(this, EventArgs.Empty);
 
@@ -63,7 +64,7 @@ public class PlayerInventory : MonoBehaviour
             BuffItemSO _buffItem = (BuffItemSO)buffItem;
             if (!_buffItem._abilitySO.isActive)
             {
-            
+            DropItem(item);
             buffItem = null;
             Player.Instance.RemoveEffect();
             OnItemChanged?.Invoke(this, EventArgs.Empty);
@@ -85,4 +86,13 @@ public class PlayerInventory : MonoBehaviour
         }
         return null;
     }
+    public void DropItem(ItemSO item)
+    {
+       GameObject drop = GameManager.Instance.resourceManager.DropItem;
+        drop.GetComponent<ItemPickUp>()._item = item;
+        Instantiate(drop, Player.Instance._dropItemPoint.position, Quaternion.identity);
+        Debug.Log("drop");
+       
+    }
+   
 }

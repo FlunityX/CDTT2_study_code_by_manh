@@ -37,6 +37,9 @@ public class BossIdleState : BossBaseState
         else if(_bossManager.CheckIfNeedChase())
         {
             _bossManager.ChangeState(_bossManager._WalkState);
+        }else if(_bossManager.CheckIfDead())
+        {
+            _bossManager.ChangeState(_bossManager._DeathState);
         }
     }
 

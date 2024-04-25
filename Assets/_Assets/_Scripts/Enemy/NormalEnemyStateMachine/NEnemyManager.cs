@@ -11,6 +11,7 @@ public class NEnemyManager : CharacterManager
     public NEnemyAttackState _NEnemyAttackState= new();
     public NEnemyGetHitState _NEnemyGetHitState= new();
     public NEnemyKeepDistanceState _NEnemyKeepDistanceState= new();
+    public NEnemyDeadState _NEnemyDeadState= new();
     public NormalEnemy _normalEnemy;
     public Transform[] patrolPoint;
     public Tween tween;
@@ -19,11 +20,7 @@ public class NEnemyManager : CharacterManager
     public float attackDuration = .5f;
 
     public float durationCounter;
-    /*  public NEnemyIdleState GetNEnemyIdleState() { return _NEnemyIdleState; }
-      public NEnemyAttackState GetNEnemyAttackState() { return _NEnemyAttackState; }
-      public NEnemyChaseState GetNEnemyChaseState() { return _NEnemyChaseState;}
-      public NEnemyGetHitState GetNEnemyGetHitState() { return _NEnemyGetHitState;}
-      public NEnemyPartrolState GetNEnemyPartrolState() { return _NEnemyPartrolState;}*/
+
 
 
     private void Start()
@@ -81,6 +78,10 @@ public class NEnemyManager : CharacterManager
     public bool CheckIfGetHit()
     {
         return _normalEnemy.isGetHit;
+    }
+    public bool CheckIfDead()
+    {
+        return _normalEnemy.isDead;
     }
     public int GeneratePointIndex(int lastIndex)
     {

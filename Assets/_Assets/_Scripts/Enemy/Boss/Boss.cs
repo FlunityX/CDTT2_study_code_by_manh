@@ -22,7 +22,7 @@ public class Boss : MonoBehaviour, IReceiveDamage, IDealDamage, IHasHpBar
 
     public float counter;
     public float timer = 20f;
-
+    public bool isDead;
 
     public int attackCount;
     public bool isGetHit;
@@ -56,6 +56,10 @@ public class Boss : MonoBehaviour, IReceiveDamage, IDealDamage, IHasHpBar
         if(_enemyStat.currentHp < _enemyStat.Hp/2) {
             canUseHidding = true;
         }
+        if(_enemyStat.currentHp <= 0)
+        {
+            isDead = true;
+        }
 
 
     }
@@ -73,5 +77,9 @@ public class Boss : MonoBehaviour, IReceiveDamage, IDealDamage, IHasHpBar
     {
         gameObject.layer = LayerMask.NameToLayer(GameConstant.ENEMY_TAG);
 
+    }
+    public void SelfDestroy()
+    {
+        Destroy(gameObject);
     }
 }

@@ -36,6 +36,10 @@ public class NEnemyPartrolState : NEnemyBaseState
         {
             _NEnemyManager.ChangeState(_NEnemyManager._NEnemyGetHitState);
         }
+        else if (_NEnemyManager.CheckIfDead())
+        {
+            _NEnemyManager.ChangeState(_NEnemyManager._NEnemyDeadState);
+        }
     }
 
     private bool CheckIfCanChase()

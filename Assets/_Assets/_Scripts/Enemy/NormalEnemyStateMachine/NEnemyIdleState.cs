@@ -42,6 +42,9 @@ public class NEnemyIdleState : NEnemyBaseState
         else if (_NEnemyManager.CheckIfGetHit())
         {
             _NEnemyManager.ChangeState(_NEnemyManager._NEnemyGetHitState);
+        }else if (_NEnemyManager.CheckIfDead())
+        {
+            _NEnemyManager.ChangeState(_NEnemyManager._NEnemyDeadState);
         }
     }
 
@@ -56,7 +59,7 @@ public class NEnemyIdleState : NEnemyBaseState
         return _NEnemyManager._normalEnemy.GetNEnemyCollider().CheckIfHitPlayer();
         
     }
-
+   
 
 
     public override void FixedUpdate() {

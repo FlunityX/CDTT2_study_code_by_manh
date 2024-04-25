@@ -30,6 +30,10 @@ public class BossHurtState : BossBaseState
         {
             _bossManager.ChangeState(_bossManager._IdleState);
         }
+        else if (_bossManager.CheckIfDead())
+        {
+            _bossManager.ChangeState(_bossManager._DeathState);
+        }
     }
 
 

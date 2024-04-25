@@ -11743,7 +11743,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &2340050547998897201
 GameObject:
   m_ObjectHideFlags: 0
@@ -12785,8 +12785,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 254044233}
   - {fileID: 8968812391660288088}
+  - {fileID: 254044233}
   - {fileID: 3894528183858512984}
   - {fileID: 1170539305551904042}
   - {fileID: 3586111762266054224}
@@ -12806,11 +12806,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2696972662961609774, guid: 241335bfa05bf6e4fba0a8af3b9bf2bd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 63.93
+      value: 120.2
       objectReference: {fileID: 0}
     - target: {fileID: 2696972662961609774, guid: 241335bfa05bf6e4fba0a8af3b9bf2bd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 26.79
+      value: 7.6
       objectReference: {fileID: 0}
     - target: {fileID: 2696972662961609774, guid: 241335bfa05bf6e4fba0a8af3b9bf2bd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -12976,6 +12976,7 @@ MonoBehaviour:
   _rb: {fileID: 7423685413875346489}
   detectRange: 4
   isGetHit: 0
+  isDead: 0
 --- !u!1001 &7351639112656704979
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13027,6 +13028,10 @@ PrefabInstance:
     - target: {fileID: 8212636001656693102, guid: 8c856fa40a1e58948a6d910da1d2ea0b, type: 3}
       propertyPath: m_Name
       value: Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 8212636001656693102, guid: 8c856fa40a1e58948a6d910da1d2ea0b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

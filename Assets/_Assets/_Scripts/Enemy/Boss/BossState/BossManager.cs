@@ -19,6 +19,7 @@ public class BossManager : CharacterManager
     public float getHitDuration = .2f;
     public float hiddingDuration = 4f;
     public float appearingDuration = .5f;
+    public float deadDuration = .5f;
     public float durationCounter;
     public float ChaseDir;
     private Tween moveTween;
@@ -88,6 +89,10 @@ public class BossManager : CharacterManager
     public bool CheckIfPlayerTooClose()
     {
         return Vector3.Distance(Player.Instance.transform.position, transform.position) <= 5f;
+    }
+    public bool CheckIfDead()
+    {
+        return _Boss.isDead;
     }
     public void Chase()
     {

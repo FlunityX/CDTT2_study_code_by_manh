@@ -2,39 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossDeathState : BossBaseState
+public class NEnemyDeadState : NEnemyBaseState
 {
+    private float counter;
+    private float timer = 1f;
     public override void EnterState(CharacterManager characterManager)
     {
         base.EnterState(characterManager);
-        _bossManager._Boss.GetBossVisual().PlayBossDeadAnim();
-
-
+        _NEnemyManager._normalEnemy.GetEnemyVisual().PlayDeadAnim();
     }
-
     public override void ExitState()
     {
         base.ExitState();
-
     }
-
     public override void Update()
     {
-        _bossManager.durationCounter += Time.deltaTime;
-        if(_bossManager.durationCounter > _bossManager.deadDuration)
+        base.Update();
+        counter += Time.deltaTime;
+        if (counter > timer)
         {
-            _bossManager._Boss.SelfDestroy();
+            _NEnemyManager._normalEnemy.SelfDestroy();
         }
+
     }
-
-
-
-
-
-
     public override void FixedUpdate()
     {
-
-
+        base.FixedUpdate();
     }
 }

@@ -27,7 +27,7 @@ public class RunState : PlayerBaseState
        if(_playerStateManager.CheckIfCanIdleRun())
         {
             _playerStateManager.ChangeState(_playerStateManager.idleState);
-            //Debug.Log("idle");
+           
 
         }
         else if (_playerStateManager.CheckIfCanJump())

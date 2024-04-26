@@ -13,7 +13,8 @@ public class PlayerCollider : MonoBehaviour
     public Vector3 wallColliderPos;
     public bool ceilCollider;
     public bool ishitGround;
-    public float ceilheigh;
+    public float ceilHeight;
+    public float groundHeight;
 
     private void LateUpdate()
     {
@@ -26,7 +27,7 @@ public class PlayerCollider : MonoBehaviour
 
     private void GroundCheck()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 3.1f,_GroundLayer);
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position, new Vector2(2f, .5f), 0, Vector2.down, groundHeight, _GroundLayer);
         if(hit.collider != null)
         {
             Player.Instance._playerMovement.isGround = true;
@@ -41,7 +42,7 @@ public class PlayerCollider : MonoBehaviour
     }
     private void CeilCheck()
     {
-        RaycastHit2D hit = Physics2D.BoxCast(transform.position,new  Vector2(2f,.5f),0,Vector2.up, ceilheigh,_GroundLayer);
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position,new  Vector2(2f,.5f),0,Vector2.up, ceilHeight,_GroundLayer);
         if(hit.collider != null)
         {
             ceilCollider = true;

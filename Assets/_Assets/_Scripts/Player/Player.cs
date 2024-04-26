@@ -44,9 +44,6 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
     private void Start()
     {
         checkpointPos = transform.position;
-        _playerMovement = GetComponent<PlayerMovement>();
-        _playerVisual = GetComponentInChildren<PlayerVisual>();
-        _playerAttack = GetComponentInChildren<PlayerAttack>();
         GameInput.Instance.OnInteract += GameInput_OnInteract;
         hitVFX = GameManager.Instance.resourceManager.PlayerHitVFX;
     }

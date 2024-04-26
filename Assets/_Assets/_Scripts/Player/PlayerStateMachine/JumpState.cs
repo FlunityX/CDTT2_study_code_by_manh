@@ -22,7 +22,7 @@ public class JumpState : PlayerBaseState
     public override void Update()
     {
         _playerStateManager.counter += Time.deltaTime;
-
+      
         if (_playerStateManager.CheckIfCanFall())
         {
             _playerStateManager.ChangeState(_playerStateManager.fallState);

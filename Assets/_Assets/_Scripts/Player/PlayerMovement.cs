@@ -12,8 +12,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public bool canIdleFall ;
     public bool isRunning= false;
     public bool canMove= true;
+    public bool canJump= true;
+    public bool canContJump;
+    public bool jumpperform;
+    public float jumpHeight=3f;
     [SerializeField] private float jumpTimeCounter;
-    [SerializeField] private float jumpTime=.2f;
+    [SerializeField] private float jumpTime=.3f;
     [SerializeField] private float jumpForce = 20f;
     [SerializeField] private float slideDistance = 20f;
     [SerializeField] private float slideTimerMax=5f;
@@ -24,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundLayer;
     private Tween moveTween;
     private Tween jumpTween;
+    private Tween ConjumpTween;
     private Tween slideTween;
     public float dirX;
     AudioManager audioManager;
@@ -47,13 +52,14 @@ public class PlayerMovement : MonoBehaviour
         if (canMove)
         {
             
-        HandleMovement();
+            HandleMovement();
         }
    
         FlipPlayerSprite();
         IncreasSpeed();
         ForceBoolVariable();
         SlideColliderCheck();
+       ContinueJump();
         if (slideTimer < slideTimerMax)
         {
             slideTimer += Time.deltaTime;
@@ -112,22 +118,25 @@ public class PlayerMovement : MonoBehaviour
     {
        
         isJumping = true;
-
-        jumpTween = transform.DOMoveY(transform.position.y + 5f,.5f)
+        canJump = false;
+        jumpTween = transform.DOMoveY(transform.position.y + jumpHeight,.3f)
             
                 .SetEase(Ease.OutQuad)
                 .OnComplete(() =>
                 {
                     isFalling = true;
-                    isJumping= false;
+                    isJumping = false;
+                    canJump = true;
                 })
                 .OnUpdate(() =>
                 {
                     if (Player.Instance._playerCollider.ceilCollider)
                     {
                         jumpTween.Kill();
-                        isFalling = true; isJumping = false;
+                        isFalling = true;
+                        isJumping = false;
                     }
+                    
 
                 })
                 ;
@@ -139,21 +148,47 @@ public class PlayerMovement : MonoBehaviour
    
  
   
-    private void ContinueJump()
+    public void ContinueJump()
     {
-        if (isJumping && GameInput.Instance.JumpPerform() && !Player.Instance._playerMovement.isGround)
+        if (isJumping && GameInput.Instance.JumpPerform() )
         {
-            if (jumpTimeCounter > 0)
-            {
-                _rigidbody.velocity =  Vector2.up * jumpForce/2;
-                
-                jumpTimeCounter -= Time.deltaTime;
-                isGround = false; 
-                isJumping = true;
-            }
             
-        } 
+            jumpTween.Kill() ;
+            ConjumpTween = transform.DOMoveY(transform.position.y + 3f, .3f)
+                .OnUpdate(() =>
+                {
+                    if (Player.Instance._playerCollider.ceilCollider)
+                    {
+                        ConjumpTween.Kill();
+                        isFalling = true;
+                        isJumping = false;
+                    }
+
+
+            })
+            .OnComplete(() =>
+             {
+                 
+                 isFalling = true;
+                 isJumping = false;
+                 canJump = true;
+                 if (GameInput.Instance.JumpCancle()){
+                     ConjumpTween.Kill() ;
+                 }
+
+             });
+           
+
+
+
+        }
+
+
+
+
     }
+
+  
     public bool SlideColliderCheck()
     {
         RaycastHit2D slide = Physics2D.Raycast(slideRaycastPoint.position, new Vector2(Player.Instance.transform.localScale.x, 0), 4f, groundLayer);

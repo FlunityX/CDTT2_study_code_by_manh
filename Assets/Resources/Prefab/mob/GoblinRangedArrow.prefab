@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7831004576930035643}
   - component: {fileID: 16166555761360484}
   m_Layer: 0
-  m_Name: Arrow
+  m_Name: GoblinRangedArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

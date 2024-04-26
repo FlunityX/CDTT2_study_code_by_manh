@@ -16,9 +16,9 @@ MonoBehaviour:
   Speed:
     baseValue: 7
   Hp:
-    baseValue: 10
+    baseValue: 1000
   AttackDmg:
-    baseValue: 20
+    baseValue: 50
   AttackSpeed:
     baseValue: 1
   AttackRange:

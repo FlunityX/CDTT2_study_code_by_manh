@@ -13,8 +13,7 @@ public class NormalEnemy :MonoBehaviour, IDealDamage, IReceiveDamage
     public bool isGetHit;
     public bool isDead;
 
-    public bool _isFacingRight { get;set; }
-    public bool _isFacingLeft { get; set; }
+
     public NEnemyCollider GetNEnemyCollider() { return _enemyCollider; }
     public EnemyAttack GetNEnemyAttack() { return _enemyAttack; }
     public EnemyStat GetEnemyStat() { return _enemyStat;}

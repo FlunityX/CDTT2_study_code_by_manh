@@ -98,8 +98,7 @@ public class BossManager : CharacterManager
     {
        if (ChaseDir > 0)
         {
-           //_Boss.transform.Translate(Vector2.right * _Boss.GetEnemyStat().Speed  * Time.deltaTime);
-           //float moveDuration = Vector3.Distance(Player.Instance.transform.position,transform.position)/_Boss.GetEnemyStat().Speed;
+           
             moveTween =  transform.DOMoveX(transform.position.x +  1f, 1/ _Boss.GetEnemyStat().Speed).OnUpdate(() =>
             {
                 if (CheckIfPlayerTooClose())
@@ -111,7 +110,7 @@ public class BossManager : CharacterManager
         }
        else
         {
-            // _Boss.transform.Translate(Vector2.left * _Boss.GetEnemyStat().Speed  * Time.deltaTime);
+            
                 moveTween=   transform.DOMoveX(transform.position.x - 1f, 1 / _Boss.GetEnemyStat().Speed).OnUpdate(() =>
             {
                 if (CheckIfPlayerTooClose())

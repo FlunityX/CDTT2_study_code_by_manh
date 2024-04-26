@@ -79,7 +79,7 @@ public class PlayerStateManager : MonoBehaviour
     }
     public bool CheckIfCanJump()
     {
-        return (GameInput.Instance.JumpPerform() && Player.Instance._playerMovement.isGround);
+        return GameInput.Instance.JumpPerform() ;
     }
 
     public bool CheckIfCanAttack()

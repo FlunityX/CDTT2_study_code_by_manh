@@ -15,7 +15,7 @@ public class BossDeathState : BossBaseState
     public override void ExitState()
     {
         base.ExitState();
-
+        _bossManager.durationCounter = 0;
     }
 
     public override void Update()

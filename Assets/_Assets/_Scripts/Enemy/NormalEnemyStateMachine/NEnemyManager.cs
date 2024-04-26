@@ -15,6 +15,8 @@ public class NEnemyManager : CharacterManager
     public NormalEnemy _normalEnemy;
     public Transform[] patrolPoint;
     public Tween tween;
+    private Tween moveTween;
+
     private float ChaseDir;
     public float getHitDuration = .2f;
     public float attackDuration = .5f;
@@ -36,20 +38,23 @@ public class NEnemyManager : CharacterManager
         _state = _NEnemyIdleState;
         _state.EnterState(this);
     }
+
+    public bool CheckIfPlayerTooClose()
+    {
+        return Vector3.Distance(Player.Instance.transform.position, transform.position) <= 2f;
+    }
     public  void ChangeDirection()
     {
         if (_normalEnemy.transform.localScale == Vector3.one)
         {
             _normalEnemy.transform.localScale = new Vector3(-1, 1, 1);
-            _normalEnemy._isFacingRight = true;
-            _normalEnemy._isFacingLeft = false;
+            
 
         }
         else
         {
             _normalEnemy.transform.localScale = new Vector3(1, 1, 1);
-            _normalEnemy._isFacingRight = false;
-            _normalEnemy._isFacingLeft = true;
+          
 
         }
     }
@@ -74,7 +79,33 @@ public class NEnemyManager : CharacterManager
         _normalEnemy.transform.DOJump(endValue, 2f, 1, .5f);
         Debug.Log("backWard");
     }
+    public void Chase()
+    {
+        if (ChaseDir > 0)
+        {
 
+            moveTween = transform.DOMoveX(transform.position.x + 1f, 1 / _normalEnemy.GetEnemyStat().Speed).OnUpdate(() =>
+            {
+                if (CheckIfPlayerTooClose())
+                {
+                    moveTween.Kill();
+                }
+            });
+        }
+        else
+        {
+
+            moveTween = transform.DOMoveX(transform.position.x - 1f, 1 / _normalEnemy.GetEnemyStat().Speed).OnUpdate(() =>
+            {
+                if (CheckIfPlayerTooClose())
+                {
+                    moveTween.Kill();
+                }
+            });
+
+        }
+
+    }
     public bool CheckIfGetHit()
     {
         return _normalEnemy.isGetHit;

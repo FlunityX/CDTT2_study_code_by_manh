@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99da319440db7cf428847c34af93b390, type: 3}
-  m_Name: GoblinTankSO
+  m_Name: GoblinRangedSO
   m_EditorClassIdentifier: 
-  UnitName: GoblinTank
+  UnitName: goblinRanged
   Speed:
-    baseValue: 2
+    baseValue: 3
   Hp:
-    baseValue: 200
+    baseValue: 100
   AttackDmg:
-    baseValue: 5
+    baseValue: 10
   AttackSpeed:
-    baseValue: 2
+    baseValue: 5
   AttackRange:
-    baseValue: 4
+    baseValue: 15
   Defense:
-    baseValue: 20
-  IsRanger: 0
+    baseValue: 0
+  IsRanger: 1

@@ -33,7 +33,7 @@ public class NEnemyVisual : MonoBehaviour
     }
     public void PlayDeadAnim()
     {
-        animator.CrossFade(_name + "_ded", .2f, 0);
+        animator.CrossFade(_name + "_dead", .2f, 0);
     }
     public void Invisible()
     {

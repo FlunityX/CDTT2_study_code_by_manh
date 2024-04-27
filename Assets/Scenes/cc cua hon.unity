@@ -11196,6 +11196,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1609832945381190597, guid: 241335bfa05bf6e4fba0a8af3b9bf2bd, type: 3}
+      propertyPath: ceilHeight
+      value: 2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1609832945381190597, guid: 241335bfa05bf6e4fba0a8af3b9bf2bd, type: 3}
+      propertyPath: groundHeight
+      value: 2.8
+      objectReference: {fileID: 0}
     - target: {fileID: 2696972662961609774, guid: 241335bfa05bf6e4fba0a8af3b9bf2bd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 120.2

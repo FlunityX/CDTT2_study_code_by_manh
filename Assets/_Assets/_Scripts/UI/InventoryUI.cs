@@ -41,7 +41,7 @@ public class InventoryUI : MonoBehaviour
         // Loop through all the slots
         for (int i = 0; i < slots.Length-1; i++)
         {
-            if (i < inventory.items.Count && inventory.items[i].IsConsumable)  // If there is an item to add
+            if (i < inventory.items.Count && inventory.items[i].ItemType ==1)  // If there is an item to add
             {
                 slots[i].AddItem(inventory.items[i]);   // Add it
             }

@@ -8,6 +8,7 @@ public class PlayerInventory : MonoBehaviour
     public static PlayerInventory Instance { get; private set; }
 
     [SerializeField] public List<ItemSO> items = new List<ItemSO>();
+    [SerializeField] public List<StoryItemSO> storiesItem = new List<StoryItemSO>();
     [SerializeField] public ItemSO buffItem;
     [SerializeField]private int space = 9;
     public event EventHandler OnItemChanged;
@@ -19,7 +20,7 @@ public class PlayerInventory : MonoBehaviour
     }
     public bool Add(ItemSO item)
     {
-        if (item.IsConsumable)
+        if (item.ItemType ==1)
         {
             if (items.Count <= space)
             {
@@ -35,7 +36,7 @@ public class PlayerInventory : MonoBehaviour
                 return false;
             }
         }
-        else
+        else if (item.ItemType ==2) 
         {
             if(buffItem == null)
             {
@@ -49,17 +50,24 @@ public class PlayerInventory : MonoBehaviour
                 NotificationUI.Instance.Show(GameConstant.INVENTORY_BUFF_ITEM_TEXT);
                 return false;
             }
+        }else
+        {
+           StoryItemSO story = (StoryItemSO)item;
+            storiesItem.Add(story);
+            return true;
         }
-    }public void Remove(ItemSO item)
+    }
+   
+    public void Remove(ItemSO item)
     {
-        if(item.IsConsumable)
+        if(item.ItemType == 1)
         {
             DropItem(item);
             items.Remove(item);
             OnItemChanged?.Invoke(this, EventArgs.Empty);
 
         }
-        else
+        else if(item.ItemType == 2) 
         {
             BuffItemSO _buffItem = (BuffItemSO)buffItem;
             if (!_buffItem._abilitySO.isActive)

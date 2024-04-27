@@ -22,7 +22,6 @@ public class ItemPickUp: MonoBehaviour,IInteractable
         if (wasPickUp)
         {
             Destroy(gameObject);
-            Debug.Log("Picked up");
         }
     }
 

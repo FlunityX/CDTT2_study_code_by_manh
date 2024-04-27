@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff7a87431bb070c44970feb74bc231a2, type: 3}
   m_Name: New Story Item SO
   m_EditorClassIdentifier: 
+  ItemType: 3
   ItemName: MemoryShard1
   Icon: {fileID: 0}
-  IsConsumable: 1
   Price: 0
   ItemInfo: 
+  itemContent: 

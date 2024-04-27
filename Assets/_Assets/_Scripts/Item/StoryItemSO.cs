@@ -5,5 +5,6 @@ using UnityEngine;
 [CreateAssetMenu()]
 public class StoryItemSO : ItemSO
 {
+    public string itemContent;
     
 }

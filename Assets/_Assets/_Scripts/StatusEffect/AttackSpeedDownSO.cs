@@ -20,7 +20,12 @@ public class AttackSpeedDownSO : StatusEffectSO
     public override void OnDetach(GameObject holder)
     {
         base.OnDetach(holder);
-        holder.GetComponent<UnitStat>()._unitSO.AttackSpeed.GetValue();
+        UnitStat target = holder.GetComponent<UnitStat>();
+        if (target != null)
+        {
+            target.AttackSpeed -= (amount / 100) * holder.GetComponent<UnitStat>()._unitSO.AttackSpeed.GetValue(); ;
+        }
+        
 
     }
 }

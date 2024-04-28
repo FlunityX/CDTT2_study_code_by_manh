@@ -20,7 +20,12 @@ public class AttackDownSO : StatusEffectSO
     public override void OnDetach(GameObject holder)
     {
         base.OnDetach(holder);
-        holder.GetComponent<UnitStat>()._unitSO.AttackDmg.GetValue();
+        UnitStat target = holder.GetComponent<UnitStat>();
+        if (target != null)
+        {
+            target.AttackDmg += amount ;
+        }
+        
 
     }
 }

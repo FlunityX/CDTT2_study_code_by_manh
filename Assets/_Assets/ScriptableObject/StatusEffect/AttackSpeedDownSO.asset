@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8738c23722393a141950a04372b6885f, type: 3}
   m_Name: AttackSpeedDownSO
   m_EditorClassIdentifier: 
+  icon: {fileID: 1098023626, guid: a694174e959404346a3423730fc8b5dd, type: 3}
+  duration: 5
+  counter: 0
+  firstCall: 1
   amount: 15

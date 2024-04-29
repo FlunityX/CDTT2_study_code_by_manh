@@ -1,52 +1,69 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.Rendering;
 
 public class StatusEffectHolder : MonoBehaviour
 {
-    private List<StatusEffectSO> statusEffects;
-    private float counter;
+    public List<StatusEffectSO> statusEffects = new List<StatusEffectSO>();
+    public StatusEffectSO staaaa;
+
+    public event EventHandler onStatusChange;
     enum statusState{
         inactive,
         active
     }
     statusState state = statusState.inactive;
-    private void Start()
-    {
-        statusEffects = new List<StatusEffectSO>();
-    }
+    
     private void Update()
     {
         if (statusEffects != null)
         {      
-            foreach ( StatusEffectSO status in  statusEffects )
-            {
-                UpdateStatus(status);
+            for(int i = 0; i < statusEffects.Count; i++) {
+                UpdateStatus(statusEffects[i]);
             }
         }
     }
     public void AddEffect(StatusEffectSO effect)
     {
-        statusEffects.Add(effect);
+        StatusEffectSO instance = Instantiate(effect);// create an instance of the effect pass to function -> all the same effect can work independence
+        statusEffects.Add(instance);
+        onStatusChange?.Invoke(this, EventArgs.Empty);
     }
     public void RemoveEffect(StatusEffectSO effect) { 
         statusEffects.Remove(effect);
-    }
+        onStatusChange?.Invoke(this, EventArgs.Empty);
 
+    }
+    public void DirectAdd()
+    {
+        AddEffect(staaaa);
+    }
     private void UpdateStatus(StatusEffectSO status)
     {
+        
         switch(state){
             case statusState.inactive:
+                
                 state = statusState.active; break;
             case statusState.active:
-                if(status.duration < counter)
+                if(status.duration > status.counter)
                 {
-                    counter += Time.deltaTime;
+                    status.counter += Time.deltaTime;
+                    if (status.firstCall)
+                    {
+                        status.OnAttach(gameObject);
+                        Debug.Log("it work");
+                        status.firstCall = false;
+                    }
                 }
-                state = statusState.inactive;
-                RemoveEffect(status);
+                else
+                {
+                    status.OnDetach(gameObject);
+                    state = statusState.inactive;
+                    RemoveEffect(status);
+                }
+
                 break;
         }
     }

@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d5576ba1e0d56e4dbda4bdde855c65b, type: 3}
   m_Name: SpeedUpSO
   m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  duration: 5
+  counter: 0
+  firstCall: 1
   amount: 3

@@ -23,9 +23,7 @@ public class AttackDownSO : StatusEffectSO
         UnitStat target = holder.GetComponent<UnitStat>();
         if (target != null)
         {
-            target.AttackDmg += amount ;
+            target.AttackDmg += amount;
         }
-        
-
     }
 }

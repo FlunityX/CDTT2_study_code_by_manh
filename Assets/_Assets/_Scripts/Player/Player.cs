@@ -8,13 +8,14 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
 {
     public static Player Instance {  get; private set; }
     public PlayerMovement _playerMovement;
-    [SerializeField]public PlayerVisual _playerVisual;
-    [SerializeField] public PlayerAttack _playerAttack;
-    [SerializeField] public PlayerCollider _playerCollider;
-    [SerializeField] public AbilityHolder _abilityHolder;
-    [SerializeField] public PlayerStat _playerStat;
-    [SerializeField] public CapsuleCollider2D Collider;
-    [SerializeField] public CapsuleCollider2D SlideCollider;
+    public PlayerVisual _playerVisual;
+     public PlayerAttack _playerAttack;
+     public PlayerCollider _playerCollider;
+     public AbilityHolder _abilityHolder;
+     public StatusEffectHolder _statusHolder;
+     public PlayerStat _playerStat;
+     public CapsuleCollider2D Collider;
+     public CapsuleCollider2D SlideCollider;
     [SerializeField] private StatusEffectSO _status;
     public Transform _dropItemPoint;
     public GameObject hitVFX;

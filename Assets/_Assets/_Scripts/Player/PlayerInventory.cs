@@ -7,9 +7,9 @@ public class PlayerInventory : MonoBehaviour
 {
     public static PlayerInventory Instance { get; private set; }
 
-    [SerializeField] public List<ItemSO> items = new List<ItemSO>();
-    [SerializeField] public List<StoryItemSO> storiesItem = new List<StoryItemSO>();
-    [SerializeField] public ItemSO buffItem;
+     public List<ItemSO> items = new List<ItemSO>();
+     public List<StoryItemSO> storiesItem = new List<StoryItemSO> {null, null,null };
+     public ItemSO buffItem;
     [SerializeField]private int space = 9;
     public event EventHandler OnItemChanged;
     public event EventHandler OnBuffItemChange;
@@ -53,7 +53,7 @@ public class PlayerInventory : MonoBehaviour
         }else
         {
            StoryItemSO story = (StoryItemSO)item;
-            storiesItem.Add(story);
+            storiesItem[story.index] = story;
             return true;
         }
     }

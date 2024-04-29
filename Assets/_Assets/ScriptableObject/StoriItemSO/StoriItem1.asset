@@ -17,4 +17,6 @@ MonoBehaviour:
   Icon: {fileID: -650657682, guid: a694174e959404346a3423730fc8b5dd, type: 3}
   Price: 0
   ItemInfo: piece of papar
+  index: 0
+  itemHeaderContent: 
   itemContent: once upon a time, there was a little child..

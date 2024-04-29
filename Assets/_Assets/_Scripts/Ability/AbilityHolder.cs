@@ -23,7 +23,11 @@ public class AbilityHolder : MonoBehaviour
     {
         GameInput.Instance.OnUseAbility += GameInput_OnUseAbility;
         PlayerInventory.Instance.OnBuffItemChange += PlayerInventory_OnBuffItemChange;
-        _abilitySO.GetDuration(); 
+        if(_abilitySO != null)
+        {
+         _abilitySO.GetDuration(); 
+        }
+
     }
 
     private void PlayerInventory_OnBuffItemChange(object sender, System.EventArgs e)

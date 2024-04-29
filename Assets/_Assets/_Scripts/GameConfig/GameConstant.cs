@@ -49,5 +49,6 @@ public static class GameConstant
     public const string INSUFFICENT_COIN_TEXT = "Insufficent Coin";
     public const string INVENTORY_FULL_TEXT = "Inventory full";
     public const string INVENTORY_BUFF_ITEM_TEXT = "Only can equid one active item at once";
+    public const string STORY_ITEM_UNDEFINE_CONTENT = "??????????";
     #endregion
 }

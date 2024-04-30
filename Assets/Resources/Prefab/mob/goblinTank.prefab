@@ -62,37 +62,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 795497326107664327}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3497295409166361837
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1983137087610988249}
-  m_Layer: 11
-  m_Name: projectiveHolder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1983137087610988249
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3497295409166361837}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8298433064433376571}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3634031117729987736
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,7 +113,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   projectivePrefab: {fileID: 7472588361265439450, guid: 3bce22e96b87d21468d5df317b2958d6, type: 3}
-  projectiveHolder: {fileID: 1983137087610988249}
+  projectiveHolder: {fileID: 0}
 --- !u!1 &3767584797137131167
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,7 +129,7 @@ GameObject:
   - component: {fileID: 7169445138216958967}
   - component: {fileID: 6897990716286182993}
   m_Layer: 11
-  m_Name: goblinTank 1
+  m_Name: goblinTank
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -183,7 +152,6 @@ Transform:
   - {fileID: 795497326107664327}
   - {fileID: 2039512390451674321}
   - {fileID: 4215226601166521763}
-  - {fileID: 1983137087610988249}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5219495501675809213

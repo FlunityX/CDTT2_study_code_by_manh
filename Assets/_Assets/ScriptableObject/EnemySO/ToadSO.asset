@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99da319440db7cf428847c34af93b390, type: 3}
+  m_Name: ToadSO
+  m_EditorClassIdentifier: 
+  UnitName: Toad
+  Speed:
+    baseValue: 7
+  Hp:
+    baseValue: 20
+  AttackDmg:
+    baseValue: 5
+  AttackSpeed:
+    baseValue: 1
+  AttackRange:
+    baseValue: 3
+  IsRanger: 1

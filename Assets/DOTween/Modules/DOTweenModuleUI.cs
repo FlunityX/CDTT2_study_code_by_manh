@@ -617,7 +617,7 @@ namespace DG.Tweening
         /// Also stores the RectTransform as the tween's target so it can be used for filtered operations.<para/>
         /// IMPORTANT: SetFrom(value) requires a <see cref="Vector2"/> instead of a float, where the X property represents the "from degrees value"</summary>
         /// <param name="center">Circle-center/pivot around which to rotate (in UI anchoredPosition coordinates)</param>
-        /// <param name="endValueDegrees">The end value degrees to reach (to rotate counter-clockwise pass a negative value)</param>
+        /// <param name="endValueDegrees">The end value degrees to reach (to rotate dmgCounter-clockwise pass a negative value)</param>
         /// <param name="duration">The duration of the tween</param>
         /// <param name="relativeCenter">If TRUE the <see cref="center"/> coordinates will be considered as relative to the target's current anchoredPosition</param>
         /// <param name="snapping">If TRUE the tween will smoothly snap all values to integers</param>

@@ -9,18 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99da319440db7cf428847c34af93b390, type: 3}
-  m_Name: Toad
+  m_Script: {fileID: 11500000, guid: ed6c09b56fe456949ad1c28c62ee7493, type: 3}
+  m_Name: BurnSO
   m_EditorClassIdentifier: 
-  UnitName: Toad
-  Speed:
-    baseValue: 7
-  Hp:
-    baseValue: 20
-  AttackDmg:
-    baseValue: 5
-  AttackSpeed:
-    baseValue: 1
-  AttackRange:
-    baseValue: 3
-  IsRanger: 1
+  icon: {fileID: 0}
+  duration: 10
+  counter: 0
+  firstCall: 0
+  dmg: 10

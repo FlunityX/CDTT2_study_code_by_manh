@@ -9,7 +9,7 @@ public class StoryItemUI : MonoBehaviour
 {
     public TextMeshProUGUI storyText;
     public TextMeshProUGUI storyHeaderText;
-    public Image backGround;
+
     private int index=0;
     [SerializeField] private Button closeBtn;
     [SerializeField] private Button nextBtn;
@@ -52,6 +52,7 @@ public class StoryItemUI : MonoBehaviour
     {
         UpdateUI();
         gameObject.SetActive(true);
+        
     }
     public void Hide()
     {

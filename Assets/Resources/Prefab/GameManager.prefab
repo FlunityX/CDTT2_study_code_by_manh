@@ -207,6 +207,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items: []
+  storiesItem:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   buffItem: {fileID: 0}
   space: 9
 --- !u!114 &1247583192668839548
@@ -235,3 +240,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerHitVFX: {fileID: 0}
+  DropItem: {fileID: 0}

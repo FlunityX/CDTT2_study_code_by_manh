@@ -9,7 +9,7 @@ public class DashState : PlayerBaseState
     public override void EnterState(PlayerStateManager playerStateManager)
     {
         base.EnterState(playerStateManager);
-        Player.Instance._playerMovement.Slide();
+        Player.Instance._playerMovement.Dash();
         Player.Instance._playerVisual.PlaySlideAnim();
         Player.Instance.PlayerSlideInvoke();
     }

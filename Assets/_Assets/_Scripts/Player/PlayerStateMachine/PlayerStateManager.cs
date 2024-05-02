@@ -63,7 +63,7 @@ public class PlayerStateManager : MonoBehaviour
     }
     public bool CheckIfCanRun()
     {
-        return Player.Instance._playerMovement.dirX != 0 && Player.Instance._playerMovement.isGround  && (!Player.Instance._playerMovement.isFalling|| !Player.Instance._playerMovement.isJumping);
+        return Player.Instance._playerMovement.dirX != 0 && Player.Instance._playerMovement.isGround  ;
     }
     public bool CheckIfCanRunJump()
     {

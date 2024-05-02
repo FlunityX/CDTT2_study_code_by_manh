@@ -48,17 +48,15 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {
-        if (canMove)
+    { 
+        if(canMove)
         {
-            
             HandleMovement();
         }
-   
         FlipPlayerSprite();
         IncreasSpeed();
         ForceBoolVariable();
-        SlideColliderCheck();
+        DashColliderCheck();
        ContinueJump();
         if (slideTimer < slideTimerMax)
         {
@@ -100,9 +98,9 @@ public class PlayerMovement : MonoBehaviour
            moveTween =  transform.DOMoveX(transform.position.x + moveDir.x,moveDuration)
                 .OnUpdate(() =>
                 {
-                    if (moveDir.x != 0) {
+                    
                         isRunning = true;
-                    }
+                    
                     if (Player.Instance._playerCollider.wallCollider)
                     {
                         moveTween.Kill();
@@ -127,6 +125,7 @@ public class PlayerMovement : MonoBehaviour
                     isFalling = true;
                     isJumping = false;
                     canJump = true;
+                    
                 })
                 .OnUpdate(() =>
                 {
@@ -135,6 +134,7 @@ public class PlayerMovement : MonoBehaviour
                         jumpTween.Kill();
                         isFalling = true;
                         isJumping = false;
+                        isRunning = false;
                     }
                     
 
@@ -162,6 +162,7 @@ public class PlayerMovement : MonoBehaviour
                         ConjumpTween.Kill();
                         isFalling = true;
                         isJumping = false;
+                        isRunning = false;
                     }
 
 
@@ -189,7 +190,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
   
-    public bool SlideColliderCheck()
+    public bool DashColliderCheck()
     {
         RaycastHit2D slide = Physics2D.Raycast(slideRaycastPoint.position, new Vector2(Player.Instance.transform.localScale.x, 0), 4f, groundLayer);
         if (slide.collider == null)
@@ -201,7 +202,7 @@ public class PlayerMovement : MonoBehaviour
             return false;
         }
     }
-    public void Slide()
+    public void Dash()
     {
             slideTween = transform.DOMoveX(transform.position.x + slideDistance, .5f)
                 .OnUpdate(() =>
@@ -246,7 +247,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public bool IsReadyToSlide()
     {
-        return slideTimer >= slideTimerMax && SlideColliderCheck();
+        return slideTimer >= slideTimerMax && DashColliderCheck();
     }
     public void ResetIncreasingSpeed()
     {

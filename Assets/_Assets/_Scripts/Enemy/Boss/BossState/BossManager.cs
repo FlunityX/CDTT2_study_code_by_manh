@@ -88,7 +88,7 @@ public class BossManager : CharacterManager
     }
     public bool CheckIfPlayerTooClose()
     {
-        return Vector3.Distance(Player.Instance.transform.position, transform.position) <= 5f;
+        return _Boss.GetBossCollider().isPlayerTooClose;
     }
     public bool CheckIfDead()
     {

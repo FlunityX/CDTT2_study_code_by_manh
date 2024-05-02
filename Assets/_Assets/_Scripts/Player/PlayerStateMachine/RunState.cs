@@ -35,9 +35,9 @@ public class RunState : PlayerBaseState
             _playerStateManager.ChangeState(_playerStateManager.jumpState);
             
 
-        }else if(_playerStateManager.CheckIfCanSlide())
+        }else if(_playerStateManager.CheckIfCanDash())
         {
-            _playerStateManager.ChangeState(_playerStateManager.slideState);
+            _playerStateManager.ChangeState(_playerStateManager.dashState);
         }
         else if (_playerStateManager.CheckIfCanFall())
         {

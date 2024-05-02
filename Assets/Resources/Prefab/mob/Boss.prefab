@@ -338,6 +338,7 @@ MonoBehaviour:
   _boss: {fileID: 2388144926404689907}
   isPlayerInRange: 0
   isPlayerInAttackRange: 0
+  isPlayerTooClose: 0
   _playerLayer:
     serializedVersion: 2
     m_Bits: 1024

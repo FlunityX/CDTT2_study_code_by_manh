@@ -14,7 +14,7 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerComboAttack2 _playerComboAttack2 = new();
     public PlayerFinishAttack _PlayerFinishAttack = new();
     public PlayerAirAttackState _playerAirAttackState = new();
-    public SlideState slideState = new();
+    public DashState dashState = new();
     public GetHitState GetHitState = new();
     public UsePotionState UsePotionState = new();
     public DeadState DeadState = new();
@@ -146,9 +146,9 @@ public class PlayerStateManager : MonoBehaviour
         return Player.Instance.GetDirX() == 0;
     }
 
-    public bool CheckIfCanSlide()
+    public bool CheckIfCanDash()
     {
-        return GameInput.Instance.SlidePerform() && Player.Instance._playerMovement.isGround && Player.Instance._playerMovement.IsReadyToSlide() ;
+        return GameInput.Instance.SlidePerform() &&  Player.Instance._playerMovement.IsReadyToSlide() ;
     }
     public bool CheckIfCanIdleC2()
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Rendering;
 using UnityEngine;
 
-public class SlideState : PlayerBaseState
+public class DashState : PlayerBaseState
 {
    
     public override void EnterState(PlayerStateManager playerStateManager)

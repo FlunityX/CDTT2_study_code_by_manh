@@ -36,6 +36,9 @@ public class FallState : PlayerBaseState
         else if (_playerStateManager.CheckIfGetHit())
         {
             _playerStateManager.ChangeState(_playerStateManager.GetHitState);
+        }else if (_playerStateManager.CheckIfCanDash())
+        {
+            _playerStateManager.ChangeState(_playerStateManager.dashState);
         }
 
     }

@@ -39,6 +39,9 @@ public class JumpState : PlayerBaseState
         } else if (_playerStateManager.CheckIfCanIdleJump())
         {
             _playerStateManager.ChangeState(_playerStateManager.idleState);
+        }else if(_playerStateManager.CheckIfCanDash())
+        {
+            _playerStateManager.ChangeState(_playerStateManager.dashState);
         }
 
     }

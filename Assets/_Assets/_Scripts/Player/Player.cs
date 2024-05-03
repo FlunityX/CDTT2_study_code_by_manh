@@ -15,7 +15,6 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
      public StatusEffectHolder _statusHolder;
      public PlayerStat _playerStat;
      public CapsuleCollider2D Collider;
-     public CapsuleCollider2D SlideCollider;
     [SerializeField] private StatusEffectSO _status;
     public Transform _dropItemPoint;
     public GameObject hitVFX;

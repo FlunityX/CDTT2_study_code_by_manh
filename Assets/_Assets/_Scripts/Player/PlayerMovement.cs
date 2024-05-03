@@ -55,10 +55,9 @@ public class PlayerMovement : MonoBehaviour
         }
         FlipPlayerSprite();
         IncreasSpeed();
-        ForceBoolVariable();
         DashColliderCheck();
        ContinueJump();
-        if (slideTimer < slideTimerMax)
+        if (slideTimer <= slideTimerMax)
         {
             slideTimer += Time.deltaTime;
            
@@ -204,15 +203,20 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Dash()
     {
-            slideTween = transform.DOMoveX(transform.position.x + slideDistance, .5f)
-                .OnUpdate(() =>
+        slideTween = transform.DOMove(new Vector3(transform.position.x + transform.localScale.x * slideDistance, transform.position.y, 0), .75f)
+            .OnUpdate(() =>
+            {
+                RaycastHit2D slideHit = Physics2D.Raycast(slideRaycastPoint.position, new Vector2(Player.Instance.transform.localScale.x, 0), 2f, groundLayer);
+                if (slideHit.collider != null)
                 {
-                    RaycastHit2D slideHit = Physics2D.Raycast(slideRaycastPoint.position, new Vector2(Player.Instance.transform.localScale.x, 0), 6f, groundLayer);
-                    if (slideHit.collider !=null)
-                    {
-                        slideTween.Kill();
-                    }
-                });
+                    slideTween.Kill();
+                }
+                    
+                    jumpTween.Kill();
+                    moveTween.Kill();
+            })
+            ;
+            
     }
 
     private void FlipPlayerSprite()
@@ -237,17 +241,10 @@ public class PlayerMovement : MonoBehaviour
         }
         else { increasingSpeed = Player.Instance._playerStat.Speed; }
     }
-    private void ForceBoolVariable()
-    {
-        if (isGround)
-        {
-            isFalling=false;
-            isJumping=false;
-        }
-    }
+  
     public bool IsReadyToSlide()
     {
-        return slideTimer >= slideTimerMax && DashColliderCheck();
+        return slideTimer >= slideTimerMax ;
     }
     public void ResetIncreasingSpeed()
     {

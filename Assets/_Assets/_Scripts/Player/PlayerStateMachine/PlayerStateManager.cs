@@ -157,7 +157,7 @@ public class PlayerStateManager : MonoBehaviour
 
     public bool CheckIfCanIdleSlide()
     {
-        return Player.Instance.GetDirX() == 0 && Player.Instance._playerMovement.isGround || counter >= slideTime;
+        return (Player.Instance.GetDirX() == 0 && Player.Instance._playerMovement.isGround) || counter >= slideTime;
     }
 
     public bool CheckIfCanRunSlide()

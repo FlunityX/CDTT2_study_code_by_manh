@@ -8,8 +8,8 @@ public class DashState : PlayerBaseState
    
     public override void EnterState(PlayerStateManager playerStateManager)
     {
-        base.EnterState(playerStateManager);
         Player.Instance._playerMovement.Dash();
+        base.EnterState(playerStateManager);
         Player.Instance._playerVisual.PlaySlideAnim();
         Player.Instance.PlayerSlideInvoke();
     }
@@ -17,11 +17,13 @@ public class DashState : PlayerBaseState
     {
         _playerStateManager.counter = 0;
         Player.Instance._playerMovement.ResetSlideTimer();
+        Player.Instance._playerMovement.canMove = true;
 
     }
 
     public override void Update()
     {
+
         _playerStateManager.counter += Time.deltaTime;
 
         if (_playerStateManager.CheckIfCanIdleSlide())

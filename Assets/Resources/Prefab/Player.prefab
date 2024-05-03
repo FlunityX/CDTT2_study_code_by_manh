@@ -13,12 +13,12 @@ GameObject:
   - component: {fileID: 8130180633186624365}
   - component: {fileID: 340837846418289260}
   - component: {fileID: 8710417965573494919}
+  - component: {fileID: 4667835135580532953}
   - component: {fileID: 7820199227080932106}
   - component: {fileID: 4064639988430328827}
   - component: {fileID: 5647131539558050075}
   - component: {fileID: 6616774919964078641}
   - component: {fileID: 4352801605513227416}
-  - component: {fileID: 5027208166289384450}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -64,10 +64,9 @@ MonoBehaviour:
   _playerAttack: {fileID: 3934266579779500822}
   _playerCollider: {fileID: 1609832945381190597}
   _abilityHolder: {fileID: 8710417965573494919}
-  _statusHolder: {fileID: 7820199227080932106}
+  _statusHolder: {fileID: 4667835135580532953}
   _playerStat: {fileID: 4064639988430328827}
   Collider: {fileID: 4352801605513227416}
-  SlideCollider: {fileID: 5027208166289384450}
   _status: {fileID: 0}
   _dropItemPoint: {fileID: 4635801281144997004}
   hitVFX: {fileID: 0}
@@ -101,7 +100,7 @@ MonoBehaviour:
   jumpTimeCounter: 0
   jumpTime: 0.2
   jumpForce: 20
-  slideDistance: 7
+  slideDistance: 10
   slideTimerMax: 5
   slideTimer: 0
   increasingSpeed: 10
@@ -151,6 +150,23 @@ MonoBehaviour:
   IsUsed: 0
   IsActive: 0
   IsCalled: 0
+--- !u!114 &4667835135580532953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508415754224343670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35f7d1e59b17d164297534876ead6812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statusEffects:
+  - {fileID: 11400000, guid: 8f28898b58fbb4e4792704ec76097959, type: 2}
+  - {fileID: 11400000, guid: 185160c2ff8f2b445bfc65001a93e710, type: 2}
+  - {fileID: 11400000, guid: 4a5026f5c757a504ca7b9da091824828, type: 2}
+  staaaa: {fileID: 11400000, guid: 8f28898b58fbb4e4792704ec76097959, type: 2}
 --- !u!114 &7820199227080932106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,41 +275,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.6303581, y: -0.09571552}
   m_Size: {x: 2.7079575, y: 5.7150326}
   m_Direction: 0
---- !u!70 &5027208166289384450
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 508415754224343670}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.65700895, y: -2.145767}
-  m_Size: {x: 5.470394, y: 1.5743657}
-  m_Direction: 1
 --- !u!1 &908868460905210127
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,7 +520,6 @@ GameObject:
   - component: {fileID: 7408748630535134897}
   - component: {fileID: 5748819002728754709}
   - component: {fileID: 5249525262317588501}
-  - component: {fileID: 4833781376449170940}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -645,18 +625,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69169fd7ec966354ca554c7ddf81db75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4833781376449170940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6703324610555850851}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d3822b0db2678549bc35114cc21940c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8893475087821076505

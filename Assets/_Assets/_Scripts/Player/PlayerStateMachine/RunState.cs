@@ -51,11 +51,7 @@ public class RunState : PlayerBaseState
         }
     }
 
-   
-   /* private bool CheckIfCanFall()
-    {
-        return Player.Instance.GetRigidbody().velocity.y < 0 && Player.Instance._playerMovement.isGround;
-    }*/
+
  
     public override void FixedUpdate()
     {

@@ -16,6 +16,7 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
      public PlayerStat _playerStat;
      public CapsuleCollider2D Collider;
     [SerializeField] private StatusEffectSO _status;
+    public TrailRenderer trailRenderer;
     public Transform _dropItemPoint;
     public GameObject hitVFX;
     public bool isGetHit;
@@ -40,12 +41,16 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
     {
         Instance = this;
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+       
+
     }
     private void Start()
     {
         checkpointPos = transform.position;
         GameInput.Instance.OnInteract += GameInput_OnInteract;
         hitVFX = GameManager.Instance.resourceManager.PlayerHitVFX;
+        trailRenderer.enabled = false;
+
     }
     private void Update()
     {

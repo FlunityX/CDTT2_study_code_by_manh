@@ -12,12 +12,16 @@ public class DashState : PlayerBaseState
         base.EnterState(playerStateManager);
         Player.Instance._playerVisual.PlaySlideAnim();
         Player.Instance.PlayerSlideInvoke();
+        Player.Instance.trailRenderer.enabled = true;
+        Debug.Log("dash");
     }
     public override void ExitState()
     {
         _playerStateManager.counter = 0;
         Player.Instance._playerMovement.ResetSlideTimer();
         Player.Instance._playerMovement.canMove = true;
+        Player.Instance.trailRenderer.enabled = false;
+        Debug.Log("fkk this shit im out");
 
     }
 

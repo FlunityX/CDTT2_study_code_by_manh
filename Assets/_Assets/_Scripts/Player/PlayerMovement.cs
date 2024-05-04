@@ -203,7 +203,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Dash()
     {
-        slideTween = transform.DOMove(new Vector3(transform.position.x + transform.localScale.x * slideDistance, transform.position.y, 0), .75f)
+        slideTween = transform.DOMove(new Vector3(transform.position.x + transform.localScale.x * slideDistance, transform.position.y, 0), .5f)
             .OnUpdate(() =>
             {
                 RaycastHit2D slideHit = Physics2D.Raycast(slideRaycastPoint.position, new Vector2(Player.Instance.transform.localScale.x, 0), 2f, groundLayer);

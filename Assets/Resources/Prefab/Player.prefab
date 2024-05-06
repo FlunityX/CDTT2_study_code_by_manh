@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 340837846418289260}
   - component: {fileID: 8710417965573494919}
   - component: {fileID: 4667835135580532953}
-  - component: {fileID: 7820199227080932106}
   - component: {fileID: 4064639988430328827}
   - component: {fileID: 5647131539558050075}
   - component: {fileID: 6616774919964078641}
@@ -76,6 +75,7 @@ MonoBehaviour:
   canUsePotion: 0
   isUsePotion: 0
   coin: 100
+  checkpointPos: {x: 0, y: 0}
 --- !u!114 &8130180633186624365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   airAttackTime: 1
-  slideTime: 1
+  dashTime: 0.5
   jumpTime: 1
   usePotionTime: 0.5
   gethitTime: 0.1
@@ -168,20 +168,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8f28898b58fbb4e4792704ec76097959, type: 2}
   - {fileID: 11400000, guid: 185160c2ff8f2b445bfc65001a93e710, type: 2}
   - {fileID: 11400000, guid: 4a5026f5c757a504ca7b9da091824828, type: 2}
-  staaaa: {fileID: 11400000, guid: 8f28898b58fbb4e4792704ec76097959, type: 2}
---- !u!114 &7820199227080932106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 508415754224343670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35f7d1e59b17d164297534876ead6812, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statusEffects: []
   staaaa: {fileID: 11400000, guid: 8f28898b58fbb4e4792704ec76097959, type: 2}
 --- !u!114 &4064639988430328827
 MonoBehaviour:

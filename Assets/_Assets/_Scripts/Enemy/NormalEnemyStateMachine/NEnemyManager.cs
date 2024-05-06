@@ -125,7 +125,7 @@ public class NEnemyManager : CharacterManager
     }
     public void Move(int pointIndex)
     {
-        tween = transform.DOMove(patrolPoint[pointIndex].position, Vector3.Distance(_normalEnemy.transform.position, patrolPoint[pointIndex].position) / _normalEnemy.GetEnemyStat().Speed)
+        tween = transform.DOMove(new Vector3(patrolPoint[0].position.x,transform.position.y,0), Vector3.Distance(_normalEnemy.transform.position, patrolPoint[pointIndex].position) / _normalEnemy.GetEnemyStat().Speed)
             .OnComplete(() => ChangeState(_NEnemyIdleState));
         UpdateChaseDir(patrolPoint[pointIndex]);
 

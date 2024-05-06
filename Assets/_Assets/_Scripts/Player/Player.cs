@@ -2,9 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Collections.LowLevel.Unsafe;
+using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.Progress;
 
-public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataPersistence
+public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
 {
     public static Player Instance {  get; private set; }
     public PlayerMovement _playerMovement;
@@ -23,7 +25,7 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
     public bool canUsePotion;
     public bool isUsePotion = false;
     public float coin;
-    Vector2 checkpointPos;
+    public Vector2 checkpointPos;
     AudioManager audioManager;
     
     //event
@@ -41,7 +43,7 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
     {
         Instance = this;
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-       
+        
 
     }
     private void Start()
@@ -179,15 +181,21 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
     {
         checkpointPos = pos;
     }
-    public void LoadData(GameData data)
+    
+    public void SaveData()
     {
-        this.transform.position = data.lastCheckpoint;
+        SaveSystem.SavePlayer();
     }
-
-
-    public void SaveData(ref GameData data)
+    public void LoadData()
     {
-        data.lastCheckpoint = this.checkpointPos;
+        SaveSystem.LoadData();
+       
     }
-
+    public void LastCheckPoint(Transform checkPoint)
+    {
+       checkpointPos = checkPoint.position;
+    }
+   
+   
+   
 }

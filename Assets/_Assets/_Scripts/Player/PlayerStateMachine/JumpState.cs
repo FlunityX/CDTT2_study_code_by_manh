@@ -34,12 +34,15 @@ public class JumpState : PlayerBaseState
         else if (_playerStateManager.CheckIfGetHit())
         {
             _playerStateManager.ChangeState(_playerStateManager.GetHitState);
-        }else if( _playerStateManager.CheckIfCanRunJump()) {
+        }
+        else if( _playerStateManager.CheckIfCanRunJump()) {
             _playerStateManager.ChangeState(_playerStateManager.runState);    
-        } else if (_playerStateManager.CheckIfCanIdleJump())
+        } 
+        else if (_playerStateManager.CheckIfCanIdleJump())
         {
             _playerStateManager.ChangeState(_playerStateManager.idleState);
-        }else if(_playerStateManager.CheckIfCanDash())
+        }
+        else if(_playerStateManager.CheckIfCanDash())
         {
             _playerStateManager.ChangeState(_playerStateManager.dashState);
         }

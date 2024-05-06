@@ -76,13 +76,14 @@ public class PlayerMovement : MonoBehaviour
         
         if (isFalling || isJumping)
         {
+            isRunning = false;
+
             if (!Player.Instance._playerCollider.wallCollider)
             {
                 moveTween = transform.DOMoveX(transform.position.x + moveDir.x, moveDuration *2)
                     .OnUpdate(() =>
                     {
                         
-                        isRunning = false; 
                         if (Player.Instance._playerCollider.wallCollider)
                         {
                             moveTween.Kill();
@@ -91,24 +92,26 @@ public class PlayerMovement : MonoBehaviour
                     });
             }
         }
-        else if(!Player.Instance._playerCollider.wallCollider)
+        else if(!Player.Instance._playerCollider.wallCollider && moveDir.x!=0)
         {
-           
-           moveTween =  transform.DOMoveX(transform.position.x + moveDir.x,moveDuration)
-                .OnUpdate(() =>
-                {
-                    
-                        isRunning = true;
-                    
-                    if (Player.Instance._playerCollider.wallCollider)
-                    {
-                        moveTween.Kill();
+            isRunning = true;
 
-                    }
-                });
+            moveTween = transform.DOMoveX(transform.position.x + moveDir.x, moveDuration)
+                 .OnUpdate(() =>
+                 {
+
+
+                     if (Player.Instance._playerCollider.wallCollider)
+                     {
+                         moveTween.Kill();
+
+                     }
+                 });
 
         }
-       // Debug.Log(moveDir);
+        isRunning = false;
+
+        // Debug.Log(moveDir);
     }
 
     public void Jump()

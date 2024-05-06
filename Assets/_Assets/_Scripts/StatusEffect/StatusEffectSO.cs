@@ -1,14 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
+
+using Sirenix.OdinInspector;
+using System;
 using UnityEngine;
 
 
-public class StatusEffectSO : ScriptableObject
+public class StatusEffectSO : SerializedScriptableObject
 {
     public Sprite icon;
     public float duration;
     public float counter;
     public bool firstCall;
+   
     public virtual void OnAttach(GameObject holder) { }
     public virtual void OnDetach(GameObject holder) {
         ResetValue();

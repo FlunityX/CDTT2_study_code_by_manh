@@ -16,6 +16,7 @@ public static class SaveSystem
     {
         string json = File.ReadAllText(Application.dataPath + "/playerData.json");
         PlayerData data = JsonUtility.FromJson<PlayerData>(json);
+        Loader.LoadByName(data.currentscene);
         Player.Instance._playerStat.currentHp = data.hp;
         Player.Instance.coin = data.coin;   
         Player.Instance._statusHolder.statusEffects = data.status;

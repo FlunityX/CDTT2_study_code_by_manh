@@ -13,7 +13,7 @@ public class NEnemyManager : CharacterManager
     public NEnemyKeepDistanceState _NEnemyKeepDistanceState= new();
     public NEnemyDeadState _NEnemyDeadState= new();
     public NormalEnemy _normalEnemy;
-    public Transform[] patrolPoint;
+    public Transform patrolPoint;
     public Tween tween;
     private Tween moveTween;
 
@@ -114,20 +114,12 @@ public class NEnemyManager : CharacterManager
     {
         return _normalEnemy.isDead;
     }
-    public int GeneratePointIndex(int lastIndex)
+    
+    public void Move()
     {
-        int index = Random.Range(0, patrolPoint.Length);
-        while(index == lastIndex)
-        {
-            index = Random.Range(0, patrolPoint.Length);
-        }
-        return index;
-    }
-    public void Move(int pointIndex)
-    {
-        tween = transform.DOMove(new Vector3(patrolPoint[0].position.x,transform.position.y,0), Vector3.Distance(_normalEnemy.transform.position, patrolPoint[pointIndex].position) / _normalEnemy.GetEnemyStat().Speed)
+        tween = transform.DOMove(new Vector3(patrolPoint.position.x,transform.position.y,0), Vector3.Distance(_normalEnemy.transform.position, patrolPoint.position) / _normalEnemy.GetEnemyStat().Speed)
             .OnComplete(() => ChangeState(_NEnemyIdleState));
-        UpdateChaseDir(patrolPoint[pointIndex]);
+        UpdateChaseDir(patrolPoint);
 
     }
     public void InteruptMove()

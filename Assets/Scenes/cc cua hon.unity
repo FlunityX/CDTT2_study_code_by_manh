@@ -8040,6 +8040,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 519420028}
   parallexEffect: 0.5
+--- !u!1 &697381028
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 697381029}
+  m_Layer: 11
+  m_Name: patrolpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &697381029
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697381028}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -16.8, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7601405488873037181}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &740348564
 GameObject:
   m_ObjectHideFlags: 0
@@ -10341,9 +10372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _normalEnemy: {fileID: 8117422462908869381}
-  patrolPoint:
-  - {fileID: 4749610036166081184}
-  - {fileID: 5305246166412071010}
+  patrolPoint: {fileID: 697381029}
   getHitDuration: 0.2
   attackDuration: 0.5
   durationCounter: 0
@@ -10708,11 +10737,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6870925510373430380}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4749610036166081184 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 890601400028731458, guid: 3e73662b7638a8640b6aa0700113a861, type: 3}
-  m_PrefabInstance: {fileID: 6115622345241211141}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4939560596591456213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10761,11 +10785,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8032222160640521014}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &5305246166412071010 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6922387386377596100, guid: 3e73662b7638a8640b6aa0700113a861, type: 3}
-  m_PrefabInstance: {fileID: 6115622345241211141}
-  m_PrefabAsset: {fileID: 0}
 --- !u!212 &5328986858660453556
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11281,7 +11300,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &7424203951569136008
 GameObject:
   m_ObjectHideFlags: 0
@@ -11365,6 +11384,7 @@ Transform:
   - {fileID: 1021773679250931382}
   - {fileID: 7462209569847740776}
   - {fileID: 4168171124317277231}
+  - {fileID: 697381029}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7813579214961563408

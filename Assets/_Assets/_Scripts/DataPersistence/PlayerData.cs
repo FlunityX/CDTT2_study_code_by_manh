@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerData 
 {
    // public int stage;
+   public string currentscene;
     public float hp;
     public float coin;
     public List<ItemSO> items;
@@ -17,9 +18,9 @@ public class PlayerData
 
     public PlayerData()
     {
+        currentscene = Loader.GetCurrentScene();   
         hp = Player.Instance._playerStat.currentHp;
         coin = Player.Instance.coin;
-        
          storyItems = PlayerInventory.Instance.storiesItem;
          items = PlayerInventory.Instance.items;
          buffItems = PlayerInventory.Instance.buffItem;

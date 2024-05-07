@@ -5,8 +5,7 @@ public class NEnemyPartrolState : NEnemyBaseState
 {
     private float entryTime;
     private float restTime = 1f;
-    private int pointIndex;
-    private int lastPointIndex=0;
+    
 
     public override void EnterState(CharacterManager characterManager)
     {
@@ -14,8 +13,7 @@ public class NEnemyPartrolState : NEnemyBaseState
         _NEnemyManager = (NEnemyManager)characterManager;
         entryTime = Time.time;
         _NEnemyManager._normalEnemy.GetEnemyVisual().PlayWalkAnim();
-        pointIndex = _NEnemyManager.GeneratePointIndex(lastPointIndex);
-        _NEnemyManager.Move(pointIndex);
+        _NEnemyManager.Move();
 
         Debug.Log("enter");
         
@@ -23,7 +21,7 @@ public class NEnemyPartrolState : NEnemyBaseState
 
     public override void ExitState()
     {
-        lastPointIndex = pointIndex;
+       _NEnemyManager.ChangeDirection();
     }
 
     public override void Update()

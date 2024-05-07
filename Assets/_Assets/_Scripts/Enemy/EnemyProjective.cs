@@ -6,7 +6,7 @@ public class EnemyProjective : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private NormalEnemy normalEnemy;
-    private float speed = 20f;
+    private float speed = 5f;
     public float dmg;
     private void Awake()
     {
@@ -15,17 +15,7 @@ public class EnemyProjective : MonoBehaviour
     }
     private void Start()
     {
-        Vector2 moveDir;
-        if (normalEnemy.transform.localScale.x < 0)
-        {
-            // If the scale is less than 0, the player is facing left
-            moveDir = Vector2.right;// Move left
-        }
-        else
-        {
-            // Otherwise, the player is facing right
-            moveDir = Vector2.left; // Move right
-        }
+        Vector2 moveDir= normalEnemy.GetNEnemyAttack().AttackDirection();
         rb.velocity = moveDir * speed;
         Invoke("DestroyPreb", 5f);
 
@@ -49,6 +39,7 @@ public class EnemyProjective : MonoBehaviour
         //Instantiate(impactEffect, transform.position, transform.rotation);//instantiate effect
     }
 
+    
     private void DestroyPreb()
     {
         Destroy(gameObject);

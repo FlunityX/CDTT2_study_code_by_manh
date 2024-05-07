@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AbilityHolder : MonoBehaviour
@@ -9,6 +10,7 @@ public class AbilityHolder : MonoBehaviour
     public float duration;
     public bool IsUsed;
     public bool IsActive=false;
+    public bool IsCalled = false;
     enum abilityState
     {
         ready,
@@ -21,6 +23,11 @@ public class AbilityHolder : MonoBehaviour
     {
         GameInput.Instance.OnUseAbility += GameInput_OnUseAbility;
         PlayerInventory.Instance.OnBuffItemChange += PlayerInventory_OnBuffItemChange;
+        if(_abilitySO != null)
+        {
+         _abilitySO.GetDuration(); 
+        }
+
     }
 
     private void PlayerInventory_OnBuffItemChange(object sender, System.EventArgs e)
@@ -39,9 +46,9 @@ public class AbilityHolder : MonoBehaviour
 
     private void GameInput_OnUseAbility(object sender, System.EventArgs e)
     {
-        if (_abilitySO !=null)
+        if (_abilitySO !=null && state==abilityState.ready)
         {
-        OnUsedAbility();
+            OnUsedAbility();
             
         }
     }
@@ -50,7 +57,7 @@ public class AbilityHolder : MonoBehaviour
     {
         if (_abilitySO != null)
         {
-        abilityStateUpdate();
+            abilityStateUpdate();
 
         }
         
@@ -74,6 +81,11 @@ public class AbilityHolder : MonoBehaviour
                 Debug.Log("usung");
                 duration += Time.deltaTime;
                 _abilitySO.isActive = true;
+                if(_abilitySO.statusEffectSO != null && !IsCalled)
+                {
+                    IsCalled = true;
+                    _abilitySO.statusEffectSO.OnAttach(Player.Instance.gameObject);
+                }
                 if(duration >= _abilitySO.duration)
                 {
 
@@ -81,7 +93,9 @@ public class AbilityHolder : MonoBehaviour
                     IsUsed = false;
                     Debug.Log("to cool");
                     DurationReset();
+                    _abilitySO.statusEffectSO.OnDetach(Player.Instance.gameObject);
                     _abilitySO.Deactivate(Player.Instance.gameObject);
+
                 }
                 else
                 {
@@ -97,7 +111,7 @@ public class AbilityHolder : MonoBehaviour
                 Debug.Log("end");
                 coolDown += Time.deltaTime;
                 _abilitySO.isActive = false;
-
+                IsCalled = false;
                 if (coolDown >= _abilitySO.coolDown)
                 {
                     state = abilityState.ready;

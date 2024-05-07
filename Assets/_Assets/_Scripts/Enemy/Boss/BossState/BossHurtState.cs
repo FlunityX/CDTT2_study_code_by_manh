@@ -21,10 +21,18 @@ public class BossHurtState : BossBaseState
 
     public override void Update()
     {
-
+        if (_bossManager.CheckIfCanUseHidding())
+        {
+            _bossManager.ChangeState(_bossManager._HiddingState);
+        }
+        else
         if (_bossManager.CheckIfCanIdleGetHit())
         {
             _bossManager.ChangeState(_bossManager._IdleState);
+        }
+        else if (_bossManager.CheckIfDead())
+        {
+            _bossManager.ChangeState(_bossManager._DeathState);
         }
     }
 

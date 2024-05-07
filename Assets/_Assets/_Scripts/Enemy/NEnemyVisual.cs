@@ -31,6 +31,10 @@ public class NEnemyVisual : MonoBehaviour
     {
         animator.CrossFade(_name + "_hurt", .2f, 0);
     }
+    public void PlayDeadAnim()
+    {
+        animator.CrossFade(_name + "_dead", .2f, 0);
+    }
     public void Invisible()
     {
         sprite.enabled = false;

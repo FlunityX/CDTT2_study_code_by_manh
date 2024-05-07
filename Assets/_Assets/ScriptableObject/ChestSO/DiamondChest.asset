@@ -15,10 +15,6 @@ MonoBehaviour:
   chestSprite: {fileID: -1085274142, guid: daf46c83d8de0ee46a1a0c3cfdf4251f, type: 3}
   chestName: DiamondChest
   itemSOs:
-  - {fileID: 11400000, guid: 7179ee12d692f4e4899403442e9e5e73, type: 2}
-  - {fileID: 11400000, guid: fff6eff43ce9b4246a81703fbc054402, type: 2}
-  - {fileID: 11400000, guid: 59fa57f497024d6459ee38580be1d304, type: 2}
-  - {fileID: 11400000, guid: 7fa2afbf798d5494086322a24305d68a, type: 2}
-  - {fileID: 11400000, guid: 7fa2afbf798d5494086322a24305d68a, type: 2}
-  - {fileID: 11400000, guid: 3a51cec998dae734ca0160694ee5f127, type: 2}
-  coinAmount: 30
+  - {fileID: 0}
+  - {fileID: 0}
+  coinAmount: 0

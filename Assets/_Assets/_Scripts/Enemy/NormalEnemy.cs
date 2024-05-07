@@ -11,9 +11,9 @@ public class NormalEnemy :MonoBehaviour, IDealDamage, IReceiveDamage
     [SerializeField] private Rigidbody2D _rb;
     public float detectRange = 4f; // player vao tam nay se bi phat hien
     public bool isGetHit;
+    public bool isDead;
 
-    public bool _isFacingRight { get;set; }
-    public bool _isFacingLeft { get; set; }
+
     public NEnemyCollider GetNEnemyCollider() { return _enemyCollider; }
     public EnemyAttack GetNEnemyAttack() { return _enemyAttack; }
     public EnemyStat GetEnemyStat() { return _enemyStat;}
@@ -29,7 +29,15 @@ public class NormalEnemy :MonoBehaviour, IDealDamage, IReceiveDamage
 
     public void ReduceHp(float dmg)
     {
-        _enemyStat.currentHp -= dmg;
+        _enemyStat.currentHp -= dmg * (1 - _enemyStat.Defense/100);
         isGetHit = true;
+        if(_enemyStat.currentHp <= 0)
+        {
+            isDead = true;
+        }
+    }
+    public void SelfDestroy()
+    {
+        Destroy(gameObject);
     }
 }

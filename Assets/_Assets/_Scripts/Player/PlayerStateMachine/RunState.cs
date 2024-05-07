@@ -27,7 +27,7 @@ public class RunState : PlayerBaseState
        if(_playerStateManager.CheckIfCanIdleRun())
         {
             _playerStateManager.ChangeState(_playerStateManager.idleState);
-            //Debug.Log("idle");
+           
 
         }
         else if (_playerStateManager.CheckIfCanJump())
@@ -35,9 +35,9 @@ public class RunState : PlayerBaseState
             _playerStateManager.ChangeState(_playerStateManager.jumpState);
             
 
-        }else if(_playerStateManager.CheckIfCanSlide())
+        }else if(_playerStateManager.CheckIfCanDash())
         {
-            _playerStateManager.ChangeState(_playerStateManager.slideState);
+            _playerStateManager.ChangeState(_playerStateManager.dashState);
         }
         else if (_playerStateManager.CheckIfCanFall())
         {
@@ -51,11 +51,7 @@ public class RunState : PlayerBaseState
         }
     }
 
-   
-   /* private bool CheckIfCanFall()
-    {
-        return Player.Instance.GetRigidbody().velocity.y < 0 && Player.Instance._playerMovement.isGround;
-    }*/
+
  
     public override void FixedUpdate()
     {

@@ -29,6 +29,10 @@ public class NEnemyGetHitState : NEnemyBaseState
         {
             _NEnemyManager.ChangeState(_NEnemyManager._NEnemyAttackState);
         }
+        else if (_NEnemyManager.CheckIfDead())
+        {
+            _NEnemyManager.ChangeState(_NEnemyManager._NEnemyDeadState);
+        }
     }
     private bool CheckIfCanAttack()
     {

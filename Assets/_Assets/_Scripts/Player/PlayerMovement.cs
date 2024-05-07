@@ -12,8 +12,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public bool canIdleFall ;
     public bool isRunning= false;
     public bool canMove= true;
+    public bool canJump= true;
+    public bool canContJump;
+    public bool jumpperform;
+    public float jumpHeight=3f;
     [SerializeField] private float jumpTimeCounter;
-    [SerializeField] private float jumpTime=.2f;
+    [SerializeField] private float jumpTime=.3f;
     [SerializeField] private float jumpForce = 20f;
     [SerializeField] private float slideDistance = 20f;
     [SerializeField] private float slideTimerMax=5f;
@@ -24,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundLayer;
     private Tween moveTween;
     private Tween jumpTween;
+    private Tween ConjumpTween;
     private Tween slideTween;
     public float dirX;
     AudioManager audioManager;
@@ -43,18 +48,16 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {
-        if (canMove)
+    { 
+        if(canMove)
         {
-            
-        HandleMovement();
+            HandleMovement();
         }
-   
         FlipPlayerSprite();
         IncreasSpeed();
-        ForceBoolVariable();
-        SlideColliderCheck();
-        if (slideTimer < slideTimerMax)
+        DashColliderCheck();
+       ContinueJump();
+        if (slideTimer <= slideTimerMax)
         {
             slideTimer += Time.deltaTime;
            
@@ -73,13 +76,14 @@ public class PlayerMovement : MonoBehaviour
         
         if (isFalling || isJumping)
         {
+            isRunning = false;
+
             if (!Player.Instance._playerCollider.wallCollider)
             {
                 moveTween = transform.DOMoveX(transform.position.x + moveDir.x, moveDuration *2)
                     .OnUpdate(() =>
                     {
                         
-                        isRunning = false; 
                         if (Player.Instance._playerCollider.wallCollider)
                         {
                             moveTween.Kill();
@@ -88,46 +92,53 @@ public class PlayerMovement : MonoBehaviour
                     });
             }
         }
-        else if(!Player.Instance._playerCollider.wallCollider)
+        else if(!Player.Instance._playerCollider.wallCollider && moveDir.x!=0)
         {
-           
-           moveTween =  transform.DOMoveX(transform.position.x + moveDir.x,moveDuration)
-                .OnUpdate(() =>
-                {
-                    if (moveDir.x != 0) {
-                        isRunning = true;
-                    }
-                    if (Player.Instance._playerCollider.wallCollider)
-                    {
-                        moveTween.Kill();
+            isRunning = true;
 
-                    }
-                });
+            moveTween = transform.DOMoveX(transform.position.x + moveDir.x, moveDuration)
+                 .OnUpdate(() =>
+                 {
+
+
+                     if (Player.Instance._playerCollider.wallCollider)
+                     {
+                         moveTween.Kill();
+
+                     }
+                 });
 
         }
-       // Debug.Log(moveDir);
+        isRunning = false;
+
+        // Debug.Log(moveDir);
     }
 
     public void Jump()
     {
        
         isJumping = true;
-
-        jumpTween = transform.DOMoveY(transform.position.y + 5f,.5f)
+        canJump = false;
+        jumpTween = transform.DOMoveY(transform.position.y + jumpHeight,.3f)
             
                 .SetEase(Ease.OutQuad)
                 .OnComplete(() =>
                 {
                     isFalling = true;
-                    isJumping= false;
+                    isJumping = false;
+                    canJump = true;
+                    
                 })
                 .OnUpdate(() =>
                 {
                     if (Player.Instance._playerCollider.ceilCollider)
                     {
                         jumpTween.Kill();
-                        isFalling = true; isJumping = false;
+                        isFalling = true;
+                        isJumping = false;
+                        isRunning = false;
                     }
+                    
 
                 })
                 ;
@@ -139,22 +150,49 @@ public class PlayerMovement : MonoBehaviour
    
  
   
-    private void ContinueJump()
+    public void ContinueJump()
     {
-        if (isJumping && GameInput.Instance.JumpPerform() && !Player.Instance._playerMovement.isGround)
+        if (isJumping && GameInput.Instance.JumpPerform() )
         {
-            if (jumpTimeCounter > 0)
-            {
-                _rigidbody.velocity =  Vector2.up * jumpForce/2;
-                
-                jumpTimeCounter -= Time.deltaTime;
-                isGround = false; 
-                isJumping = true;
-            }
             
-        } 
+            jumpTween.Kill() ;
+            ConjumpTween = transform.DOMoveY(transform.position.y + 3f, .3f)
+                .OnUpdate(() =>
+                {
+                    if (Player.Instance._playerCollider.ceilCollider)
+                    {
+                        ConjumpTween.Kill();
+                        isFalling = true;
+                        isJumping = false;
+                        isRunning = false;
+                    }
+
+
+            })
+            .OnComplete(() =>
+             {
+                 
+                 isFalling = true;
+                 isJumping = false;
+                 canJump = true;
+                 if (GameInput.Instance.JumpCancle()){
+                     ConjumpTween.Kill() ;
+                 }
+
+             });
+           
+
+
+
+        }
+
+
+
+
     }
-    public bool SlideColliderCheck()
+
+  
+    public bool DashColliderCheck()
     {
         RaycastHit2D slide = Physics2D.Raycast(slideRaycastPoint.position, new Vector2(Player.Instance.transform.localScale.x, 0), 4f, groundLayer);
         if (slide.collider == null)
@@ -166,17 +204,22 @@ public class PlayerMovement : MonoBehaviour
             return false;
         }
     }
-    public void Slide()
+    public void Dash()
     {
-            slideTween = transform.DOMoveX(transform.position.x + slideDistance, .5f)
-                .OnUpdate(() =>
+        slideTween = transform.DOMove(new Vector3(transform.position.x + transform.localScale.x * slideDistance, transform.position.y, 0), .5f)
+            .OnUpdate(() =>
+            {
+                RaycastHit2D slideHit = Physics2D.Raycast(slideRaycastPoint.position, new Vector2(Player.Instance.transform.localScale.x, 0), 2f, groundLayer);
+                if (slideHit.collider != null)
                 {
-                    RaycastHit2D slideHit = Physics2D.Raycast(slideRaycastPoint.position, new Vector2(Player.Instance.transform.localScale.x, 0), 6f, groundLayer);
-                    if (slideHit.collider !=null)
-                    {
-                        slideTween.Kill();
-                    }
-                });
+                    slideTween.Kill();
+                }
+                    
+                    jumpTween.Kill();
+                    moveTween.Kill();
+            })
+            ;
+            
     }
 
     private void FlipPlayerSprite()
@@ -201,17 +244,10 @@ public class PlayerMovement : MonoBehaviour
         }
         else { increasingSpeed = Player.Instance._playerStat.Speed; }
     }
-    private void ForceBoolVariable()
-    {
-        if (isGround)
-        {
-            isFalling=false;
-            isJumping=false;
-        }
-    }
+  
     public bool IsReadyToSlide()
     {
-        return slideTimer >= slideTimerMax && SlideColliderCheck();
+        return slideTimer >= slideTimerMax ;
     }
     public void ResetIncreasingSpeed()
     {

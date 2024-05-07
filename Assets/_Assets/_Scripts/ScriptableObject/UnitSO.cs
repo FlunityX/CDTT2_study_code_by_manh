@@ -11,5 +11,6 @@ public class UnitSO :ScriptableObject
     public Stat AttackDmg;
     public Stat AttackSpeed;
     public Stat AttackRange;
+    public Stat Defense;
     public bool IsRanger;
 }

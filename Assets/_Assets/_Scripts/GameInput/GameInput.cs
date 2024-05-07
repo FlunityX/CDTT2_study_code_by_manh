@@ -108,17 +108,14 @@ public class GameInput : MonoBehaviour
     }
     public bool JumpPerform()
     {
-      return playerInputAction.PlayerActionMap.Jump.triggered && playerInputAction.PlayerActionMap.Jump.ReadValue<float>() > .5f;
+      return  playerInputAction.PlayerActionMap.Jump.ReadValue<float>() > .5f;
         
     }
-    public void DisableJump()
+    public bool JumpCancle()
     {
-        playerInputAction.PlayerActionMap.Jump.Disable();
+        return playerInputAction.PlayerActionMap.Jump.ReadValue<float>() <= 0;
     }
-    public void EnableJump()
-    {
-        playerInputAction.PlayerActionMap.Jump.Enable();
-    }
+ 
 
     public bool AttackPerform()
     {

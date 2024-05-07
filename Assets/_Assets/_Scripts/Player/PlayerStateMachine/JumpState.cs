@@ -22,7 +22,7 @@ public class JumpState : PlayerBaseState
     public override void Update()
     {
         _playerStateManager.counter += Time.deltaTime;
-
+      
         if (_playerStateManager.CheckIfCanFall())
         {
             _playerStateManager.ChangeState(_playerStateManager.fallState);
@@ -34,11 +34,17 @@ public class JumpState : PlayerBaseState
         else if (_playerStateManager.CheckIfGetHit())
         {
             _playerStateManager.ChangeState(_playerStateManager.GetHitState);
-        }else if( _playerStateManager.CheckIfCanRunJump()) {
+        }
+        else if( _playerStateManager.CheckIfCanRunJump()) {
             _playerStateManager.ChangeState(_playerStateManager.runState);    
-        } else if (_playerStateManager.CheckIfCanIdleJump())
+        } 
+        else if (_playerStateManager.CheckIfCanIdleJump())
         {
             _playerStateManager.ChangeState(_playerStateManager.idleState);
+        }
+        else if(_playerStateManager.CheckIfCanDash())
+        {
+            _playerStateManager.ChangeState(_playerStateManager.dashState);
         }
 
     }

@@ -11,19 +11,18 @@ public class NEnemyManager : CharacterManager
     public NEnemyAttackState _NEnemyAttackState= new();
     public NEnemyGetHitState _NEnemyGetHitState= new();
     public NEnemyKeepDistanceState _NEnemyKeepDistanceState= new();
+    public NEnemyDeadState _NEnemyDeadState= new();
     public NormalEnemy _normalEnemy;
-    public Transform[] patrolPoint;
+    public Transform patrolPoint;
     public Tween tween;
+    private Tween moveTween;
+
     private float ChaseDir;
     public float getHitDuration = .2f;
     public float attackDuration = .5f;
 
     public float durationCounter;
-    /*  public NEnemyIdleState GetNEnemyIdleState() { return _NEnemyIdleState; }
-      public NEnemyAttackState GetNEnemyAttackState() { return _NEnemyAttackState; }
-      public NEnemyChaseState GetNEnemyChaseState() { return _NEnemyChaseState;}
-      public NEnemyGetHitState GetNEnemyGetHitState() { return _NEnemyGetHitState;}
-      public NEnemyPartrolState GetNEnemyPartrolState() { return _NEnemyPartrolState;}*/
+
 
 
     private void Start()
@@ -39,20 +38,23 @@ public class NEnemyManager : CharacterManager
         _state = _NEnemyIdleState;
         _state.EnterState(this);
     }
+
+    public bool CheckIfPlayerTooClose()
+    {
+        return Vector3.Distance(Player.Instance.transform.position, transform.position) <= 2f;
+    }
     public  void ChangeDirection()
     {
         if (_normalEnemy.transform.localScale == Vector3.one)
         {
             _normalEnemy.transform.localScale = new Vector3(-1, 1, 1);
-            _normalEnemy._isFacingRight = true;
-            _normalEnemy._isFacingLeft = false;
+            
 
         }
         else
         {
             _normalEnemy.transform.localScale = new Vector3(1, 1, 1);
-            _normalEnemy._isFacingRight = false;
-            _normalEnemy._isFacingLeft = true;
+          
 
         }
     }
@@ -77,25 +79,47 @@ public class NEnemyManager : CharacterManager
         _normalEnemy.transform.DOJump(endValue, 2f, 1, .5f);
         Debug.Log("backWard");
     }
+    public void Chase()
+    {
+        if (ChaseDir > 0)
+        {
 
+            moveTween = transform.DOMoveX(transform.position.x + 1f, 1 / _normalEnemy.GetEnemyStat().Speed).OnUpdate(() =>
+            {
+                if (CheckIfPlayerTooClose())
+                {
+                    moveTween.Kill();
+                }
+            });
+        }
+        else
+        {
+
+            moveTween = transform.DOMoveX(transform.position.x - 1f, 1 / _normalEnemy.GetEnemyStat().Speed).OnUpdate(() =>
+            {
+                if (CheckIfPlayerTooClose())
+                {
+                    moveTween.Kill();
+                }
+            });
+
+        }
+
+    }
     public bool CheckIfGetHit()
     {
         return _normalEnemy.isGetHit;
     }
-    public int GeneratePointIndex(int lastIndex)
+    public bool CheckIfDead()
     {
-        int index = Random.Range(0, patrolPoint.Length);
-        while(index == lastIndex)
-        {
-            index = Random.Range(0, patrolPoint.Length);
-        }
-        return index;
+        return _normalEnemy.isDead;
     }
-    public void Move(int pointIndex)
+    
+    public void Move()
     {
-        tween = transform.DOMove(patrolPoint[pointIndex].position, Vector3.Distance(_normalEnemy.transform.position, patrolPoint[pointIndex].position) / _normalEnemy.GetEnemyStat().Speed)
+        tween = transform.DOMove(new Vector3(patrolPoint.position.x,transform.position.y,0), Vector3.Distance(_normalEnemy.transform.position, patrolPoint.position) / _normalEnemy.GetEnemyStat().Speed)
             .OnComplete(() => ChangeState(_NEnemyIdleState));
-        UpdateChaseDir(patrolPoint[pointIndex]);
+        UpdateChaseDir(patrolPoint);
 
     }
     public void InteruptMove()

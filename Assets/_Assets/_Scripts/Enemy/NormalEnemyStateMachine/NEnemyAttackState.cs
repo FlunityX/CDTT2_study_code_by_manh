@@ -32,11 +32,12 @@ public class NEnemyAttackState : NEnemyBaseState
         {
             _NEnemyManager.ChangeState(_NEnemyManager._NEnemyChaseState);
         }
-        else
+        else if (_NEnemyManager.CheckIfDead())
         {
-            _NEnemyManager.ChangeState(_NEnemyManager._NEnemyKeepDistanceState);
+            _NEnemyManager.ChangeState(_NEnemyManager._NEnemyDeadState);
         }
-        
+
+
 
 
     }

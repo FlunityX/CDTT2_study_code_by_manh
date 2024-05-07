@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     private bool isGamePause=false;
     public SoundManager soundManager;
     public MusicManager musicManager;
+    public ResourceManager resourceManager;
     private void Awake()
     {
         

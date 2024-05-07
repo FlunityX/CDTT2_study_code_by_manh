@@ -14,13 +14,13 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerComboAttack2 _playerComboAttack2 = new();
     public PlayerFinishAttack _PlayerFinishAttack = new();
     public PlayerAirAttackState _playerAirAttackState = new();
-    public SlideState slideState = new();
+    public DashState dashState = new();
     public GetHitState GetHitState = new();
     public UsePotionState UsePotionState = new();
     public DeadState DeadState = new();
 
     public float airAttackTime = .05f;
-    public float slideTime = 1f;
+    public float dashTime = .5f;
     public float jumpTime = .5f;
     public float usePotionTime = .5f;
     public float gethitTime = .1f;
@@ -63,7 +63,7 @@ public class PlayerStateManager : MonoBehaviour
     }
     public bool CheckIfCanRun()
     {
-        return Player.Instance._playerMovement.dirX != 0 && Player.Instance._playerMovement.isGround  && (!Player.Instance._playerMovement.isFalling|| !Player.Instance._playerMovement.isJumping);
+        return Player.Instance._playerMovement.dirX != 0 && Player.Instance._playerMovement.isGround  ;
     }
     public bool CheckIfCanRunJump()
     {
@@ -79,7 +79,7 @@ public class PlayerStateManager : MonoBehaviour
     }
     public bool CheckIfCanJump()
     {
-        return (GameInput.Instance.JumpPerform() && Player.Instance._playerMovement.isGround);
+        return GameInput.Instance.JumpPerform() ;
     }
 
     public bool CheckIfCanAttack()
@@ -146,9 +146,9 @@ public class PlayerStateManager : MonoBehaviour
         return Player.Instance.GetDirX() == 0;
     }
 
-    public bool CheckIfCanSlide()
+    public bool CheckIfCanDash()
     {
-        return GameInput.Instance.SlidePerform() && Player.Instance._playerMovement.isGround && Player.Instance._playerMovement.IsReadyToSlide() ;
+        return GameInput.Instance.SlidePerform() &&  Player.Instance._playerMovement.IsReadyToSlide() ;
     }
     public bool CheckIfCanIdleC2()
     {
@@ -157,16 +157,16 @@ public class PlayerStateManager : MonoBehaviour
 
     public bool CheckIfCanIdleSlide()
     {
-        return Player.Instance.GetDirX() == 0 && Player.Instance._playerMovement.isGround || counter >= slideTime;
+        return (Player.Instance.GetDirX() == 0 && Player.Instance._playerMovement.isGround) || counter >= dashTime;
     }
 
     public bool CheckIfCanRunSlide()
     {
-        return (Player.Instance.GetDirX() != 0 && Player.Instance._playerMovement.isGround) && counter >= slideTime;
+        return (Player.Instance.GetDirX() != 0 && Player.Instance._playerMovement.isGround) && counter >= dashTime;
     }
     public bool CheckIfCanFallSlide()
     {
-        return Player.Instance._playerMovement.isFalling;
+        return Player.Instance._playerMovement.isFalling || counter > dashTime;
     }
     public void NailPlayer()
     {

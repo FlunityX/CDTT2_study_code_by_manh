@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using DG.Tweening;
 using UnityEngine;
+
 
 public class NEnemyChaseState : NEnemyBaseState
 {
     private float ChaseDir;
-
     
     public override void EnterState(CharacterManager characterManager)
     {
@@ -29,7 +27,7 @@ public class NEnemyChaseState : NEnemyBaseState
     {
         if (CheckIfNeedChase())
         {
-            Chase();
+            _NEnemyManager.Chase();
         }
         else if (CheckIfCanAttack())
         {
@@ -42,8 +40,12 @@ public class NEnemyChaseState : NEnemyBaseState
         {
             _NEnemyManager.ChangeState(_NEnemyManager._NEnemyIdleState);
         }
-        
-            _NEnemyManager.UpdateChaseDir(Player.Instance.transform);
+        else if (_NEnemyManager.CheckIfDead())
+        {
+            _NEnemyManager.ChangeState(_NEnemyManager._NEnemyDeadState);
+        }
+
+        _NEnemyManager.UpdateChaseDir(Player.Instance.transform);
     }
     private bool CheckIfCanIdle()
     {
@@ -57,29 +59,15 @@ public class NEnemyChaseState : NEnemyBaseState
     }
     private bool CheckIfNeedChase()
     {
-        return Mathf.Abs(Player.Instance.transform.position.x - _NEnemyManager._normalEnemy.transform.position.x) > _NEnemyManager._normalEnemy.GetEnemyStat().AttackRange *2 ;
+        return Mathf.Abs(Player.Instance.transform.position.x - _NEnemyManager._normalEnemy.transform.position.x) > _NEnemyManager._normalEnemy.GetEnemyStat().AttackRange && _NEnemyManager._normalEnemy.GetNEnemyCollider().CheckIfHitPlayer() ;
     }
-    private void Chase()
-    {
-        if(ChaseDir > 0)
-        {
-            _NEnemyManager._normalEnemy.transform.Translate(Vector2.right * _NEnemyManager._normalEnemy.GetEnemyStat().Speed * 2 * Time.deltaTime);
-        }
-        else{
-            _NEnemyManager._normalEnemy.transform.Translate(Vector2.left * _NEnemyManager._normalEnemy.GetEnemyStat().Speed * 2 * Time.deltaTime);
-
-        }
-        
-    }
+    
     public bool CheckIfGetHit()
     {
         return _NEnemyManager._normalEnemy.isGetHit;
     }
 
-    private void StayAtPos()
-    {
-        _NEnemyManager._normalEnemy.transform.Translate(Vector2.zero);
-    }
+  
 
    
 

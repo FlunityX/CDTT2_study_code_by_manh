@@ -22,6 +22,11 @@ public class BossWalkState : BossBaseState
     public override void Update()
     {
         _bossManager.UpdateChaseDir();
+        if (_bossManager.CheckIfCanUseHidding())
+        {
+            _bossManager.ChangeState(_bossManager._HiddingState);
+        }
+        else
         if (!_bossManager.IsPlayerInAttackRange())
         {
             _bossManager.Chase();
@@ -33,6 +38,10 @@ public class BossWalkState : BossBaseState
         }else if(_bossManager.CheckIfCanIdle())
         {
             _bossManager.ChangeState(_bossManager._IdleState);
+        }
+        else if (_bossManager.CheckIfDead())
+        {
+            _bossManager.ChangeState(_bossManager._DeathState);
         }
     }
 

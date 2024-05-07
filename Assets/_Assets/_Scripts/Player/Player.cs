@@ -2,34 +2,34 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Collections.LowLevel.Unsafe;
+using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.Progress;
 
-public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataPersistence
+public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
 {
     public static Player Instance {  get; private set; }
     public PlayerMovement _playerMovement;
-    [SerializeField]public PlayerVisual _playerVisual;
-    [SerializeField] public PlayerAttack _playerAttack;
-    [SerializeField] public PlayerCollider _playerCollider;
-    [SerializeField] public AbilityHolder _abilityHolder;
-    [SerializeField] public PlayerStat _playerStat;
-    [SerializeField] public CapsuleCollider2D Collider;
-    [SerializeField] public CapsuleCollider2D SlideCollider;
+    public PlayerVisual _playerVisual;
+     public PlayerAttack _playerAttack;
+     public PlayerCollider _playerCollider;
+     public AbilityHolder _abilityHolder;
+     public StatusEffectHolder _statusHolder;
+     public PlayerStat _playerStat;
+     public CapsuleCollider2D Collider;
     [SerializeField] private StatusEffectSO _status;
+    public TrailRenderer trailRenderer;
+    public Transform _dropItemPoint;
+    public GameObject hitVFX;
     public bool isGetHit;
     public bool canUsePotion;
-    public Transform hitVFX;
     public bool isUsePotion = false;
-   /* public float Speed=1f;
-    public float Dmg=1f;
-    public float HpMax = 10;
-    public float currentHp = 1;*/
     public float coin;
-    Vector2 checkpointPos;
+    public Vector2 checkpointPos;
     AudioManager audioManager;
     
-    public event EventHandler<IHasHpBar.OnHpChangeEventArgs> OnHpChange;
     //event
+    public event EventHandler<IHasHpBar.OnHpChangeEventArgs> OnHpChange;
     public event EventHandler OnPlayerAttack;
     public event EventHandler OnPlayerAttackHit;
     public event EventHandler OnPlayerHeal;
@@ -43,14 +43,16 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
     {
         Instance = this;
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        
+
     }
     private void Start()
     {
         checkpointPos = transform.position;
-        _playerMovement = GetComponent<PlayerMovement>();
-        _playerVisual = GetComponentInChildren<PlayerVisual>();
-        _playerAttack = GetComponentInChildren<PlayerAttack>();
         GameInput.Instance.OnInteract += GameInput_OnInteract;
+        hitVFX = GameManager.Instance.resourceManager.PlayerHitVFX;
+        trailRenderer.enabled = false;
+
     }
     private void Update()
     {
@@ -84,7 +86,7 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
 
     public void ReduceHp(float dmg)
     {
-        _playerStat.currentHp -= dmg;
+        _playerStat.currentHp -= dmg * 1 - (_playerStat.Defense/100);// imcome dmg reduce base on percentage of defense
         GetHit();
         OnHpChange?.Invoke(this, new IHasHpBar.OnHpChangeEventArgs
         {
@@ -166,20 +168,34 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage, IDataP
     }
     //end invoke event
 
+    public void ImmuteAttack()
+    {
+        gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+    }
+    public void UnimmuteAttack()
+    {
+        gameObject.layer = LayerMask.NameToLayer(GameConstant.PLAYER_TAG);
 
+    }
     public void UpdateCheckpoint(Vector2 pos)
     {
         checkpointPos = pos;
     }
-    public void LoadData(GameData data)
+    
+    public void SaveData()
     {
-        this.transform.position = data.lastCheckpoint;
+        SaveSystem.SavePlayer();
     }
-
-
-    public void SaveData(ref GameData data)
+    public void LoadData()
     {
-        data.lastCheckpoint = this.checkpointPos;
+        SaveSystem.LoadData();
+       
     }
-
+    public void LastCheckPoint(Transform checkPoint)
+    {
+       checkpointPos = checkPoint.position;
+    }
+   
+   
+   
 }

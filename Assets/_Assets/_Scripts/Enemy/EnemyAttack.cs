@@ -13,6 +13,7 @@ public class EnemyAttack : MonoBehaviour, IRangeAttack, IMeleeAttack
 
     private void Start()
     {
+        //projectivePrefab = GameManager.Instance.resourceManager.GoblinRangedArrow;
          projectivePrefab.GetComponent<EnemyProjective>().dmg = _normalEnemy.GetEnemyStat().AttackDmg;
     }
     public void EAttack()
@@ -28,7 +29,7 @@ public class EnemyAttack : MonoBehaviour, IRangeAttack, IMeleeAttack
     }
     public void RangeAttack()
     {
-        Instantiate(projectivePrefab, attackPoint.position, transform.rotation,projectiveHolder);
+        Instantiate(projectivePrefab, attackPoint.position, Quaternion.Euler(0,0,Vector2.Angle(AttackDirection(),new Vector2(-1,0))),projectiveHolder);
         ResetAttackSpeedCounter();
 
     }
@@ -45,6 +46,10 @@ public class EnemyAttack : MonoBehaviour, IRangeAttack, IMeleeAttack
 
     }
 
+    public Vector2 AttackDirection()
+    {
+        return new Vector2(Player.Instance.transform.position.x - attackPoint.transform.position.x, Player.Instance.transform.position.y - attackPoint.transform.position.y);
+    }
 
     public bool IsReadyToAttack()
     {

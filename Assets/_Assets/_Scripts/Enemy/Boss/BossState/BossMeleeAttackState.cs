@@ -24,9 +24,14 @@ public class BossMeleeAttackState : BossBaseState
     public override void Update()
     {
         _bossManager.durationCounter += Time.deltaTime;
+        _bossManager.UpdateChaseDir();
         if (_bossManager.CheckIfCanIdleMeleeAttack())
         {
             _bossManager.ChangeState(_bossManager._IdleState);
+        }
+        else if (_bossManager.CheckIfDead())
+        {
+            _bossManager.ChangeState(_bossManager._DeathState);
         }
     }
 

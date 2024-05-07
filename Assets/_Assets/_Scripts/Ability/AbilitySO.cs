@@ -11,6 +11,17 @@ public class AbilitySO : ScriptableObject
     public StatusEffectSO statusEffectSO;
     public StatusEffectSO passiveEffect;
 
+    public void GetDuration()
+    {
+        if (statusEffectSO != null)
+        {
+            duration = statusEffectSO.duration;
+        }
+        else
+        {
+            duration = .1f;
+        }
+    }
     public virtual void Activate(GameObject holder) { }
 
     public virtual void Deactivate(GameObject holder) { }

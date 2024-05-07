@@ -22,15 +22,24 @@ public class BossIdleState : BossBaseState
 
     public override void Update()
     {
-       if(_bossManager.CheckIfCanMeleeAttack())
+        if (_bossManager.CheckIfCanUseHidding())
+        {
+            _bossManager.ChangeState(_bossManager._HiddingState);
+        }
+        else if(_bossManager.CheckIfCanMeleeAttack())
         {
             _bossManager.ChangeState(_bossManager._MeleeAttack);
-        }else if(_bossManager.CheckIfCanUseSpell())
+        }
+        else if(_bossManager.CheckIfCanUseSpell())
         {
             _bossManager.ChangeState(_bossManager._CastSpellState);
-        }else if(_bossManager.CheckIfNeedChase())
+        }
+        else if(_bossManager.CheckIfNeedChase())
         {
             _bossManager.ChangeState(_bossManager._WalkState);
+        }else if(_bossManager.CheckIfDead())
+        {
+            _bossManager.ChangeState(_bossManager._DeathState);
         }
     }
 

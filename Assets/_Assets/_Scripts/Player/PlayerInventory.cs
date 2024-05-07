@@ -7,8 +7,9 @@ public class PlayerInventory : MonoBehaviour
 {
     public static PlayerInventory Instance { get; private set; }
 
-    [SerializeField] public List<ItemSO> items = new List<ItemSO>();
-    [SerializeField] public ItemSO buffItem;
+     public List<ItemSO> items = new List<ItemSO>();
+     public List<StoryItemSO> storiesItem = new List<StoryItemSO> {null, null,null };
+     public ItemSO buffItem;
     [SerializeField]private int space = 9;
     public event EventHandler OnItemChanged;
     public event EventHandler OnBuffItemChange;
@@ -19,7 +20,7 @@ public class PlayerInventory : MonoBehaviour
     }
     public bool Add(ItemSO item)
     {
-        if (item.IsConsumable)
+        if (item.ItemType ==1)
         {
             if (items.Count <= space)
             {
@@ -35,7 +36,7 @@ public class PlayerInventory : MonoBehaviour
                 return false;
             }
         }
-        else
+        else if (item.ItemType ==2) 
         {
             if(buffItem == null)
             {
@@ -49,21 +50,29 @@ public class PlayerInventory : MonoBehaviour
                 NotificationUI.Instance.Show(GameConstant.INVENTORY_BUFF_ITEM_TEXT);
                 return false;
             }
-        }
-    }public void Remove(ItemSO item)
-    {
-        if(item.IsConsumable)
+        }else
         {
+           StoryItemSO story = (StoryItemSO)item;
+            storiesItem[story.index] = story;
+            return true;
+        }
+    }
+   
+    public void Remove(ItemSO item)
+    {
+        if(item.ItemType == 1)
+        {
+            DropItem(item);
             items.Remove(item);
             OnItemChanged?.Invoke(this, EventArgs.Empty);
 
         }
-        else
+        else if(item.ItemType == 2) 
         {
             BuffItemSO _buffItem = (BuffItemSO)buffItem;
             if (!_buffItem._abilitySO.isActive)
             {
-            
+            DropItem(item);
             buffItem = null;
             Player.Instance.RemoveEffect();
             OnItemChanged?.Invoke(this, EventArgs.Empty);
@@ -85,4 +94,13 @@ public class PlayerInventory : MonoBehaviour
         }
         return null;
     }
+    public void DropItem(ItemSO item)
+    {
+       GameObject drop = GameManager.Instance.resourceManager.DropItem;
+        drop.GetComponent<ItemPickUp>()._item = item;
+        Instantiate(drop, Player.Instance._dropItemPoint.position, Quaternion.identity);
+        Debug.Log("drop");
+       
+    }
+   
 }

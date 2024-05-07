@@ -12,6 +12,7 @@ public class UnitStat : MonoBehaviour
     public float AttackDmg;
     public float AttackSpeed;
     public float AttackRange;
+    public float Defense;
 
     public virtual UnitSO GetUnitSO() { return _unitSO; }
     public virtual void GetUnitStat()
@@ -22,5 +23,6 @@ public class UnitStat : MonoBehaviour
         AttackDmg = _unitSO.AttackDmg.GetValue();
         AttackSpeed = _unitSO.AttackSpeed.GetValue();
         AttackRange = _unitSO.AttackRange.GetValue();
+        Defense = _unitSO.Defense.GetValue();
     }
 }

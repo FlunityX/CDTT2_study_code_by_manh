@@ -18,11 +18,11 @@ MonoBehaviour:
   Hp:
     baseValue: 1000
   AttackDmg:
-    baseValue: 50
+    baseValue: 100
   AttackSpeed:
     baseValue: 1
   AttackRange:
     baseValue: 4
   Defense:
-    baseValue: 0
+    baseValue: 2
   IsRanger: 0

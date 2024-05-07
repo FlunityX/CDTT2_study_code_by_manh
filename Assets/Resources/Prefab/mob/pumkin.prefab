@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 965181770815680238}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.100006, y: -0.90000004, z: -0.08788824}
+  m_LocalPosition: {x: -1.8, y: -0.34, z: -0.08788824}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 1536613614397702146}
   - component: {fileID: 1742621722342048283}
   m_Layer: 11
-  m_Name: Pumkin
+  m_Name: pumkin
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,7 +119,7 @@ MonoBehaviour:
   _enemyStat: {fileID: 2363111520857421337}
   _enemyAttack: {fileID: 1198898943508781689}
   _enemyCollider: {fileID: 6138445619729986996}
-  _enemyVisual: {fileID: 0}
+  _enemyVisual: {fileID: 749408565620665797}
   _rb: {fileID: 1536613614397702146}
   detectRange: 4
   isGetHit: 0
@@ -250,7 +250,7 @@ Transform:
   m_GameObject: {fileID: 3539688086497004916}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -9.9, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -581,7 +581,7 @@ Transform:
   m_GameObject: {fileID: 9211189025958868823}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -28.1, y: 0.1, z: 0}
+  m_LocalPosition: {x: 11.04, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

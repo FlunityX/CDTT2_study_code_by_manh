@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99da319440db7cf428847c34af93b390, type: 3}
   m_Name: GoblinTankSO
   m_EditorClassIdentifier: 
-  UnitName: GoblinTank
+  UnitName: goblintank
   Speed:
     baseValue: 2
   Hp:

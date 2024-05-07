@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99da319440db7cf428847c34af93b390, type: 3}
   m_Name: SpiderSO
   m_EditorClassIdentifier: 
-  UnitName: Spider
+  UnitName: spider
   Speed:
-    baseValue: 0
+    baseValue: 2
   Hp:
     baseValue: 0
   AttackDmg:

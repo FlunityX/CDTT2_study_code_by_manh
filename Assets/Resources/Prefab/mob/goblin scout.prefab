@@ -33,10 +33,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8552590202253312580}
   - {fileID: 3421020311797192732}
   - {fileID: 1633723245829598134}
   - {fileID: 6145579325904908050}
-  - {fileID: 8552590202253312580}
+  - {fileID: 3729835158891297675}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7334918844700376540
@@ -52,10 +53,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyStat: {fileID: 7509129074142170604}
-  _enemyMeleeAttack: {fileID: 5551609050987482127}
+  _enemyAttack: {fileID: 0}
   _enemyCollider: {fileID: 113398083620854684}
+  _enemyVisual: {fileID: 0}
   _rb: {fileID: 3530834299307331895}
   detectRange: 4
+  isGetHit: 0
+  isDead: 0
 --- !u!114 &4119346948745951954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,6 +73,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _normalEnemy: {fileID: 7334918844700376540}
+  patrolPoint: {fileID: 3729835158891297675}
+  getHitDuration: 0.2
+  attackDuration: 0.5
+  durationCounter: 0
 --- !u!50 &3530834299307331895
 Rigidbody2D:
   serializedVersion: 4
@@ -142,6 +150,7 @@ GameObject:
   - component: {fileID: 8552590202253312580}
   - component: {fileID: 4552462273361933394}
   - component: {fileID: 6628759164673436936}
+  - component: {fileID: 5538564501900084882}
   m_Layer: 0
   m_Name: goblinScoutVisual
   m_TagString: Untagged
@@ -237,6 +246,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5538564501900084882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2725101843639331797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b2bc934aec421d48979cd6c200e768f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 6628759164673436936}
+  sprite: {fileID: 4552462273361933394}
+  _normalEnemy: {fileID: 7334918844700376540}
 --- !u!1 &5772901577155007435
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,11 +369,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unitSO: {fileID: 11400000, guid: e30498ef3aab1b6459ba5b2a4c902656, type: 2}
   currentHp: 0
-  speed: 2
+  Speed: 0
   Hp: 0
-  attackDamage: 0
-  attackSpeed: 2
-  attackRange: 0
+  AttackDmg: 0
+  AttackSpeed: 0
+  AttackRange: 0
+  Defense: 0
 --- !u!1 &6921540799743575278
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,7 +422,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _normalEnemy: {fileID: 7334918844700376540}
-  _checkPlayerCollider: {fileID: 0}
   isHitObstacle: 0
   isHitPlayer: 0
   groundCheckPoint: {fileID: 660481566352775294}
@@ -446,6 +470,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 11.959257, y: 1.4549115}
   m_EdgeRadius: 0
+--- !u!1 &8397359924898156322
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3729835158891297675}
+  m_Layer: 0
+  m_Name: PatrolPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3729835158891297675
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8397359924898156322}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.8, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7350929813600337913}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8965037947994198186
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,7 +510,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1633723245829598134}
-  - component: {fileID: 5551609050987482127}
+  - component: {fileID: 7802776684361916040}
   m_Layer: 0
   m_Name: Attack
   m_TagString: Untagged
@@ -479,7 +534,7 @@ Transform:
   - {fileID: 7077856632169018087}
   m_Father: {fileID: 7350929813600337913}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5551609050987482127
+--- !u!114 &7802776684361916040
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -488,12 +543,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8965037947994198186}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6660580046cbb6b448b0583dff16127a, type: 3}
+  m_Script: {fileID: 11500000, guid: ff353a36b3fac1447a3b3e85b177700d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attackPoint: {fileID: 7077856632169018087}
-  attackRange: 1
+  _normalEnemy: {fileID: 7334918844700376540}
   playerLayer:
     serializedVersion: 2
     m_Bits: 1024
-  _normalEnemy: {fileID: 7334918844700376540}
+  projectivePrefab: {fileID: 0}
+  projectiveHolder: {fileID: 0}

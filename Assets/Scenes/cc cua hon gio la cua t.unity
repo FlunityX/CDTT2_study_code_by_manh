@@ -9675,6 +9675,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe7a613e5effae844adb4e494c327b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundManager: {fileID: 0}
+  musicManager: {fileID: 0}
 --- !u!114 &1103604159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10710,6 +10712,63 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!1001 &91526074467553372
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2415883487739753190, guid: fa89fd8066aa6f349b2c1ba2bfeebacc, type: 3}
+      propertyPath: m_Name
+      value: checkpoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 6434324763163130573, guid: fa89fd8066aa6f349b2c1ba2bfeebacc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 68.72858
+      objectReference: {fileID: 0}
+    - target: {fileID: 6434324763163130573, guid: fa89fd8066aa6f349b2c1ba2bfeebacc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 23.359146
+      objectReference: {fileID: 0}
+    - target: {fileID: 6434324763163130573, guid: fa89fd8066aa6f349b2c1ba2bfeebacc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6434324763163130573, guid: fa89fd8066aa6f349b2c1ba2bfeebacc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6434324763163130573, guid: fa89fd8066aa6f349b2c1ba2bfeebacc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6434324763163130573, guid: fa89fd8066aa6f349b2c1ba2bfeebacc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6434324763163130573, guid: fa89fd8066aa6f349b2c1ba2bfeebacc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6434324763163130573, guid: fa89fd8066aa6f349b2c1ba2bfeebacc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6434324763163130573, guid: fa89fd8066aa6f349b2c1ba2bfeebacc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6434324763163130573, guid: fa89fd8066aa6f349b2c1ba2bfeebacc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fa89fd8066aa6f349b2c1ba2bfeebacc, type: 3}
 --- !u!224 &107523415857310010
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11323,7 +11382,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &431752664118723067
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11880,6 +11939,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 339035367415409497}
   removeButton: {fileID: 3444559008180718713}
+  itemDes: {fileID: 0}
+  itemDesTxt: {fileID: 0}
+  slotIndex: 0
 --- !u!114 &855687021752384760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12791,6 +12853,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 3404169057211951248}
   removeButton: {fileID: 3895785044047115815}
+  itemDes: {fileID: 0}
+  itemDesTxt: {fileID: 0}
+  slotIndex: 0
 --- !u!114 &1552543173205260290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12881,6 +12946,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 8089438680430831720}
   removeButton: {fileID: 3972275377879947975}
+  itemDes: {fileID: 0}
+  itemDesTxt: {fileID: 0}
+  slotIndex: 0
 --- !u!222 &1672950758306845920
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13233,6 +13301,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 8115152158801454114}
   removeButton: {fileID: 4650272505707732884}
+  itemDes: {fileID: 0}
+  itemDesTxt: {fileID: 0}
+  slotIndex: 0
 --- !u!224 &1857948431751662691
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13337,6 +13408,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 1214787078104176319}
   removeButton: {fileID: 5241513057927776261}
+  itemDes: {fileID: 0}
+  itemDesTxt: {fileID: 0}
+  slotIndex: 0
 --- !u!114 &1902319741388220929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13506,6 +13580,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 525913782710363517}
   removeButton: {fileID: 4549027814467336200}
+  itemDes: {fileID: 0}
+  itemDesTxt: {fileID: 0}
+  slotIndex: 0
 --- !u!114 &2028201676825270071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14423,9 +14500,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96134304a89e6fa43a0d94c4c749a1b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffectButton: {fileID: 2920597857220075042}
-  musicButton: {fileID: 5045827009736461289}
   closeButton: {fileID: 139825186633641874}
+  soundVollumeSlider: {fileID: 0}
+  musicVollumeSlider: {fileID: 0}
   attackBtn: {fileID: 8072144367148575598}
   jumpBtn: {fileID: 2878292298630872365}
   moveRightBtn: {fileID: 970807696678132306}
@@ -16146,7 +16223,6 @@ MonoBehaviour:
   _playerVisual: {fileID: 4773488544160050931}
   _playerAttack: {fileID: 6030669953977437902}
   _playerCollider: {fileID: 4413420374657039940}
-  _playerSlideCollider: {fileID: 8927167918623539640}
   _abilityHolder: {fileID: 6602849924158098009}
   _playerStat: {fileID: 8683958048267689013}
   Collider: {fileID: 4576663907825113957}
@@ -16154,6 +16230,7 @@ MonoBehaviour:
   _status: {fileID: 0}
   isGetHit: 0
   canUsePotion: 0
+  hitVFX: {fileID: 0}
   isUsePotion: 0
   coin: 100
 --- !u!1 &3736930659660048898
@@ -16946,6 +17023,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 492471076537900195}
   removeButton: {fileID: 5992697496453576197}
+  itemDes: {fileID: 0}
+  itemDesTxt: {fileID: 0}
+  slotIndex: 0
 --- !u!114 &4378322340089645258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17014,12 +17094,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b1770707c16e3e42a63c3aca37a94fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _groundCollider: {fileID: 4805757761903364693}
-  _slideCollider: {fileID: 0}
-  _groundCheckPoint: {fileID: 3715809197431118814}
   _ItemLayer:
     serializedVersion: 2
     m_Bits: 256
+  _GroundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  wallCollider: 0
+  wallColliderPos: {x: 0, y: 0, z: 0}
+  ceilCollider: 0
+  ishitGround: 0
+  ceilheigh: 0
 --- !u!222 &4483457718183821452
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18917,12 +19002,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5cb7ab1c5e375438fc1ce6f9bc3447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _boxRigidbody: {fileID: 77621591597014568}
+  _rigidbody: {fileID: 0}
   isGround: 1
   isJumping: 0
   isFalling: 0
-  isReadSlide: 1
+  canIdleFall: 0
+  isRunning: 0
+  canMove: 1
+  jumpTimeCounter: 0
+  jumpTime: 0.1
+  jumpForce: 7
+  slideDistance: 20
+  slideTimerMax: 3
+  slideTimer: 0
   increasingSpeed: 7
+  slideRaycastPoint: {fileID: 0}
+  moveDir: {x: 0, y: 0, z: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
   dirX: 0
 --- !u!1 &5627238075886587826
 GameObject:
@@ -21379,6 +21477,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 8576142681228504049}
   removeButton: {fileID: 4886254632731928978}
+  itemDes: {fileID: 0}
+  itemDesTxt: {fileID: 0}
+  slotIndex: 0
 --- !u!1 &7594920173960228961
 GameObject:
   m_ObjectHideFlags: 0
@@ -21721,6 +21822,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 9019579200448322096}
   removeButton: {fileID: 151800705809543172}
+  itemDes: {fileID: 0}
+  itemDesTxt: {fileID: 0}
+  slotIndex: 0
 --- !u!224 &7882306520005568651
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22215,6 +22319,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 7966211445251287792}
   removeButton: {fileID: 924397718991158788}
+  itemDes: {fileID: 0}
+  itemDesTxt: {fileID: 0}
+  slotIndex: 0
 --- !u!222 &8121627678403505593
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23124,12 +23231,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   airAttackTime: 1
   slideTime: 1
+  jumpTime: 0.5
   usePotionTime: 0.5
   gethitTime: 0.1
   comboDuration: 1
   attackDuration: 0.3
   counter: 0
   entryPos: {x: 0, y: 0}
+  jumpEntryPos: {x: 0, y: 0, z: 0}
 --- !u!114 &8683958048267689013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24081,3 +24190,4 @@ SceneRoots:
   - {fileID: 1827823210}
   - {fileID: 232823806}
   - {fileID: 242409764}
+  - {fileID: 91526074467553372}

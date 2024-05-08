@@ -5,11 +5,13 @@ using UnityEngine;
 public class ChestVisual : MonoBehaviour
 {
     private Animator animator;
+    public SpriteRenderer chestSprite;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        
 
     }
     public void ChestOpenAnim(string chestName)

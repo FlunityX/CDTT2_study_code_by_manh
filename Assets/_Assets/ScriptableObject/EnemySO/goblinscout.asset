@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99da319440db7cf428847c34af93b390, type: 3}
   m_Name: goblinscout
   m_EditorClassIdentifier: 
-  UnitName: gonblinscout
+  UnitName: goblinscout
   Speed:
-    baseValue: 0
+    baseValue: 3
   Hp:
-    baseValue: 0
+    baseValue: 1000
   AttackDmg:
-    baseValue: 0
+    baseValue: 100
   AttackSpeed:
-    baseValue: 0
+    baseValue: 1
   AttackRange:
-    baseValue: 0
+    baseValue: 5
   Defense:
-    baseValue: 0
+    baseValue: 10
   IsRanger: 0

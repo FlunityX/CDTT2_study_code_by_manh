@@ -41,7 +41,7 @@ public class NEnemyManager : CharacterManager
 
     public bool CheckIfPlayerTooClose()
     {
-        return Vector3.Distance(Player.Instance.transform.position, transform.position) <= 2f;
+        return Vector3.Distance(Player.Instance.transform.position, transform.position) <= 3f;
     }
     public  void ChangeDirection()
     {

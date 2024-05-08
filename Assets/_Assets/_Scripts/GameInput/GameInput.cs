@@ -71,6 +71,7 @@ public class GameInput : MonoBehaviour
     private void Pause_performed(InputAction.CallbackContext obj)
     {
         OnPauseAction?.Invoke(this, EventArgs.Empty);
+        Debug.Log("input get");
     }
     private void UseAbility_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {

@@ -41,7 +41,17 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
     
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            //DontDestroyOnLoad(gameObject);
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        
+
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         
 
@@ -100,11 +110,10 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
     {
         if (_playerStat.currentHp <= 0)
         {
-            //audioManager.PlaySFX(audioManager.die);
+            
+            SaveSystem.LoadData();
  
-            transform.position = checkpointPos;
-            _playerStat.currentHp = 0;
-            HealHp(_playerStat.Hp);
+            
         }
         
     }
@@ -188,7 +197,12 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
     }
     public void LoadData()
     {
-        SaveSystem.LoadData();
+       SaveSystem.LoadCurrentScene();
+       
+    }
+    public void LoadData1()
+    {
+       SaveSystem.LoadData();
        
     }
     public void LastCheckPoint(Transform checkPoint)

@@ -53,9 +53,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyStat: {fileID: 7509129074142170604}
-  _enemyAttack: {fileID: 0}
+  _enemyAttack: {fileID: 7802776684361916040}
   _enemyCollider: {fileID: 113398083620854684}
-  _enemyVisual: {fileID: 0}
+  _enemyVisual: {fileID: 5538564501900084882}
   _rb: {fileID: 3530834299307331895}
   detectRange: 4
   isGetHit: 0

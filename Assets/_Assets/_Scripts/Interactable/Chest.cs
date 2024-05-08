@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class Chest : MonoBehaviour, IInteractable
 {
-    [SerializeField] private ChestSO chestSO;
+     public ChestSO chestSO;
     [SerializeField] private ChestVisual _chestVisual;
     public GameObject interactUI;
 
     private void Start()
     {
      _chestVisual = GetComponentInChildren<ChestVisual>();
+        _chestVisual.chestSprite.sprite = chestSO.chestSprite;
      
     }
     public void InteractHandler()
     {
-        Debug.Log("Chest loot");
+        Debug.Log("Chest_Diamond loot");
         ChestLoot();
         _chestVisual.ChestOpenAnim(chestSO.chestName);
         Invoke("DestroyGameObject", 1f);

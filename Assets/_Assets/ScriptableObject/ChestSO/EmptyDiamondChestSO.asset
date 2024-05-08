@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: EmptyDiamondChestSO
   m_EditorClassIdentifier: 
   chestSprite: {fileID: 0}
-  chestName: 
+  chestName: Chest_Empty
   itemSOs: []
   coinAmount: 0

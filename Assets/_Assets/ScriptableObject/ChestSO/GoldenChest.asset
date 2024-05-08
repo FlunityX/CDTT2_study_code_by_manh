@@ -17,7 +17,5 @@ MonoBehaviour:
   itemSOs:
   - {fileID: 11400000, guid: 7179ee12d692f4e4899403442e9e5e73, type: 2}
   - {fileID: 11400000, guid: 59fa57f497024d6459ee38580be1d304, type: 2}
-  - {fileID: 11400000, guid: 7fa2afbf798d5494086322a24305d68a, type: 2}
-  - {fileID: 11400000, guid: 99cd4aa3c2921e245b3b83573de9ac57, type: 2}
   - {fileID: 11400000, guid: fff6eff43ce9b4246a81703fbc054402, type: 2}
   coinAmount: 15

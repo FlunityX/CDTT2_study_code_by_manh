@@ -110,10 +110,9 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
     {
         if (_playerStat.currentHp <= 0)
         {
-            
-            SaveSystem.LoadData();
- 
-            
+
+            SaveSystem.LoadCurrentScene();
+  
         }
         
     }
@@ -186,10 +185,6 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
         gameObject.layer = LayerMask.NameToLayer(GameConstant.PLAYER_TAG);
 
     }
-    public void UpdateCheckpoint(Vector2 pos)
-    {
-        checkpointPos = pos;
-    }
     
     public void SaveData()
     {
@@ -205,11 +200,18 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
        SaveSystem.LoadData();
        
     }
+    public void LoadDebug()
+    {
+        SaveSystem.DebugData();
+    }
     public void LastCheckPoint(Transform checkPoint)
     {
        checkpointPos = checkPoint.position;
     }
-   
+     public void SpawnOnLastCheckPoint()
+    {
+        transform.position = checkpointPos;
+    }
    
    
 }

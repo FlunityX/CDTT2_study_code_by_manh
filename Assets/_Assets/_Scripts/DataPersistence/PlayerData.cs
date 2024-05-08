@@ -18,10 +18,10 @@ public class PlayerData
     public List<StatusEffectSO> status = new List<StatusEffectSO>();
     public List<ChestData> chests = new List<ChestData>();
 
-    public PlayerData()
+   /* public PlayerData()
     {
         currentscene = Loader.GetCurrentScene();
-        hp = Player.Instance._playerStat.currentHp;
+        hp = 10;
         coin = Player.Instance.coin;
         storyItems = PlayerInventory.Instance.storiesItem;
         items = PlayerInventory.Instance.items;
@@ -31,17 +31,18 @@ public class PlayerData
 
         status = Player.Instance._statusHolder.statusEffects;
 
-        for (int i = 0; i < GameManager.Instance.GetAllChest().Count; i++)
+        for (int i = 0; i < GameManager.Instance.chestHolder.transform.childCount; i++)
         {
             ChestData data = new ChestData();
-            data.chest = GameManager.Instance.GetAllChest()[i].GetComponent<Chest>().chestSO;
-            data.pos = GameManager.Instance.GetAllChest()[i].transform.position;
+            data.chest = GameManager.Instance.chestHolder.transform.GetChild(i).GetComponent<Chest>().chestSO;
+            data.pos = GameManager.Instance.chestHolder.transform.GetChild(i).transform.position;
             chests.Add(data);
 
 
         }
+        Debug.Log(chests.Count);
     }
-    
+    */
 }
     public struct ChestData
     {

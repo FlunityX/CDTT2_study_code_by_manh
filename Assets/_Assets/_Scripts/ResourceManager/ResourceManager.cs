@@ -17,6 +17,6 @@ public class ResourceManager : MonoBehaviour
         Chest_Diamond = Resources.Load<GameObject>("Prefab/object/diamon chest");
         Chest_Gold = Resources.Load<GameObject>("Prefab/object/golden chest");
         Chest_Wood = Resources.Load<GameObject>("Prefab/object/wooden chest");
-        Chest_Empty = Resources.Load<GameObject>("Prefab/object/empty chestt");
+        Chest_Empty = Resources.Load<GameObject>("Prefab/object/empty chest");
     }
 }

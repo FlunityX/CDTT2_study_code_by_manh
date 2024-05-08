@@ -408,7 +408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46017204e9292a444a2003a11268f3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chestSprite: {fileID: 0}
+  chestSprite: {fileID: 1251261217175478598}
 --- !u!1 &8438720580829323634
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,15 +15,25 @@ public class GameManager : MonoBehaviour
     public GameObject chestHolder;
     private void Awake()
     {
-        
+
+        if (Instance == null)
+        {
+            //DontDestroyOnLoad(gameObject);
             Instance = this;
-        
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
     }
     private void Start()
     {
         GameInput.Instance.OnPauseAction += GameInput_OnPauseAction;
         
         chestHolder = GameObject.Find("chestHolder");
+
+       SaveSystem.LoadData();
+      Player.Instance.SpawnOnLastCheckPoint();
 
     }
 
@@ -52,24 +62,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public List<Transform> GetAllChest()
-    {
-        List<Transform> obstacles = new List<Transform>();
-        
-        for(int i = 0;i< chestHolder.transform.childCount;i++)
-        {
-            obstacles.Add(chestHolder.transform.GetChild(i));
-        }
-       
-        
-       return obstacles;
-    }
+    
     public void DestroyCurrentChest()
     {
         foreach(Transform child in chestHolder.transform)
         {
             Destroy(child.gameObject);
         }
+        Debug.Log("Destroy current chest");
     }
     public void InstantiateNewChest(ChestSO chestSO,Vector2 pos)
     {

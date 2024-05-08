@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitName: spider
   Speed:
-    baseValue: 2
+    baseValue: 4
   Hp:
-    baseValue: 0
+    baseValue: 500
   AttackDmg:
-    baseValue: 0
+    baseValue: 300
   AttackSpeed:
-    baseValue: 0
+    baseValue: 1.2
   AttackRange:
-    baseValue: 0
+    baseValue: 1.5
   Defense:
-    baseValue: 0
+    baseValue: 5
   IsRanger: 0

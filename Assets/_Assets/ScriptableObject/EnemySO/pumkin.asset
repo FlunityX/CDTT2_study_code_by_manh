@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitName: pumkin
   Speed:
-    baseValue: 0
+    baseValue: 2
   Hp:
-    baseValue: 0
+    baseValue: 300
   AttackDmg:
-    baseValue: 0
+    baseValue: 150
   AttackSpeed:
-    baseValue: 0
+    baseValue: 0.6
   AttackRange:
-    baseValue: 0
+    baseValue: 1
   Defense:
-    baseValue: 0
+    baseValue: 1
   IsRanger: 0

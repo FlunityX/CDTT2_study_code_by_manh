@@ -15,7 +15,7 @@ MonoBehaviour:
   chestSprite: {fileID: -1565534159, guid: daf46c83d8de0ee46a1a0c3cfdf4251f, type: 3}
   chestName: WoodenChest
   itemSOs:
-  - {fileID: 11400000, guid: 59fa57f497024d6459ee38580be1d304, type: 2}
-  - {fileID: 11400000, guid: 7fa2afbf798d5494086322a24305d68a, type: 2}
   - {fileID: 11400000, guid: 99cd4aa3c2921e245b3b83573de9ac57, type: 2}
+  - {fileID: 11400000, guid: 7fa2afbf798d5494086322a24305d68a, type: 2}
+  - {fileID: 11400000, guid: 3a51cec998dae734ca0160694ee5f127, type: 2}
   coinAmount: 5

@@ -7,7 +7,7 @@ public class ChangeScene : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
        if( collision.CompareTag(GameConstant.PLAYER_TAG)){
-            Loader.Load(Loader.Scene.GameScene);
+            Loader.Load(Loader.Scene.GameLevel1);
         }
     }
 }

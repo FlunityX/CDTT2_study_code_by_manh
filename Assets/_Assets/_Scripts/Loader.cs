@@ -9,8 +9,8 @@ public static class Loader
     public enum Scene
     {
         MenuScene,
-        GameScene,
         LoadingScene,
+        GameLevel1,
     }
     // Start is called before the first frame update
     private static Scene targetScene;
@@ -21,6 +21,7 @@ public static class Loader
         SceneManager.LoadScene(currentScene);
       
     }
+    
     public static string GetCurrentScene()
     {
         return SceneManager.GetActiveScene().name;

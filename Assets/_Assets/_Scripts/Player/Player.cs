@@ -1,10 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Collections.LowLevel.Unsafe;
-using Unity.VisualScripting;
+
 using UnityEngine;
-using static UnityEditor.Progress;
+
 
 public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
 {
@@ -200,10 +197,7 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
        SaveSystem.LoadData();
        
     }
-    public void LoadDebug()
-    {
-        SaveSystem.DebugData();
-    }
+  
     public void LastCheckPoint(Transform checkPoint)
     {
        checkpointPos = checkPoint.position;

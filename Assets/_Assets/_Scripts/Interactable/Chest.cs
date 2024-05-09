@@ -12,6 +12,7 @@ public class Chest : MonoBehaviour, IInteractable
     {
      _chestVisual = GetComponentInChildren<ChestVisual>();
         _chestVisual.chestSprite.sprite = chestSO.chestSprite;
+        interactUI.SetActive(false);
      
     }
     public void InteractHandler()

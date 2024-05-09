@@ -18,7 +18,7 @@ public class Checkpoint : MonoBehaviour
                 ActivedCheckpoint.SetActive(true);
             }
 
-            SaveSystem.SavePlayer();
+            Player.Instance.SaveData();
             collision.GetComponent<Player>().LastCheckPoint(this.transform);
         }
     }

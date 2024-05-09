@@ -12,7 +12,7 @@ public class Trap : MonoBehaviour
 
     [SerializeField] public float dmg;
 
-    private void Awake()
+    private void Start()
     {
         audioManager = GameManager.Instance.soundManager;
     }

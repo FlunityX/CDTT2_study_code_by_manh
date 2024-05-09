@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public ResourceManager resourceManager;
     public GameObject chestHolder;
     [SerializeField] public List<ChestData> chestData;
+ 
     private void Awake()
     {
 
@@ -30,13 +31,16 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         GameInput.Instance.OnPauseAction += GameInput_OnPauseAction;
-        
         chestHolder = GameObject.Find("chestHolder");
+        if (!SceneChecker.Instance.isFirstTime)
+        {
+            SaveSystem.LoadData();
+            Player.Instance.SpawnOnLastCheckPoint();
 
-       SaveSystem.LoadData();
-      Player.Instance.SpawnOnLastCheckPoint();
+        }
 
     }
+
 
     private void GameInput_OnPauseAction(object sender, EventArgs e)
     {

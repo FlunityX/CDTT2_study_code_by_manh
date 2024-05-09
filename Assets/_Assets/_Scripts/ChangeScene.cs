@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class ChangeScene : MonoBehaviour
 {
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
        if( collision.CompareTag(GameConstant.PLAYER_TAG)){
-            Loader.Load(Loader.Scene.GameLevel1);
+            Loader.Load(Loader.GetNextScene());
+            SceneChecker.Instance.isFirstTime = true;
         }
     }
+
+
 }

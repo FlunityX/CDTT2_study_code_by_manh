@@ -20,12 +20,12 @@ public class StoryItemUI : MonoBehaviour
         nextBtn.onClick.AddListener(() =>
         {
             index++;
-            if(index > 3) index = 0;
+            if(index > 5) index = 0;
             UpdateUI(); 
         });
         preBtn.onClick.AddListener(() => { 
             index--;
-            if(index < 0) index= 3;
+            if(index < 0) index= 5;
             UpdateUI();
         });
         closeBtn.onClick.AddListener(() =>

@@ -37,7 +37,6 @@ Transform:
   - {fileID: 3421020311797192732}
   - {fileID: 1633723245829598134}
   - {fileID: 6145579325904908050}
-  - {fileID: 3729835158891297675}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7334918844700376540
@@ -73,7 +72,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _normalEnemy: {fileID: 7334918844700376540}
-  patrolPoint: {fileID: 3729835158891297675}
+  patrolPoint:
+  - {fileID: 0}
   getHitDuration: 0.2
   attackDuration: 0.5
   durationCounter: 0
@@ -470,37 +470,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 11.959257, y: 1.4549115}
   m_EdgeRadius: 0
---- !u!1 &8397359924898156322
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3729835158891297675}
-  m_Layer: 0
-  m_Name: PatrolPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3729835158891297675
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8397359924898156322}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.8, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7350929813600337913}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8965037947994198186
 GameObject:
   m_ObjectHideFlags: 0

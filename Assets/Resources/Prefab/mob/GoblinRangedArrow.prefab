@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 7831004576930035643}
   normalEnemy: {fileID: 0}
-  dmg: 0
+  dmg: 1.83
 --- !u!50 &7831004576930035643
 Rigidbody2D:
   serializedVersion: 4

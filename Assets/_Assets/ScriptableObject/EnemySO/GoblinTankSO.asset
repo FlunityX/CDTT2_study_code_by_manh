@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitName: goblintank
   Speed:
-    baseValue: 2
+    baseValue: 1
   Hp:
-    baseValue: 200
+    baseValue: 1000
   AttackDmg:
-    baseValue: 5
+    baseValue: 400
   AttackSpeed:
     baseValue: 2
   AttackRange:

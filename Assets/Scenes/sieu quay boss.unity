@@ -43686,30 +43686,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1363032204}
     m_Modifications:
-    - target: {fileID: 646664897723557905, guid: 2d88f7e777e66084c9ee628cd982f476, type: 3}
-      propertyPath: m_text
-      value: Hahahaha!!..-Prepare to die, bastard!
-      objectReference: {fileID: 0}
-    - target: {fileID: 646664897723557905, guid: 2d88f7e777e66084c9ee628cd982f476, type: 3}
-      propertyPath: m_fontSize
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 646664897723557905, guid: 2d88f7e777e66084c9ee628cd982f476, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 646664897723557905, guid: 2d88f7e777e66084c9ee628cd982f476, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4278190080
-      objectReference: {fileID: 0}
-    - target: {fileID: 1618501544819511573, guid: 2d88f7e777e66084c9ee628cd982f476, type: 3}
-      propertyPath: m_text
-      value: Nightbringer
-      objectReference: {fileID: 0}
-    - target: {fileID: 1618501544819511573, guid: 2d88f7e777e66084c9ee628cd982f476, type: 3}
-      propertyPath: m_margin.z
-      value: 0.2839203
-      objectReference: {fileID: 0}
     - target: {fileID: 1775016547716624717, guid: 2d88f7e777e66084c9ee628cd982f476, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -43790,45 +43766,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2249306583598319562, guid: 2d88f7e777e66084c9ee628cd982f476, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 40.9173
-      objectReference: {fileID: 0}
-    - target: {fileID: 2249306583598319562, guid: 2d88f7e777e66084c9ee628cd982f476, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 51.239
-      objectReference: {fileID: 0}
-    - target: {fileID: 2249306583598319562, guid: 2d88f7e777e66084c9ee628cd982f476, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -222.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2249306583598319562, guid: 2d88f7e777e66084c9ee628cd982f476, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3396715052969423201, guid: 2d88f7e777e66084c9ee628cd982f476, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 129966619, guid: ce98782196c990f4e8902b599a8176a8, type: 3}
-    - target: {fileID: 3404693215694152059, guid: 2d88f7e777e66084c9ee628cd982f476, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 431.0638
-      objectReference: {fileID: 0}
-    - target: {fileID: 3404693215694152059, guid: 2d88f7e777e66084c9ee628cd982f476, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 33.4976
-      objectReference: {fileID: 0}
     - target: {fileID: 6640127012845438783, guid: 2d88f7e777e66084c9ee628cd982f476, type: 3}
       propertyPath: m_Name
       value: BossDialoguePanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 6640127012845438783, guid: 2d88f7e777e66084c9ee628cd982f476, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6978932221944479074, guid: 2d88f7e777e66084c9ee628cd982f476, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -32.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -44043,26 +43983,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1363032204}
     m_Modifications:
-    - target: {fileID: 646664897723557905, guid: d9a940138cbb418478b70119ef1d6f8b, type: 3}
-      propertyPath: m_text
-      value: You are... ?!?
-      objectReference: {fileID: 0}
-    - target: {fileID: 646664897723557905, guid: d9a940138cbb418478b70119ef1d6f8b, type: 3}
-      propertyPath: m_fontSize
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 646664897723557905, guid: d9a940138cbb418478b70119ef1d6f8b, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 646664897723557905, guid: d9a940138cbb418478b70119ef1d6f8b, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4278190080
-      objectReference: {fileID: 0}
-    - target: {fileID: 1618501544819511573, guid: d9a940138cbb418478b70119ef1d6f8b, type: 3}
-      propertyPath: m_text
-      value: Alex
-      objectReference: {fileID: 0}
     - target: {fileID: 1775016547716624717, guid: d9a940138cbb418478b70119ef1d6f8b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -44143,33 +44063,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2249306583598319562, guid: d9a940138cbb418478b70119ef1d6f8b, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 33.9634
-      objectReference: {fileID: 0}
-    - target: {fileID: 2249306583598319562, guid: d9a940138cbb418478b70119ef1d6f8b, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 55.359
-      objectReference: {fileID: 0}
-    - target: {fileID: 2249306583598319562, guid: d9a940138cbb418478b70119ef1d6f8b, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -237.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2249306583598319562, guid: d9a940138cbb418478b70119ef1d6f8b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3396715052969423201, guid: d9a940138cbb418478b70119ef1d6f8b, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -1222535055, guid: 6db184022a4291140af614c074a2fdb9, type: 3}
     - target: {fileID: 6640127012845438783, guid: d9a940138cbb418478b70119ef1d6f8b, type: 3}
       propertyPath: m_Name
       value: PlayerDialougePanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 6640127012845438783, guid: d9a940138cbb418478b70119ef1d6f8b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

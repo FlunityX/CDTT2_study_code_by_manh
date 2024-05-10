@@ -9,6 +9,7 @@ public class BossSpell : MonoBehaviour
    public void DealDmg()
     {
         Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, new Vector2(5, 18), 0);
+        GameManager.Instance.soundManager.PlayBossSpell(transform.position);
         if(hits != null)
         {
             foreach(Collider2D hit in hits)

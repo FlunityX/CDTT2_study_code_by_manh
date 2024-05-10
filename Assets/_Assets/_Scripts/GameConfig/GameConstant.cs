@@ -56,6 +56,16 @@ public static class GameConstant
     public const string GOLD_CHEST = "GoldenChest";
     public const string WOOD_CHEST = "WoodenChest";
     public const string EMPTY_CHEST = "Chest_Empty";
-    
+
+    #endregion
+
+    #region EnemyName Constant
+    public const string GLOBIN_TANK = "goblintank";
+    public const string GLOBIN_SCOUT = "goblinscout";
+    public const string GLOBIN_RANGED = "goblinranged";
+    public const string BAT = "bat";
+    public const string PUMKIN = "pumkin";
+    public const string SPIDER = "spider";
+    public const string TOAD = "toad";
     #endregion
 }

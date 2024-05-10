@@ -22,12 +22,12 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   ItemType: 3
-  ItemName: Paper
+  ItemName: Paper1
   Icon: {fileID: 21300000, guid: b2eedf9de2973e34fac620276d432592, type: 3}
   Price: 0
-  ItemInfo: 
+  ItemInfo: A piece of paper
   index: 0
-  itemHeaderContent: 
+  itemHeaderContent: Paper from nowhere.
   itemContent: '"Rumble... rumble... rumble... rumble... rumble... rumble... rumble...
 
     The

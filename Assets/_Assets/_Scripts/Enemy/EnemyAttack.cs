@@ -68,6 +68,7 @@ public class EnemyAttack : MonoBehaviour, IRangeAttack, IMeleeAttack
     {
         yield return new WaitForSeconds(.3f);
         Collider2D hit = Physics2D.OverlapCircle(attackPoint.position, _normalEnemy.GetEnemyStat().AttackRange / 2f, playerLayer);
+        PLaySound(_normalEnemy.GetEnemyStat()._unitSO.UnitName);
         if (hit != null)
         {
 
@@ -81,5 +82,25 @@ public class EnemyAttack : MonoBehaviour, IRangeAttack, IMeleeAttack
             }
         }
 
+    }
+    public void PLaySound(string name)
+    {
+        if (name == GameConstant.PUMKIN || name == GameConstant.SPIDER)
+        {
+            GameManager.Instance.soundManager.PlayMob2Attack(transform.position);
+        }
+        else if (name == GameConstant.GLOBIN_RANGED)
+        {
+            GameManager.Instance.soundManager.PlayRangedGlobinAttack(transform.position);
+        }
+        else if (name == GameConstant.GLOBIN_SCOUT)
+        {
+            GameManager.Instance.soundManager.PlayScoutGlobinAttack(transform.position);
+        }
+        else if (name == GameConstant.GLOBIN_TANK || name == GameConstant.TOAD)
+        {
+            GameManager.Instance.soundManager.PlayMobAttack(transform.position);
+        }
+        else return;
     }
 }

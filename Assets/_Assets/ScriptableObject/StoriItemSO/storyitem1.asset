@@ -22,12 +22,12 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   ItemType: 3
-  ItemName: 
+  ItemName: Paper2
   Icon: {fileID: 21300000, guid: b2eedf9de2973e34fac620276d432592, type: 3}
   Price: 0
-  ItemInfo: 
+  ItemInfo: A piece of paper
   index: 1
-  itemHeaderContent: 
-  itemContent: "\" \tBeauty, power, authority, she possesses them all. \r\nShe resembles
+  itemHeaderContent: Thorny rose.
+  itemContent: "\r\"Beauty, power, authority, she possesses them all. \r\nShe resembles
     humans, yet she is also different. \r\nDon't let her anger be unleashed! \"\r\n-
     \u201CShe\u201D?...\r\n\r\n"

@@ -22,12 +22,12 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   ItemType: 3
-  ItemName: 
+  ItemName: Paper3
   Icon: {fileID: 21300000, guid: b2eedf9de2973e34fac620276d432592, type: 3}
   Price: 0
-  ItemInfo: 
+  ItemInfo: A piece of paper
   index: 2
-  itemHeaderContent: 
-  itemContent: "\" \tThis is just the beginning. \r\nThere is much more waiting for
+  itemHeaderContent: The journey start.
+  itemContent: "\" This is just the beginning. \r\nThere is much more waiting for
     you ahead. \r\nBecause you are the chosen one, Alex. \"\r\n- Who wrote these
     papers? How does he know my name?\r\n- Maybe, this is not the end.\"\r\n"

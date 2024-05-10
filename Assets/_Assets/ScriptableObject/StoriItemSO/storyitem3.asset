@@ -22,12 +22,12 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   ItemType: 3
-  ItemName: 
+  ItemName: Paper4
   Icon: {fileID: 21300000, guid: b2eedf9de2973e34fac620276d432592, type: 3}
   Price: 0
-  ItemInfo: 
+  ItemInfo: A piece of paper
   index: 3
-  itemHeaderContent: 
-  itemContent: "\" \tAlan, you made a mistake. \r\nThat's why your family had to
-    suffer this consequence. \r\nYou should be grateful that I let your youngest
-    son live. \"\r\n"
+  itemHeaderContent: Mistaken?
+  itemContent: "\" Alan, you made a mistake. \r\nThat's why your family had to suffer
+    this consequence. \r\nYou should be grateful that I let your youngest son live.
+    \"\r\n"

@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitName: goblinranged
   Speed:
-    baseValue: 3
+    baseValue: 1
   Hp:
-    baseValue: 100
+    baseValue: 300
   AttackDmg:
-    baseValue: 10
+    baseValue: 100
   AttackSpeed:
-    baseValue: 5
+    baseValue: 1
   AttackRange:
-    baseValue: 15
+    baseValue: 100
   Defense:
     baseValue: 0
   IsRanger: 1

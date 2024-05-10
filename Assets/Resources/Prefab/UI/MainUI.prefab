@@ -3078,7 +3078,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storyText: {fileID: 4460515795529741219}
   storyHeaderText: {fileID: 9193111838913591491}
-  backGround: {fileID: 0}
   closeBtn: {fileID: 7629649794187282689}
   nextBtn: {fileID: 4013948330621278227}
   preBtn: {fileID: 2606198108115793093}
@@ -14771,7 +14770,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 20279
 --- !u!1 &8458976714787138744
 GameObject:
   m_ObjectHideFlags: 0

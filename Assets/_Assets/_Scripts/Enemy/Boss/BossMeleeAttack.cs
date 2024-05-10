@@ -57,6 +57,7 @@ public class BossMeleeAttack : MonoBehaviour,IMeleeAttack
     {
         yield return new WaitForSeconds(.3f);
         Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, _boss.GetEnemyStat().AttackRange, playerLayer);
+        GameManager.Instance.soundManager.PlayBossAttack(transform.position);
         if (hits != null)
         {
             foreach (Collider2D hit in hits)

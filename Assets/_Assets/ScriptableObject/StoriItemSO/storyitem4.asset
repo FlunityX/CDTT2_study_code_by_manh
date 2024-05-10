@@ -22,12 +22,12 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   ItemType: 3
-  ItemName: 
+  ItemName: Paper5
   Icon: {fileID: 21300000, guid: b2eedf9de2973e34fac620276d432592, type: 3}
   Price: 0
-  ItemInfo: 
+  ItemInfo: A piece of paper
   index: 4
-  itemHeaderContent: 
-  itemContent: "\" \tMary, you made a mistake by choosing that bastard over me. \r\nI
+  itemHeaderContent: Betrayal.
+  itemContent: "\"Mary, you made a mistake by choosing that bastard over me. \r\nI
     gave you everything, yet you betrayed me. \r\nWealth, power, strength, what does
     that man have that I don't? \r\nYOU MUST DIE! \"\r\n"

@@ -17,6 +17,10 @@ public class Explosion : MonoBehaviour
 
         }
     }
+    public void PlaySound()
+    {
+        GameManager.Instance.soundManager.PlayExplosionSound(transform.position);
+    }
     public void DestroyPrefab()
     {
         Destroy(gameObject.transform.parent.gameObject);

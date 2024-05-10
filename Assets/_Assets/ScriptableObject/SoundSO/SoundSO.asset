@@ -25,16 +25,16 @@ MonoBehaviour:
   fall:
   - {fileID: 8300000, guid: 2002ae81878c8694caf83e85624a6cac, type: 3}
   getHit:
-  - {fileID: 8300000, guid: c116aa129edc4004ba9b0d957c02a039, type: 3}
   - {fileID: 8300000, guid: b68dc8dfd1c47a441af196150ca55475, type: 3}
   usePotion:
-  - {fileID: 8300000, guid: c116aa129edc4004ba9b0d957c02a039, type: 3}
+  - {fileID: 8300000, guid: f63fbfc917fb40d4f917717e59ced512, type: 3}
   dead:
   - {fileID: 8300000, guid: 070a270800d447e48a19f0a7b881a1e3, type: 3}
   interact:
   - {fileID: 8300000, guid: a282929cf4dfc2c4ea5302cd38788f47, type: 3}
   pickUp: []
-  boss_attack: []
+  boss_attack:
+  - {fileID: 8300000, guid: c116aa129edc4004ba9b0d957c02a039, type: 3}
   boss_spell:
   - {fileID: 8300000, guid: a1bf20f80d953db47b9423b1945966db, type: 3}
   boss_dead: []
@@ -49,6 +49,6 @@ MonoBehaviour:
   Pumkin_Attack:
   - {fileID: 8300000, guid: 3aa3fefe4c0f59544a7dc7fd2b26b828, type: 3}
   Spider_Attack:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 3aa3fefe4c0f59544a7dc7fd2b26b828, type: 3}
   Explosion:
   - {fileID: 8300000, guid: ec461f4292c57bf4e89380e416120156, type: 3}

@@ -22,11 +22,11 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   ItemType: 3
-  ItemName: 
+  ItemName: Paper6
   Icon: {fileID: 21300000, guid: b2eedf9de2973e34fac620276d432592, type: 3}
   Price: 0
-  ItemInfo: 
+  ItemInfo: A piece of paper
   index: 5
-  itemHeaderContent: 
-  itemContent: "\" \tWillem, you damn little bastard. \r\nI should have let you live
+  itemHeaderContent: ??????????????
+  itemContent: "\" Willem, you damn little bastard. \r\nI should have let you live
     with your brother. \r\nBut your courage, your bravery killed you. \"\r\n"

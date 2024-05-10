@@ -11,7 +11,7 @@ public class NEnemyChaseState : NEnemyBaseState
         base.EnterState(characterManager);
         ChaseDir = Player.Instance.transform.position.x - _NEnemyManager._normalEnemy.transform.position.x;
         _NEnemyManager._normalEnemy.GetEnemyVisual().PlayWalkAnim();
-
+        GameManager.Instance.soundManager.PlayGlobinChase(_NEnemyManager.transform.position);
 
 
         Debug.Log("chase");

@@ -23,7 +23,6 @@ public class SoundManager : MonoBehaviour
         Player.Instance.OnPlayerGetHit += Player_OnPlayerGetHit;
         Player.Instance.OnPlayerHeal += Player_OnPlayerHeal;
         Player.Instance.OnPlayerInteract += Player_OnPlayerInteract;
-        Player.Instance.OnPlayerSlide += Player_OnPlayerSlide;
         Player.Instance.OnPlayerJump += Player_OnPlayerJump;
     }
 
@@ -40,10 +39,7 @@ public class SoundManager : MonoBehaviour
 
 
     //Player Play Sound
-    private void Player_OnPlayerSlide(object sender, System.EventArgs e)
-    {
-        PlaySound(SoundRefSO.slide, Player.Instance.transform.position, vollume);
-    }
+  
 
     private void Player_OnPlayerInteract(object sender, System.EventArgs e)
     {

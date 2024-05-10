@@ -56,7 +56,7 @@ public class PlayerAttack : MonoBehaviour, IMeleeAttack,IRangeAttack
     {
         yield return new WaitForSeconds(.2f);
         Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, 2f, _enemyLayer);
-         Player.Instance.PlayerAttackInvoke();
+         
         if (hits != null)
         {
             foreach (Collider2D hit in hits)
@@ -64,12 +64,17 @@ public class PlayerAttack : MonoBehaviour, IMeleeAttack,IRangeAttack
                 Debug.Log(hit.name);
                 if (hit.CompareTag(GameConstant.ENEMY_TAG))
                 {
-                    //Player.Instance.PlayerAttackHitInvoke();
+                    Player.Instance.PlayerAttackHitInvoke();
 
                     Player.Instance.DealDamage(hit.GetComponent<IReceiveDamage>(), dmg);
                     Player.Instance.InstantiateHitEffect(hit.transform);
                 }
+               
             }
+        }
+        else
+        {
+            Player.Instance.PlayerAttackInvoke();
         }
 
     }

@@ -65,6 +65,7 @@ public class InventoryUI : MonoBehaviour
 
     public void Show()
     {
+        UpdateUI();
         gameObject.SetActive(true);
     }
     public void Hide()

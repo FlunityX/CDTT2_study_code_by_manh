@@ -14,7 +14,7 @@ public class NEnemyPartrolState : NEnemyBaseState
         entryTime = Time.time;
         _NEnemyManager._normalEnemy.GetEnemyVisual().PlayWalkAnim();
         _NEnemyManager.Move();
-
+        _NEnemyManager.GenerateNewPatrolIndex();
         Debug.Log("enter");
         
     }

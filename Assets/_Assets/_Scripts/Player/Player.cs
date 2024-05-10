@@ -1,10 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Collections.LowLevel.Unsafe;
-using Unity.VisualScripting;
+
 using UnityEngine;
-using static UnityEditor.Progress;
+
 
 public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
 {
@@ -37,7 +34,7 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
     public event EventHandler OnPlayerInteract;
     public event EventHandler OnPlayerSlide;
     public event EventHandler OnPlayerJump;
-
+    public event EventHandler OnPlayerSave;
     
     private void Awake()
     {
@@ -189,21 +186,11 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
     public void SaveData()
     {
         SaveSystem.SavePlayer();
+        OnPlayerSave?.Invoke(this, EventArgs.Empty);
     }
-    public void LoadData()
-    {
-       SaveSystem.LoadCurrentScene();
-       
-    }
-    public void LoadData1()
-    {
-       SaveSystem.LoadData();
-       
-    }
-    public void LoadDebug()
-    {
-        SaveSystem.DebugData();
-    }
+  
+   
+  
     public void LastCheckPoint(Transform checkPoint)
     {
        checkpointPos = checkPoint.position;

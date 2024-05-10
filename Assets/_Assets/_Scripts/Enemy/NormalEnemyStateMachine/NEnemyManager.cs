@@ -13,10 +13,10 @@ public class NEnemyManager : CharacterManager
     public NEnemyKeepDistanceState _NEnemyKeepDistanceState= new();
     public NEnemyDeadState _NEnemyDeadState= new();
     public NormalEnemy _normalEnemy;
-    public Transform patrolPoint;
+    public Transform[] patrolPoint;
     public Tween tween;
     private Tween moveTween;
-
+    private int patrolIndex;
     private float ChaseDir;
     public float getHitDuration = .2f;
     public float attackDuration = .5f;
@@ -114,12 +114,19 @@ public class NEnemyManager : CharacterManager
     {
         return _normalEnemy.isDead;
     }
-    
+    public void GenerateNewPatrolIndex()
+    {
+        int newIndex = Random.Range(0, patrolPoint.Length);
+        while (patrolIndex == newIndex ) {
+          newIndex=  Random.Range(0,patrolPoint.Length);
+        }
+        patrolIndex = newIndex;
+    }
     public void Move()
     {
-        tween = transform.DOMove(new Vector3(patrolPoint.position.x,transform.position.y,0), Vector3.Distance(_normalEnemy.transform.position, patrolPoint.position) / _normalEnemy.GetEnemyStat().Speed)
+        tween = transform.DOMove(new Vector3(patrolPoint[patrolIndex].position.x,transform.position.y,0), Vector3.Distance(_normalEnemy.transform.position, patrolPoint[patrolIndex].position) / _normalEnemy.GetEnemyStat().Speed)
             .OnComplete(() => ChangeState(_NEnemyIdleState));
-        UpdateChaseDir(patrolPoint);
+        UpdateChaseDir(patrolPoint[patrolIndex]);
 
     }
     public void InteruptMove()

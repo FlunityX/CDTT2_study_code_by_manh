@@ -54,8 +54,8 @@ public static class GameConstant
     #region ChestName Constant
     public const string DIAMOND_CHEST = "DiamondChest";
     public const string GOLD_CHEST = "GoldenChest";
-    public const string WOOD_CHEST = "Chests_Wood";
-    public const string EMPTY_CHEST = "WoodenChest";
+    public const string WOOD_CHEST = "WoodenChest";
+    public const string EMPTY_CHEST = "Chest_Empty";
     
     #endregion
 }

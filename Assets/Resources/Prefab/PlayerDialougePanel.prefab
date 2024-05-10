@@ -199,7 +199,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: You are... ?!?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6f90bac42be35745916823df5ef5ff4, type: 2}
   m_sharedMaterial: {fileID: -5371631690511688533, guid: d6f90bac42be35745916823df5ef5ff4, type: 2}
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4284243079
+    rgba: 4278190080
   m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -226,8 +226,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -302,8 +302,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -235.9, y: 8.1}
-  m_SizeDelta: {x: 56.2743, y: 66.1991}
+  m_AnchoredPosition: {x: -237.2, y: 8}
+  m_SizeDelta: {x: 33.9634, y: 55.359}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4900131914051090301
 CanvasRenderer:
@@ -333,7 +333,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aadd478a4e4dd9d4dbaf8737eedcc131, type: 3}
+  m_Sprite: {fileID: -1222535055, guid: 6db184022a4291140af614c074a2fdb9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -408,7 +408,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ellie
+  m_text: Alex
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6f90bac42be35745916823df5ef5ff4, type: 2}
   m_sharedMaterial: {fileID: -5371631690511688533, guid: d6f90bac42be35745916823df5ef5ff4, type: 2}
@@ -494,7 +494,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1775016547716624717
 RectTransform:
   m_ObjectHideFlags: 0

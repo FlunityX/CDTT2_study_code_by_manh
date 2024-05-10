@@ -121,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
         canJump = false;
         jumpTween = transform.DOMoveY(transform.position.y + jumpHeight,.3f)
             
-                .SetEase(Ease.OutQuad)
+                .SetEase(Ease.InBack)
                 .OnComplete(() =>
                 {
                     isFalling = true;

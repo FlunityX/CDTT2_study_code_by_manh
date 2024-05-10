@@ -226,7 +226,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &4352801605513227416
 CapsuleCollider2D:
@@ -348,7 +348,7 @@ MonoBehaviour:
   wallColliderPos: {x: 0, y: 0, z: 0}
   ceilCollider: 0
   ishitGround: 0
-  ceilHeight: 2.8
+  ceilHeight: 4.5
   groundHeight: 2.8
 --- !u!1 &3385914858774475926
 GameObject:

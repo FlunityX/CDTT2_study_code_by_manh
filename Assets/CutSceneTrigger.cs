@@ -16,8 +16,22 @@ public class CutSceneTrigger : MonoBehaviour
             mainCamera.SetActive(false);
             cutsceneCamera.SetActive(true);
             cutsceneDirector.Play();
-            GetComponent<BoxCollider2D>().enabled = false; 
+            Player.Instance._playerMovement.canMove = false;
+            Invoke("DestroyTimeLineTrigger", 5f);
         }
-        mainCamera.SetActive(true);
+        
     }
+    private void OnDestroy()
+    {
+        mainCamera.SetActive(true);
+        cutsceneCamera.SetActive(false);
+        Player.Instance._playerMovement.canMove = true;
+
+        cutsceneDirector.Stop();
+    }
+    private void DestroyTimeLineTrigger()
+    {
+        Destroy(gameObject);
+    }
+
 }

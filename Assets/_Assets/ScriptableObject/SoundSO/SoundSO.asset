@@ -15,15 +15,15 @@ MonoBehaviour:
   moving:
   - {fileID: 8300000, guid: 58b8aec08e8673446876a1e3929d428b, type: 3}
   attack:
-  - {fileID: 8300000, guid: c116aa129edc4004ba9b0d957c02a039, type: 3}
+  - {fileID: 8300000, guid: 579f7bb74ccc3c34382b1821508b39ab, type: 3}
   hit:
   - {fileID: 8300000, guid: c116aa129edc4004ba9b0d957c02a039, type: 3}
   jump:
   - {fileID: 8300000, guid: 5fea7fe753534fc4989ea11df37eb7bf, type: 3}
   airAttack:
-  - {fileID: 8300000, guid: 84e331a4e6f780841a4fddd3a8ab7bb1, type: 3}
+  - {fileID: 8300000, guid: 579f7bb74ccc3c34382b1821508b39ab, type: 3}
   fall:
-  - {fileID: 8300000, guid: 070a270800d447e48a19f0a7b881a1e3, type: 3}
+  - {fileID: 8300000, guid: 2002ae81878c8694caf83e85624a6cac, type: 3}
   getHit:
   - {fileID: 8300000, guid: c116aa129edc4004ba9b0d957c02a039, type: 3}
   - {fileID: 8300000, guid: b68dc8dfd1c47a441af196150ca55475, type: 3}
@@ -31,12 +31,24 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c116aa129edc4004ba9b0d957c02a039, type: 3}
   dead:
   - {fileID: 8300000, guid: 070a270800d447e48a19f0a7b881a1e3, type: 3}
-  slide:
-  - {fileID: 8300000, guid: c116aa129edc4004ba9b0d957c02a039, type: 3}
   interact:
-  - {fileID: 8300000, guid: c116aa129edc4004ba9b0d957c02a039, type: 3}
-  boss_moving: []
+  - {fileID: 8300000, guid: a282929cf4dfc2c4ea5302cd38788f47, type: 3}
+  pickUp: []
   boss_attack: []
-  boss_spell: []
-  boss_getHit: []
+  boss_spell:
+  - {fileID: 8300000, guid: a1bf20f80d953db47b9423b1945966db, type: 3}
   boss_dead: []
+  Ranged_Globin_Shoot:
+  - {fileID: 8300000, guid: c66a5616c39cafa4e8607ecc255e4df0, type: 3}
+  Scout_Globin_Stab:
+  - {fileID: 8300000, guid: 33d1073fd7d6bc34992fafd79b25b80a, type: 3}
+  Globin_chase:
+  - {fileID: 8300000, guid: 1e65e89e980c6584399b20abc9ba5e24, type: 3}
+  Toad_Swing:
+  - {fileID: 8300000, guid: b68dc8dfd1c47a441af196150ca55475, type: 3}
+  Pumkin_Attack:
+  - {fileID: 8300000, guid: 3aa3fefe4c0f59544a7dc7fd2b26b828, type: 3}
+  Spider_Attack:
+  - {fileID: 0}
+  Explosion:
+  - {fileID: 8300000, guid: ec461f4292c57bf4e89380e416120156, type: 3}

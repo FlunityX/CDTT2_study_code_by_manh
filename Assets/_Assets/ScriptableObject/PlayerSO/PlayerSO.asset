@@ -20,9 +20,9 @@ MonoBehaviour:
   AttackDmg:
     baseValue: 100
   AttackSpeed:
-    baseValue: 1
+    baseValue: 0.5
   AttackRange:
     baseValue: 4
   Defense:
-    baseValue: 2
+    baseValue: 10
   IsRanger: 0

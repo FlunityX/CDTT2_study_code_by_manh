@@ -25,5 +25,5 @@ MonoBehaviour:
   ItemName: BigPotion
   Icon: {fileID: -1123130712, guid: 809131b1aac8c24429e70890902d2640, type: 3}
   Price: 0
-  ItemInfo: 
-  HealAmount: 5
+  ItemInfo: Heal 200Hp
+  HealAmount: 200

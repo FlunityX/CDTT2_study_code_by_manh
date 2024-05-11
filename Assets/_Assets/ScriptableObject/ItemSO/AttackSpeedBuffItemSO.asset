@@ -12,9 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aedc91bcfe9e61e4ba4c0fc86436579d, type: 3}
   m_Name: AttackSpeedBuffItemSO
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   ItemType: 2
   ItemName: Power necklace
   Icon: {fileID: -1709066327, guid: 850350d47b68225458ea71cb18ca0ed3, type: 3}
   Price: 100
-  ItemInfo: 
+  ItemInfo: Increae attack speed for a duration
   _abilitySO: {fileID: 11400000, guid: 89e589386bc3cfd45a795869b2051535, type: 2}

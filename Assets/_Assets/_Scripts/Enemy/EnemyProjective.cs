@@ -6,7 +6,7 @@ public class EnemyProjective : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private NormalEnemy normalEnemy;
-    private float speed = 5f;
+    private float speed = 3f;
     public float dmg;
     private void Awake()
     {

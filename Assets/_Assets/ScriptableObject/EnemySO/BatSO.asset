@@ -22,7 +22,7 @@ MonoBehaviour:
   AttackSpeed:
     baseValue: 1
   AttackRange:
-    baseValue: 70
+    baseValue: 20
   Defense:
     baseValue: 0
   IsRanger: 1

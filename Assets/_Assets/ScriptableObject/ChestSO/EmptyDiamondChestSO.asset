@@ -15,4 +15,4 @@ MonoBehaviour:
   chestSprite: {fileID: 0}
   chestName: Chest_Empty
   itemSOs: []
-  coinAmount: 0
+  coinAmount: 1

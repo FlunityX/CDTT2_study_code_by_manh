@@ -12,6 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf095e0cbd95dae4ea2eb8462fe0cf94, type: 3}
   m_Name: AttackDownSO
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   icon: {fileID: -342765597, guid: a694174e959404346a3423730fc8b5dd, type: 3}
   duration: 5
   counter: 0

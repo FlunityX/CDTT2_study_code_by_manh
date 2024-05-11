@@ -113,7 +113,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -20.042423, y: -0.27067125}
+  m_Offset: {x: -9.470476, y: -8.017742}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -124,7 +124,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 61.2685, y: 1.5413425}
+  m_Size: {x: 25.240955, y: 16.774513}
   m_EdgeRadius: 0
 --- !u!1 &760059428665977094
 GameObject:
@@ -305,7 +305,7 @@ MonoBehaviour:
   _enemyCollider: {fileID: 1890046117426973913}
   _enemyVisual: {fileID: 9115297130053894720}
   _rb: {fileID: 4624421945116165515}
-  detectRange: 4
+  detectRange: 20
   isGetHit: 0
   isDead: 0
 --- !u!114 &5526979781641598656
@@ -322,6 +322,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _normalEnemy: {fileID: 1764181869914568362}
   patrolPoint:
+  - {fileID: 0}
   - {fileID: 0}
   getHitDuration: 0.2
   attackDuration: 0.5
@@ -516,7 +517,7 @@ Transform:
   m_GameObject: {fileID: 8956149539242447414}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.7, y: 0.7, z: 0}
+  m_LocalPosition: {x: -1.9, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

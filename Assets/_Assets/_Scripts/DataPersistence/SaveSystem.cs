@@ -30,7 +30,7 @@ public static class SaveSystem
 
     public static void LoadNewScene()
     {
-        Loader.Load(Loader.Scene.GameLevel1);
+        Loader.Load(Loader.Scene.CutScene1);
     }
 
     public static void SetNewData()

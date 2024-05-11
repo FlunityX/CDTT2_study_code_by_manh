@@ -116,11 +116,11 @@ public class NEnemyManager : CharacterManager
     }
     public void GenerateNewPatrolIndex()
     {
-        int newIndex = Random.Range(0, patrolPoint.Length);
-        while (patrolIndex == newIndex ) {
-          newIndex=  Random.Range(0,patrolPoint.Length);
+        patrolIndex++;
+        if(patrolIndex > 1)
+        {
+            patrolIndex = 0;
         }
-        patrolIndex = newIndex;
     }
     public void Move()
     {

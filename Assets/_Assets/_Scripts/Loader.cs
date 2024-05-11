@@ -12,8 +12,10 @@ public static class Loader
     {
         MenuScene,
         LoadingScene,
+        CutScene1,
         GameLevel1,
         GameLevel2,
+        BossLevel,
     }
     // Start is called before the first frame update
     private static Scene targetScene;

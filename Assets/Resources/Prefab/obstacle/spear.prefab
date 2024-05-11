@@ -245,6 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df4ee815d31eaa944b7c7ee66cb2cb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trapSO: {fileID: 11400000, guid: 7b69bfd228dd7954bb212ceb61d9eff7, type: 2}
   dmg: 1
 --- !u!61 &5284419675722509218
 BoxCollider2D:

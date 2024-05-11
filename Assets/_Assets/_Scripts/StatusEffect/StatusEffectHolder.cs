@@ -45,16 +45,21 @@ public class StatusEffectHolder : MonoBehaviour
         switch(state){
             case statusState.inactive:
                 
-                state = statusState.active; break;
+                state = statusState.active; 
+                break;
             case statusState.active:
                 if(status.duration > status.counter)
                 {
                     status.counter += Time.deltaTime;
-                    if (status.firstCall)
+                    if (status.firstCall && !status.isOverTime)
                     {
                         status.OnAttach(gameObject);
                         Debug.Log("it work");
                         status.firstCall = false;
+                    }
+                    else if(status.isOverTime)
+                    {
+                        status.OnAttach(gameObject);
                     }
                 }
                 else

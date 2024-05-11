@@ -83,6 +83,11 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
+    public void RemoveOnUse(ItemSO itemSO)
+    {
+        items.Remove(itemSO);
+        OnItemChanged?.Invoke(this, EventArgs.Empty);
+    }
     public StatusEffectSO GetStatusEffect()
     {
 

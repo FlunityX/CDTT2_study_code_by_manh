@@ -6,24 +6,28 @@ using UnityEngine;
 public class DamageOverTimeSO : StatusEffectSO
 {
     public float dmg;
-    private float dmgCounter;
+    public float dmgCounter;
 
     public override void OnAttach(GameObject holder)
     {
         base.OnAttach(holder);
-        if(dmgCounter < 1)
-        {
+            if(dmgCounter > 1)
+            {
+                holder.GetComponent<IReceiveDamage>().ReduceHp(dmg);
+                dmgCounter = 0;
+                Debug.Log("ajjdhahsjdhadkashdjasjkd");
+            }
+            else
+            {
+                
             dmgCounter += Time.deltaTime;
-        }else
-        {
-            holder.GetComponent<IReceiveDamage>().ReduceHp(dmg);
-            dmgCounter = 0;
-        }
-
+            }
+            
     }
 
     public override void OnDetach(GameObject holder)
     {
         base.OnDetach(holder);
     }
+  
 }

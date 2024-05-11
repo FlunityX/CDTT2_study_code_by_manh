@@ -79,9 +79,12 @@ public static class SaveSystem
         Player.Instance.checkpointPos.x = data.playerPosX;
         Player.Instance.checkpointPos.y = data.playerPosY;
         PlayerInventory.Instance.storiesItem = data.storyItems;
-        PlayerInventory.Instance.items = data.items;    
-        PlayerInventory.Instance.buffItem = data.buffItems;
-        GameManager.Instance.DestroyCurrentChest();
+        
+        for (int i = 0;i< data.items.Count; i++)
+        {
+            PlayerInventory.Instance.Add(data.items[i]);    
+        }
+        PlayerInventory.Instance.Add(data.buffItems);        GameManager.Instance.DestroyCurrentChest();
         for (int i = 0; i < data.chests.Count; i++)
         {
             GameManager.Instance.InstantiateNewChest(data.chests[i].chest, data.chests[i].pos);

@@ -25,4 +25,6 @@ MonoBehaviour:
   duration: 5
   counter: 0
   firstCall: 0
+  isOverTime: 1
   dmg: 20
+  dmgCounter: 0

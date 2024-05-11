@@ -56,7 +56,7 @@ public class ItemSlot : MonoBehaviour
         {
             PotionSO potionSO = (PotionSO)item;
             potionSO.OnConsume();
-            PlayerInventory.Instance.Remove(item);
+            PlayerInventory.Instance.RemoveOnUse(item);
             Debug.Log("consume");
           
         }

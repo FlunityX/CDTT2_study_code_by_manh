@@ -10,7 +10,7 @@ public class StatusEffectSO : SerializedScriptableObject
     public float duration;
     public float counter;
     public bool firstCall;
-   
+    public bool isOverTime;
     public virtual void OnAttach(GameObject holder) { }
     public virtual void OnDetach(GameObject holder) {
         ResetValue();

@@ -9,16 +9,13 @@ public class PlayerAttack : MonoBehaviour, IMeleeAttack,IRangeAttack
     private float attackCounter;
     public bool isAttackReady;
 
-    [SerializeField] private Transform attackPoint;
+     public Transform attackPoint;
     [SerializeField] private Transform airAttackPoint;
     [SerializeField] private LayerMask _enemyLayer;
     [SerializeField] private GameObject rangeAttackPrefab;
-    AudioManager audioManager;
+   
 
-    private void Awake()
-    {
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-    }
+   
    
     private void Update()
     {

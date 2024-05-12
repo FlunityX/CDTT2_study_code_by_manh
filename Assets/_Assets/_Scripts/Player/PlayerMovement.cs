@@ -31,12 +31,9 @@ public class PlayerMovement : MonoBehaviour
     private Tween ConjumpTween;
     private Tween slideTween;
     public float dirX;
-    AudioManager audioManager;
+    
 
-    private void Awake()
-    {
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-    }
+  
     private void Start()
     {
         GameInput.Instance.OnJumpAction += GameInput_OnJumpAction;

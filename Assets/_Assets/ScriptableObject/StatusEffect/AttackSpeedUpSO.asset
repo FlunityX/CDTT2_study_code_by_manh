@@ -25,4 +25,6 @@ MonoBehaviour:
   duration: 5
   counter: 0
   firstCall: 1
+  isOverTime: 0
+  isTemp: 1
   amount: 15

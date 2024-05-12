@@ -12,7 +12,7 @@ public class Explosion : MonoBehaviour
         {
             if(hit.CompareTag(GameConstant.ENEMY_TAG))
             {
-                hit.GetComponent<IReceiveDamage>().ReduceHp(999);
+                hit.GetComponent<IReceiveDamage>().ReduceHp(9999);
             }
 
         }

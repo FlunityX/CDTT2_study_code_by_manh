@@ -14,7 +14,7 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
      public StatusEffectHolder _statusHolder;
      public PlayerStat _playerStat;
      public CapsuleCollider2D Collider;
-    [SerializeField] private StatusEffectSO _status;
+    
     public TrailRenderer trailRenderer;
     public Transform _dropItemPoint;
     public GameObject hitVFX;
@@ -23,7 +23,7 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
     public bool isUsePotion = false;
     public float coin;
     public Vector2 checkpointPos;
-    AudioManager audioManager;
+    
     
     //event
     public event EventHandler<IHasHpBar.OnHpChangeEventArgs> OnHpChange;
@@ -49,7 +49,7 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
         }
         
 
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        
         
 
     }
@@ -67,18 +67,11 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
        
     }
 
-    public StatusEffectSO GetEffect()
+  
+  
+    public void RemoveAbility()
     {
-        return _status;
-    }
-    public void SetStatusEffect()
-    {
-        
-        _status = PlayerInventory.Instance.GetStatusEffect();
-    }
-    public void RemoveEffect()
-    {
-        _status = null;
+        _abilityHolder._abilitySO = null;
     }
     private void GameInput_OnInteract(object sender, EventArgs e)
     {

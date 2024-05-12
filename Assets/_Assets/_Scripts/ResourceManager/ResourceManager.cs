@@ -10,6 +10,7 @@ public class ResourceManager : MonoBehaviour
     public GameObject Chest_Gold;
     public GameObject Chest_Wood;
     public GameObject Chest_Empty;
+    public GameObject Slash;
     private void Awake()
     {
         PlayerHitVFX = Resources.Load<GameObject>("Prefab/HitParticle");
@@ -18,5 +19,6 @@ public class ResourceManager : MonoBehaviour
         Chest_Gold = Resources.Load<GameObject>("Prefab/object/golden chest");
         Chest_Wood = Resources.Load<GameObject>("Prefab/object/wooden chest");
         Chest_Empty = Resources.Load<GameObject>("Prefab/object/empty chest");
+        Slash = Resources.Load <GameObject> ("Prefab/Skills/Slash");
     }
 }

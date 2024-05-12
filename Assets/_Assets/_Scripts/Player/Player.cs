@@ -47,15 +47,16 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
         {
             Destroy(gameObject);
         }
-        
 
-        
-        
+       
+
+
+
 
     }
     private void Start()
     {
-        checkpointPos = transform.position;
+        
         GameInput.Instance.OnInteract += GameInput_OnInteract;
         hitVFX = GameManager.Instance.resourceManager.PlayerHitVFX;
         trailRenderer.enabled = false;
@@ -184,13 +185,13 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
   
    
   
-    public void LastCheckPoint(Transform checkPoint)
+    public void LastCheckPoint()
     {
-       checkpointPos = checkPoint.position;
+       checkpointPos = transform.position;
     }
-     public void SpawnOnLastCheckPoint()
+     public void SpawnOnLastCheckPoint(Vector2 pos)
     {
-        transform.position = checkpointPos;
+        transform.position = pos;
     }
    
    

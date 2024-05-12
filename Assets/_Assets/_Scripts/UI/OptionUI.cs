@@ -32,7 +32,7 @@ public class OptionUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI pauseTxt;
     [SerializeField] private Transform pressToRebindKeyTransform;
 
-    private Action onCloseButtonAction;
+    public Action onCloseButtonAction;
     private void Awake()
     {
         Instance = this;
@@ -51,7 +51,7 @@ public class OptionUI : MonoBehaviour
         closeButton.onClick.AddListener(() =>
         {
             Hide();
-            //onCloseButtonAction();
+            onCloseButtonAction();
         });
 
         attackBtn.onClick.AddListener(() =>
@@ -122,7 +122,7 @@ public class OptionUI : MonoBehaviour
 
     public void Show(Action onCloseButtonAction)
     {
-       // this.onCloseButtonAction = onCloseButtonAction;
+        this.onCloseButtonAction = onCloseButtonAction;
         gameObject.SetActive(true);
         attackBtn.Select();
         UpdateVisual();

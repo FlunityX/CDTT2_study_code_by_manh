@@ -17,7 +17,7 @@ public class GamePauseUI : MonoBehaviour
         });
         menuButton.onClick.AddListener(() =>
         {
-           // Loader.Load(Loader.Scene.MainMenu);
+           Loader.Load(Loader.Scene.MenuScene);
         });
 
         settingButton.onClick.AddListener(() =>
@@ -30,6 +30,7 @@ public class GamePauseUI : MonoBehaviour
     {
         GameManager.Instance.OnGamePause += Instance_OnGamePause;
         GameManager.Instance.OnGameResume += Instance_OnGameResume;
+        //OptionUI.Instance.onCloseButtonAction();
         Hide();
     }
 

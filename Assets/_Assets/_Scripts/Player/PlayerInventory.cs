@@ -42,7 +42,7 @@ public class PlayerInventory : MonoBehaviour
             {
                 buffItem=item;
                 OnItemChanged?.Invoke(this, EventArgs.Empty);
-                Player.Instance.SetStatusEffect();
+                
                 return true;
             }
             else
@@ -74,7 +74,8 @@ public class PlayerInventory : MonoBehaviour
             {
             DropItem(item);
             buffItem = null;
-            Player.Instance.RemoveEffect();
+            
+               Player.Instance.RemoveAbility();
             OnItemChanged?.Invoke(this, EventArgs.Empty);
             OnBuffItemChange?.Invoke(this, EventArgs.Empty);
 
@@ -88,22 +89,13 @@ public class PlayerInventory : MonoBehaviour
         items.Remove(itemSO);
         OnItemChanged?.Invoke(this, EventArgs.Empty);
     }
-    public StatusEffectSO GetStatusEffect()
-    {
-
-        BuffItemSO buffItemSO = (BuffItemSO)buffItem;
-        if (buffItemSO._abilitySO.passiveEffect != null)
-        {
-        return buffItemSO._abilitySO.passiveEffect;
-
-        }
-        return null;
-    }
+    
     public void DropItem(ItemSO item)
     {
        GameObject drop = GameManager.Instance.resourceManager.DropItem;
         drop.GetComponent<ItemPickUp>()._item = item;
         Instantiate(drop, Player.Instance._dropItemPoint.position, Quaternion.identity);
+        
         Debug.Log("drop");
        
     }

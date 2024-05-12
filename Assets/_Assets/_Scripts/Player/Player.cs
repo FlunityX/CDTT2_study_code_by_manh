@@ -14,7 +14,7 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
      public StatusEffectHolder _statusHolder;
      public PlayerStat _playerStat;
      public CapsuleCollider2D Collider;
-    [SerializeField] private StatusEffectSO _status;
+    
     public TrailRenderer trailRenderer;
     public Transform _dropItemPoint;
     public GameObject hitVFX;
@@ -23,7 +23,7 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
     public bool isUsePotion = false;
     public float coin;
     public Vector2 checkpointPos;
-    AudioManager audioManager;
+    
     
     //event
     public event EventHandler<IHasHpBar.OnHpChangeEventArgs> OnHpChange;
@@ -47,15 +47,16 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
         {
             Destroy(gameObject);
         }
-        
 
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-        
+       
+
+
+
 
     }
     private void Start()
     {
-        checkpointPos = transform.position;
+        
         GameInput.Instance.OnInteract += GameInput_OnInteract;
         hitVFX = GameManager.Instance.resourceManager.PlayerHitVFX;
         trailRenderer.enabled = false;
@@ -67,18 +68,11 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
        
     }
 
-    public StatusEffectSO GetEffect()
+  
+  
+    public void RemoveAbility()
     {
-        return _status;
-    }
-    public void SetStatusEffect()
-    {
-        
-        _status = PlayerInventory.Instance.GetStatusEffect();
-    }
-    public void RemoveEffect()
-    {
-        _status = null;
+        _abilityHolder._abilitySO = null;
     }
     private void GameInput_OnInteract(object sender, EventArgs e)
     {
@@ -191,13 +185,13 @@ public class Player : MonoBehaviour,IHasHpBar,IDealDamage,IReceiveDamage
   
    
   
-    public void LastCheckPoint(Transform checkPoint)
+    public void LastCheckPoint()
     {
-       checkpointPos = checkPoint.position;
+       checkpointPos = transform.position;
     }
-     public void SpawnOnLastCheckPoint()
+     public void SpawnOnLastCheckPoint(Vector2 pos)
     {
-        transform.position = checkpointPos;
+        transform.position = pos;
     }
    
    

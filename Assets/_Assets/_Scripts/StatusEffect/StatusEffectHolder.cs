@@ -17,10 +17,18 @@ public class StatusEffectHolder : MonoBehaviour
     
     private void Update()
     {
-        if (statusEffects != null)
-        {      
+        if (statusEffects !=null)
+        {  
+           
             for(int i = 0; i < statusEffects.Count; i++) {
-                UpdateStatus(statusEffects[i]);
+                if (statusEffects[i].isTemp) {
+                
+                    UpdateStatus(statusEffects[i]);
+                }
+                else
+                {
+                    statusEffects[i].OnAttach(gameObject);
+                }
             }
         }
     }

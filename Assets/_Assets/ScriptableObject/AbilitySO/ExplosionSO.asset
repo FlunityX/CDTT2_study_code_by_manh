@@ -16,6 +16,5 @@ MonoBehaviour:
   coolDown: 5
   duration: 1
   isActive: 0
-  statusEffectSO: {fileID: 11400000, guid: 8f28898b58fbb4e4792704ec76097959, type: 2}
-  passiveEffect: {fileID: 0}
+  statusEffectSO: {fileID: 0}
   skillPrefab: {fileID: 3096609297933684817, guid: 9a5b8ad218d02124fbf0626b34b566fc, type: 3}

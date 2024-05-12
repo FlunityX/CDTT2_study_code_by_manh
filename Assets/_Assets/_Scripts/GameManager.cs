@@ -35,9 +35,10 @@ public class GameManager : MonoBehaviour
         if (!SceneChecker.Instance.isFirstTime)
         {
             SaveSystem.LoadData();
-            Player.Instance.SpawnOnLastCheckPoint();
+           
 
         }
+        
 
     }
 

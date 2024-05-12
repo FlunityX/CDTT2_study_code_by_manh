@@ -18,8 +18,8 @@ public class Checkpoint : MonoBehaviour
                 ActivedCheckpoint.SetActive(true);
             }
 
+            collision.GetComponent<Player>().LastCheckPoint();
             Player.Instance.SaveData();
-            collision.GetComponent<Player>().LastCheckPoint(this.transform);
         }
     }
 }

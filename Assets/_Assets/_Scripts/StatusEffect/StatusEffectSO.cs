@@ -11,6 +11,7 @@ public class StatusEffectSO : SerializedScriptableObject
     public float counter;
     public bool firstCall;
     public bool isOverTime;
+    public bool isTemp;
     public virtual void OnAttach(GameObject holder) { }
     public virtual void OnDetach(GameObject holder) {
         ResetValue();

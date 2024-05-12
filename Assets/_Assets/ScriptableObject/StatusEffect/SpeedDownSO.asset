@@ -12,8 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f68e67493c0c0d4b9499c6a54c98250, type: 3}
   m_Name: SpeedDownSO
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   icon: {fileID: 0}
   duration: 10
   counter: 0
   firstCall: 1
+  isOverTime: 0
+  isTemp: 1
   amount: 2

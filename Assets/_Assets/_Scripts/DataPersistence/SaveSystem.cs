@@ -76,15 +76,16 @@ public static class SaveSystem
         Player.Instance._playerStat.currentHp = data.hp;
         Player.Instance.coin = data.coin;   
         Player.Instance._statusHolder.statusEffects = data.status;
-        Player.Instance.checkpointPos.x = data.playerPosX;
-        Player.Instance.checkpointPos.y = data.playerPosY;
+        
+        Player.Instance.SpawnOnLastCheckPoint(new Vector2(data.playerPosX,data.playerPosY));
         PlayerInventory.Instance.storiesItem = data.storyItems;
         
         for (int i = 0;i< data.items.Count; i++)
         {
             PlayerInventory.Instance.Add(data.items[i]);    
         }
-        PlayerInventory.Instance.Add(data.buffItems);        GameManager.Instance.DestroyCurrentChest();
+        PlayerInventory.Instance.Add(data.buffItems);        
+        GameManager.Instance.DestroyCurrentChest();
         for (int i = 0; i < data.chests.Count; i++)
         {
             GameManager.Instance.InstantiateNewChest(data.chests[i].chest, data.chests[i].pos);

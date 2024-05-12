@@ -67,7 +67,6 @@ MonoBehaviour:
   _statusHolder: {fileID: 4667835135580532953}
   _playerStat: {fileID: 4064639988430328827}
   Collider: {fileID: 4352801605513227416}
-  _status: {fileID: 0}
   trailRenderer: {fileID: 1606177371156840165}
   _dropItemPoint: {fileID: 4635801281144997004}
   hitVFX: {fileID: 0}
@@ -164,10 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35f7d1e59b17d164297534876ead6812, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statusEffects:
-  - {fileID: 11400000, guid: 8f28898b58fbb4e4792704ec76097959, type: 2}
-  - {fileID: 11400000, guid: 185160c2ff8f2b445bfc65001a93e710, type: 2}
-  - {fileID: 11400000, guid: 4a5026f5c757a504ca7b9da091824828, type: 2}
+  statusEffects: []
   staaaa: {fileID: 11400000, guid: 8f28898b58fbb4e4792704ec76097959, type: 2}
 --- !u!114 &4064639988430328827
 MonoBehaviour:
@@ -715,7 +711,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 6
   m_Sprite: {fileID: -1222535055, guid: 6db184022a4291140af614c074a2fdb9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

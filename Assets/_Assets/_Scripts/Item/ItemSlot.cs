@@ -57,7 +57,7 @@ public class ItemSlot : MonoBehaviour
             PotionSO potionSO = (PotionSO)item;
             potionSO.OnConsume();
             PlayerInventory.Instance.RemoveOnUse(item);
-            Debug.Log("consume");
+            
           
         }
     }
@@ -81,7 +81,7 @@ public class ItemSlot : MonoBehaviour
             itemDes.gameObject.SetActive(true);
             
         }
-        Debug.Log("hover");
+        
       
     }
     public void itemDesHide()
@@ -89,7 +89,7 @@ public class ItemSlot : MonoBehaviour
 
          itemDes.gameObject.SetActive(false);
 
-        Debug.Log("out");
+        
 
     }
 

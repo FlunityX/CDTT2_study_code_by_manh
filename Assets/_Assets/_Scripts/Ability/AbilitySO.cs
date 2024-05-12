@@ -9,7 +9,7 @@ public class AbilitySO : ScriptableObject
     public float duration;
     public bool isActive;
     public StatusEffectSO statusEffectSO;
-    public StatusEffectSO passiveEffect;
+   
 
     public void GetDuration()
     {

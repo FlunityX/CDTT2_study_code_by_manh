@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     {
         GameInput.Instance.OnPauseAction += GameInput_OnPauseAction;
         chestHolder = GameObject.Find("chestHolder");
-        if (!SceneChecker.Instance.isFirstTime)
+        if (!SceneChecker.Instance.isFirstTime && (Loader.GetCurrentScene()!=Loader.Scene.MenuScene.ToString()))
         {
             SaveSystem.LoadData();
            

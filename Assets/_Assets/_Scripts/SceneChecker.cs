@@ -22,8 +22,11 @@ public class SceneChecker : MonoBehaviour
     }
     private void Start()
     {
-        Player.Instance.OnPlayerSave += Player_OnPlayerSave;
-
+        if (Loader.GetCurrentScene() != Loader.Scene.MenuScene.ToString())
+        {
+            Player.Instance.OnPlayerSave += Player_OnPlayerSave;
+            
+        }
     }
 
     private void Player_OnPlayerSave(object sender, System.EventArgs e)

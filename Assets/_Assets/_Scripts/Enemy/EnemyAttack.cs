@@ -14,7 +14,11 @@ public class EnemyAttack : MonoBehaviour, IRangeAttack, IMeleeAttack
     private void Start()
     {
         //projectivePrefab = GameManager.Instance.resourceManager.GoblinRangedArrow;
-         projectivePrefab.GetComponent<EnemyProjective>().dmg = _normalEnemy.GetEnemyStat().AttackDmg;
+        if (_normalEnemy.GetEnemyStat()._unitSO.IsRanger)
+        {
+            projectivePrefab.GetComponent<EnemyProjective>().dmg = _normalEnemy.GetEnemyStat().AttackDmg;
+
+        }
     }
     public void EAttack()
     {

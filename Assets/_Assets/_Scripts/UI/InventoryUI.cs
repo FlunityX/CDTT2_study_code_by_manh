@@ -6,14 +6,14 @@ public class InventoryUI : MonoBehaviour
 {
     public Transform itemsParent;   // The parent object of all the items
     //public GameObject inventoryUI;  // The entire UI
-    PlayerInventory inventory;    // Our current inventory
+       
    // public Transform BuffHolder;
     ItemSlot[] slots;  // List of all the slots
 
     void Start()
     {
-        inventory = PlayerInventory.Instance;
-        inventory.OnItemChanged += Inventory_OnItemChanged;    
+        
+        PlayerInventory.Instance.OnItemChanged += Inventory_OnItemChanged;    
         GameInput.Instance.OnOpenInventory += GameInput_OnOpenInventory;
         // Populate our slots array
         slots = itemsParent.GetComponentsInChildren<ItemSlot>();
@@ -22,7 +22,10 @@ public class InventoryUI : MonoBehaviour
 
     private void GameInput_OnOpenInventory(object sender, System.EventArgs e)
     {
-        gameObject.SetActive(!gameObject.activeSelf);
+        if (gameObject.activeInHierarchy)
+        {
+            Hide();
+        }else Show();
     }
 
     private void Inventory_OnItemChanged(object sender, System.EventArgs e)
@@ -41,9 +44,9 @@ public class InventoryUI : MonoBehaviour
         // Loop through all the slots
         for (int i = 0; i < slots.Length-1; i++)
         {
-            if (i < inventory.items.Count && inventory.items[i].ItemType ==1)  // If there is an item to add
+            if (i < PlayerInventory.Instance.items.Count && PlayerInventory.Instance.items[i].ItemType ==1)  // If there is an item to add
             {
-                slots[i].AddItem(inventory.items[i]);   // Add it
+                slots[i].AddItem(PlayerInventory.Instance.items[i]);   // Add it
             }
             else
             {
@@ -52,9 +55,9 @@ public class InventoryUI : MonoBehaviour
             }
         }
         
-            if (inventory.buffItem!=null) {
-                slots[9].AddItem(inventory.buffItem);
-                BuffItemSO buff = (BuffItemSO)inventory.buffItem;
+            if (PlayerInventory.Instance.buffItem!=null) {
+                slots[9].AddItem(PlayerInventory.Instance.buffItem);
+                BuffItemSO buff = (BuffItemSO)PlayerInventory.Instance.buffItem;
                 buff.OnEquip();
             }
             else

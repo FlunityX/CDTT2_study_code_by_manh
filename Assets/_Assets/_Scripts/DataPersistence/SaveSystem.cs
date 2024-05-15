@@ -77,9 +77,9 @@ public static class SaveSystem
         Player.Instance.coin = data.coin;   
         Player.Instance._statusHolder.statusEffects = data.status;
         
-        Player.Instance.SpawnOnLastCheckPoint(new Vector2(data.playerPosX,data.playerPosY));
+        Player.Instance.SpawnOnLastCheckPoint(new Vector2(data.playerPosX +10f,data.playerPosY));
         PlayerInventory.Instance.storiesItem = data.storyItems;
-        
+        PlayerInventory.Instance.items = new List<ItemSO>();
         for (int i = 0;i< data.items.Count; i++)
         {
             PlayerInventory.Instance.Add(data.items[i]);    

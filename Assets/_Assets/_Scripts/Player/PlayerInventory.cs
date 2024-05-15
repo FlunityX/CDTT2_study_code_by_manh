@@ -20,6 +20,7 @@ public class PlayerInventory : MonoBehaviour
     }
     public bool Add(ItemSO item)
     {
+        if (item == null) return false;
         if (item.ItemType ==1)
         {
             if (items.Count <= space)

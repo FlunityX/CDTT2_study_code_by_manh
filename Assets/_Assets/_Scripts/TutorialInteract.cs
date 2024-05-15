@@ -24,6 +24,7 @@ public class TutorialInteract : MonoBehaviour
         {
             tutorialUI.SetActive(false);
             Destroy(tutorialUI);
+            Destroy(gameObject); 
         }
     }
 }

@@ -17,14 +17,15 @@ public class SoundManager : MonoBehaviour
     }
     private void Start()
     {
-        //playerSound
-        Player.Instance.OnPlayerAttack += Player_OnPlayerAttack;
-        Player.Instance.OnPlayerAttackHit += Player_OnPlayerAttackHit;
-        Player.Instance.OnPlayerGetHit += Player_OnPlayerGetHit;
-        Player.Instance.OnPlayerHeal += Player_OnPlayerHeal;
-        Player.Instance.OnPlayerInteract += Player_OnPlayerInteract;
-        Player.Instance.OnPlayerJump += Player_OnPlayerJump;
-
+        if (Loader.GetCurrentScene() != Loader.Scene.MenuScene.ToString())
+        {
+            Player.Instance.OnPlayerAttack += Player_OnPlayerAttack;
+            Player.Instance.OnPlayerAttackHit += Player_OnPlayerAttackHit;
+            Player.Instance.OnPlayerGetHit += Player_OnPlayerGetHit;
+            Player.Instance.OnPlayerHeal += Player_OnPlayerHeal;
+            Player.Instance.OnPlayerInteract += Player_OnPlayerInteract;
+            Player.Instance.OnPlayerJump += Player_OnPlayerJump;
+        }
     }
 
     private void Player_OnPlayerAttackHit(object sender, System.EventArgs e)
